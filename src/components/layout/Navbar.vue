@@ -3,6 +3,7 @@
     <!-- Izquierda: toggle sidebar + logo + nombre -->
     <div class="d-flex align-items-center gap-2">
       <button
+        v-if="session.user"
         class="btn btn-outline-secondary btn-sm sidebar-toggle-btn"
         type="button"
         @click="sidebarStore.toggle()"
@@ -36,6 +37,11 @@
           </li>
           <li><hr class="dropdown-divider" /></li>
           <li>
+            <RouterLink to="/account" class="dropdown-item">
+              <i class="bi bi-person me-2"></i>Mi cuenta
+            </RouterLink>
+          </li>
+          <li>
             <RouterLink to="/settings" class="dropdown-item">
               <i class="bi bi-gear me-2"></i>Configuración
             </RouterLink>
@@ -63,15 +69,17 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 import { useSidebarStore } from '@/stores/sidebar'
 import { useSessionStore } from '@/stores/session'
 
 const sidebarStore = useSidebarStore()
 const session = useSessionStore()
+const router = useRouter()
 
 function handleLogout() {
   session.logout()
+  router.push('/')
 }
 </script>
 

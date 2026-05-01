@@ -6,7 +6,7 @@
     <!-- Backdrop (solo mobile cuando sidebar abierto) -->
     <Transition name="fade-backdrop">
       <div
-        v-if="sidebarStore.sidebarOpen && sidebarStore.isMobileViewport()"
+        v-if="canShowSidebar && sidebarStore.sidebarOpen && sidebarStore.isMobileViewport()"
         class="sidebar-backdrop"
         @click="sidebarStore.setCollapsed(true)"
       />
@@ -15,6 +15,7 @@
     <!-- Sidebar -->
     <Transition name="slide-sidebar">
       <aside
+        v-if="canShowSidebar"
         v-show="sidebarStore.sidebarOpen"
         class="app-sidebar bg-dark"
       >
@@ -35,14 +36,21 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { RouterView } from 'vue-router'
 import { useSidebarStore } from '@/stores/sidebar'
+import { useSessionStore } from '@/stores/session'
 import AppNavbar from './Navbar.vue'
 import AppSidebar from './Sidebar.vue'
 
 const sidebarStore = useSidebarStore()
+const session = useSessionStore()
 const wasMobileViewport = ref(sidebarStore.isMobileViewport())
 
+const canShowSidebar = computed(() => Boolean(session.user))
+
 const pushContent = computed(
-  () => sidebarStore.sidebarOpen && !sidebarStore.isMobileViewport()
+  () =>
+    canShowSidebar.value &&
+    sidebarStore.sidebarOpen &&
+    !sidebarStore.isMobileViewport()
 )
 
 function handleResize() {
