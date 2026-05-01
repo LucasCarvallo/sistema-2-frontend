@@ -9,7 +9,7 @@
                 v-if="canShowSidebar && sidebarStore.sidebarOpen && sidebarStore.isMobileViewport()"
                 class="sidebar-backdrop"
                 @click="sidebarStore.setCollapsed(true)"
-            />
+            ></div>
         </Transition>
 
         <!-- Sidebar -->
