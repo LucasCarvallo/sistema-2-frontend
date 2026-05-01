@@ -12,7 +12,11 @@ const TOKEN_KEY = 'auth_token';
 const storage = sessionStorage;
 
 export const useSessionStore = defineStore('session', () => {
-    const user = ref(null);
+    // const user = ref(null);
+    const user = ref({
+        name: 'Admin',
+        email: 'admin@example.com'
+    });
     const token = ref(storage.getItem(TOKEN_KEY) ?? null);
 
     const isAuthenticated = computed(() => Boolean(user.value));
