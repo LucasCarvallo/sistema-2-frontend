@@ -13,7 +13,7 @@
 
       <RouterLink to="/" class="navbar-brand d-flex align-items-center gap-2 mb-0">
         <img src="/favicon.ico" alt="Logo" width="28" height="28" class="rounded" />
-        <span class="fw-semibold">Mi Sistema</span>
+        <span class="fw-semibold">Sistema</span>
       </RouterLink>
     </div>
 
