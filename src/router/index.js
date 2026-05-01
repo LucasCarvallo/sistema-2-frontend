@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import RootView from '../views/RootView.vue';
+import ErrorPage from '../views/ErrorPage.vue';
 import { useSessionStore } from '@/stores/session';
 
 // Rutas publicas
@@ -25,6 +26,14 @@ const router = createRouter({
             path: '/',
             name: 'root',
             component: RootView,
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'not-found',
+            component: ErrorPage,
+            props: {
+                code: 404,
+            },
         },
     ],
 });
