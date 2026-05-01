@@ -1,145 +1,140 @@
 <template>
-  <div class="app-wrapper">
-    <!-- Navbar fijo arriba -->
-    <AppNavbar />
+    <div class="app-wrapper">
+        <!-- Navbar fijo arriba -->
+        <AppNavbar />
 
-    <!-- Backdrop (solo mobile cuando sidebar abierto) -->
-    <Transition name="fade-backdrop">
-      <div
-        v-if="canShowSidebar && sidebarStore.sidebarOpen && sidebarStore.isMobileViewport()"
-        class="sidebar-backdrop"
-        @click="sidebarStore.setCollapsed(true)"
-      />
-    </Transition>
+        <!-- Backdrop (solo mobile cuando sidebar abierto) -->
+        <Transition name="fade-backdrop">
+            <div
+                v-if="canShowSidebar && sidebarStore.sidebarOpen && sidebarStore.isMobileViewport()"
+                class="sidebar-backdrop"
+                @click="sidebarStore.setCollapsed(true)"
+            />
+        </Transition>
 
-    <!-- Sidebar -->
-    <Transition name="slide-sidebar">
-      <aside
-        v-if="canShowSidebar"
-        v-show="sidebarStore.sidebarOpen"
-        class="app-sidebar"
-      >
-        <AppSidebar />
-      </aside>
-    </Transition>
+        <!-- Sidebar -->
+        <Transition name="slide-sidebar">
+            <aside v-if="canShowSidebar" v-show="sidebarStore.sidebarOpen" class="app-sidebar">
+                <AppSidebar />
+            </aside>
+        </Transition>
 
-    <!-- Contenido principal -->
-    <main :class="['app-main', { 'app-main--pushed': pushContent }]">
-      <div class="app-main-inner">
-        <RouterView />
-      </div>
-    </main>
-  </div>
+        <!-- Contenido principal -->
+        <main :class="['app-main', { 'app-main--pushed': pushContent }]">
+            <div class="app-main-inner">
+                <RouterView />
+            </div>
+        </main>
+    </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { RouterView } from 'vue-router'
-import { useSidebarStore } from '@/stores/sidebar'
-import { useSessionStore } from '@/stores/session'
-import AppNavbar from './Navbar.vue'
-import AppSidebar from './Sidebar.vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { RouterView } from 'vue-router';
+import { useSidebarStore } from '@/stores/sidebar';
+import { useSessionStore } from '@/stores/session';
+import AppNavbar from './Navbar.vue';
+import AppSidebar from './Sidebar.vue';
 
-const sidebarStore = useSidebarStore()
-const session = useSessionStore()
-const wasMobileViewport = ref(sidebarStore.isMobileViewport())
+const sidebarStore = useSidebarStore();
+const session = useSessionStore();
+const wasMobileViewport = ref(sidebarStore.isMobileViewport());
 
-const canShowSidebar = computed(() => Boolean(session.user))
+const canShowSidebar = computed(() => Boolean(session.user));
 
 const pushContent = computed(
-  () =>
-    canShowSidebar.value &&
-    sidebarStore.sidebarOpen &&
-    !sidebarStore.isMobileViewport()
-)
+    () => canShowSidebar.value && sidebarStore.sidebarOpen && !sidebarStore.isMobileViewport(),
+);
 
 function handleResize() {
-  const isMobile = sidebarStore.isMobileViewport()
+    const isMobile = sidebarStore.isMobileViewport();
 
-  // Evita cerrar/abrir en cada resize; solo reacciona cuando cruza el breakpoint.
-  if (isMobile !== wasMobileViewport.value) {
-    if (isMobile) {
-      sidebarStore.setCollapsed(true)
-    } else {
-      sidebarStore.setCollapsed(false)
+    // Evita cerrar/abrir en cada resize; solo reacciona cuando cruza el breakpoint.
+    if (isMobile !== wasMobileViewport.value) {
+        if (isMobile) {
+            sidebarStore.setCollapsed(true);
+        } else {
+            sidebarStore.setCollapsed(false);
+        }
+        wasMobileViewport.value = isMobile;
     }
-    wasMobileViewport.value = isMobile
-  }
 }
 
 onMounted(() => {
-  window.addEventListener('resize', handleResize)
-})
+    window.addEventListener('resize', handleResize);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('resize', handleResize)
-})
+    window.removeEventListener('resize', handleResize);
+});
 </script>
 
 <style scoped>
 .app-wrapper {
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 /* Sidebar */
 .app-sidebar {
-  position: fixed;
-  top: 56px;
-  left: 0;
-  width: 260px;
-  height: calc(100vh - 56px);
-  z-index: 1040;
-  overflow-y: auto;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
-  background-color: var(--app-sidebar-bg, #212529);
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 260px;
+    height: calc(100vh - 56px);
+    z-index: 1040;
+    overflow-y: auto;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    background-color: var(--app-sidebar-bg, #212529);
 }
 
 /* Contenido principal */
 .app-main {
-  margin-top: 56px;
-  padding: 1.5rem;
-  transition: margin-left 0.3s ease;
+    margin-top: 56px;
+    padding: 1.5rem;
+    transition: margin-left 0.3s ease;
 }
 
 .app-main--pushed {
-  margin-left: 260px;
+    margin-left: 260px;
 }
 
 /* Backdrop mobile */
 .sidebar-backdrop {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1039;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1039;
 }
 
 /* Transición sidebar */
 .slide-sidebar-enter-active,
 .slide-sidebar-leave-active {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
 .slide-sidebar-enter-from,
 .slide-sidebar-leave-to {
-  transform: translateX(-100%);
-  opacity: 0;
+    transform: translateX(-100%);
+    opacity: 0;
 }
 .slide-sidebar-enter-to,
 .slide-sidebar-leave-from {
-  transform: translateX(0);
-  opacity: 1;
+    transform: translateX(0);
+    opacity: 1;
 }
 
 /* Transición backdrop */
 .fade-backdrop-enter-active,
 .fade-backdrop-leave-active {
-  transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 .fade-backdrop-enter-from,
 .fade-backdrop-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 .fade-backdrop-enter-to,
 .fade-backdrop-leave-from {
-  opacity: 1;
+    opacity: 1;
 }
 </style>

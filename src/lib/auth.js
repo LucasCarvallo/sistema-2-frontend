@@ -13,30 +13,30 @@
  *   }
  */
 
-import { apiGet, apiPost } from './http/token'
-import { useSessionStore } from '@/stores/session'
+import { apiGet, apiPost } from './http/token';
+import { useSessionStore } from '@/stores/session';
 
 /**
  * Autentica al usuario y guarda el token + datos en el store.
  * Lanza HttpError si las credenciales son inválidas.
  */
 export async function login(credentials) {
-  const data = await apiPost('/auth/login', credentials)
-  const session = useSessionStore()
-  session.setSession({ token: data.token, user: data.user })
+    const data = await apiPost('/auth/login', credentials);
+    const session = useSessionStore();
+    session.setSession({ token: data.token, user: data.user });
 }
 
 /**
  * Cierra sesión en el backend y limpia el store local.
  */
 export async function logout() {
-  const session = useSessionStore()
-  try {
-    await apiPost('/auth/logout', {})
-  } finally {
-    // Siempre limpiar localmente aunque el backend falle
-    session.clearSession()
-  }
+    const session = useSessionStore();
+    try {
+        await apiPost('/auth/logout', {});
+    } finally {
+        // Siempre limpiar localmente aunque el backend falle
+        session.clearSession();
+    }
 }
 
 /**
@@ -50,14 +50,14 @@ export async function logout() {
  * - No se registra el token en consola ni en reportes de error.
  */
 export async function restoreSession() {
-  const session = useSessionStore()
-  if (!session.token) return // demo o sin token → nada que restaurar
+    const session = useSessionStore();
+    if (!session.token) return; // demo o sin token → nada que restaurar
 
-  try {
-    const user = await apiGet('/me')
-    session.user = user
-  } catch {
-    // Token inválido, expirado o backend no disponible → limpiar sesión
-    session.clearSession()
-  }
+    try {
+        const user = await apiGet('/me');
+        session.user = user;
+    } catch {
+        // Token inválido, expirado o backend no disponible → limpiar sesión
+        session.clearSession();
+    }
 }

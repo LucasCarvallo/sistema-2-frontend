@@ -1,34 +1,36 @@
 /* Estilos globales mínimos – Bootstrap maneja el resto */
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+    margin: 0;
 }
 
 #app {
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 /* ── Cabeceras de tabla ordenables ─────────────────────────────────────── */
 .th-sortable {
-  cursor: pointer;
-  user-select: none;
-  white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
 }
 
 .th-sortable:hover {
-  background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgba(0, 0, 0, 0.04);
 }
 
 .th-sortable .sort-icon {
-  font-size: 0.7rem;
-  opacity: 0.35;
-  transition: opacity 0.15s;
+    font-size: 0.7rem;
+    opacity: 0.35;
+    transition: opacity 0.15s;
 }
 
 .th-sortable:hover .sort-icon,
 .th-sortable .sort-icon.is-active {
-  opacity: 1;
+    opacity: 1;
 }

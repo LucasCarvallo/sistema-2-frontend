@@ -2,102 +2,102 @@
 // Inspirado en la paleta Tailwind CSS Slate.
 // Se activa con data-bs-theme="slate" en el elemento <html>.
 
-[data-bs-theme="slate"] {
-  // ── Color scheme ──────────────────────────────────────────────────────────
-  color-scheme: dark;
+[data-bs-theme='slate'] {
+    // ── Color scheme ──────────────────────────────────────────────────────────
+    color-scheme: dark;
 
-  // ── Backgrounds ───────────────────────────────────────────────────────────
-  --bs-body-bg: #0f172a;              // slate-900
-  --bs-body-bg-rgb: 15, 23, 42;
-  --bs-secondary-bg: #1e293b;         // slate-800
-  --bs-secondary-bg-rgb: 30, 41, 59;
-  --bs-tertiary-bg: #293548;
-  --bs-tertiary-bg-rgb: 41, 53, 72;
+    // ── Backgrounds ───────────────────────────────────────────────────────────
+    --bs-body-bg: #0f172a; // slate-900
+    --bs-body-bg-rgb: 15, 23, 42;
+    --bs-secondary-bg: #1e293b; // slate-800
+    --bs-secondary-bg-rgb: 30, 41, 59;
+    --bs-tertiary-bg: #293548;
+    --bs-tertiary-bg-rgb: 41, 53, 72;
 
-  // ── Text ──────────────────────────────────────────────────────────────────
-  --bs-body-color: #cbd5e1;           // slate-300
-  --bs-body-color-rgb: 203, 213, 225;
-  --bs-emphasis-color: #f1f5f9;       // slate-100
-  --bs-emphasis-color-rgb: 241, 245, 249;
-  --bs-secondary-color: rgba(203, 213, 225, 0.65);
-  --bs-tertiary-color: rgba(203, 213, 225, 0.4);
+    // ── Text ──────────────────────────────────────────────────────────────────
+    --bs-body-color: #cbd5e1; // slate-300
+    --bs-body-color-rgb: 203, 213, 225;
+    --bs-emphasis-color: #f1f5f9; // slate-100
+    --bs-emphasis-color-rgb: 241, 245, 249;
+    --bs-secondary-color: rgba(203, 213, 225, 0.65);
+    --bs-tertiary-color: rgba(203, 213, 225, 0.4);
 
-  // ── Primary accent (blue) ─────────────────────────────────────────────────
-  --bs-primary: #3b82f6;              // blue-500
-  --bs-primary-rgb: 59, 130, 246;
-  --bs-primary-text-emphasis: #93c5fd; // blue-300
-  --bs-primary-bg-subtle: #1e3a5f;
-  --bs-primary-border-subtle: #1d4ed8;
+    // ── Primary accent (blue) ─────────────────────────────────────────────────
+    --bs-primary: #3b82f6; // blue-500
+    --bs-primary-rgb: 59, 130, 246;
+    --bs-primary-text-emphasis: #93c5fd; // blue-300
+    --bs-primary-bg-subtle: #1e3a5f;
+    --bs-primary-border-subtle: #1d4ed8;
 
-  // ── Links ─────────────────────────────────────────────────────────────────
-  --bs-link-color: #60a5fa;           // blue-400
-  --bs-link-color-rgb: 96, 165, 250;
-  --bs-link-hover-color: #93c5fd;     // blue-300
+    // ── Links ─────────────────────────────────────────────────────────────────
+    --bs-link-color: #60a5fa; // blue-400
+    --bs-link-color-rgb: 96, 165, 250;
+    --bs-link-hover-color: #93c5fd; // blue-300
 
-  // ── Borders ───────────────────────────────────────────────────────────────
-  --bs-border-color: #334155;         // slate-700
-  --bs-border-color-translucent: rgba(51, 65, 85, 0.6);
+    // ── Borders ───────────────────────────────────────────────────────────────
+    --bs-border-color: #334155; // slate-700
+    --bs-border-color-translucent: rgba(51, 65, 85, 0.6);
 
-  // ── Navbar ────────────────────────────────────────────────────────────────
-  --bs-navbar-color: rgba(203, 213, 225, 0.75);
-  --bs-navbar-hover-color: #f1f5f9;
-  --bs-navbar-active-color: #f1f5f9;
+    // ── Navbar ────────────────────────────────────────────────────────────────
+    --bs-navbar-color: rgba(203, 213, 225, 0.75);
+    --bs-navbar-hover-color: #f1f5f9;
+    --bs-navbar-active-color: #f1f5f9;
 
-  // ── Cards ─────────────────────────────────────────────────────────────────
-  --bs-card-bg: #1e293b;
-  --bs-card-cap-bg: rgba(30, 41, 59, 0.8);
-  --bs-card-border-color: #334155;
+    // ── Cards ─────────────────────────────────────────────────────────────────
+    --bs-card-bg: #1e293b;
+    --bs-card-cap-bg: rgba(30, 41, 59, 0.8);
+    --bs-card-border-color: #334155;
 
-  // ── Dropdowns ─────────────────────────────────────────────────────────────
-  --bs-dropdown-bg: #1e293b;
-  --bs-dropdown-border-color: #334155;
-  --bs-dropdown-link-color: #cbd5e1;
-  --bs-dropdown-link-hover-bg: #334155;
-  --bs-dropdown-link-hover-color: #f1f5f9;
-  --bs-dropdown-divider-bg: #334155;
+    // ── Dropdowns ─────────────────────────────────────────────────────────────
+    --bs-dropdown-bg: #1e293b;
+    --bs-dropdown-border-color: #334155;
+    --bs-dropdown-link-color: #cbd5e1;
+    --bs-dropdown-link-hover-bg: #334155;
+    --bs-dropdown-link-hover-color: #f1f5f9;
+    --bs-dropdown-divider-bg: #334155;
 
-  // ── Forms / Inputs ────────────────────────────────────────────────────────
-  --bs-form-control-bg: #1e293b;
-  --bs-input-bg: #1e293b;
-  --bs-input-border-color: #475569;
-  --bs-input-color: #e2e8f0;
-  --bs-input-placeholder-color: #64748b;
-  --bs-input-focus-border-color: #3b82f6;
-  --bs-input-focus-box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+    // ── Forms / Inputs ────────────────────────────────────────────────────────
+    --bs-form-control-bg: #1e293b;
+    --bs-input-bg: #1e293b;
+    --bs-input-border-color: #475569;
+    --bs-input-color: #e2e8f0;
+    --bs-input-placeholder-color: #64748b;
+    --bs-input-focus-border-color: #3b82f6;
+    --bs-input-focus-box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
 
-  // ── Tables ────────────────────────────────────────────────────────────────
-  --bs-table-bg: transparent;
-  --bs-table-striped-bg: rgba(51, 65, 85, 0.25);
-  --bs-table-hover-bg: rgba(51, 65, 85, 0.35);
-  --bs-table-border-color: #334155;
+    // ── Tables ────────────────────────────────────────────────────────────────
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: rgba(51, 65, 85, 0.25);
+    --bs-table-hover-bg: rgba(51, 65, 85, 0.35);
+    --bs-table-border-color: #334155;
 
-  // ── List groups ───────────────────────────────────────────────────────────
-  --bs-list-group-bg: #1e293b;
-  --bs-list-group-border-color: #334155;
-  --bs-list-group-action-hover-bg: #293548;
-  --bs-list-group-action-hover-color: #f1f5f9;
+    // ── List groups ───────────────────────────────────────────────────────────
+    --bs-list-group-bg: #1e293b;
+    --bs-list-group-border-color: #334155;
+    --bs-list-group-action-hover-bg: #293548;
+    --bs-list-group-action-hover-color: #f1f5f9;
 
-  // ── Modals ────────────────────────────────────────────────────────────────
-  --bs-modal-bg: #1e293b;
-  --bs-modal-border-color: #334155;
-  --bs-modal-header-border-color: #334155;
-  --bs-modal-footer-border-color: #334155;
+    // ── Modals ────────────────────────────────────────────────────────────────
+    --bs-modal-bg: #1e293b;
+    --bs-modal-border-color: #334155;
+    --bs-modal-header-border-color: #334155;
+    --bs-modal-footer-border-color: #334155;
 
-  // ── Alerts ────────────────────────────────────────────────────────────────
-  --bs-alert-bg: #1e293b;
+    // ── Alerts ────────────────────────────────────────────────────────────────
+    --bs-alert-bg: #1e293b;
 
-  // ── Sidebar (UI propia) ───────────────────────────────────────────────────
-  --app-sidebar-bg: #0c1526;
-  --app-sidebar-link-color: rgba(203, 213, 225, 0.8);
-  --app-sidebar-link-hover-bg: rgba(59, 130, 246, 0.12);
-  --app-sidebar-link-hover-color: #f1f5f9;
-  --app-sidebar-link-active-bg: rgba(59, 130, 246, 0.75);
-  --app-sidebar-link-active-color: #fff;
-  --app-sidebar-category-color: rgba(148, 163, 184, 0.45); // slate-400
+    // ── Sidebar (UI propia) ───────────────────────────────────────────────────
+    --app-sidebar-bg: #0c1526;
+    --app-sidebar-link-color: rgba(203, 213, 225, 0.8);
+    --app-sidebar-link-hover-bg: rgba(59, 130, 246, 0.12);
+    --app-sidebar-link-hover-color: #f1f5f9;
+    --app-sidebar-link-active-bg: rgba(59, 130, 246, 0.75);
+    --app-sidebar-link-active-color: #fff;
+    --app-sidebar-category-color: rgba(148, 163, 184, 0.45); // slate-400
 
-  // ── Misc ──────────────────────────────────────────────────────────────────
-  --bs-secondary-bg-subtle: #1a2234;
-  --bs-danger-text-emphasis: #fca5a5;
-  --bs-success-text-emphasis: #86efac;
-  --bs-warning-text-emphasis: #fde047;
+    // ── Misc ──────────────────────────────────────────────────────────────────
+    --bs-secondary-bg-subtle: #1a2234;
+    --bs-danger-text-emphasis: #fca5a5;
+    --bs-success-text-emphasis: #86efac;
+    --bs-warning-text-emphasis: #fde047;
 }

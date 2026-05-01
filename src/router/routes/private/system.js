@@ -10,5 +10,5 @@ export default [
         name: 'help',
         component: () => import('../../../views/system/HelpView.vue'),
         meta: { requiresAuth: true },
-    }
-]
+    },
+];

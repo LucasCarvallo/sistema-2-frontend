@@ -1,129 +1,129 @@
 <template>
-  <div class="sidebar-inner">
-    <div class="sidebar-menu">
-      <template v-for="group in menu" :key="group.category">
-        <div class="sidebar-category">{{ group.category }}</div>
-        <RouterLink
-          v-for="item in group.items"
-          :key="item.path"
-          :to="item.path"
-          class="sidebar-link"
-          :class="{ active: isActive(item) }"
-          @click="onLinkClick"
-        >
-          <i :class="['bi', item.icon, 'sidebar-link-icon']"></i>
-          <span>{{ item.name }}</span>
-        </RouterLink>
-      </template>
+    <div class="sidebar-inner">
+        <div class="sidebar-menu">
+            <template v-for="group in menu" :key="group.category">
+                <div class="sidebar-category">{{ group.category }}</div>
+                <RouterLink
+                    v-for="item in group.items"
+                    :key="item.path"
+                    :to="item.path"
+                    class="sidebar-link"
+                    :class="{ active: isActive(item) }"
+                    @click="onLinkClick"
+                >
+                    <i :class="['bi', item.icon, 'sidebar-link-icon']"></i>
+                    <span>{{ item.name }}</span>
+                </RouterLink>
+            </template>
+        </div>
     </div>
-  </div>
 </template>
 
 <script setup>
-import { RouterLink, useRoute } from 'vue-router'
-import { useSidebarStore } from '@/stores/sidebar'
+import { RouterLink, useRoute } from 'vue-router';
+import { useSidebarStore } from '@/stores/sidebar';
 
-const route = useRoute()
-const sidebarStore = useSidebarStore()
+const route = useRoute();
+const sidebarStore = useSidebarStore();
 
 const menu = [
-  {
-    category: 'Principal',
-    items: [
-      { name: 'Dashboard', path: '/', icon: 'bi-speedometer2' },
-    ],
-  },
-  {
-    category: 'Administración',
-    items: [
-      { name: 'Usuarios', path: '/users', icon: 'bi-people' },
-      { name: 'Roles', path: '/roles', icon: 'bi-shield' },
-      { name: 'Permisos', path: '/permissions', icon: 'bi-key' },
-    ],
-  },
-  {
-    category: 'Gestión',
-    items: [
-      { name: 'Clientes', path: '/clients', icon: 'bi-person-vcard' },
-      { name: 'Productos', path: '/products', icon: 'bi-box-seam' },
-      { name: 'Reportes', path: '/reports', icon: 'bi-bar-chart-line' },
-    ],
-  },
-  {
-    category: 'Sistema',
-    items: [
-      { name: 'Configuración', path: '/settings', icon: 'bi-gear' },
-      { name: 'Ayuda', path: '/help', icon: 'bi-question-circle' },
-    ],
-  },
-]
+    {
+        category: 'Principal',
+        items: [{ name: 'Dashboard', path: '/', icon: 'bi-speedometer2' }],
+    },
+    {
+        category: 'Administración',
+        items: [
+            { name: 'Usuarios', path: '/users', icon: 'bi-people' },
+            { name: 'Roles', path: '/roles', icon: 'bi-shield' },
+            { name: 'Permisos', path: '/permissions', icon: 'bi-key' },
+        ],
+    },
+    {
+        category: 'Gestión',
+        items: [
+            { name: 'Clientes', path: '/clients', icon: 'bi-person-vcard' },
+            { name: 'Productos', path: '/products', icon: 'bi-box-seam' },
+            { name: 'Reportes', path: '/reports', icon: 'bi-bar-chart-line' },
+        ],
+    },
+    {
+        category: 'Sistema',
+        items: [
+            { name: 'Configuración', path: '/settings', icon: 'bi-gear' },
+            { name: 'Ayuda', path: '/help', icon: 'bi-question-circle' },
+        ],
+    },
+];
 
 function isActive(item) {
-  if (item.path === '/') {
-    return route.path === '/'
-  }
-  return route.path.startsWith(item.path)
+    if (item.path === '/') {
+        return route.path === '/';
+    }
+    return route.path.startsWith(item.path);
 }
 
 function onLinkClick() {
-  // En mobile cerramos el sidebar al navegar
-  if (sidebarStore.isMobileViewport()) {
-    sidebarStore.setCollapsed(true)
-  }
+    // En mobile cerramos el sidebar al navegar
+    if (sidebarStore.isMobileViewport()) {
+        sidebarStore.setCollapsed(true);
+    }
 }
 </script>
 
 <style scoped>
 .sidebar-inner {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .sidebar-menu {
-  padding: 0.75rem 0;
+    padding: 0.75rem 0;
 }
 
 .sidebar-category {
-  padding: 0.6rem 1.1rem 0.25rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--app-sidebar-category-color, rgba(255, 255, 255, 0.4));
-  margin-top: 0.5rem;
+    padding: 0.6rem 1.1rem 0.25rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--app-sidebar-category-color, rgba(255, 255, 255, 0.4));
+    margin-top: 0.5rem;
 }
 
 .sidebar-menu > .sidebar-category:first-child {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .sidebar-link {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.55rem 1.1rem;
-  color: var(--app-sidebar-link-color, rgba(255, 255, 255, 0.75));
-  text-decoration: none;
-  font-size: 0.9rem;
-  border-radius: 0.375rem;
-  margin: 0.1rem 0.5rem;
-  transition: background-color 0.15s ease, color 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.55rem 1.1rem;
+    color: var(--app-sidebar-link-color, rgba(255, 255, 255, 0.75));
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 0.375rem;
+    margin: 0.1rem 0.5rem;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
 }
 
 .sidebar-link:hover {
-  background-color: var(--app-sidebar-link-hover-bg, rgba(255, 255, 255, 0.1));
-  color: var(--app-sidebar-link-hover-color, #fff);
+    background-color: var(--app-sidebar-link-hover-bg, rgba(255, 255, 255, 0.1));
+    color: var(--app-sidebar-link-hover-color, #fff);
 }
 
 .sidebar-link.active {
-  background-color: var(--app-sidebar-link-active-bg, rgba(13, 110, 253, 0.85));
-  color: var(--app-sidebar-link-active-color, #fff);
+    background-color: var(--app-sidebar-link-active-bg, rgba(13, 110, 253, 0.85));
+    color: var(--app-sidebar-link-active-color, #fff);
 }
 
 .sidebar-link-icon {
-  font-size: 1rem;
-  flex-shrink: 0;
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 </style>
