@@ -10,7 +10,7 @@
     <div class="mb-3">
       <div class="input-group input-group-sm" style="max-width: 320px">
         <span class="input-group-text"><i class="bi bi-search"></i></span>
-        <input v-model="search" type="text" class="form-control" placeholder="Buscar..." />
+        <input v-model="search" type="text" class="form-control" placeholder="Buscar..." @keydown.esc.stop="search = ''" />
       </div>
     </div>
 
@@ -79,6 +79,9 @@
             <label class="form-label">Teléfono</label>
             <input v-model.trim="form.telefono" type="tel" class="form-control" />
           </div>
+          <!-- Permite enviar con Enter; los textarea quedan excluidos por comportamiento nativo -->
+          <button type="submit" class="d-none" aria-hidden="true"></button>
+
           <div class="col-12">
             <label class="form-label">
               Contraseña
