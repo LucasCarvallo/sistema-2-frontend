@@ -27,8 +27,10 @@
             <input v-model="password" type="password" class="form-control" required minlength="6" />
           </div>
 
-          <button class="btn btn-success w-100" type="submit">
-            <i class="bi bi-person-plus me-2"></i>Registrarse
+          <button class="btn btn-success w-100" type="submit" :disabled="submitting">
+            <span v-if="submitting" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            <i v-else class="bi bi-person-plus me-2"></i>
+            {{ submitting ? 'Registrando…' : 'Registrarse' }}
           </button>
         </form>
 
@@ -52,14 +54,23 @@ const router = useRouter()
 const name = ref('')
 const email = ref('')
 const password = ref('')
+const submitting = ref(false)
 
-function handleRegister() {
-  // Demo: al registrarse dejamos al usuario autenticado.
-  session.login({
-    name: name.value,
-    email: email.value,
-  })
-  router.push('/')
+async function handleRegister() {
+  if (submitting.value) return // guard anti-doble-submit
+  submitting.value = true
+  try {
+    // Demo: al registrarse dejamos al usuario autenticado.
+    session.login({
+      name: name.value,
+      email: email.value,
+    })
+    router.push('/')
+  } finally {
+    submitting.value = false
+    // Seguridad: limpiar contraseña de memoria tras el submit
+    password.value = ''
+  }
 }
 </script>
 

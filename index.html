@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
+
+    <!-- Seguridad: limitar el valor del header Referer a origen + ruta (sin query/hash) -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!--
+      Seguridad – Content Security Policy:
+      Para producción configurar CSP como header HTTP en el servidor (nginx/Apache),
+      ya que el header HTTP tiene mayor cobertura que la meta-etiqueta
+      (cubre también recursos pre-navegación y admite 'frame-ancestors').
+
+      Ejemplo de header para nginx:
+        add_header Content-Security-Policy
+          "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';
+           connect-src 'self' https://tu-api.com; img-src 'self' data:;
+           font-src 'self' data:; frame-ancestors 'none';";
+    -->
+
+    <title>Sistema</title>
   </head>
   <body>
     <div id="app"></div>

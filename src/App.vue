@@ -2,9 +2,16 @@
 import { onMounted } from 'vue'
 import AppLayout from './components/layout/AppLayout.vue'
 import { useThemeStore } from '@/stores/theme'
+import { restoreSession } from '@/lib/auth'
 
 const themeStore = useThemeStore()
-onMounted(() => themeStore.init())
+
+onMounted(async () => {
+  themeStore.init()
+  // Revalida el token almacenado contra GET /me.
+  // En modo demo (sin backend) retorna inmediatamente sin hacer nada.
+  await restoreSession()
+})
 </script>
 
 <template>
