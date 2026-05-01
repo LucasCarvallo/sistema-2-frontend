@@ -7,38 +7,24 @@ import authRoutes from './routes/public/auth';
 
 // Rutas privadas
 import adminRoutes from './routes/private/admin';
-import userRoutes from './routes/private/user';
+import gestionRoutes from './routes/private/gestion';
+import productsRoutes from './routes/private/products';
 import systemRoutes from './routes/private/system';
+import userRoutes from './routes/private/user';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         ...authRoutes,
         ...adminRoutes,
-        ...userRoutes,
+        ...gestionRoutes,
+        ...productsRoutes,
         ...systemRoutes,
+        ...userRoutes,
         {
             path: '/',
             name: 'root',
             component: RootView,
-        },
-        {
-            path: '/products',
-            name: 'products',
-            component: () => import('../views/ProductsView.vue'),
-            meta: { requiresAuth: true },
-        },
-        {
-            path: '/clients',
-            name: 'clients',
-            component: () => import('../views/ClientsView.vue'),
-            meta: { requiresAuth: true },
-        },
-        {
-            path: '/reports',
-            name: 'reports',
-            component: () => import('../views/ReportsView.vue'),
-            meta: { requiresAuth: true },
         },
     ],
 });
