@@ -37,6 +37,9 @@ const menu = [
     category: 'Gestión',
     items: [
       { name: 'Usuarios', path: '/users', icon: 'bi-people' },
+      { name: 'Roles', path: '/roles', icon: 'bi-shield' },
+      { name: 'Permisos', path: '/permissions', icon: 'bi-key' },
+      { name: 'Productos', path: '/products', icon: 'bi-box-seam' },
       { name: 'Reportes', path: '/reports', icon: 'bi-bar-chart-line' },
     ],
   },
