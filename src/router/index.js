@@ -8,6 +8,7 @@ import authRoutes from './routes/public/auth'
 // Rutas privadas
 import adminRoutes from './routes/private/admin'
 import userRoutes from './routes/private/user'
+import systemRoutes from './routes/private/system'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,6 +16,7 @@ const router = createRouter({
     ...authRoutes,
     ...adminRoutes,
     ...userRoutes,
+    ...systemRoutes,
     {
       path: '/',
       name: 'root',

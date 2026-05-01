@@ -34,12 +34,17 @@ const menu = [
     ],
   },
   {
-    category: 'Gestión',
+    category: 'Administración',
     items: [
       { name: 'Usuarios', path: '/users', icon: 'bi-people' },
-      { name: 'Clientes', path: '/clients', icon: 'bi-person-vcard' },
       { name: 'Roles', path: '/roles', icon: 'bi-shield' },
       { name: 'Permisos', path: '/permissions', icon: 'bi-key' },
+    ],
+  },
+  {
+    category: 'Gestión',
+    items: [
+      { name: 'Clientes', path: '/clients', icon: 'bi-person-vcard' },
       { name: 'Productos', path: '/products', icon: 'bi-box-seam' },
       { name: 'Reportes', path: '/reports', icon: 'bi-bar-chart-line' },
     ],
