@@ -1,0 +1,13 @@
+// Tema claro (Bootstrap default).
+// Sólo se sobrescriben las variables de la UI propia del proyecto.
+
+[data-bs-theme="light"] {
+  // Sidebar
+  --app-sidebar-bg: #212529;
+  --app-sidebar-link-color: rgba(255, 255, 255, 0.75);
+  --app-sidebar-link-hover-bg: rgba(255, 255, 255, 0.1);
+  --app-sidebar-link-hover-color: #fff;
+  --app-sidebar-link-active-bg: rgba(13, 110, 253, 0.85);
+  --app-sidebar-link-active-color: #fff;
+  --app-sidebar-category-color: rgba(255, 255, 255, 0.4);
+}

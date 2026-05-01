@@ -82,7 +82,7 @@ function onLinkClick() {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--app-sidebar-category-color, rgba(255, 255, 255, 0.4));
   margin-top: 0.5rem;
 }
 
@@ -95,7 +95,7 @@ function onLinkClick() {
   align-items: center;
   gap: 0.65rem;
   padding: 0.55rem 1.1rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--app-sidebar-link-color, rgba(255, 255, 255, 0.75));
   text-decoration: none;
   font-size: 0.9rem;
   border-radius: 0.375rem;
@@ -104,13 +104,13 @@ function onLinkClick() {
 }
 
 .sidebar-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background-color: var(--app-sidebar-link-hover-bg, rgba(255, 255, 255, 0.1));
+  color: var(--app-sidebar-link-hover-color, #fff);
 }
 
 .sidebar-link.active {
-  background-color: rgba(13, 110, 253, 0.85);
-  color: #fff;
+  background-color: var(--app-sidebar-link-active-bg, rgba(13, 110, 253, 0.85));
+  color: var(--app-sidebar-link-active-color, #fff);
 }
 
 .sidebar-link-icon {

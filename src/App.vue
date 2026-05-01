@@ -1,5 +1,10 @@
 <script setup>
+import { onMounted } from 'vue'
 import AppLayout from './components/layout/AppLayout.vue'
+import { useThemeStore } from '@/stores/theme'
+
+const themeStore = useThemeStore()
+onMounted(() => themeStore.init())
 </script>
 
 <template>

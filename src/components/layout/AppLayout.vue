@@ -17,7 +17,7 @@
       <aside
         v-if="canShowSidebar"
         v-show="sidebarStore.sidebarOpen"
-        class="app-sidebar bg-dark"
+        class="app-sidebar"
       >
         <AppSidebar />
       </aside>
@@ -84,13 +84,14 @@ onUnmounted(() => {
 /* Sidebar */
 .app-sidebar {
   position: fixed;
-  top: 56px; /* altura del navbar */
+  top: 56px;
   left: 0;
   width: 260px;
   height: calc(100vh - 56px);
   z-index: 1040;
   overflow-y: auto;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  background-color: var(--app-sidebar-bg, #212529);
 }
 
 /* Contenido principal */

@@ -1,0 +1,15 @@
+// Tema oscuro — extiende el modo oscuro nativo de Bootstrap 5.3.
+// Se activa con data-bs-theme="dark" en el elemento <html>.
+// Las variables de Bootstrap ya definen la mayor parte; aquí ajustamos
+// sólo los detalles de la UI propia del proyecto.
+
+[data-bs-theme="dark"] {
+  // Sidebar
+  --app-sidebar-bg: #1a1d20;
+  --app-sidebar-link-color: rgba(255, 255, 255, 0.7);
+  --app-sidebar-link-hover-bg: rgba(255, 255, 255, 0.08);
+  --app-sidebar-link-hover-color: #fff;
+  --app-sidebar-link-active-bg: rgba(13, 110, 253, 0.8);
+  --app-sidebar-link-active-color: #fff;
+  --app-sidebar-category-color: rgba(255, 255, 255, 0.35);
+}

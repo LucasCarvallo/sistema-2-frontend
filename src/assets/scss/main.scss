@@ -1,0 +1,8 @@
+// ─── Temas del proyecto ───────────────────────────────────────────────────────
+// Bootstrap se carga como CSS pre-compilado en main.js (más rápido).
+// Aquí solo se compilan los temas propios, que solo usan CSS custom properties
+// y no dependen del SCSS fuente de Bootstrap.
+
+@use 'themes/light';
+@use 'themes/dark';
+@use 'themes/slate';
