@@ -2,7 +2,12 @@
     <div>
         <p class="m-0">Pruebas</p>
     </div>
-    <div>
+    <div v-if="apiError" class="alert alert-warning py-2 mt-2" role="alert">
+        {{ apiError }}
+    </div>
+
+    <!-- Sin preview de video -->
+    <!-- <div class="mt-3">
         <div v-for="video in videos" :key="video.id">
             <div class="my-3 p-3 border rounded">
                 <span>{{ video.category }}</span>
@@ -11,7 +16,37 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+    <!-- Con preview de video -->
+    <div class="mt-3">
+        <div v-for="group in videos" :key="group.category" class="card border-0 shadow-sm mb-3">
+            <div class="card-header fw-semibold">
+                {{ group.category }}
+            </div>
+
+            <div class="card-body">
+                <div class="row g-3">
+                    <div
+                        v-for="v in group.videos"
+                        :key="v.path"
+                        class="col-12 col-md-6 col-xl-4"
+                    >
+                        <div class="h-100 border rounded p-2">
+                            <video
+                                class="w-100 rounded bg-black"
+                                :src="v.url"
+                                controls
+                                preload="metadata"
+                            ></video>
+                            <div class="small text-muted mt-2 text-truncate" :title="v.name">{{ v.name }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </template>
 
 <script setup>
