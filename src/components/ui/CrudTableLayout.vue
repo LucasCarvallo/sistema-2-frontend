@@ -2,7 +2,7 @@
     <div>
         <div class="d-flex align-items-center justify-content-between mb-4 gap-2 flex-wrap">
             <h4 class="mb-0"><i :class="['bi', icon, 'me-2', 'text-primary']"></i>{{ title }}</h4>
-            <button class="btn btn-success btn-sm" type="button" @click="$emit('create')">
+            <button v-if="showCreate" class="btn btn-success btn-sm" type="button" @click="$emit('create')">
                 <i class="bi bi-plus-lg me-1"></i>{{ createLabel }}
             </button>
         </div>
@@ -43,6 +43,7 @@ defineProps({
     title: { type: String, required: true },
     icon: { type: String, required: true },
     createLabel: { type: String, default: 'Nuevo' },
+    showCreate: { type: Boolean, default: true },
     search: { type: String, default: '' },
     searchPlaceholder: { type: String, default: 'Buscar...' },
     searchMaxWidth: { type: String, default: '320px' },
