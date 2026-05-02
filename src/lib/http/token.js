@@ -10,6 +10,7 @@
  */
 
 import { useSessionStore } from '@/stores/session';
+import { useUiStore } from '@/stores/ui';
 
 const BASE_URL = (import.meta.env.VITE_API_URL ?? 'https://api.sistema.lucas.test').replace(
     /\/$/,
@@ -27,39 +28,56 @@ export class HttpError extends Error {
 
 async function request(path, options = {}) {
     const session = useSessionStore();
+    const ui = useUiStore();
+    const {
+        loading = true,
+        loadingMessage = 'Cargando...',
+        headers: customHeaders,
+        ...fetchOptions
+    } = options;
     const token = session.token;
 
     const headers = {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        ...(options.headers ?? {}),
+        ...(customHeaders ?? {}),
     };
 
-    let res;
+    if (loading) {
+        ui.beginLoading(loadingMessage);
+    }
+
     try {
-        res = await fetch(`${BASE_URL}/api${path}`, { ...options, headers });
-    } catch {
-        throw new HttpError(0, 'No se pudo conectar con el servidor.');
-    }
-
-    if (!res.ok) {
-        let body = {};
+        let res;
         try {
-            body = await res.json();
+            res = await fetch(`${BASE_URL}/api${path}`, { ...fetchOptions, headers });
         } catch {
-            // respuesta no-JSON (ej. HTML de error 500)
+            throw new HttpError(0, 'No se pudo conectar con el servidor.');
         }
-        throw new HttpError(
-            res.status,
-            body.message ?? `Error ${res.status}: ${res.statusText}`,
-            body.errors ?? null,
-        );
-    }
 
-    // 204 No Content u otras respuestas sin cuerpo
-    const text = await res.text();
-    return text ? JSON.parse(text) : null;
+        if (!res.ok) {
+            let body = {};
+            try {
+                body = await res.json();
+            } catch {
+                // respuesta no-JSON (ej. HTML de error 500)
+            }
+            throw new HttpError(
+                res.status,
+                body.message ?? `Error ${res.status}: ${res.statusText}`,
+                body.errors ?? null,
+            );
+        }
+
+        // 204 No Content u otras respuestas sin cuerpo
+        const text = await res.text();
+        return text ? JSON.parse(text) : null;
+    } finally {
+        if (loading) {
+            ui.endLoading();
+        }
+    }
 }
 
 export const apiGet = (path, options = {}) => request(path, { ...options, method: 'GET' });

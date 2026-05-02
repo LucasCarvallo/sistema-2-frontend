@@ -208,7 +208,7 @@ function normalizeUsersPayload(payload) {
 async function syncWithApi() {
     apiError.value = '';
     try {
-        const data = await apiGet('/users');
+        const data = await apiGet('/users', { loadingMessage: 'Cargando usuarios...' });
         const users = normalizeUsersPayload(data);
         items.value = users.map(mapApiUserToRow);
     } catch (error) {

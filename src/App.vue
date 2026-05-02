@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import AppLayout from './components/layout/AppLayout.vue';
+import GlobalLoader from '@/components/ui/GlobalLoader.vue';
 import { useThemeStore } from '@/stores/theme';
 import { restoreSession } from '@/lib/auth';
 
@@ -16,6 +17,7 @@ onMounted(async () => {
 
 <template>
     <AppLayout />
+    <GlobalLoader />
 </template>
 
 <style scoped>
