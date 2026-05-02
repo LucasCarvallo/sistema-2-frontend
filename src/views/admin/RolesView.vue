@@ -2,7 +2,7 @@
     <div>
         <div class="d-flex align-items-center justify-content-between mb-4 gap-2 flex-wrap">
             <h4 class="mb-0"><i class="bi bi-shield me-2 text-primary"></i>Roles</h4>
-            <button class="btn btn-primary btn-sm" @click="openCreate">
+            <button class="btn btn-success btn-sm" @click="openCreate">
                 <i class="bi bi-plus-lg me-1"></i>Nuevo rol
             </button>
         </div>
@@ -75,14 +75,14 @@
                             <td class="text-muted">{{ r.descripcion || '—' }}</td>
                             <td class="text-end">
                                 <button
-                                    class="btn btn-sm btn-outline-secondary me-1"
+                                    class="btn btn-sm btn-primary me-1"
                                     @click="openEdit(r)"
                                     title="Editar"
                                 >
                                     <i class="bi bi-pencil"></i>
                                 </button>
                                 <button
-                                    class="btn btn-sm btn-outline-danger"
+                                    class="btn btn-sm btn-danger"
                                     @click="askDelete(r)"
                                     title="Eliminar"
                                 >
@@ -126,15 +126,7 @@
                 <button type="submit" class="d-none" aria-hidden="true"></button>
             </form>
             <template #footer>
-                <button
-                    class="btn btn-secondary"
-                    type="button"
-                    :disabled="isSaving"
-                    @click="crudModal.hide()"
-                >
-                    Cancelar
-                </button>
-                <button class="btn btn-primary" type="button" :disabled="isSaving" @click="save">
+                <button class="btn btn-success" type="button" :disabled="isSaving" @click="save">
                     <span
                         v-if="isSaving"
                         class="spinner-border spinner-border-sm me-1"
@@ -143,6 +135,14 @@
                     ></span>
                     <i v-else class="bi bi-check-lg me-1"></i
                     >{{ isSaving ? 'Guardando…' : editingId ? 'Guardar cambios' : 'Crear rol' }}
+                </button>
+                <button
+                    class="btn btn-danger"
+                    type="button"
+                    :disabled="isSaving"
+                    @click="crudModal.hide()"
+                >
+                    Cancelar
                 </button>
             </template>
         </AppModal>

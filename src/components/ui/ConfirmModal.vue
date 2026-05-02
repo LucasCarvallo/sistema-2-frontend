@@ -10,15 +10,7 @@
 
         <template #footer>
             <button
-                class="btn btn-secondary"
-                type="button"
-                :disabled="props.loading"
-                @click="modal.hide()"
-            >
-                Cancelar
-            </button>
-            <button
-                class="btn btn-danger"
+                class="btn btn-success"
                 type="button"
                 :disabled="props.loading"
                 @click="handleConfirm"
@@ -31,6 +23,14 @@
                 ></span>
                 <i v-else class="bi bi-trash me-1"></i
                 >{{ props.loading ? 'Eliminando…' : 'Eliminar' }}
+            </button>
+            <button
+                class="btn btn-danger"
+                type="button"
+                :disabled="props.loading"
+                @click="modal.hide()"
+            >
+                Cancelar
             </button>
         </template>
     </AppModal>
