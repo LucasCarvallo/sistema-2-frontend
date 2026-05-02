@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
+import { apiGet, apiPost } from '@/lib/http/token';
 
 const TOKEN_KEY = 'auth_token';
 
@@ -38,9 +39,18 @@ export const useSessionStore = defineStore('session', () => {
     }
 
     // ── Helpers usados por el login de la UI (demo sin backend) ──────────────
-    function login(userData) {
-        user.value = userData;
+    async function login(userData) {
+        // user.value = userData;
         // Nota: en demo no se guarda token. restoreSession() no hará nada en este modo.
+
+        // const data = await apiPost('/login', userData);
+        // setSession({ token: data.token, user: data.user });
+        try {
+            const data = await apiPost('/login', userData);
+            setSession({ token: data.token, user: data.user });
+        } catch (error) {
+            throw error; // Propagar error para mostrar mensaje en UI
+        }
     }
 
     function logout() {

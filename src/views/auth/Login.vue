@@ -7,17 +7,6 @@
 
                 <form @submit.prevent="handleLogin">
                     <div class="mb-3">
-                        <label class="form-label">Nombre</label>
-                        <input
-                            v-model.trim="name"
-                            type="text"
-                            class="form-control"
-                            required
-                            placeholder="Tu nombre"
-                        />
-                    </div>
-
-                    <div class="mb-3">
                         <label class="form-label">Correo electrónico</label>
                         <input
                             v-model.trim="email"
@@ -25,6 +14,17 @@
                             class="form-control"
                             required
                             placeholder="usuario@ejemplo.com"
+                        />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input
+                            v-model.trim="password"
+                            type="password"
+                            class="form-control"
+                            required
+                            placeholder="Tu contraseña"
                         />
                     </div>
 
@@ -46,6 +46,9 @@
                 </p>
             </div>
         </div>
+        <div v-if="apiError" class="alert alert-warning py-2" role="alert">
+            {{ apiError }}
+        </div>
     </div>
 </template>
 
@@ -57,19 +60,24 @@ import { useSessionStore } from '@/stores/session';
 const session = useSessionStore();
 const router = useRouter();
 
-const name = ref('');
 const email = ref('');
+const password = ref('');
 const submitting = ref(false);
+
+const apiError = ref('');
 
 async function handleLogin() {
     if (submitting.value) return; // guard anti-doble-submit
     submitting.value = true;
+    apiError.value = '';
     try {
-        session.login({
-            name: name.value,
+        await session.login({
             email: email.value,
+            password: password.value,
         });
         router.push('/');
+    } catch (error) {
+        apiError.value = error.message;
     } finally {
         submitting.value = false;
     }
