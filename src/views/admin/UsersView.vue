@@ -29,6 +29,10 @@
             </template>
         </CrudTableLayout>
 
+        <div v-if="apiError" class="alert alert-warning py-2" role="alert">
+            {{ apiError }}
+        </div>
+
         <!-- Modal CRUD -->
         <AppModal
             ref="crudModal"
@@ -136,10 +140,12 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed } from 'vue';
+import { ref, reactive, computed, onMounted } from 'vue';
 import AppModal from '@/components/ui/AppModal.vue';
 import ConfirmModal from '@/components/ui/ConfirmModal.vue';
 import CrudTableLayout from '@/components/ui/CrudTableLayout.vue';
+import { apiGet, apiPost } from '@/lib/http/token';
+import { useSessionStore } from '@/stores/session';
 import { useTableSort } from '@/composables/useTableSort';
 
 const columns = [
@@ -191,6 +197,46 @@ const editingId = ref(null);
 const crudModal = ref(null);
 const confirmModal = ref(null);
 const deletingItem = ref(null);
+const apiError = ref('');
+
+const session = useSessionStore();
+
+function mapApiUserToRow(user) {
+    const fullName = String(user?.name ?? '').trim();
+    const [nombre = 'Mock', ...apellidoParts] = fullName.split(' ');
+    return {
+        id: user?.id ?? Date.now(),
+        nombre,
+        apellido: apellidoParts.join(' ') || 'User',
+        email: user?.email ?? 'mock@example.com',
+        telefono: user?.telefono ?? '',
+    };
+}
+
+async function syncWithApi() {
+    apiError.value = '';
+    try {
+        await apiGet('/health');
+
+        // Backend mock: devuelve token + user sin base de datos.
+        const data = await apiPost('/login', {
+            email: 'frontend.demo@sistema.lucas.test',
+            password: '123456',
+        });
+
+        session.setSession({ token: data.token, user: data.user });
+
+        const apiUserRow = mapApiUserToRow(data.user);
+        items.value = [
+            apiUserRow,
+            ...items.value.filter((u) => u.email.toLowerCase() !== apiUserRow.email.toLowerCase()),
+        ];
+    } catch (error) {
+        apiError.value = error?.message ?? 'No se pudo sincronizar con API.';
+    }
+}
+
+onMounted(syncWithApi);
 
 function resetForm() {
     Object.assign(form, EMPTY);
