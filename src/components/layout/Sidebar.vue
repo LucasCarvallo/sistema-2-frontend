@@ -113,12 +113,12 @@ function onLinkClick() {
 }
 
 .sidebar-link:hover {
-    background-color: var(--app-sidebar-link-hover-bg, rgba(255, 255, 255, 0.1));
+    background: var(--app-sidebar-link-hover-bg, rgba(255, 255, 255, 0.1));
     color: var(--app-sidebar-link-hover-color, #fff);
 }
 
 .sidebar-link.active {
-    background-color: var(--app-sidebar-link-active-bg, rgba(13, 110, 253, 0.85));
+    background: var(--app-sidebar-link-active-bg, rgba(13, 110, 253, 0.85));
     color: var(--app-sidebar-link-active-color, #fff);
 }
 

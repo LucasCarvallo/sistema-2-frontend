@@ -83,8 +83,10 @@ onUnmounted(() => {
     height: calc(100vh - 56px);
     z-index: 1040;
     overflow-y: auto;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    border-right: 1px solid var(--app-sidebar-border, transparent);
+    box-shadow: var(--app-card-shadow, 2px 0 8px rgba(0, 0, 0, 0.15));
     background-color: var(--app-sidebar-bg, #212529);
+    backdrop-filter: blur(18px);
 }
 
 /* Contenido principal */
@@ -92,6 +94,10 @@ onUnmounted(() => {
     margin-top: 56px;
     padding: 1.5rem;
     transition: margin-left 0.3s ease;
+}
+
+.app-main-inner {
+    min-height: calc(100vh - 56px - 3rem);
 }
 
 .app-main--pushed {
@@ -102,8 +108,18 @@ onUnmounted(() => {
 .sidebar-backdrop {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--app-backdrop-bg, rgba(0, 0, 0, 0.5));
     z-index: 1039;
+}
+
+@media (max-width: 767.98px) {
+    .app-main {
+        padding: 1rem;
+    }
+
+    .app-main-inner {
+        min-height: calc(100vh - 56px - 2rem);
+    }
 }
 
 /* Transición sidebar */

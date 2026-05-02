@@ -1,8 +1,8 @@
 <template>
-    <div class="card border-0 shadow-sm">
+    <div class="card border-0 shadow-sm data-table-card">
         <div class="table-responsive">
             <table class="table table-hover align-middle mb-0">
-                <thead class="table-light">
+                <thead class="app-table-head">
                     <tr>
                         <th
                             v-for="col in columns"
@@ -61,3 +61,23 @@ defineProps({
 
 defineEmits(['sort']);
 </script>
+
+<style scoped>
+.data-table-card {
+    overflow: hidden;
+}
+
+.app-table-head th {
+    background: var(--app-table-head-bg, rgba(0, 0, 0, 0.03));
+    color: var(--app-table-head-color, var(--bs-secondary-color));
+    border-bottom-color: var(--app-surface-border, var(--bs-border-color-translucent));
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+tbody tr {
+    transition: background-color 0.18s ease;
+}
+</style>

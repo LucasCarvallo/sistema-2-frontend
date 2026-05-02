@@ -7,10 +7,57 @@
 
 body {
     margin: 0;
+    background: var(--app-shell-bg, var(--bs-body-bg));
+    color: var(--bs-body-color);
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
 }
 
 #app {
     min-height: 100vh;
+}
+
+.card {
+    background: var(--app-surface-bg, var(--bs-card-bg));
+    border-color: var(--app-surface-border, var(--bs-card-border-color));
+    box-shadow: var(--app-card-shadow, 0 12px 30px rgba(15, 23, 42, 0.08));
+    backdrop-filter: blur(16px);
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.card:hover {
+    box-shadow: var(--app-card-shadow-hover, var(--app-card-shadow, 0 12px 30px rgba(15, 23, 42, 0.08)));
+}
+
+.form-control,
+.form-select,
+.btn,
+.dropdown-menu {
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus,
+.btn:focus-visible,
+.btn-check:focus-visible + .btn {
+    box-shadow: var(--app-focus-ring, 0 0 0 0.25rem rgba(13, 110, 253, 0.16));
+}
+
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-hover-bg: var(--app-table-row-hover, var(--bs-table-hover-bg));
+}
+
+.table > :not(caption) > * > * {
+    border-bottom-color: var(--app-surface-border, var(--bs-border-color-translucent));
 }
 
 /* ── Cabeceras de tabla ordenables ─────────────────────────────────────── */
@@ -21,7 +68,7 @@ body {
 }
 
 .th-sortable:hover {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: var(--app-table-row-hover, rgba(0, 0, 0, 0.04));
 }
 
 .th-sortable .sort-icon {

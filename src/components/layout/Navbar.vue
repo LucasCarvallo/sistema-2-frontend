@@ -1,10 +1,10 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top px-3">
+    <nav class="navbar app-navbar navbar-expand-md fixed-top px-3">
         <!-- Izquierda: toggle sidebar + logo + nombre -->
         <div class="d-flex align-items-center gap-2">
             <button
                 v-if="session.user"
-                class="btn btn-outline-secondary btn-sm sidebar-toggle-btn"
+                class="btn btn-sm sidebar-toggle-btn"
                 type="button"
                 @click="sidebarStore.toggle()"
                 aria-label="Toggle sidebar"
@@ -23,7 +23,7 @@
             <!-- Usuario autenticado -->
             <div v-if="session.user" class="dropdown">
                 <button
-                    class="btn btn-outline-light btn-sm dropdown-toggle d-flex align-items-center gap-2"
+                    class="btn btn-sm navbar-account-btn dropdown-toggle d-flex align-items-center gap-2"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
@@ -59,10 +59,10 @@
 
             <!-- Usuario no autenticado -->
             <div v-else class="d-flex gap-2">
-                <RouterLink to="/login" class="btn btn-outline-light btn-sm">
+                <RouterLink to="/login" class="btn btn-sm navbar-ghost-btn">
                     <i class="bi bi-box-arrow-in-right me-1"></i>Iniciar sesión
                 </RouterLink>
-                <RouterLink to="/register" class="btn btn-primary btn-sm">
+                <RouterLink to="/register" class="btn btn-primary btn-sm navbar-primary-btn">
                     <i class="bi bi-person-plus me-1"></i>Registrarse
                 </RouterLink>
             </div>
@@ -86,12 +86,48 @@ function handleLogout() {
 </script>
 
 <style scoped>
-.sidebar-toggle-btn {
-    border-color: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.75);
+.app-navbar {
+    background: var(--app-navbar-bg, rgba(33, 37, 41, 0.92));
+    border-bottom: 1px solid var(--app-navbar-border, rgba(255, 255, 255, 0.08));
+    backdrop-filter: blur(18px);
+    color: var(--app-navbar-color, #fff);
 }
+
+.navbar-brand {
+    color: var(--app-navbar-color, #fff);
+}
+
+.navbar-brand:hover {
+    color: var(--app-navbar-color, #fff);
+}
+
+.sidebar-toggle-btn {
+    border: 1px solid var(--app-navbar-button-border, rgba(255, 255, 255, 0.2));
+    background: var(--app-navbar-button-bg, rgba(255, 255, 255, 0.04));
+    color: var(--app-navbar-muted, rgba(255, 255, 255, 0.75));
+}
+
 .sidebar-toggle-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background-color: var(--app-navbar-button-hover-bg, rgba(255, 255, 255, 0.1));
+    border-color: var(--app-navbar-button-border, rgba(255, 255, 255, 0.2));
+    color: var(--app-navbar-button-hover-color, #fff);
+}
+
+.navbar-account-btn,
+.navbar-ghost-btn {
+    border: 1px solid var(--app-navbar-button-border, rgba(255, 255, 255, 0.2));
+    background: var(--app-navbar-button-bg, rgba(255, 255, 255, 0.04));
+    color: var(--app-navbar-color, #fff);
+}
+
+.navbar-account-btn:hover,
+.navbar-ghost-btn:hover {
+    background: var(--app-navbar-button-hover-bg, rgba(255, 255, 255, 0.1));
+    color: var(--app-navbar-button-hover-color, #fff);
+    border-color: var(--app-navbar-button-border, rgba(255, 255, 255, 0.2));
+}
+
+.navbar-primary-btn {
+    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.18);
 }
 </style>
