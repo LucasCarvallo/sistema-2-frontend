@@ -145,14 +145,6 @@ const columns = [
     { key: 'accion', label: 'Acción', sortable: true },
 ];
 
-const ACTION_BADGES = {
-    Ver: 'bg-info-subtle text-info-emphasis',
-    Crear: 'bg-success-subtle text-success-emphasis',
-    Editar: 'bg-warning-subtle text-warning-emphasis',
-    Eliminar: 'bg-danger-subtle text-danger-emphasis',
-};
-const actionBadge = (a) => ACTION_BADGES[a] ?? 'bg-secondary-subtle text-secondary-emphasis';
-
 const items = ref([
     { id: 1, nombre: 'users.view', modulo: 'Usuarios', accion: 'Ver' },
     { id: 2, nombre: 'users.create', modulo: 'Usuarios', accion: 'Crear' },
@@ -161,6 +153,14 @@ const items = ref([
     { id: 5, nombre: 'products.view', modulo: 'Productos', accion: 'Ver' },
     { id: 6, nombre: 'products.create', modulo: 'Productos', accion: 'Crear' },
 ]);
+
+const ACTION_BADGES = {
+    Ver: 'bg-info-subtle text-info-emphasis',
+    Crear: 'bg-success-subtle text-success-emphasis',
+    Editar: 'bg-warning-subtle text-warning-emphasis',
+    Eliminar: 'bg-danger-subtle text-danger-emphasis',
+};
+const actionBadge = (a) => ACTION_BADGES[a] ?? 'bg-secondary-subtle text-secondary-emphasis';
 
 const search = ref('');
 const filtered = computed(() => {
