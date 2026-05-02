@@ -20,115 +20,40 @@
             </div>
         </div>
 
-        <div class="card border-0 shadow-sm">
-            <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th class="th-sortable" @click="sort('id')">
-                                ID
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('id'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'id' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="th-sortable" @click="sort('nombre')">
-                                Nombre
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('nombre'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'nombre' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="th-sortable" @click="sort('categoria')">
-                                Categoría
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('categoria'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'categoria' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="th-sortable" @click="sort('precio')">
-                                Precio
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('precio'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'precio' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="th-sortable" @click="sort('stock')">
-                                Stock
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('stock'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'stock' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="text-end">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-if="displayRows.length === 0">
-                            <td colspan="6" class="text-center text-muted py-4">Sin resultados.</td>
-                        </tr>
-                        <tr v-for="p in displayRows" :key="p.id">
-                            <td class="text-muted small">{{ p.id }}</td>
-                            <td class="fw-medium">{{ p.nombre }}</td>
-                            <td>
-                                <span class="badge bg-secondary-subtle text-secondary-emphasis">{{
-                                    p.categoria
-                                }}</span>
-                            </td>
-                            <td>${{ p.precio.toLocaleString('es-AR') }}</td>
-                            <td>
-                                <span
-                                    :class="[
-                                        'badge',
-                                        p.stock > 0
-                                            ? 'bg-success-subtle text-success-emphasis'
-                                            : 'bg-danger-subtle text-danger-emphasis',
-                                    ]"
-                                >
-                                    {{ p.stock }}
-                                </span>
-                            </td>
-                            <td class="text-end">
-                                <button
-                                    class="btn btn-sm btn-primary me-1"
-                                    @click="openEdit(p)"
-                                    title="Editar"
-                                >
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button
-                                    class="btn btn-sm btn-danger"
-                                    @click="askDelete(p)"
-                                    title="Eliminar"
-                                >
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <DataTable
+            :columns="columns"
+            :rows="displayRows"
+            :sort-key="sortKey"
+            @sort="sort"
+        >
+            <template #cell-nombre="{ row }">
+                <span class="fw-medium">{{ row.nombre }}</span>
+            </template>
+            <template #cell-categoria="{ row }">
+                <span class="badge bg-secondary-subtle text-secondary-emphasis">{{ row.categoria }}</span>
+            </template>
+            <template #cell-precio="{ row }">
+                ${{ row.precio.toLocaleString('es-AR') }}
+            </template>
+            <template #cell-stock="{ row }">
+                <span
+                    :class="[
+                        'badge',
+                        row.stock > 0
+                            ? 'bg-success-subtle text-success-emphasis'
+                            : 'bg-danger-subtle text-danger-emphasis',
+                    ]"
+                >{{ row.stock }}</span>
+            </template>
+            <template #actions="{ row }">
+                <button class="btn btn-sm btn-primary me-1" @click="openEdit(row)" title="Editar">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-sm btn-danger" @click="askDelete(row)" title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </template>
+        </DataTable>
 
         <!-- Modal CRUD -->
         <AppModal
@@ -246,7 +171,16 @@
 import { ref, reactive, computed } from 'vue';
 import AppModal from '@/components/ui/AppModal.vue';
 import ConfirmModal from '@/components/ui/ConfirmModal.vue';
+import DataTable from '@/components/ui/DataTable.vue';
 import { useTableSort } from '@/composables/useTableSort';
+
+const columns = [
+    { key: 'id', label: 'ID', sortable: true },
+    { key: 'nombre', label: 'Nombre', sortable: true },
+    { key: 'categoria', label: 'Categoría', sortable: true },
+    { key: 'precio', label: 'Precio', sortable: true },
+    { key: 'stock', label: 'Stock', sortable: true },
+];
 
 const items = ref([
     {

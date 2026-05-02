@@ -20,90 +20,27 @@
             </div>
         </div>
 
-        <div class="card border-0 shadow-sm">
-            <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th class="th-sortable" @click="sort('id')">
-                                ID
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('id'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'id' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="th-sortable" @click="sort('nombre')">
-                                Nombre
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('nombre'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'nombre' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="th-sortable" @click="sort('telefono')">
-                                Teléfono
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('telefono'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'telefono' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="th-sortable" @click="sort('direccionEntrega')">
-                                Dirección de entrega
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('direccionEntrega'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'direccionEntrega' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="text-end">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-if="displayRows.length === 0">
-                            <td colspan="5" class="text-center text-muted py-4">Sin resultados.</td>
-                        </tr>
-                        <tr v-for="c in displayRows" :key="c.id">
-                            <td class="text-muted small">{{ c.id }}</td>
-                            <td class="fw-medium">{{ c.nombre }}</td>
-                            <td>{{ c.telefono }}</td>
-                            <td class="text-wrap" style="max-width: 360px">
-                                {{ c.direccionEntrega }}
-                            </td>
-                            <td class="text-end">
-                                <button
-                                    class="btn btn-sm btn-primary me-1"
-                                    @click="openEdit(c)"
-                                    title="Editar"
-                                >
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button
-                                    class="btn btn-sm btn-danger"
-                                    @click="askDelete(c)"
-                                    title="Eliminar"
-                                >
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <DataTable
+            :columns="columns"
+            :rows="displayRows"
+            :sort-key="sortKey"
+            @sort="sort"
+        >
+            <template #cell-nombre="{ row }">
+                <span class="fw-medium">{{ row.nombre }}</span>
+            </template>
+            <template #cell-direccionEntrega="{ row }">
+                <span class="text-wrap" style="max-width: 360px; display: inline-block">{{ row.direccionEntrega }}</span>
+            </template>
+            <template #actions="{ row }">
+                <button class="btn btn-sm btn-primary me-1" @click="openEdit(row)" title="Editar">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-sm btn-danger" @click="askDelete(row)" title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </template>
+        </DataTable>
 
         <AppModal
             ref="crudModal"
@@ -201,7 +138,15 @@
 import { ref, reactive, computed } from 'vue';
 import AppModal from '@/components/ui/AppModal.vue';
 import ConfirmModal from '@/components/ui/ConfirmModal.vue';
+import DataTable from '@/components/ui/DataTable.vue';
 import { useTableSort } from '@/composables/useTableSort';
+
+const columns = [
+    { key: 'id', label: 'ID', sortable: true },
+    { key: 'nombre', label: 'Nombre', sortable: true },
+    { key: 'telefono', label: 'Teléfono', sortable: true },
+    { key: 'direccionEntrega', label: 'Dirección de entrega', sortable: true },
+];
 
 const items = ref([
     {

@@ -20,80 +20,27 @@
             </div>
         </div>
 
-        <div class="card border-0 shadow-sm">
-            <div class="table-responsive">
-                <table class="table table-hover align-middle mb-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th class="th-sortable" @click="sort('id')">
-                                ID
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('id'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'id' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="th-sortable" @click="sort('nombre')">
-                                Nombre
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('nombre'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'nombre' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="th-sortable" @click="sort('descripcion')">
-                                Descripción
-                                <i
-                                    :class="[
-                                        'bi',
-                                        sortIcon('descripcion'),
-                                        'sort-icon ms-1',
-                                        { 'is-active': sortKey === 'descripcion' },
-                                    ]"
-                                ></i>
-                            </th>
-                            <th class="text-end">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-if="displayRows.length === 0">
-                            <td colspan="4" class="text-center text-muted py-4">Sin resultados.</td>
-                        </tr>
-                        <tr v-for="r in displayRows" :key="r.id">
-                            <td class="text-muted small">{{ r.id }}</td>
-                            <td>
-                                <span class="badge bg-primary-subtle text-primary-emphasis">{{
-                                    r.nombre
-                                }}</span>
-                            </td>
-                            <td class="text-muted">{{ r.descripcion || '—' }}</td>
-                            <td class="text-end">
-                                <button
-                                    class="btn btn-sm btn-primary me-1"
-                                    @click="openEdit(r)"
-                                    title="Editar"
-                                >
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button
-                                    class="btn btn-sm btn-danger"
-                                    @click="askDelete(r)"
-                                    title="Eliminar"
-                                >
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <DataTable
+            :columns="columns"
+            :rows="displayRows"
+            :sort-key="sortKey"
+            @sort="sort"
+        >
+            <template #cell-nombre="{ row }">
+                <span class="badge bg-primary-subtle text-primary-emphasis">{{ row.nombre }}</span>
+            </template>
+            <template #cell-descripcion="{ row }">
+                <span class="text-muted">{{ row.descripcion || '—' }}</span>
+            </template>
+            <template #actions="{ row }">
+                <button class="btn btn-sm btn-primary me-1" @click="openEdit(row)" title="Editar">
+                    <i class="bi bi-pencil"></i>
+                </button>
+                <button class="btn btn-sm btn-danger" @click="askDelete(row)" title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </template>
+        </DataTable>
 
         <!-- Modal CRUD -->
         <AppModal
@@ -160,7 +107,14 @@
 import { ref, reactive, computed } from 'vue';
 import AppModal from '@/components/ui/AppModal.vue';
 import ConfirmModal from '@/components/ui/ConfirmModal.vue';
+import DataTable from '@/components/ui/DataTable.vue';
 import { useTableSort } from '@/composables/useTableSort';
+
+const columns = [
+    { key: 'id', label: 'ID', sortable: true },
+    { key: 'nombre', label: 'Nombre', sortable: true },
+    { key: 'descripcion', label: 'Descripción', sortable: true },
+];
 
 const items = ref([
     { id: 1, nombre: 'Administrador', descripcion: 'Acceso total al sistema' },
