@@ -6,7 +6,7 @@
         {{ apiError }}
     </div>
 
-    <!-- Sin preview de video -->
+    <!-- Sin preview de video (este sirve) -->
     <!-- <div class="mt-3">
         <div v-for="video in videos" :key="video.id">
             <div class="my-3 p-3 border rounded">
@@ -18,8 +18,8 @@
         </div>
     </div> -->
 
-    <!-- Con preview de video -->
-    <div class="mt-3">
+    <!-- Con preview de video (este esta mas piola) -->
+    <!-- <div class="mt-3">
         <div v-for="group in videos" :key="group.category" class="card border-0 shadow-sm mb-3">
             <div class="card-header fw-semibold">
                 {{ group.category }}
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </template>
 
