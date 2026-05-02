@@ -137,13 +137,13 @@
                         >
                         <input
                             v-model.trim="form.telefono"
-                            type="tel"
+                            type="number"
                             class="form-control"
                             required
                             maxlength="30"
                             pattern="^[0-9+()\-\s]{6,30}$"
                         />
-                        <div class="invalid-feedback">Formato inválido. Ej: 11 5555 5555</div>
+                        <div class="invalid-feedback">Formato inválido.</div>
                     </div>
                     <div class="col-12">
                         <label class="form-label"
