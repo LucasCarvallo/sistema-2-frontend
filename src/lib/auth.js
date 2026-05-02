@@ -21,7 +21,7 @@ import { useSessionStore } from '@/stores/session';
  * Lanza HttpError si las credenciales son inválidas.
  */
 export async function login(credentials) {
-    const data = await apiPost('/auth/login', credentials);
+    const data = await apiPost('/login', credentials);
     const session = useSessionStore();
     session.setSession({ token: data.token, user: data.user });
 }
@@ -32,7 +32,7 @@ export async function login(credentials) {
 export async function logout() {
     const session = useSessionStore();
     try {
-        await apiPost('/auth/logout', {});
+        await apiPost('/logout', {});
     } finally {
         // Siempre limpiar localmente aunque el backend falle
         session.clearSession();
