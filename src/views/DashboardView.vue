@@ -19,7 +19,7 @@
         </div>
 
         <div class="card border-0 shadow-sm">
-            <div class="card-header bg-white fw-semibold">Actividad reciente</div>
+            <div class="card-header fw-semibold">Actividad reciente</div>
             <div class="card-body p-0">
                 <ul class="list-group list-group-flush">
                     <li
