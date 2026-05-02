@@ -40,7 +40,7 @@ const router = createRouter({
 
 router.beforeEach((to) => {
     const session = useSessionStore();
-    const isAuthenticated = Boolean(session.user);
+    const isAuthenticated = Boolean(session.token);
 
     if (to.meta.requiresAuth && !isAuthenticated) {
         return '/';
