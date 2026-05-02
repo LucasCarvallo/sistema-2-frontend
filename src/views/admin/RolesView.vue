@@ -40,6 +40,7 @@
             @hidden="resetForm"
         >
             <form
+                id="roles-form"
                 ref="formEl"
                 @submit.prevent="save"
                 :class="{ 'was-validated': validated }"
@@ -62,7 +63,7 @@
                 <button type="submit" class="d-none" aria-hidden="true"></button>
             </form>
             <template #footer>
-                <button class="btn btn-success" type="button" :disabled="isSaving" @click="save">
+                <button class="btn btn-success" type="submit" form="roles-form" :disabled="isSaving">
                     <span
                         v-if="isSaving"
                         class="spinner-border spinner-border-sm me-1"

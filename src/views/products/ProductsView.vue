@@ -54,6 +54,7 @@
             @hidden="resetForm"
         >
             <form
+                id="products-form"
                 ref="formEl"
                 @submit.prevent="save"
                 :class="{ 'was-validated': validated }"
@@ -124,7 +125,7 @@
                 </div>
             </form>
             <template #footer>
-                <button class="btn btn-success" type="button" :disabled="isSaving" @click="save">
+                <button class="btn btn-success" type="submit" form="products-form" :disabled="isSaving">
                     <span
                         v-if="isSaving"
                         class="spinner-border spinner-border-sm me-1"
