@@ -1,0 +1,36 @@
+/* Scrollbar desktop para layout actual + fallback legacy */
+@media (min-width: 768px) {
+    .sidebar::-webkit-scrollbar,
+    .app-sidebar::-webkit-scrollbar,
+    .sidebar-inner::-webkit-scrollbar,
+    .app-main::-webkit-scrollbar,
+    main::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb,
+    .app-sidebar::-webkit-scrollbar-thumb,
+    .sidebar-inner::-webkit-scrollbar-thumb,
+    .app-main::-webkit-scrollbar-thumb,
+    main::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: #9a9a9a;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover,
+    .app-sidebar::-webkit-scrollbar-thumb:hover,
+    .sidebar-inner::-webkit-scrollbar-thumb:hover,
+    .app-main::-webkit-scrollbar-thumb:hover,
+    main::-webkit-scrollbar-thumb:hover {
+        background-color: #777;
+    }
+
+    .sidebar::-webkit-scrollbar-track,
+    .app-sidebar::-webkit-scrollbar-track,
+    .sidebar-inner::-webkit-scrollbar-track,
+    .app-main::-webkit-scrollbar-track,
+    main::-webkit-scrollbar-track {
+        background: #dddddd;
+    }
+}

@@ -1,0 +1,50 @@
+// Estilos globales de layout/sidebar reutilizables.
+// Compatibles con el layout actual (.app-*) y con clases legacy (.sidebar-*).
+
+.router-link-active {
+    background-color: #ffffff14;
+}
+
+.sidebar-layout-wrapper,
+.app-wrapper {
+    position: relative;
+    min-height: 100vh;
+}
+
+.sidebar,
+.app-sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 260px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    background-color: var(--app-sidebar-bg, #212529);
+}
+
+.sidebar,
+.sidebar-mobile {
+    z-index: 1050;
+}
+
+.app-sidebar {
+    z-index: 1040;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-main-content,
+.app-main {
+    margin-top: 56px;
+    transition: margin-left 0.3s ease;
+}
+
+.with-sidebar,
+.app-main--pushed {
+    margin-left: 260px;
+}

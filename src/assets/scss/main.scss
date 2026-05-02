@@ -3,6 +3,11 @@
 // Aquí solo se compilan los temas propios, que solo usan CSS custom properties
 // y no dependen del SCSS fuente de Bootstrap.
 
+// Utils
+@use 'utils/sidebar';
+@use 'utils/scrollbar';
+
+// Temas
 @use 'themes/light';
 @use 'themes/dark';
 @use 'themes/slate';
