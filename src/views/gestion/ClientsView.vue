@@ -24,6 +24,8 @@
             :columns="columns"
             :rows="displayRows"
             :sort-key="sortKey"
+            :sort-icon="sortIcon"
+            empty-text="Sin resultados."
             @sort="sort"
         >
             <template #cell-nombre="{ row }">

@@ -24,6 +24,8 @@
             :columns="columns"
             :rows="displayRows"
             :sort-key="sortKey"
+            :sort-icon="sortIcon"
+            empty-text="Sin resultados."
             @sort="sort"
         >
             <template #cell-nombre="{ row }">
@@ -140,7 +142,7 @@ import { useTableSort } from '@/composables/useTableSort';
 
 const columns = [
     { key: 'id', label: 'ID', sortable: true },
-    { key: 'nombre', label: 'Nombre (clave)', sortable: true },
+    { key: 'nombre', label: 'Nombre', sortable: true },
     { key: 'modulo', label: 'Módulo', sortable: true },
     { key: 'accion', label: 'Acción', sortable: true },
 ];
@@ -153,14 +155,6 @@ const items = ref([
     { id: 5, nombre: 'products.view', modulo: 'Productos', accion: 'Ver' },
     { id: 6, nombre: 'products.create', modulo: 'Productos', accion: 'Crear' },
 ]);
-
-const ACTION_BADGES = {
-    Ver: 'bg-info-subtle text-info-emphasis',
-    Crear: 'bg-success-subtle text-success-emphasis',
-    Editar: 'bg-warning-subtle text-warning-emphasis',
-    Eliminar: 'bg-danger-subtle text-danger-emphasis',
-};
-const actionBadge = (a) => ACTION_BADGES[a] ?? 'bg-secondary-subtle text-secondary-emphasis';
 
 const search = ref('');
 const filtered = computed(() => {
@@ -187,6 +181,15 @@ const editingId = ref(null);
 const crudModal = ref(null);
 const confirmModal = ref(null);
 const deletingItem = ref(null);
+
+const ACTION_BADGES = {
+    Ver: 'bg-info-subtle text-info-emphasis',
+    Crear: 'bg-success-subtle text-success-emphasis',
+    Editar: 'bg-warning-subtle text-warning-emphasis',
+    Eliminar: 'bg-danger-subtle text-danger-emphasis',
+};
+const actionBadge = (a) => ACTION_BADGES[a] ?? 'bg-secondary-subtle text-secondary-emphasis';
+
 
 function resetForm() {
     Object.assign(form, EMPTY);
