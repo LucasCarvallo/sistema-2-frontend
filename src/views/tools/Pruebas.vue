@@ -1,7 +1,16 @@
 <template>
     <div>
         <p>Pruebas</p>
-    </div> 
+    </div>
+    <div>
+        <div v-for="video in videos" :key="video.id">
+            <p>{{ video.category }}</p>
+            <!-- <div v-for="v in video.videos" :key="v.id">
+                <p>{{ v.name }}</p>
+                <a :href="v.url" target="_blank" rel="noopener noreferrer">Ver video</a>
+            </div> -->
+        </div>
+    </div>
 </template>
 
 <script setup>
@@ -15,14 +24,15 @@ async function getVideos() {
     apiError.value = '';
     try {
         const data = await apiGet('/videos', { loadingMessage: 'Cargando videos...' });
-        console.log('payload API:', data);
+        // console.log('payload API:', data);
+        videos.value = Array.isArray(data) ? data : [];
+        console.log('videos asignados:', videos.value);
 
-        // El backend devuelve un arreglo de categorías [{ category, videos: [...] }, ...]
-        videos.value = Array.isArray(data)
-            ? data.flatMap((group) => Array.isArray(group?.videos) ? group.videos : [])
-            : [];
-
-        console.log('videos normalizados:', videos.value);
+        // // El backend devuelve un arreglo de categorías [{ category, videos: [...] }, ...]
+        // videos.value = Array.isArray(data)
+        //     ? data.flatMap((group) => Array.isArray(group?.videos) ? group.videos : [])
+        //     : [];
+        // console.log('videos normalizados:', videos.value);
     } catch (error) {
         apiError.value = error?.message ?? 'No se pudo sincronizar con API.';
     }
@@ -30,7 +40,7 @@ async function getVideos() {
 
 onMounted(async () => {
     await getVideos();
-    console.log('onMounted luego de await:', videos.value);
+    // console.log('onMounted luego de await:', videos.value);
 });
 
 </script>
