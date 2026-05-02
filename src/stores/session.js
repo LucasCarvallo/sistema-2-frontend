@@ -54,7 +54,12 @@ export const useSessionStore = defineStore('session', () => {
     }
 
     function logout() {
-        clearSession();
+        try {
+            apiPost('/logout');
+        }
+        finally {
+            clearSession();
+        }
     }
 
     return { user, token, isAuthenticated, setSession, clearSession, login, logout };
