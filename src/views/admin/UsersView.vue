@@ -144,8 +144,7 @@ import { ref, reactive, computed, onMounted } from 'vue';
 import AppModal from '@/components/ui/AppModal.vue';
 import ConfirmModal from '@/components/ui/ConfirmModal.vue';
 import CrudTableLayout from '@/components/ui/CrudTableLayout.vue';
-import { apiGet, apiPost } from '@/lib/http/token';
-import { useSessionStore } from '@/stores/session';
+import { apiGet } from '@/lib/http/token';
 import { useTableSort } from '@/composables/useTableSort';
 
 const columns = [
@@ -155,23 +154,7 @@ const columns = [
     { key: 'telefono', label: 'Teléfono', sortable: true },
 ];
 
-const items = ref([
-    {
-        id: 1,
-        nombre: 'Juan',
-        apellido: 'García',
-        email: 'juan@ejemplo.com',
-        telefono: '011-1234-5678',
-    },
-    {
-        id: 2,
-        nombre: 'María',
-        apellido: 'López',
-        email: 'maria@ejemplo.com',
-        telefono: '011-9876-5432',
-    },
-    { id: 3, nombre: 'Carlos', apellido: 'Rodríguez', email: 'carlos@ejemplo.com', telefono: '' },
-]);
+const items = ref([]);
 
 const search = ref('');
 const filtered = computed(() => {
@@ -199,38 +182,35 @@ const confirmModal = ref(null);
 const deletingItem = ref(null);
 const apiError = ref('');
 
-const session = useSessionStore();
-
 function mapApiUserToRow(user) {
+    const nombreApi = String(user?.nombre ?? '').trim();
+    const apellidoApi = String(user?.apellido ?? '').trim();
     const fullName = String(user?.name ?? '').trim();
-    const [nombre = 'Mock', ...apellidoParts] = fullName.split(' ');
+    const [nombreFromName = '', ...apellidoParts] = fullName.split(' ');
+    const nombre = nombreApi || nombreFromName || 'Sin nombre';
+    const apellido = apellidoApi || apellidoParts.join(' ');
     return {
         id: user?.id ?? Date.now(),
         nombre,
-        apellido: apellidoParts.join(' ') || 'User',
-        email: user?.email ?? 'mock@example.com',
-        telefono: user?.telefono ?? '',
+        apellido,
+        email: user?.email ?? '',
+        telefono: user?.telefono ?? user?.phone ?? '',
     };
+}
+
+function normalizeUsersPayload(payload) {
+    if (Array.isArray(payload)) return payload;
+    if (Array.isArray(payload?.data)) return payload.data;
+    if (Array.isArray(payload?.users)) return payload.users;
+    return [];
 }
 
 async function syncWithApi() {
     apiError.value = '';
     try {
-        await apiGet('/health');
-
-        // Backend mock: devuelve token + user sin base de datos.
-        const data = await apiPost('/login', {
-            email: 'frontend.demo@sistema.lucas.test',
-            password: '123456',
-        });
-
-        session.setSession({ token: data.token, user: data.user });
-
-        const apiUserRow = mapApiUserToRow(data.user);
-        items.value = [
-            apiUserRow,
-            ...items.value.filter((u) => u.email.toLowerCase() !== apiUserRow.email.toLowerCase()),
-        ];
+        const data = await apiGet('/users');
+        const users = normalizeUsersPayload(data);
+        items.value = users.map(mapApiUserToRow);
     } catch (error) {
         apiError.value = error?.message ?? 'No se pudo sincronizar con API.';
     }
