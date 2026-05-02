@@ -12,6 +12,7 @@ import gestionRoutes from './routes/private/gestion';
 import productsRoutes from './routes/private/products';
 import systemRoutes from './routes/private/system';
 import userRoutes from './routes/private/user';
+import toolsRoutes from './routes/private/tools';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,7 @@ const router = createRouter({
         ...productsRoutes,
         ...systemRoutes,
         ...userRoutes,
+        ...toolsRoutes,
         {
             path: '/',
             name: 'root',

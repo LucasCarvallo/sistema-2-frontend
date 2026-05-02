@@ -50,6 +50,13 @@ const menu = [
         ],
     },
     {
+        category: 'Herramientas',
+        items: [
+            { name: 'JSON Beauty', path: '/tools/jsonbeauty', icon: 'bi-file-code' },
+            { name: 'Pruebas',     path: '/tools/pruebas',     icon: 'bi-tools'     },
+        ],
+    },
+    {
         category: 'Sistema',
         items: [
             { name: 'Configuración', path: '/settings', icon: 'bi-gear' },
