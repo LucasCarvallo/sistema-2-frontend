@@ -34,14 +34,14 @@
     --app-surface-border: rgba(148, 163, 184, 0.2);
     --app-card-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
     --app-card-shadow-hover: 0 24px 52px rgba(15, 23, 42, 0.12);
-    --app-navbar-bg: rgba(255, 255, 255, 0.78);
-    --app-navbar-border: rgba(148, 163, 184, 0.16);
-    --app-navbar-color: #1f2a37;
-    --app-navbar-muted: rgba(31, 42, 55, 0.64);
-    --app-navbar-button-bg: rgba(226, 232, 240, 0.72);
-    --app-navbar-button-border: rgba(148, 163, 184, 0.24);
-    --app-navbar-button-hover-bg: rgba(91, 140, 255, 0.1);
-    --app-navbar-button-hover-color: #0f172a;
+    --app-navbar-bg: rgba(30, 42, 58, 0.94);
+    --app-navbar-border: rgba(255, 255, 255, 0.08);
+    --app-navbar-color: #e8edf5;
+    --app-navbar-muted: rgba(232, 237, 245, 0.64);
+    --app-navbar-button-bg: rgba(255, 255, 255, 0.06);
+    --app-navbar-button-border: rgba(255, 255, 255, 0.14);
+    --app-navbar-button-hover-bg: rgba(255, 255, 255, 0.12);
+    --app-navbar-button-hover-color: #ffffff;
     --app-sidebar-border: rgba(148, 163, 184, 0.14);
     --app-content-muted: #607086;
     --app-table-head-bg: rgba(236, 243, 255, 0.92);
@@ -51,13 +51,13 @@
     --app-backdrop-bg: rgba(15, 23, 42, 0.38);
 
     // Sidebar
-    --app-sidebar-bg: rgba(18, 32, 52, 0.92);
-    --app-sidebar-link-color: rgba(233, 240, 252, 0.78);
-    --app-sidebar-link-hover-bg: rgba(91, 140, 255, 0.14);
+    --app-sidebar-bg: rgba(24, 36, 54, 0.96);
+    --app-sidebar-link-color: rgba(220, 228, 242, 0.76);
+    --app-sidebar-link-hover-bg: rgba(255, 255, 255, 0.08);
     --app-sidebar-link-hover-color: #fff;
-    --app-sidebar-link-active-bg: linear-gradient(135deg, rgba(91, 140, 255, 0.94), rgba(46, 111, 255, 0.9));
+    --app-sidebar-link-active-bg: linear-gradient(135deg, rgba(91, 140, 255, 0.88), rgba(46, 111, 255, 0.82));
     --app-sidebar-link-active-color: #fff;
-    --app-sidebar-category-color: rgba(208, 222, 245, 0.48);
+    --app-sidebar-category-color: rgba(190, 208, 235, 0.44);
 
     .dropdown-item:hover {
         color: #0f172a;
