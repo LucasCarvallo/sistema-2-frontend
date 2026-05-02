@@ -1,31 +1,18 @@
 <template>
     <div>
-        <div class="d-flex align-items-center justify-content-between mb-4 gap-2 flex-wrap">
-            <h4 class="mb-0"><i class="bi bi-key me-2 text-primary"></i>Permisos</h4>
-            <button class="btn btn-success btn-sm" @click="openCreate">
-                <i class="bi bi-plus-lg me-1"></i>Nuevo permiso
-            </button>
-        </div>
-
-        <div class="mb-3">
-            <div class="input-group input-group-sm" style="max-width: 320px">
-                <span class="input-group-text"><i class="bi bi-search"></i></span>
-                <input
-                    v-model="search"
-                    type="text"
-                    class="form-control"
-                    placeholder="Buscar..."
-                    @keydown.esc.stop="search = ''"
-                />
-            </div>
-        </div>
-
-        <DataTable
+        <CrudTableLayout
+            title="Permisos"
+            icon="bi-key"
+            create-label="Nuevo permiso"
+            :search="search"
+            search-placeholder="Buscar..."
             :columns="columns"
             :rows="displayRows"
             :sort-key="sortKey"
             :sort-icon="sortIcon"
             empty-text="Sin resultados."
+            @create="openCreate"
+            @update:search="search = $event"
             @sort="sort"
         >
             <template #cell-nombre="{ row }">
@@ -42,7 +29,7 @@
                     <i class="bi bi-trash"></i>
                 </button>
             </template>
-        </DataTable>
+        </CrudTableLayout>
 
         <!-- Modal CRUD -->
         <AppModal
@@ -137,7 +124,7 @@
 import { ref, reactive, computed } from 'vue';
 import AppModal from '@/components/ui/AppModal.vue';
 import ConfirmModal from '@/components/ui/ConfirmModal.vue';
-import DataTable from '@/components/ui/DataTable.vue';
+import CrudTableLayout from '@/components/ui/CrudTableLayout.vue';
 import { useTableSort } from '@/composables/useTableSort';
 
 const columns = [
