@@ -17,4 +17,10 @@ export default [
         component: () => import('../../../views/admin/PermissionsView.vue'),
         meta: { requiresAuth: true },
     },
+    {
+        path: '/sessions',
+        name: 'sessions',
+        component: () => import('../../../views/admin/SessionsView.vue'),
+        meta: { requiresAuth: true },
+    },
 ];

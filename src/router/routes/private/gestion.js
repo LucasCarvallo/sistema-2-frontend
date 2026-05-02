@@ -11,4 +11,10 @@ export default [
         component: () => import('../../../views/gestion/ReportsView.vue'),
         meta: { requiresAuth: true },
     },
+    {
+        path: '/employees',
+        name: 'employees',
+        component: () => import('../../../views/gestion/EmployeesView.vue'),
+        meta: { requiresAuth: true },
+    },
 ];

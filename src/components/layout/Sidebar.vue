@@ -34,17 +34,19 @@ const menu = [
     {
         category: 'Administración',
         items: [
-            { name: 'Usuarios', path: '/users', icon: 'bi-people' },
-            { name: 'Roles', path: '/roles', icon: 'bi-shield' },
-            { name: 'Permisos', path: '/permissions', icon: 'bi-key' },
+            { name: 'Usuarios',    path: '/users',       icon: 'bi-people'  },
+            { name: 'Roles',       path: '/roles',       icon: 'bi-shield'  },
+            { name: 'Permisos',    path: '/permissions', icon: 'bi-key'     },
+            { name: 'Sesiones',    path: '/sessions',    icon: 'bi-shield-lock' },
         ],
     },
     {
         category: 'Gestión',
         items: [
-            { name: 'Clientes', path: '/clients', icon: 'bi-person-vcard' },
-            { name: 'Productos', path: '/products', icon: 'bi-box-seam' },
-            { name: 'Reportes', path: '/reports', icon: 'bi-bar-chart-line' },
+            { name: 'Clientes',   path: '/clients',   icon: 'bi-person-vcard'  },
+            { name: 'Empleados',  path: '/employees', icon: 'bi-person-badge'  },
+            { name: 'Productos',  path: '/products',  icon: 'bi-box-seam'      },
+            { name: 'Reportes',   path: '/reports',   icon: 'bi-bar-chart-line' },
         ],
     },
     {
