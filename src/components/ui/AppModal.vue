@@ -4,13 +4,19 @@
             <div
                 v-if="isOpen"
                 class="modal d-block"
+                ref="modalRoot"
                 tabindex="-1"
                 role="dialog"
                 aria-modal="true"
                 @click="handleBackdropClick"
             >
                 <div
-                    :class="['modal-dialog', sizeClass, { 'modal-dialog-scrollable': scrollable }]"
+                    :class="[
+                        'modal-dialog',
+                        'modal-dialog-centered',
+                        sizeClass,
+                        { 'modal-dialog-scrollable': scrollable },
+                    ]"
                     @click.stop
                 >
                     <div class="modal-content">
@@ -60,11 +66,26 @@ const props = defineProps({
 const emit = defineEmits(['shown', 'hidden']);
 
 const isOpen = ref(false);
+const modalRoot = ref(null);
 const sizeClass = computed(() => (props.size ? `modal-${props.size}` : ''));
+
+function focusFirstField() {
+    const container = modalRoot.value;
+    if (!container) return;
+
+    const fieldSelector =
+        'input:not([type="hidden"]):not([disabled]):not([readonly]), select:not([disabled]), textarea:not([disabled]):not([readonly])';
+
+    const formField = container.querySelector(`form ${fieldSelector}`);
+    const fallbackField = container.querySelector(fieldSelector);
+    const target = formField || fallbackField;
+
+    target?.focus({ preventScroll: true });
+}
 
 function syncBodyLock(locked) {
     document.body.classList.toggle('modal-open', locked);
-    document.body.style.overflow = locked ? 'hidden' : '';
+    // document.body.style.overflow = locked ? 'hidden' : '';
 }
 
 async function show() {
@@ -72,6 +93,7 @@ async function show() {
     isOpen.value = true;
     syncBodyLock(true);
     await nextTick();
+    focusFirstField();
     emit('shown');
 }
 
