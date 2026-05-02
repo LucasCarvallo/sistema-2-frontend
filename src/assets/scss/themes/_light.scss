@@ -10,4 +10,40 @@
     --app-sidebar-link-active-bg: rgba(13, 110, 253, 0.85);
     --app-sidebar-link-active-color: #fff;
     --app-sidebar-category-color: rgba(255, 255, 255, 0.4);
+
+    .dropdown-item:hover {
+        color: #fff;
+        background-color: #4872ff;
+    }
+
+    // .cursor-pointer {
+    //     cursor: pointer;
+    // }
+
+    // :root {
+    //     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    // }
+
+    // .disabled { // Para <RouterLink>
+    //     pointer-events: none;
+    //     opacity: 0.65;
+    //     cursor: not-allowed;
+    // }
+
+    // p {
+    //     margin: 0;
+    // }
+
+    // .led::before {
+    //     content: "";
+    //     width: 13px;
+    //     height: 13px;
+    //     border-radius: 50%;
+    //     margin-right: 6px;
+    //     display: inline-block;
+    //     vertical-align: middle;
+    //     position: relative;
+    //     top: -1px;
+    //     background-color: var(--bs-success);
+    // }
 }

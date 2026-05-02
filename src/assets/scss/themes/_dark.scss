@@ -1,7 +1,5 @@
-// Tema oscuro — extiende el modo oscuro nativo de Bootstrap 5.3.
+// Tema dark en el mismo formato que themes/_dark.scss.
 // Se activa con data-bs-theme="dark" en el elemento <html>.
-// Las variables de Bootstrap ya definen la mayor parte; aquí ajustamos
-// sólo los detalles de la UI propia del proyecto.
 
 [data-bs-theme='dark'] {
     // Sidebar
@@ -12,4 +10,38 @@
     --app-sidebar-link-active-bg: rgba(13, 110, 253, 0.8);
     --app-sidebar-link-active-color: #fff;
     --app-sidebar-category-color: rgba(255, 255, 255, 0.35);
+
+    --bs-body-bg: #1d1f21;
+    --bs-secondary-color: rgb(0 0 0 / 75%);
+
+    /* ScrollBar (desktop) en Chrome, Edge, Safari */
+    @media (min-width: 768px) {
+        // Fondo del scrollbar
+        .sidebar-inner::-webkit-scrollbar-track {
+            background: #2a3036;
+        }
+
+        // Barra del scrollbar
+        .sidebar-inner::-webkit-scrollbar-thumb {
+            background-color: #555;
+        }
+    }
 }
+
+// Para el scroll del documento completo (html/body), el selector debe ir fuera
+// del bloque anidado [data-bs-theme='dark'].
+// html[data-bs-theme='dark']::-webkit-scrollbar,
+// html[data-bs-theme='dark'] body::-webkit-scrollbar {
+//     width: 8px;
+//     height: 8px;
+// }
+
+// html[data-bs-theme='dark']::-webkit-scrollbar-track,
+// html[data-bs-theme='dark'] body::-webkit-scrollbar-track {
+//     background: #ff0000;
+// }
+
+// html[data-bs-theme='dark']::-webkit-scrollbar-thumb,
+// html[data-bs-theme='dark'] body::-webkit-scrollbar-thumb {
+//     background-color: #ff0000;
+// }
