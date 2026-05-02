@@ -19,7 +19,7 @@
     </div> -->
 
     <!-- Con preview de video (este esta mas piola) -->
-    <!-- <div class="mt-3">
+    <div class="mt-3">
         <div v-for="group in videos" :key="group.category" class="card border-0 shadow-sm mb-3">
             <div class="card-header fw-semibold">
                 {{ group.category }}
@@ -38,6 +38,9 @@
                                 :src="v.url"
                                 controls
                                 preload="metadata"
+                                role="button"
+                                tabindex="0"
+                                @click="openInNewTab(v.url)"
                             ></video>
                             <div class="small text-muted mt-2 text-truncate" :title="v.name">{{ v.name }}</div>
                         </div>
@@ -45,7 +48,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
 </template>
 
@@ -55,6 +58,14 @@ import { apiGet } from '@/lib/http/token';
 
 const apiError = ref('');
 const videos = ref([]);
+
+function openInNewTab(url) {
+    if (!url) {
+        return;
+    }
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+}
 
 async function getVideos() {
     apiError.value = '';
