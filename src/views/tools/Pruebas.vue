@@ -1,14 +1,15 @@
 <template>
     <div>
-        <p>Pruebas</p>
+        <p class="m-0">Pruebas</p>
     </div>
     <div>
         <div v-for="video in videos" :key="video.id">
-            <p>{{ video.category }}</p>
-            <!-- <div v-for="v in video.videos" :key="v.id">
-                <p>{{ v.name }}</p>
-                <a :href="v.url" target="_blank" rel="noopener noreferrer">Ver video</a>
-            </div> -->
+            <div class="my-3 p-3 border rounded">
+                <span>{{ video.category }}</span>
+                <div v-for="v in video.videos" :key="v.id" class="ms-3 my-2">
+                    <a :href="v.url" target="_blank" rel="noopener noreferrer">{{ v.name }}</a>
+                </div>
+            </div>
         </div>
     </div>
 </template>
