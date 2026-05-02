@@ -11,7 +11,10 @@
 
 import { useSessionStore } from '@/stores/session';
 
-const BASE_URL = import.meta.env.VITE_API_URL ?? '';
+const BASE_URL = (import.meta.env.VITE_API_URL ?? 'https://api.sistema.lucas.test').replace(
+    /\/$/,
+    '',
+);
 
 export class HttpError extends Error {
     constructor(status, message, errors = null) {
