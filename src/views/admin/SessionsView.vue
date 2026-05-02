@@ -58,7 +58,9 @@
             :loading="isDeleting"
             :message="`¿Cerrar la sesión de ${deletingItem?.usuario}? El usuario deberá iniciar sesión nuevamente.`"
             confirm-label="Cerrar sesión"
+            loading-label="Cerrando…"
             confirm-variant="btn-danger"
+            confirm-icon="bi-box-arrow-right"
             @confirm="confirmDelete"
         />
     </div>

@@ -10,7 +10,7 @@
 
         <template #footer>
             <button
-                class="btn btn-success"
+                :class="['btn', confirmVariant]"
                 type="button"
                 :disabled="props.loading"
                 @click="handleConfirm"
@@ -21,11 +21,11 @@
                     role="status"
                     aria-hidden="true"
                 ></span>
-                <i v-else class="bi bi-trash me-1"></i
-                >{{ props.loading ? 'Eliminando…' : 'Eliminar' }}
+                <i v-else :class="['bi', confirmIcon, 'me-1']"></i
+                >{{ props.loading ? loadingLabel : confirmLabel }}
             </button>
             <button
-                class="btn btn-danger"
+                class="btn btn-secondary"
                 type="button"
                 :disabled="props.loading"
                 @click="modal.hide()"
@@ -44,6 +44,10 @@ const props = defineProps({
     title: { type: String, default: 'Confirmar eliminación' },
     message: { type: String, default: '¿Estás seguro de que querés eliminar este elemento?' },
     loading: { type: Boolean, default: false },
+    confirmLabel: { type: String, default: 'Eliminar' },
+    loadingLabel: { type: String, default: 'Eliminando…' },
+    confirmVariant: { type: String, default: 'btn-danger' },
+    confirmIcon: { type: String, default: 'bi-trash' },
 });
 
 const emit = defineEmits(['confirm', 'hidden']);
