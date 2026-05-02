@@ -42,6 +42,7 @@
             </template>
         </DataTable>
 
+        <!-- Modal CRUD -->
         <AppModal
             ref="crudModal"
             :title="editingId ? 'Editar cliente' : 'Nuevo cliente'"
