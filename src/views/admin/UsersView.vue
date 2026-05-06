@@ -241,7 +241,12 @@ async function save() {
     validated.value = true;
     if (!formEl.value.checkValidity()) return;
     isSaving.value = true;
+    apiError.value = '';
     try {
+        await apiGet('/me', {
+            loadingMessage: editingId.value ? 'Guardando cambios...' : 'Creando usuario...',
+        });
+
         if (editingId.value) {
             const idx = items.value.findIndex((i) => i.id === editingId.value);
             const updated = { ...items.value[idx], ...form };
@@ -251,6 +256,8 @@ async function save() {
             items.value.push({ ...form, id: Date.now() });
         }
         crudModal.value.hide();
+    } catch (error) {
+        apiError.value = error?.message ?? 'No se pudo guardar en el backend de prueba.';
     } finally {
         isSaving.value = false;
     }
