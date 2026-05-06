@@ -84,7 +84,7 @@
                     </div>
                     <div class="col-sm-6">
                         <label class="form-label">Teléfono</label>
-                        <input v-model.trim="form.telefono" type="tel" class="form-control" />
+                        <input v-model.trim="form.telefono" type="number" class="form-control" />
                     </div>
                     <!-- Permite enviar con Enter; los textarea quedan excluidos por comportamiento nativo -->
                     <button type="submit" class="d-none" aria-hidden="true"></button>
