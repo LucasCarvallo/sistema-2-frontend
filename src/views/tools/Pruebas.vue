@@ -75,6 +75,10 @@
                                 role="button"
                                 tabindex="0"
                                 @click="openInNewTab(v.url)"
+                                @loadedmetadata="handleVideoMetadata"
+                                @durationchange="handleVideoMetadata"
+                                @timeupdate="handleVideoTimeUpdate"
+                                @ended="handleVideoEnded"
                             ></video>
                             <div class="small text-muted mt-2 text-truncate" :title="v.name">{{ v.name }}</div>
                         </div>
@@ -93,6 +97,9 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue';
 import { apiGet } from '@/lib/http/token';
+
+const SHORT_VIDEO_MAX_SECONDS = 5;
+const DURATION_EPSILON_SECONDS = 0.15;
 
 const apiError = ref('');
 const videos = ref([]);
@@ -159,6 +166,91 @@ function openInNewTab(url) {
     }
 
     window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+function handleVideoEnded(event) {
+    const videoElement = event?.target;
+
+    if (!(videoElement instanceof HTMLVideoElement)) {
+        return;
+    }
+
+    if (!isShortVideo(videoElement)) {
+        return;
+    }
+
+    // Forzamos loop por si metadata llego tarde o con variacion.
+    videoElement.loop = true;
+    restartVideo(videoElement);
+}
+
+function handleVideoMetadata(event) {
+    const videoElement = event?.target;
+
+    if (!(videoElement instanceof HTMLVideoElement)) {
+        return;
+    }
+
+    videoElement.loop = isShortVideo(videoElement);
+}
+
+function handleVideoTimeUpdate(event) {
+    const videoElement = event?.target;
+
+    if (!(videoElement instanceof HTMLVideoElement)) {
+        return;
+    }
+
+    if (!isShortVideo(videoElement)) {
+        return;
+    }
+
+    // Algunos navegadores no disparan ended de forma consistente en ciertos codecs.
+    if (isNearVideoEnd(videoElement)) {
+        restartVideo(videoElement);
+    }
+}
+
+function getDuration(videoElement) {
+    const duration = Number(videoElement.duration);
+    return Number.isFinite(duration) && duration > 0 ? duration : NaN;
+}
+
+function isShortVideo(videoElement) {
+    const duration = getDuration(videoElement);
+    return Number.isFinite(duration)
+        && duration <= SHORT_VIDEO_MAX_SECONDS + DURATION_EPSILON_SECONDS;
+}
+
+function isNearVideoEnd(videoElement) {
+    const duration = getDuration(videoElement);
+    const current = Number(videoElement.currentTime);
+    if (!Number.isFinite(duration) || !Number.isFinite(current)) {
+        return false;
+    }
+
+    return current >= duration - 0.12;
+}
+
+function restartVideo(videoElement) {
+    if (videoElement.dataset.restarting === '1') {
+        return;
+    }
+
+    videoElement.dataset.restarting = '1';
+    videoElement.currentTime = 0;
+
+    const playPromise = videoElement.play();
+    if (playPromise && typeof playPromise.finally === 'function') {
+        playPromise
+            .catch(() => {})
+            .finally(() => {
+                videoElement.dataset.restarting = '0';
+            });
+        return;
+    }
+
+    videoElement.dataset.restarting = '0';
 }
 
 async function getVideos() {
