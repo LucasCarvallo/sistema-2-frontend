@@ -6,7 +6,7 @@
         {{ apiError }}
     </div>
 
-    <!-- <div class="card border-0 shadow-sm mt-3">
+    <div class="card border-0 shadow-sm mt-3">
         <div class="card-header fw-semibold">Filtros</div>
         <div class="card-body">
             <div class="row g-3">
@@ -51,9 +51,9 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
-    <!-- Con preview de video (este esta mas piola) -->
+    <!-- Preview -->
     <div class="mt-3">
         <div v-for="group in filteredGroups" :key="group.category" class="card border-0 shadow-sm mb-3">
             <div class="card-header fw-semibold">
