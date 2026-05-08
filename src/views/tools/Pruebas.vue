@@ -6,21 +6,56 @@
         {{ apiError }}
     </div>
 
-    <!-- Sin preview de video (este sirve) -->
-    <!-- <div class="mt-3">
-        <div v-for="video in videos" :key="video.id">
-            <div class="my-3 p-3 border rounded">
-                <span>{{ video.category }}</span>
-                <div v-for="v in video.videos" :key="v.id" class="ms-3 my-2">
-                    <a :href="v.url" target="_blank" rel="noopener noreferrer">{{ v.name }}</a>
+    <!-- <div class="card border-0 shadow-sm mt-3">
+        <div class="card-header fw-semibold">Filtros</div>
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-12 col-lg-4">
+                    <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                        <div class="fw-semibold">Categorias</div>
+                        <button
+                            v-if="categoryOptions.length"
+                            type="button"
+                            class="btn btn-sm btn-outline-secondary"
+                            @click="toggleAllCategories"
+                        >
+                            {{ allCategoriesSelected ? 'Limpiar seleccion' : 'Seleccionar todas' }}
+                        </button>
+                    </div>
+                    <div v-if="categoryOptions.length" class="d-grid gap-2">
+                        <div
+                            v-for="category in categoryOptions"
+                            :key="category"
+                            class="form-check"
+                        >
+                            <input
+                                :id="`category-${category}`"
+                                class="form-check-input"
+                                type="checkbox"
+                                :checked="selectedCategories.includes(category)"
+                                @change="toggleCategory(category, $event.target.checked)"
+                            >
+                            <label class="form-check-label" :for="`category-${category}`">
+                                {{ category }}
+                            </label>
+                        </div>
+                    </div>
+                    <div v-else class="small text-muted">No hay categorias disponibles.</div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <div class="fw-semibold mb-2">Vista</div>
+                    <div class="small text-muted">
+                        Se mostraran todos los videos de las categorias seleccionadas.
+                    </div>
                 </div>
             </div>
         </div>
     </div> -->
 
     <!-- Con preview de video (este esta mas piola) -->
-    <!-- <div class="mt-3">
-        <div v-for="group in videos" :key="group.category" class="card border-0 shadow-sm mb-3">
+    <div class="mt-3">
+        <div v-for="group in filteredGroups" :key="group.category" class="card border-0 shadow-sm mb-3">
             <div class="card-header fw-semibold">
                 {{ group.category }}
             </div>
@@ -28,7 +63,7 @@
                 <div class="row g-3">
                     <div
                         v-for="v in group.videos"
-                        :key="v.path"
+                        :key="v.key"
                         class="col-12 col-md-6 col-xl-4"
                     >
                         <div class="h-100 border rounded p-2">
@@ -47,16 +82,76 @@
                 </div>
             </div>
         </div>
-    </div> -->
+
+        <div v-if="!filteredGroups.length" class="small text-muted mt-2">
+            No hay nada para mostrar con los filtros actuales.
+        </div>
+    </div>
 
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { apiGet } from '@/lib/http/token';
 
 const apiError = ref('');
 const videos = ref([]);
+const selectedCategories = ref([]);
+
+const normalizedGroups = computed(() => {
+    return videos.value
+        .filter((group) => group && typeof group === 'object')
+        .map((group, groupIndex) => {
+            const category = group.category ?? `Categoria ${groupIndex + 1}`;
+            const videoList = Array.isArray(group.videos) ? group.videos : [];
+
+            return {
+                category,
+                videos: videoList.map((video, videoIndex) => {
+                    const fallbackName = `Video ${videoIndex + 1}`;
+                    const name = video?.name || fallbackName;
+                    const baseKey = video?.path || video?.url || name;
+
+                    return {
+                        ...(video ?? {}),
+                        name,
+                        key: `${category}::${baseKey}::${videoIndex}`,
+                    };
+                }),
+            };
+        });
+});
+
+const categoryOptions = computed(() => normalizedGroups.value.map((group) => group.category));
+const allCategoriesSelected = computed(() => {
+    return categoryOptions.value.length > 0
+        && selectedCategories.value.length === categoryOptions.value.length;
+});
+
+const filteredGroups = computed(() => {
+    return normalizedGroups.value
+        .filter((group) => selectedCategories.value.includes(group.category));
+});
+
+function toggleCategory(category, checked) {
+    if (checked) {
+        if (!selectedCategories.value.includes(category)) {
+            selectedCategories.value = [...selectedCategories.value, category];
+        }
+        return;
+    }
+
+    selectedCategories.value = selectedCategories.value.filter((item) => item !== category);
+}
+
+function toggleAllCategories() {
+    if (allCategoriesSelected.value) {
+        selectedCategories.value = [];
+        return;
+    }
+
+    selectedCategories.value = [...categoryOptions.value];
+}
 
 function openInNewTab(url) {
     if (!url) {
@@ -70,15 +165,7 @@ async function getVideos() {
     apiError.value = '';
     try {
         const data = await apiGet('/videos', { loadingMessage: 'Cargando videos...' });
-        // console.log('payload API:', data);
         videos.value = Array.isArray(data) ? data : [];
-        console.log('videos asignados:', videos.value);
-
-        // // El backend devuelve un arreglo de categorías [{ category, videos: [...] }, ...]
-        // videos.value = Array.isArray(data)
-        //     ? data.flatMap((group) => Array.isArray(group?.videos) ? group.videos : [])
-        //     : [];
-        // console.log('videos normalizados:', videos.value);
     } catch (error) {
         apiError.value = error?.message ?? 'No se pudo sincronizar con API.';
     }
@@ -86,7 +173,6 @@ async function getVideos() {
 
 onMounted(async () => {
     await getVideos();
-    // console.log('onMounted luego de await:', videos.value);
 });
 
 </script>
