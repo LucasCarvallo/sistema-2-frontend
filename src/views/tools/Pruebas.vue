@@ -44,9 +44,43 @@
                 </div>
 
                 <div class="col-12 col-lg-8">
-                    <div class="fw-semibold mb-2">Vista</div>
-                    <div class="small text-muted">
-                        Se mostraran todos los videos de las categorias seleccionadas.
+                    <div class="fw-semibold mb-2">Videos</div>
+                    <div v-if="selectedCategories.length" class="d-grid gap-3">
+                        <div v-for="category in selectedCategories" :key="`videos-${category}`" class="border rounded p-2">
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                                <div class="small fw-semibold text-muted">{{ category }}</div>
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                    @click="toggleAllVideosByCategory(category)"
+                                >
+                                    {{ areAllVideosSelectedByCategory(category) ? 'Limpiar videos' : 'Seleccionar todos' }}
+                                </button>
+                            </div>
+                            <div class="row g-2">
+                                <div
+                                    v-for="video in videoOptionsByCategory[category] ?? []"
+                                    :key="video.key"
+                                    class="col-12 col-md-6"
+                                >
+                                    <div class="form-check">
+                                        <input
+                                            :id="`video-${video.key}`"
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            :checked="isVideoSelected(category, video.key)"
+                                            @change="toggleVideoSelection(category, video.key, $event.target.checked)"
+                                        >
+                                        <label class="form-check-label text-truncate d-block" :for="`video-${video.key}`" :title="video.label">
+                                            {{ video.label }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-else class="small text-muted">
+                        Selecciona una categoria para habilitar la seleccion de videos.
                     </div>
                 </div>
             </div>
@@ -104,6 +138,7 @@ const DURATION_EPSILON_SECONDS = 0.15;
 const apiError = ref('');
 const videos = ref([]);
 const selectedCategories = ref([]);
+const selectedVideosByCategory = ref({});
 
 const normalizedGroups = computed(() => {
     return videos.value
@@ -130,6 +165,16 @@ const normalizedGroups = computed(() => {
 });
 
 const categoryOptions = computed(() => normalizedGroups.value.map((group) => group.category));
+const videoOptionsByCategory = computed(() => {
+    return normalizedGroups.value.reduce((acc, group) => {
+        acc[group.category] = group.videos.map((video) => ({
+            key: video.key,
+            label: video.name,
+        }));
+        return acc;
+    }, {});
+});
+
 const allCategoriesSelected = computed(() => {
     return categoryOptions.value.length > 0
         && selectedCategories.value.length === categoryOptions.value.length;
@@ -137,7 +182,16 @@ const allCategoriesSelected = computed(() => {
 
 const filteredGroups = computed(() => {
     return normalizedGroups.value
-        .filter((group) => selectedCategories.value.includes(group.category));
+        .filter((group) => selectedCategories.value.includes(group.category))
+        .map((group) => {
+            const selectedVideoKeys = selectedVideosByCategory.value[group.category] ?? [];
+
+            return {
+                ...group,
+                videos: group.videos.filter((video) => selectedVideoKeys.includes(video.key)),
+            };
+        })
+        .filter((group) => group.videos.length > 0);
 });
 
 function toggleCategory(category, checked) {
@@ -145,19 +199,89 @@ function toggleCategory(category, checked) {
         if (!selectedCategories.value.includes(category)) {
             selectedCategories.value = [...selectedCategories.value, category];
         }
+        if (!Array.isArray(selectedVideosByCategory.value[category])) {
+            selectedVideosByCategory.value = {
+                ...selectedVideosByCategory.value,
+                [category]: [],
+            };
+        }
         return;
     }
 
     selectedCategories.value = selectedCategories.value.filter((item) => item !== category);
+
+    if (selectedVideosByCategory.value[category]) {
+        const next = { ...selectedVideosByCategory.value };
+        delete next[category];
+        selectedVideosByCategory.value = next;
+    }
 }
 
 function toggleAllCategories() {
     if (allCategoriesSelected.value) {
         selectedCategories.value = [];
+        selectedVideosByCategory.value = {};
         return;
     }
 
     selectedCategories.value = [...categoryOptions.value];
+    selectedVideosByCategory.value = categoryOptions.value.reduce((acc, category) => {
+        acc[category] = selectedVideosByCategory.value[category] ?? [];
+        return acc;
+    }, {});
+}
+
+function isVideoSelected(category, videoKey) {
+    const selected = selectedVideosByCategory.value[category] ?? [];
+    return selected.includes(videoKey);
+}
+
+function toggleVideoSelection(category, videoKey, checked) {
+    const selected = selectedVideosByCategory.value[category] ?? [];
+    if (checked) {
+        if (!selected.includes(videoKey)) {
+            selectedVideosByCategory.value = {
+                ...selectedVideosByCategory.value,
+                [category]: [...selected, videoKey],
+            };
+        }
+        return;
+    }
+
+    selectedVideosByCategory.value = {
+        ...selectedVideosByCategory.value,
+        [category]: selected.filter((key) => key !== videoKey),
+    };
+}
+
+function areAllVideosSelectedByCategory(category) {
+    const allKeys = (videoOptionsByCategory.value[category] ?? []).map((video) => video.key);
+    if (!allKeys.length) {
+        return false;
+    }
+
+    const selected = selectedVideosByCategory.value[category] ?? [];
+    return allKeys.every((key) => selected.includes(key));
+}
+
+function toggleAllVideosByCategory(category) {
+    const allKeys = (videoOptionsByCategory.value[category] ?? []).map((video) => video.key);
+    if (!allKeys.length) {
+        return;
+    }
+
+    if (areAllVideosSelectedByCategory(category)) {
+        selectedVideosByCategory.value = {
+            ...selectedVideosByCategory.value,
+            [category]: [],
+        };
+        return;
+    }
+
+    selectedVideosByCategory.value = {
+        ...selectedVideosByCategory.value,
+        [category]: allKeys,
+    };
 }
 
 function openInNewTab(url) {
