@@ -79,17 +79,20 @@
         {
             "id": 1,
             "id_producto": 1,
-            "id_valor_atributos": [1, 2, 3, 4]
+            "id_valor_atributos": [1, 2, 3, 4],
+            "precio": 6500
         },
         {
             "id": 2,
             "id_producto": 2,
-            "id_valor_atributos": [5, 6, 7, 9]
+            "id_valor_atributos": [5, 6, 7, 9],
+            "precio": 6500
         },
         {
             "id": 3,
             "id_producto": 3,
-            "id_valor_atributos": [8]
+            "id_valor_atributos": [8],
+            "precio": 2000
         }
     ]
 }
