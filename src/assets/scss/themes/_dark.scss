@@ -77,10 +77,6 @@
         }
     }
 
-    .text-muted {
-        color: var(--app-content-muted) !important;
-    }
-
     input::placeholder, textarea::placeholder {
         color: #868e9e !important;
     }
@@ -101,6 +97,23 @@
 
     .th-sortable:hover {
         color: #eaecf0 !important;
+    }
+
+    .text-muted {
+        // color: var(--app-content-muted) !important;
+        color: rgba(216, 220, 227, 0.66) !important;
+    }
+
+    .text-secondary-emphasis {
+        color: rgba(215, 225, 240, 0.88) !important;
+    }
+
+    .text-warning-emphasis {
+        color: rgba(255, 193, 7, 0.88) !important;
+    }
+
+    .text-primary-emphasis {
+        color: rgba(70, 127, 255, 0.92) !important;
     }
 }
 
