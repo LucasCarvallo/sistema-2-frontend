@@ -7,7 +7,7 @@
             </button>
         </div>
 
-        <div class="mb-3">
+        <div v-if="showSearch" class="mb-3">
             <div class="input-group input-group-sm" :style="{ maxWidth: searchMaxWidth }">
                 <span class="input-group-text"><i class="bi bi-search"></i></span>
                 <input
@@ -44,6 +44,7 @@ defineProps({
     icon: { type: String, required: true },
     createLabel: { type: String, default: 'Nuevo' },
     showCreate: { type: Boolean, default: true },
+    showSearch: { type: Boolean, default: true },
     search: { type: String, default: '' },
     searchPlaceholder: { type: String, default: 'Buscar...' },
     searchMaxWidth: { type: String, default: '320px' },
