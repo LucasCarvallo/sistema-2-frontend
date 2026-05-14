@@ -21,8 +21,8 @@
             <template #cell-categoria="{ row }">
                 <span class="badge bg-secondary-subtle text-secondary-emphasis">{{ row.categoria }}</span>
             </template>
-            <template #cell-precio="{ row }">
-                ${{ row.precio.toLocaleString('es-AR') }}
+            <template #cell-precio_base="{ row }">
+                ${{ row.precio_base.toLocaleString('es-AR') }}
             </template>
             <template #cell-stock="{ row }">
                 <span
@@ -86,11 +86,11 @@
                         <div class="invalid-feedback">Campo requerido.</div>
                     </div>
                     <div class="col-sm-6">
-                        <label class="form-label">Precio <span class="text-danger">*</span></label>
+                        <label class="form-label">Precio base <span class="text-danger">*</span></label>
                         <div class="input-group">
                             <span class="input-group-text">$</span>
                             <input
-                                v-model.number="form.precio"
+                                v-model.number="form.precio_base"
                                 type="number"
                                 class="form-control"
                                 required
@@ -168,34 +168,34 @@ const columns = [
     { key: 'id', label: 'ID', sortable: true },
     { key: 'nombre', label: 'Nombre', sortable: true },
     { key: 'categoria', label: 'Categoría', sortable: true },
-    { key: 'precio', label: 'Precio', sortable: true },
+    { key: 'precio_base', label: 'Precio base', sortable: true },
     { key: 'stock', label: 'Stock', sortable: true },
 ];
 
 const items = ref([
     {
         id: 1,
-        nombre: 'Laptop Pro',
-        categoria: 'Electrónica',
-        precio: 1200,
+        nombre: 'Difusor Saphirus',
+        categoria: 'Hogar',
+        precio_base: 1200,
         stock: 15,
-        descripcion: 'Laptop de alto rendimiento',
+        descripcion: 'Difusor de aromas de alta calidad',
     },
     {
         id: 2,
-        nombre: 'Mouse Inalámbrico',
-        categoria: 'Electrónica',
-        precio: 35,
+        nombre: 'Jabón Líquido',
+        categoria: 'Hogar',
+        precio_base: 35,
         stock: 50,
-        descripcion: 'Mouse ergonómico',
+        descripcion: 'Jabón líquido de alta calidad',
     },
     {
         id: 3,
-        nombre: 'Escritorio',
+        nombre: 'Palita de barrer',
         categoria: 'Hogar',
-        precio: 280,
+        precio_base: 280,
         stock: 8,
-        descripcion: 'Escritorio de madera',
+        descripcion: 'Palita de barrer con mango largo de plástico',
     },
 ]);
 
@@ -211,7 +211,7 @@ const filtered = computed(() => {
 
 const { sortKey, sort, sortIcon, sorted: displayRows } = useTableSort(filtered);
 
-const EMPTY = { nombre: '', categoria: '', precio: 0, stock: 0, descripcion: '' };
+const EMPTY = { nombre: '', categoria: '', precio_base: 0, stock: 0, descripcion: '' };
 const form = reactive({ ...EMPTY });
 const formEl = ref(null);
 const validated = ref(false);
