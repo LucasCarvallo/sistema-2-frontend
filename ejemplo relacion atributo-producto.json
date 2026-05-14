@@ -1,0 +1,95 @@
+{
+    "producto": [
+        {
+            "id": 1,
+            "nombre": "Difusor Saphirus"
+        },
+        {
+            "id": 2,
+            "nombre": "Jabón líquido"
+        },
+        {
+            "id": 3,
+            "nombre": "Palita de barrer",
+            "descripcion": "Palita de barrer con mango largo de plastico"
+        }
+    ],
+    "atributos": [
+        {
+            "id": 1,
+            "nombre": "Aroma"
+        },
+        {
+            "id": 2,
+            "nombre": "Tamaño"
+        },
+        {
+            "id": 3,
+            "nombre": "Marca"
+        }
+    ],
+    "valores_atributos": [
+        {
+            "id": 1,
+            "id_atributo": 1,
+            "valor": "Limón"
+        },
+        {
+            "id": 2,
+            "id_atributo": 1,
+            "valor": "Bebé"
+        },
+        {
+            "id": 3,
+            "id_atributo": 2,
+            "valor": "250ml"
+        },
+        {
+            "id": 4,
+            "id_atributo": 2,
+            "valor": "500ml"
+        },
+        {
+            "id": 5,
+            "id_atributo": 3,
+            "valor": "Ariel"
+        },
+        {
+            "id": 6,
+            "id_atributo": 3,
+            "valor": "Skip"
+        },
+        {
+            "id": 7,
+            "id_atributo": 3,
+            "valor": "Ala"
+        },
+        {
+            "id": 8,
+            "id_atributo": 2,
+            "valor": "80cm"
+        },
+        {
+            "id": 9,
+            "id_atributo": 2,
+            "valor": "5L"
+        }
+    ],
+    "producto_atributo": [
+        {
+            "id": 1,
+            "id_producto": 1,
+            "id_valor_atributos": [1, 2, 3, 4]
+        },
+        {
+            "id": 2,
+            "id_producto": 2,
+            "id_valor_atributos": [5, 6, 7, 9]
+        },
+        {
+            "id": 3,
+            "id_producto": 3,
+            "id_valor_atributos": [8]
+        }
+    ]
+}
