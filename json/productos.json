@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "nombre": "Difusor Saphirus"
+    },
+    {
+        "id": 2,
+        "nombre": "Jabón líquido"
+    },
+    {
+        "id": 3,
+        "nombre": "Palita de barrer",
+        "descripcion": "Palita de barrer con mango largo de plastico"
+    }
+]
