@@ -150,7 +150,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 import NoImage from '@/components/ui/NoImage.vue';
-import source from '../../../ejemplo relacion atributo-producto.json';
+import source from '../../../json/ejemplo relacion atributo-producto.json';
 
 const search = ref('');
 const selectedProducto = ref(0);

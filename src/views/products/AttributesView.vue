@@ -233,7 +233,7 @@ import CrudTableLayout from '@/components/ui/CrudTableLayout.vue';
 import AppModal from '@/components/ui/AppModal.vue';
 import ConfirmModal from '@/components/ui/ConfirmModal.vue';
 import { useTableSort } from '@/composables/useTableSort';
-import source from '../../../ejemplo relacion atributo-producto.json';
+import source from '../../../json/ejemplo relacion atributo-producto.json';
 
 const attributeColumns = [
     { key: 'id', label: 'ID', sortable: true },
