@@ -6,16 +6,16 @@
                     :class="[
                         'theme-card',
                         'd-flex align-items-start gap-3 p-3 rounded-3 cursor-pointer',
-                        { active: themeStore.current === theme.id },
+                        { active: themeStore.selected === theme.id },
                     ]"
                 >
                     <input
                         type="radio"
                         name="theme"
                         :value="theme.id"
-                        :checked="themeStore.current === theme.id"
+                        :checked="themeStore.selected === theme.id"
                         class="visually-hidden"
-                        @change="themeStore.apply(theme.id)"
+                        @change="themeStore.setSelected(theme.id)"
                     />
 
                     <!-- Preview miniatura -->
@@ -39,7 +39,7 @@
                     </div>
 
                     <i
-                        v-if="themeStore.current === theme.id"
+                        v-if="themeStore.selected === theme.id"
                         class="bi bi-check-circle-fill text-primary fs-5 mt-1"
                     ></i>
                 </label>

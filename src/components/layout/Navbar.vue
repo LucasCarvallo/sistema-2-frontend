@@ -19,7 +19,22 @@
         </div>
 
         <!-- Derecha: dropdown de cuenta -->
-        <div class="ms-auto">
+        <div class="ms-auto d-flex align-items-center gap-2">
+            <div v-if="session.user" class="form-check form-switch navbar-theme-switch mb-0">
+                <input
+                    id="quick-theme-switch"
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    :checked="themeStore.current !== 'light'"
+                    @change="themeStore.toggleLightSelected()"
+                />
+                <label class="form-check-label d-none d-md-inline" for="quick-theme-switch">
+                    <i :class="['bi', themeStore.current === 'light' ? 'bi-sun' : 'bi-moon-stars', 'me-1']"></i>
+                    {{ themeStore.current === 'light' ? 'Claro' : `Tema: ${activeThemeLabel}` }}
+                </label>
+            </div>
+
             <!-- Usuario autenticado -->
             <div v-if="session.user" class="dropdown">
                 <button
@@ -71,13 +86,21 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { RouterLink, useRouter } from 'vue-router';
 import { useSidebarStore } from '@/stores/sidebar';
 import { useSessionStore } from '@/stores/session';
+import { useThemeStore } from '@/stores/theme';
 
 const sidebarStore = useSidebarStore();
 const session = useSessionStore();
+const themeStore = useThemeStore();
 const router = useRouter();
+
+const activeThemeLabel = computed(() => {
+    const id = themeStore.current === 'light' ? themeStore.selected : themeStore.current;
+    return themeStore.themes.find((theme) => theme.id === id)?.label ?? id;
+});
 
 function handleLogout() {
     session.logout();
@@ -129,5 +152,21 @@ function handleLogout() {
 
 .navbar-primary-btn {
     box-shadow: 0 10px 20px rgba(13, 110, 253, 0.18);
+}
+
+.navbar-theme-switch {
+    padding-left: 2.3rem;
+    color: var(--app-navbar-color, #fff);
+}
+
+.navbar-theme-switch .form-check-input {
+    cursor: pointer;
+    margin-top: 0.2rem;
+}
+
+.navbar-theme-switch .form-check-label {
+    color: var(--app-navbar-color, #fff);
+    font-size: 0.82rem;
+    white-space: nowrap;
 }
 </style>
