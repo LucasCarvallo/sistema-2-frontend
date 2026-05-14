@@ -76,7 +76,8 @@ function isActive(item) {
     if (item.path === '/') {
         return route.path === '/';
     }
-    return route.path.startsWith(item.path);
+    // return route.path.startsWith(item.path);
+    return route.path === item.path;
 }
 
 function onLinkClick() {
