@@ -1,11 +1,126 @@
 <template>
-    <div class="container">
-        <p class="m-0">Pruebas</p>
+    <div>
+        <p class="m-0">Pruebas 2</p>
     </div>
+    <!-- <div v-if="apiError" class="alert alert-warning py-2 mt-2" role="alert">
+        {{ apiError }}
+    </div>
+    <div class="card border-0 shadow-sm mt-3">
+        <div class="card-header fw-semibold">Filtros</div>
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-12 col-lg-4">
+                    <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                        <div class="fw-semibold">Categorias</div>
+                        <button
+                            v-if="categoryOptions.length"
+                            type="button"
+                            class="btn btn-sm btn-outline-secondary"
+                            @click="toggleAllCategories"
+                        >
+                            {{ allCategoriesSelected ? 'Limpiar seleccion' : 'Seleccionar todas' }}
+                        </button>
+                    </div>
+                    <div v-if="categoryOptions.length" class="d-grid gap-2">
+                        <div
+                            v-for="category in categoryOptions"
+                            :key="category"
+                            class="form-check"
+                        >
+                            <input
+                                :id="`category-${category}`"
+                                class="form-check-input"
+                                type="checkbox"
+                                :checked="selectedCategories.includes(category)"
+                                @change="toggleCategory(category, $event.target.checked)"
+                            >
+                            <label class="form-check-label" :for="`category-${category}`">
+                                {{ category }}
+                            </label>
+                        </div>
+                    </div>
+                    <div v-else class="small text-muted">No hay categorias disponibles.</div>
+                </div>
+                <div class="col-12 col-lg-8">
+                    <div class="fw-semibold mb-2">Videos</div>
+                    <div v-if="selectedCategories.length" class="d-grid gap-3">
+                        <div v-for="category in selectedCategories" :key="`videos-${category}`" class="border rounded p-2">
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                                <div class="small fw-semibold text-muted">{{ category }}</div>
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                    @click="toggleAllVideosByCategory(category)"
+                                >
+                                    {{ areAllVideosSelectedByCategory(category) ? 'Limpiar videos' : 'Seleccionar todos' }}
+                                </button>
+                            </div>
+                            <div class="row g-2">
+                                <div
+                                    v-for="video in videoOptionsByCategory[category] ?? []"
+                                    :key="video.key"
+                                    class="col-12 col-md-6"
+                                >
+                                    <div class="form-check">
+                                        <input
+                                            :id="`video-${video.key}`"
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            :checked="isVideoSelected(category, video.key)"
+                                            @change="toggleVideoSelection(category, video.key, $event.target.checked)"
+                                        >
+                                        <label class="form-check-label text-truncate d-block" :for="`video-${video.key}`" :title="video.label">
+                                            {{ video.label }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-else class="small text-muted">
+                        Selecciona una categoria para habilitar la seleccion de videos.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-3">
+        <div v-for="group in filteredGroups" :key="group.category" class="card border-0 shadow-sm mb-3">
+            <div class="card-header fw-semibold">
+                {{ group.category }}
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div
+                        v-for="v in group.videos"
+                        :key="v.key"
+                        class="col-12 col-md-6 col-xl-4"
+                    >
+                        <div class="h-100 border rounded p-2">
+                            <video
+                                class="w-100 rounded bg-black"
+                                :src="v.url"
+                                controls
+                                preload="metadata"
+                                role="button"
+                                tabindex="0"
+                                @click="openInNewTab(v.url)"
+                                @loadedmetadata="handleVideoMetadata"
+                                @durationchange="handleVideoMetadata"
+                                @timeupdate="handleVideoTimeUpdate"
+                                @ended="handleVideoEnded"
+                            ></video>
+                            <div class="small text-muted mt-2 text-truncate" :title="v.name">{{ v.name }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="container">
-        
-    </div>
+        <div v-if="!filteredGroups.length" class="small text-muted mt-2">
+            No hay nada para mostrar con los filtros actuales.
+        </div>
+    </div> -->
 </template>
 
 <script setup>
