@@ -102,9 +102,9 @@
                                     </div>
                                 </div>
                                 <div class="d-flex flex-column align-items-end gap-1">
-                                    <span class="badge rounded-pill text-bg-success-subtle text-success-emphasis">
+                                    <!-- <span class="badge rounded-pill text-bg-success-subtle text-success-emphasis">
                                         {{ product.totalValores }} valor(es)
-                                    </span>
+                                    </span> -->
                                     <span
                                         v-if="product.precios.length === 1"
                                         class="badge rounded-pill text-bg-warning-subtle text-warning-emphasis"
@@ -225,7 +225,7 @@ const groupedProducts = computed(() => {
                 producto_id: row.producto_id,
                 producto: row.producto,
                 descripcion: row.descripcion,
-                totalValores: 0,
+                // totalValores: 0,
                 variantesSet: new Set(),
                 preciosSet: new Set(),
                 imagesSet: new Set(),
@@ -234,7 +234,7 @@ const groupedProducts = computed(() => {
         }
 
         const product = groupedMap.get(row.producto_id);
-        product.totalValores += 1;
+        // product.totalValores += 1;
         product.variantesSet.add(row.variante_id);
         if (typeof row.precio === 'number') product.preciosSet.add(row.precio);
         if (row.img) product.imagesSet.add(row.img);
@@ -255,7 +255,7 @@ const groupedProducts = computed(() => {
             producto_id: product.producto_id,
             producto: product.producto,
             descripcion: product.descripcion,
-            totalValores: product.totalValores,
+            // totalValores: product.totalValores,
             totalVariantes: product.variantesSet.size,
             precios: Array.from(product.preciosSet).sort((a, b) => a - b),
             images: Array.from(product.imagesSet),
