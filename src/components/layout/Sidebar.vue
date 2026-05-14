@@ -45,8 +45,15 @@ const menu = [
         items: [
             { name: 'Clientes',   path: '/clients',   icon: 'bi-person-vcard'  },
             { name: 'Empleados',  path: '/employees', icon: 'bi-person-badge'  },
-            { name: 'Productos',  path: '/products',  icon: 'bi-box-seam'      },
             { name: 'Reportes',   path: '/reports',   icon: 'bi-bar-chart-line' },
+        ],
+    },
+    {
+        category: 'Productos',
+        items: [
+            { name: 'Productos',  path: '/products',  icon: 'bi-box-seam'      },
+            { name: 'Atributos', path: '/products/attributes', icon: 'bi-tags' },
+            { name: 'Relaciones', path: '/products/relations', icon: 'bi-diagram-3' },
         ],
     },
     {
