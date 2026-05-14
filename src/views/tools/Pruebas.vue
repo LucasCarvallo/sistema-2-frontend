@@ -82,17 +82,43 @@
                         <div class="card-body">
                             <div class="d-flex align-items-start justify-content-between gap-2 mb-2">
                                 <div class="d-flex align-items-start gap-2">
-                                    <NoImage :width="52" :height="40" />
+                                    <img
+                                        v-if="shouldShowImage(product.producto_id, product.images[0])"
+                                        :src="product.images[0]"
+                                        :alt="`Imagen de ${product.producto}`"
+                                        class="product-thumb"
+                                        loading="lazy"
+                                        @error="markImageError(product.producto_id, product.images[0])"
+                                    />
+                                    <NoImage v-else :width="52" :height="40" />
                                     <div>
-                                    <h6 class="mb-1 fw-semibold">{{ product.producto }}</h6>
-                                    <p v-if="product.descripcion" class="small text-muted mb-0">
-                                        {{ product.descripcion }}
-                                    </p>
+                                        <h6 class="mb-1 fw-semibold">{{ product.producto }}</h6>
+                                        <p v-if="product.descripcion" class="small text-muted mb-0">
+                                            {{ product.descripcion }}
+                                        </p>
+                                        <p v-if="product.images.length > 1" class="small text-muted mb-0">
+                                            {{ product.images.length }} imagenes registradas
+                                        </p>
                                     </div>
                                 </div>
-                                <span class="badge rounded-pill text-bg-success-subtle text-success-emphasis">
-                                    {{ product.totalValores }} valor(es)
-                                </span>
+                                <div class="d-flex flex-column align-items-end gap-1">
+                                    <span class="badge rounded-pill text-bg-success-subtle text-success-emphasis">
+                                        {{ product.totalValores }} valor(es)
+                                    </span>
+                                    <span
+                                        v-if="product.precios.length === 1"
+                                        class="badge rounded-pill text-bg-warning-subtle text-warning-emphasis"
+                                    >
+                                        {{ formatPrice(product.precios[0]) }}
+                                    </span>
+                                    <span
+                                        v-else-if="product.precios.length > 1"
+                                        class="badge rounded-pill text-bg-warning-subtle text-warning-emphasis"
+                                    >
+                                        {{ formatPrice(product.precios[0]) }} -
+                                        {{ formatPrice(product.precios[product.precios.length - 1]) }}
+                                    </span>
+                                </div>
                             </div>
 
                             <div class="d-flex flex-column gap-2 mt-3">
@@ -129,6 +155,7 @@ import source from '../../../ejemplo relacion atributo-producto.json';
 const search = ref('');
 const selectedProducto = ref(0);
 const selectedAtributo = ref(0);
+const brokenImages = ref(new Set());
 
 const productsById = new Map(source.producto.map((item) => [item.id, item]));
 const attributesById = new Map(source.atributos.map((item) => [item.id, item]));
@@ -137,22 +164,37 @@ const valuesById = new Map(source.valores_atributos.map((item) => [item.id, item
 const baseRows = computed(() => {
     return source.producto_atributo.flatMap((relacion) => {
         const product = productsById.get(relacion.id_producto);
-        const ids = Array.isArray(relacion.id_valor_atributos) ? relacion.id_valor_atributos : [];
+        const variantes = Array.isArray(relacion.atributos) ? relacion.atributos : [];
+        const relationPrice = Number(relacion.precio);
 
-        return ids.map((valorId) => {
-            const valorItem = valuesById.get(valorId);
-            const atributo = attributesById.get(valorItem?.id_atributo);
+        return variantes.flatMap((variante, varianteIndex) => {
+            const ids = Array.isArray(variante?.id_valor_atributos) ? variante.id_valor_atributos : [];
+            const image = typeof variante?.img === 'string' ? variante.img.trim() : '';
+            const variantPrice = Number(variante?.precio);
+            const precio = Number.isFinite(variantPrice)
+                ? variantPrice
+                : Number.isFinite(relationPrice)
+                  ? relationPrice
+                  : null;
 
-            return {
-                uid: `${relacion.id}-${valorId}`,
-                relacion_id: relacion.id,
-                producto_id: product?.id ?? relacion.id_producto,
-                producto: product?.nombre ?? `Producto ${relacion.id_producto}`,
-                descripcion: product?.descripcion ?? '',
-                atributo_id: atributo?.id ?? valorItem?.id_atributo ?? 0,
-                atributo: atributo?.nombre ?? 'Sin atributo',
-                valor: valorItem?.valor ?? `Valor ${valorId}`,
-            };
+            return ids.map((valorId) => {
+                const valorItem = valuesById.get(valorId);
+                const atributo = attributesById.get(valorItem?.id_atributo);
+
+                return {
+                    uid: `${relacion.id}-${varianteIndex}-${valorId}`,
+                    variante_id: `${relacion.id}-${varianteIndex}`,
+                    relacion_id: relacion.id,
+                    producto_id: product?.id ?? relacion.id_producto,
+                    producto: product?.nombre ?? `Producto ${relacion.id_producto}`,
+                    descripcion: product?.descripcion ?? '',
+                    atributo_id: atributo?.id ?? valorItem?.id_atributo ?? 0,
+                    atributo: atributo?.nombre ?? 'Sin atributo',
+                    valor: valorItem?.valor ?? `Valor ${valorId}`,
+                    precio,
+                    img: image,
+                };
+            });
         });
     });
 });
@@ -165,7 +207,7 @@ const filteredRows = computed(() => {
         const matchesAttribute = !selectedAtributo.value || row.atributo_id === selectedAtributo.value;
         const matchesSearch =
             !query ||
-            [row.producto, row.atributo, row.valor, row.descripcion]
+            [row.producto, row.atributo, row.valor, row.descripcion, row.precio ?? '']
                 .join(' ')
                 .toLowerCase()
                 .includes(query);
@@ -184,12 +226,18 @@ const groupedProducts = computed(() => {
                 producto: row.producto,
                 descripcion: row.descripcion,
                 totalValores: 0,
+                variantesSet: new Set(),
+                preciosSet: new Set(),
+                imagesSet: new Set(),
                 atributosMap: new Map(),
             });
         }
 
         const product = groupedMap.get(row.producto_id);
         product.totalValores += 1;
+        product.variantesSet.add(row.variante_id);
+        if (typeof row.precio === 'number') product.preciosSet.add(row.precio);
+        if (row.img) product.imagesSet.add(row.img);
 
         if (!product.atributosMap.has(row.atributo_id)) {
             product.atributosMap.set(row.atributo_id, {
@@ -208,6 +256,9 @@ const groupedProducts = computed(() => {
             producto: product.producto,
             descripcion: product.descripcion,
             totalValores: product.totalValores,
+            totalVariantes: product.variantesSet.size,
+            precios: Array.from(product.preciosSet).sort((a, b) => a - b),
+            images: Array.from(product.imagesSet),
             atributos: Array.from(product.atributosMap.values())
                 .map((attribute) => ({
                     atributo_id: attribute.atributo_id,
@@ -226,6 +277,13 @@ const counters = computed(() => [
     { label: 'Atributos', value: source.atributos.length },
     { label: 'Valores', value: source.valores_atributos.length },
     { label: 'Relaciones', value: source.producto_atributo.length },
+    {
+        label: 'Variantes',
+        value: source.producto_atributo.reduce(
+            (acc, relation) => acc + (Array.isArray(relation.atributos) ? relation.atributos.length : 0),
+            0,
+        ),
+    },
     { label: 'Combinaciones', value: baseRows.value.length },
 ]);
 
@@ -233,6 +291,23 @@ function clearFilters() {
     search.value = '';
     selectedProducto.value = 0;
     selectedAtributo.value = 0;
+}
+
+function markImageError(productId, imageUrl) {
+    if (!imageUrl) return;
+    const next = new Set(brokenImages.value);
+    next.add(`${productId}|${imageUrl}`);
+    brokenImages.value = next;
+}
+
+function shouldShowImage(productId, imageUrl) {
+    if (!imageUrl) return false;
+    return !brokenImages.value.has(`${productId}|${imageUrl}`);
+}
+
+function formatPrice(value) {
+    if (typeof value !== 'number' || Number.isNaN(value)) return 'Sin precio';
+    return new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS' }).format(value);
 }
 </script>
 
@@ -249,6 +324,15 @@ function clearFilters() {
 
 .grouped-card {
     border: 1px solid rgba(13, 110, 253, 0.08);
+}
+
+.product-thumb {
+    width: 52px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(13, 110, 253, 0.16);
+    flex: 0 0 auto;
 }
 
 .attribute-line {
