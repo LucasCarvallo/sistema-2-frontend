@@ -1,7 +1,7 @@
 <template>
     <div class="container py-3 py-md-4">
         <div class="row g-3">
-            <div class="col-12 col-xl-5">
+            <div class="col-12">
                 <CrudTableLayout
                     title="Atributos"
                     icon="bi-tags"
@@ -34,7 +34,7 @@
                 </CrudTableLayout>
             </div>
 
-            <div class="col-12 col-xl-7">
+            <div class="col-12">
                 <div class="card border-0 shadow-sm mb-3 value-filter-card">
                     <div class="card-body py-2 px-3">
                         <div class="row g-2 align-items-end">
