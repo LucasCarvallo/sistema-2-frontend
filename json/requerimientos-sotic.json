@@ -1,0 +1,116 @@
+[
+    {
+        "id": 1,
+        "titulo": "[DEV] PRESUPUESTADOR / COTIZADOR - Mejoras solicitadas por VENTAS - capacitacion 6/5",
+        "rama": "feature/mejoras-presupuestador",
+        "estado": "PENDIENTE USUARIO",
+        "descripcion": "",
+        "tareas": [
+            {
+                "id": 1,
+                "titulo": "1) Flete:  Asegurar que el descuento no aplique sobre el costo del flete.",
+                "descripcion": "Punto 1",
+                "subtareas": [
+                    {
+                        "id": 1,
+                        "titulo": "acomodar codigo",
+                        "inicio": "06-05-2026 19:03",
+                        "fin": "06-05-2026 19:45",
+                        "minutos": 42,
+                        "descripcion": ""
+                    },
+                    {
+                        "id": 2,
+                        "titulo": "requerimiento",
+                        "inicio": "06-05-2026 20:35",
+                        "fin": "06-05-2026 20:55",
+                        "minutos": 20,
+                        "descripcion": ""
+                    }
+                ],
+                "total_minutos_subtareas": 62
+            },
+            {
+                "id": 2,
+                "titulo": "2) DESCUENTO",
+                "descripcion": "A) Eliminar la visualización del descuento en el presupuesto final. Evitar que el cliente vea el porcentaje descontado. B) Descuento: Ajustar la impresión para que el precio unitario ya muestre el descuento aplicado. Esto permite ocultar la cifra total descontada.",
+                "subtareas": [
+                    {
+                        "id": 1,
+                        "titulo": "requerimiento",
+                        "inicio": "13-05-2026 20:15",
+                        "fin": "13-05-2026 21:10",
+                        "minutos": 55,
+                        "descripcion": ""
+                    }
+                ],
+                "total_minutos_subtareas": 55
+            },
+            {
+                "id": 3,
+                "titulo": "3) Divisa: Implementar funcionalidad de recargo para dólar divisa. Permitir ingresar manualmente el porcentaje de recargo al seleccionar esta moneda.",
+                "descripcion": "Punto 3",
+                "subtareas": [
+                    {
+                        "id": 1,
+                        "titulo": "corregir SELECT *, parametros SQL a SQL Bind (presu-condicion-venta.php)",
+                        "inicio": "18-05-2026 17:10",
+                        "fin": "18-05-2026 17:26",
+                        "minutos": 16,
+                        "descripcion": ""
+                    },
+                    {
+                        "id": 2,
+                        "titulo": "requerimiento",
+                        "inicio": "18-05-2026 17:26",
+                        "fin": "18-05-2026 18:03",
+                        "minutos": 37,
+                        "descripcion": "input recargo divisa para el porcentaje. nuevo campo en la tabla presu. integracion del nuevo campo de la tabla con el input y sincronizacion de datos."
+                    },
+                    {
+                        "id": 3,
+                        "titulo": "corregir SELECT *, parametros SQL a SQL Bind (verifica-datos-presu.php)",
+                        "inicio": "18-05-2026 18:03",
+                        "fin": "18-05-2026 18:25",
+                        "minutos": 22,
+                        "descripcion": ""
+                    },
+                    {
+                        "id": 4,
+                        "titulo": "Al implementar la funcionalidad se ve la necesidad de mostrarlo en el apartado de items (verifica-datos-presu.php)",
+                        "inicio": "18-05-2026 18:25",
+                        "fin": "18-05-2026 19:40",
+                        "minutos": 75,
+                        "descripcion": "agregado visual de RECARGO DIVISA en INFORMACION y tambien en la tabla junto a los articulos, flete y descuentos. aplicar calculo de recargo divisa al subtotal con descuento+flete para mostrar el total final con recargo incluido. modificaciones visuales para ver los distintos descuentos/recargos y subtotales (total de art, total de art con dto, total de art con dto aplicado + flete + recargo divisa)."
+                    },
+                    {
+                        "id": 5,
+                        "titulo": "faltó sumar el subtotal y el recargo de divisa al PDF",
+                        "inicio": "18-05-2026 20:37",
+                        "fin": "18-05-2026 20:55",
+                        "minutos": 18,
+                        "descripcion": ""
+                    }
+                ],
+                "total_minutos_subtareas": 168
+            },
+            {
+                "id": 4,
+                "titulo": "4) Dibujo : Revisar y modificar el diseño del presupuesto enviado. Incluir la firma del comercial y unificar el membrete con la identidad visual de SOTIC.",
+                "descripcion": "agregado de logo sotic y datos de contacto junto al presupuesto en el PDF. agregado de datos del vendedor en el footer.",
+                "subtareas": [
+                    {
+                        "id": 1,
+                        "titulo": "requerimiento",
+                        "inicio": "18-05-2026 19:50",
+                        "fin": "18-05-2026 20:36",
+                        "minutos": 46,
+                        "descripcion": ""
+                    }
+                ],
+                "total_minutos_subtareas": 46
+            }
+        ],
+        "minutos_totales": 331
+    }
+]
