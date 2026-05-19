@@ -99,17 +99,31 @@
                 "id": 4,
                 "titulo": "4) Dibujo : Revisar y modificar el diseño del presupuesto enviado. Incluir la firma del comercial y unificar el membrete con la identidad visual de SOTIC.",
                 "descripcion": "agregado de logo sotic y datos de contacto junto al presupuesto en el PDF. agregado de datos del vendedor en el footer.",
-                "total_minutos_subtareas": 46,
+                "total_minutos_subtareas": 56,
                 "subtareas": [
                     {
                         "id": 1,
                         "titulo": "requerimiento",
-                        "inicio": "18-05-2026 19:50",
+                        "inicio": "18-05-2026 19:40",
                         "fin": "18-05-2026 20:36",
-                        "minutos": 46,
+                        "minutos": 56,
                         "descripcion": ""
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "titulo": "[DEV] (REQ) - 28 - STOCKS - No se muestra LOTE ORIGEN",
+        "rama": "feature/dep-saldo-lote-origen",
+        "estado": "LISTO",
+        "descripcion": "",
+        "tareas": [
+            {
+                "id": 1,
+                "titulo": "requerimiento",
+                "descripcion": ""
             }
         ]
     }
