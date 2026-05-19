@@ -5,11 +5,13 @@
         "rama": "feature/mejoras-presupuestador",
         "estado": "PENDIENTE USUARIO",
         "descripcion": "",
+        "minutos_totales": 331,
         "tareas": [
             {
                 "id": 1,
                 "titulo": "1) Flete:  Asegurar que el descuento no aplique sobre el costo del flete.",
                 "descripcion": "Punto 1",
+                "total_minutos_subtareas": 62,
                 "subtareas": [
                     {
                         "id": 1,
@@ -27,13 +29,13 @@
                         "minutos": 20,
                         "descripcion": ""
                     }
-                ],
-                "total_minutos_subtareas": 62
+                ]
             },
             {
                 "id": 2,
                 "titulo": "2) DESCUENTO",
                 "descripcion": "A) Eliminar la visualización del descuento en el presupuesto final. Evitar que el cliente vea el porcentaje descontado. B) Descuento: Ajustar la impresión para que el precio unitario ya muestre el descuento aplicado. Esto permite ocultar la cifra total descontada.",
+                "total_minutos_subtareas": 55,
                 "subtareas": [
                     {
                         "id": 1,
@@ -43,13 +45,13 @@
                         "minutos": 55,
                         "descripcion": ""
                     }
-                ],
-                "total_minutos_subtareas": 55
+                ]
             },
             {
                 "id": 3,
                 "titulo": "3) Divisa: Implementar funcionalidad de recargo para dólar divisa. Permitir ingresar manualmente el porcentaje de recargo al seleccionar esta moneda.",
                 "descripcion": "Punto 3",
+                "total_minutos_subtareas": 168,
                 "subtareas": [
                     {
                         "id": 1,
@@ -91,13 +93,13 @@
                         "minutos": 18,
                         "descripcion": ""
                     }
-                ],
-                "total_minutos_subtareas": 168
+                ]
             },
             {
                 "id": 4,
                 "titulo": "4) Dibujo : Revisar y modificar el diseño del presupuesto enviado. Incluir la firma del comercial y unificar el membrete con la identidad visual de SOTIC.",
                 "descripcion": "agregado de logo sotic y datos de contacto junto al presupuesto en el PDF. agregado de datos del vendedor en el footer.",
+                "total_minutos_subtareas": 46,
                 "subtareas": [
                     {
                         "id": 1,
@@ -107,10 +109,8 @@
                         "minutos": 46,
                         "descripcion": ""
                     }
-                ],
-                "total_minutos_subtareas": 46
+                ]
             }
-        ],
-        "minutos_totales": 331
+        ]
     }
 ]
