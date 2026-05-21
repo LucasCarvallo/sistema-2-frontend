@@ -403,18 +403,15 @@
     }
 
     # EN DEV - PENDIENTE USUARIO - [DEV] Fwd: Fwd: Capacitación - Ventas - SGI - Uso - ACCESO A VISOR DE PLANOS { # rama: feature/visor-plano-vendedores
-        # inicio: 04-05-2026 16:41
-        # fin: 04-05-2026 17:39
-        # horas: 58min
+        inicio: 04-05-2026 16:41
+        fin: 04-05-2026 17:39
+        horas: 58min
 
-        Se necesita que todos los usuarios del PERFIL VENTAS (2) NO TENGAS ACCESO AL MÓDULO VISOR DE PLANOS (dentro de PEDIDOS)
-        A excepción de: RAMIRO T - MARIANA D - GERMÁN G.
-        ***"JEFATURA DE VENTAS" es un perfil definido? Porque si no lo es quizás sea bueno agregarlo de al
-
-        Si bien ya no se muestra el boton en el menú, pueden acceder vía URL. Probar en dev.
+        Se necesita que todos los usuarios del PERFIL VENTAS (2) NO TENGAS ACCESO AL MÓDULO VISOR DE PLANOS (dentro de PEDIDOS) a excepción de: RAMIRO T - MARIANA D - GERMÁN G.
+        REVISAR: Si bien ya no se muestra el boton en el menú, pueden acceder vía URL. Probar en dev.
     }
 
-    # EN LOCAL - Hacer dashboard.php de procesos para ver JSON { # rama: feature/procesos/dashboard
+    # EN LOCAL - Crear dashboard.php de procesos para ver JSON { # rama: feature/procesos/dashboard
         # inicio: 04-05-2026 20:00
         # fin: 04-05-2026 20:30
         # horas: 30min

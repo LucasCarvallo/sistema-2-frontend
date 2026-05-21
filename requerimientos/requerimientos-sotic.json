@@ -82,15 +82,55 @@
         "id": 5,
         "titulo": "[DEV] Fwd: Fwd: Capacitación - Ventas - SGI - Uso - ACCESO A VISOR DE PLANOS",
         "rama": "feature/visor-plano-vendedores",
-        "comentarios": [],
-        "tareas": []
+        "comentarios": [
+            "Se necesita que todos los usuarios del PERFIL VENTAS (2) NO TENGAS ACCESO AL MÓDULO VISOR DE PLANOS (dentro de PEDIDOS) a excepción de: RAMIRO T - MARIANA D - GERMÁN G.",
+            "REVISAR: Si bien ya no se muestra el boton en el menú, pueden acceder vía URL. Probar en dev."
+        ],
+        "tareas": [
+            {
+                "id": 1,
+                "titulo": "completar requerimiento",
+                "comentarios": [],
+                "minutos": 58,
+                "estado": "LISTO",
+                "inicio": "04-05-2026 16:41",
+                "fin": "04-05-2026 17:39",
+                "subtareas": []
+            }
+        ]
     },
     {
         "id": 6,
         "titulo": "[DEV] (RE) - 19 - PEDIDOS / PEDIDOS - Nuevos campos y filtros",
         "rama": "feature/ventas-campos-pedidos",
-        "comentarios": [],
-        "tareas": []
+        "comentarios": [
+            "parte 2 (wsp): Cuando el PERFIL q entra es distinto de vendedor:",
+            "- Por defecto mostrar TODOS los vendedores (queda seleccionado Pautasso pero te muestra todos).",
+            "- Permitir q si se filtra especificamente un vendedor, se pueda buscar los pedidos de ese vendedor",
+            "- Para el caso de los PIFs, mostrar en VENDEDOR 'PIF'. Q se pueda filtrar también 'VENDEDOR PIF' para buscar todos los PIFs"
+        ],
+        "tareas": [
+            {
+                "id": 1,
+                "titulo": "completar requerimiento",
+                "comentarios": [],
+                "minutos": 90,
+                "estado": "LISTO",
+                "inicio": "04-05-2026 18:30",
+                "fin": "04-05-2026 20:00",
+                "subtareas": []
+            },
+            {
+                "id": 2,
+                "titulo": "ajustes e implementacion de filtro vendedor en PIF",
+                "comentarios": [],
+                "minutos": 60,
+                "estado": "LISTO",
+                "inicio": "05-05-2026 18:30",
+                "fin": "05-05-2026 19:30",
+                "subtareas": []
+            }
+        ]
     },
     {
         "id": 7,
@@ -335,9 +375,24 @@
     },
     {
         "id": 9,
-        "titulo": "Hacer dashboard.php de procesos para ver JSON",
+        "titulo": "Crear dashboard.php de procesos para ver JSON",
         "rama": "feature/procesos/dashboard",
-        "comentarios": [],
-        "tareas": []
+        "comentarios": [
+            "crear un dashboard.php que muestre el estado de los procesos en base a los archivos JSON que se generan en monitor.php",
+            "json ejemplo: { 'proceso': 'procesa-art-rapido', 'inicio': '2026-04-21 10:15:01', 'fin': '2026-04-21 10:15:03', 'duracion': 2.14, 'estado': 'ok' }",
+            "en monitor.php los $data estan desalineados"
+        ],
+        "tareas": [
+            {
+                "id": 1,
+                "titulo": "completar requerimiento",
+                "comentarios": [],
+                "minutos": 30,
+                "estado": "LISTO",
+                "inicio": "04-05-2026 20:00",
+                "fin": "04-05-2026 20:30",
+                "subtareas": []
+            }
+        ]
     }
 ]
