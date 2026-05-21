@@ -9,6 +9,31 @@
             </div>
 
             <div class="col-12">
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body py-2 px-3">
+                        <div class="d-flex flex-wrap align-items-center gap-3">
+                            <div class="d-flex gap-3">
+                                <div class="form-check mb-0">
+                                    <input class="form-check-input" type="radio" v-model="reqEstadoMode" value="excluir" id="reqModeExcluir" />
+                                    <label class="form-check-label small" for="reqModeExcluir">Excluir estados</label>
+                                </div>
+                                <div class="form-check mb-0">
+                                    <input class="form-check-input" type="radio" v-model="reqEstadoMode" value="incluir" id="reqModeIncluir" />
+                                    <label class="form-check-label small" for="reqModeIncluir">Mostrar solo estados</label>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <div v-for="e in ESTADOS_REQUERIMIENTO" :key="e" class="form-check form-check-inline mb-0">
+                                    <input class="form-check-input" type="checkbox" :id="`req-estado-${e}`" :value="e" v-model="reqEstadosSeleccionados" />
+                                    <label class="form-check-label" :for="`req-estado-${e}`">
+                                        <span :class="estadoClass(e)">{{ e }}</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <CrudTableLayout
                     title="Requerimientos"
                     icon="bi-clipboard-check"
@@ -59,8 +84,8 @@
                 <div class="card border-0 shadow-sm mb-3">
                     <div class="card-body py-2 px-3">
                         <div class="row g-2 align-items-end">
-                            <div class="col-12 col-md-6">
-                                <label class="form-label small text-muted mb-1">Filtrar tareas por requerimiento</label>
+                            <div class="col-12 col-md-4">
+                                <label class="form-label small text-muted mb-1">Filtrar por requerimiento</label>
                                 <select v-model.number="taskFilterRequerimiento_id" class="form-select form-select-sm">
                                     <option :value="0">Todos los requerimientos</option>
                                     <option v-for="req in requerimientos" :key="req.id" :value="req.id">
@@ -68,7 +93,7 @@
                                     </option>
                                 </select>
                             </div>
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-4">
                                 <label class="form-label small text-muted mb-1">Buscar tarea</label>
                                 <div class="input-group input-group-sm">
                                     <span class="input-group-text"><i class="bi bi-search"></i></span>
@@ -78,6 +103,26 @@
                                         class="form-control"
                                         placeholder="ID, titulo, estado o requerimiento"
                                     />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="d-flex gap-3 mb-1">
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" v-model="taskEstadoMode" value="excluir" id="taskModeExcluir" />
+                                        <label class="form-check-label small" for="taskModeExcluir">Excluir</label>
+                                    </div>
+                                    <div class="form-check mb-0">
+                                        <input class="form-check-input" type="radio" v-model="taskEstadoMode" value="incluir" id="taskModeIncluir" />
+                                        <label class="form-check-label small" for="taskModeIncluir">Solo mostrar</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <div v-for="e in ESTADOS_TAREA" :key="e" class="form-check form-check-inline mb-0">
+                                        <input class="form-check-input" type="checkbox" :id="`task-estado-${e}`" :value="e" v-model="taskEstadosSeleccionados" />
+                                        <label class="form-check-label" :for="`task-estado-${e}`">
+                                            <span :class="estadoClass(e)">{{ e }}</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -302,9 +347,17 @@ import { useTableSort } from '@/composables/useTableSort';
 const requerimientos = ref([]);
 const tareas = ref([]);
 
+const ESTADOS_REQUERIMIENTO = ['EN DEV', 'EN PROD', 'EN LOCAL', 'EN PROCESO', 'LISTO'];
+const ESTADOS_TAREA = ['LISTO', 'HACER', 'REVISAR'];
+
 const reqSearch = ref('');
 const taskSearch = ref('');
 const taskFilterRequerimiento_id = ref(0);
+
+const reqEstadoMode = ref('excluir');
+const reqEstadosSeleccionados = ref(['LISTO', 'EN PROD', 'EN LOCAL']);
+const taskEstadoMode = ref('excluir');
+const taskEstadosSeleccionados = ref(['LISTO']);
 
 const requerimientoColumns = [
     { key: 'id', label: 'ID', sortable: true },
@@ -329,9 +382,18 @@ const taskColumns = [
 
 const filteredRequerimientos = computed(() => {
     const q = reqSearch.value.trim().toLowerCase();
-    if (!q) return requerimientos.value;
+    const seleccionados = reqEstadosSeleccionados.value.map((e) => e.toUpperCase());
 
     return requerimientos.value.filter((item) => {
+        const estadoItem = (item.estado || '').toUpperCase();
+
+        if (seleccionados.length) {
+            if (reqEstadoMode.value === 'excluir' && seleccionados.includes(estadoItem)) return false;
+            if (reqEstadoMode.value === 'incluir' && !seleccionados.includes(estadoItem)) return false;
+        }
+
+        if (!q) return true;
+
         return [String(item.id), item.titulo || '', item.rama || '', item.estado || '']
             .join(' ')
             .toLowerCase()
@@ -351,6 +413,14 @@ const filteredTasks = computed(() => {
         .filter((item) => {
             const filterByReq = !taskFilterRequerimiento_id.value || item.requerimiento_id === taskFilterRequerimiento_id.value;
             if (!filterByReq) return false;
+
+            const seleccionados = taskEstadosSeleccionados.value.map((e) => e.toUpperCase());
+            const estadoItem = (item.estado || '').toUpperCase();
+
+            if (seleccionados.length) {
+                if (taskEstadoMode.value === 'excluir' && seleccionados.includes(estadoItem)) return false;
+                if (taskEstadoMode.value === 'incluir' && !seleccionados.includes(estadoItem)) return false;
+            }
 
             if (!q) return true;
 
