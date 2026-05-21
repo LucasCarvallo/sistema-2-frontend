@@ -212,15 +212,82 @@
   {
     "id": 19,
     "requerimiento_id": 7,
+    "titulo": "5) NO Pasar a GANADO sin enviar el presupuesto por correo",
+    "comentarios": [],
+    "minutos": 0,
+    "estado": "HACER",
+    "inicio": "",
+    "fin": "",
+    "subtareas": []
+  },
+  {
+    "id": 20,
+    "requerimiento_id": 7,
+    "titulo": "6) Condición Pago: Revisar si existe condición 30 días fecha factura. Evaluar agregar esta condición de pago si es necesario.",
+    "comentarios": [],
+    "minutos": 0,
+    "estado": "HACER",
+    "inicio": "",
+    "fin": "",
+    "subtareas": []
+  },
+  {
+    "id": 21,
+    "requerimiento_id": 7,
+    "titulo": "7) OP Descuento: no llevo el descuento del presupuesto a la oportunidad",
+    "comentarios": [
+      "Relacionar la OP con el presupuesto",
+      "NOTA: El presupuesto puede generar una OP luego de enviarlo y pasarlo a estado GANADO.",
+      "presu-b.php: modificacion para que abra el presupuesto en nueva ventana en vez de la actual",
+      "verifica-datos-presu.php: se pasa el descuento como parametro a oportunidad-a.php",
+      "oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento",
+      "REVISAR: ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo"
+    ],
+    "minutos": 80,
+    "estado": "LISTO",
+    "inicio": "20-05-2026 18:01",
+    "fin": "20-05-2026 19:21",
+    "subtareas": [
+      {
+        "id": 26,
+        "titulo": "ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
+        "comentarios": [],
+        "minutos": 0,
+        "inicio": "",
+        "fin": "",
+        "estado": "HACER",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "requerimiento_id": 7,
+    "titulo": "8) Comentario NP: no sale",
+    "comentarios": [
+      "Relacionar la OP con el presupuesto (campo oportunidad.textonp)",
+      "Ver de donde saca (como se completa) el comentario 'textonp' de la tabla oportunidad campo 'textonp'",
+      "presu-print-pdf.php: el comentario del vendedor no estaba definido (textonp), se genero uno nuevo en base a los comentarios de la oportunidad (que debe estar generada, presu ganado)",
+      "Ahora toma el comentario de la tabla acciones"
+    ],
+    "minutos": 58,
+    "inicio": "20-05-2026 19:22",
+    "fin": "20-05-2026 20:20",
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 23,
+    "requerimiento_id": 7,
     "titulo": "20-05-2026 devolucion mejoras presupuestador",
     "comentarios": [],
-    "minutos": 238,
+    "minutos": 100,
     "estado": "HACER",
     "inicio": "",
     "fin": "",
     "subtareas": [
       {
-        "id": 20,
+        "id": 24,
         "titulo": "1) al agregar articulos los situa abajo y no le aplica los descuentos PERO en el PDF si lo aplica de forma individual y se ve correctamente.",
         "comentarios": [],
         "minutos": 40,
@@ -230,7 +297,7 @@
         "subtareas": []
       },
       {
-        "id": 21,
+        "id": 25,
         "titulo": "4) corregir firma comercial que no se ve en el PDF",
         "comentarios": [
           "DomPDF no reconoce el formato del campo 'firma' ya que este está en HTML",
@@ -244,7 +311,7 @@
         "subtareas": []
       },
       {
-        "id": 22,
+        "id": 26,
         "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)",
         "comentarios": [],
         "minutos": 0,
@@ -252,73 +319,11 @@
         "fin": "",
         "estado": "HACER",
         "subtareas": []
-      },
-      {
-        "id": 23,
-        "titulo": "5) NO Pasar a GANADO sin enviar el presupuesto por correo",
-        "comentarios": [],
-        "minutos": 0,
-        "inicio": "",
-        "fin": "",
-        "estado": "HACER",
-        "subtareas": []
-      },
-      {
-        "id": 24,
-        "titulo": "6) Condición Pago: Revisar si existe condición 30 días fecha factura. Evaluar agregar esta condición de pago si es necesario.",
-        "comentarios": [],
-        "minutos": 0,
-        "inicio": "",
-        "fin": "",
-        "estado": "HACER",
-        "subtareas": []
-      },
-      {
-        "id": 25,
-        "titulo": "7) OP Descuento: no llevo el descuento del presupuesto a la oportunidad",
-        "comentarios": [
-          "Relacionar la OP con el presupuesto",
-          "NOTA: El presupuesto puede generar una OP luego de enviarlo y pasarlo a estado GANADO.",
-          "presu-b.php: modificacion para que abra el presupuesto en nueva ventana en vez de la actual",
-          "verifica-datos-presu.php: se pasa el descuento como parametro a oportunidad-a.php",
-          "oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento",
-          "REVISAR: ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo"
-        ],
-        "minutos": 80,
-        "inicio": "20-05-2026 18:01",
-        "fin": "20-05-2026 19:21",
-        "estado": "LISTO",
-        "subtareas": []
-      },
-      {
-        "id": 26,
-        "titulo": "ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
-        "comentarios": [],
-        "minutos": 0,
-        "inicio": "",
-        "fin": "",
-        "estado": "HACER",
-        "subtareas": []
-      },
-      {
-        "id": 27,
-        "titulo": "8) Comentario NP: no sale",
-        "comentarios": [
-          "Relacionar la OP con el presupuesto (campo oportunidad.textonp)",
-          "Ver de donde saca (como se completa) el comentario 'textonp' de la tabla oportunidad campo 'textonp'",
-          "presu-print-pdf.php: el comentario del vendedor no estaba definido (textonp), se genero uno nuevo en base a los comentarios de la oportunidad (que debe estar generada, presu ganado)",
-          "Ahora toma el comentario de la tabla acciones"
-        ],
-        "minutos": 58,
-        "inicio": "20-05-2026 19:22",
-        "fin": "20-05-2026 20:20",
-        "estado": "LISTO",
-        "subtareas": []
       }
     ]
   },
   {
-    "id": 28,
+    "id": 27,
     "requerimiento_id": 9,
     "titulo": "completar requerimiento",
     "comentarios": [],

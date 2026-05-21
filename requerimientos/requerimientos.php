@@ -276,7 +276,7 @@
 
         # LISTO - punto 2 (sumado 55min) {
             2) DESCUENTO
-                - Eliminar la visualización del descuento en el presupuesto final. Evitar que el cliente vea el porcentaje descontado.
+                - Descuento: Eliminar la visualización del descuento en el presupuesto final. Evitar que el cliente vea el porcentaje descontado.
                 - Descuento: Ajustar la impresión para que el precio unitario ya muestre el descuento aplicado. Esto permite ocultar la cifra total descontada.
             
             requerimiento (sumado) {
@@ -340,6 +340,42 @@
             }
         }
 
+        # HACER - punto 5 (no sumado) {
+            Presupuestador - Botón Ganado: Evaluar la adición de un botón para marcar un presupuesto como Ganado. Esta función debe operar sin requerir el envío por correo electrónico previo.
+            Presupuestados - boton ganado sin que envie el PDF por  correo - NO.
+            NO - Pasar a GANADO sin enviar el presupuesto por correo.
+        }
+
+        # HACER - punto 6 (no sumado) {
+            Revisar Condición Pago: Revisar si existe condición 30 días fecha factura. Evaluar agregar esta condición de pago si es necesario.
+        }
+
+        REVISAR - 7) OP Descuento: no llevo el descuento del presupuesto a la oportunidad (sumado) {
+            Relacionar la OP con el presupuesto
+            NOTA: El presupuesto puede generar una OP luego de enviarlo y pasarlo a estado GANADO.
+            
+            presu-b.php: modificacion para que abra el presupuesto en nueva ventana en vez de la actual
+            verifica-datos-presu.php: se pasa el descuento como parametro a oportunidad-a.php
+            oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento
+
+            REVISAR: ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo {}
+
+            inicio: 20-05-2026 18:01
+            fin: 20-05-2026 19:21
+            horas: 1hr 20min
+        }
+
+        LISTO - 8) Comentario NP: no sale (sumado) {
+            Relacionar la OP con el presupuesto
+            Campo oportunidad.textonp
+            Ver de donde saca (como se completa) el comentario "textonp" de la tabla oportunidad campo "textonp"
+            presu-print-pdf.php: el comentario del vendedor no estaba definido (textonp), se genero uno nuevo en base a los comentarios de la oportunidad (que debe estar generada, presu ganado)
+
+            inicio: 20-05-2026 19:22
+            fin: 20-05-2026 20:20
+            horas: 58min
+        }
+
         # 20-05-2026 devolucion mejoras presupuestador (sumado 40+60+80+58min = 238min = 3hr 58min) {
             LISTO - 1) al agregar articulos los situa abajo y no le aplica los descuentos PERO en el PDF si lo aplica de forma individual y se ve correctamente. (sumado) {
                 inicio: 20-05-2026 14:30
@@ -357,38 +393,7 @@
                 fin: 20-05-2026 18:00
                 horas: 1hr
             }
-
-            HACER - 5) NO Pasar a GANADO sin enviar el presupuesto por correo {}
-            HACER - 6) Condición Pago: Revisar si existe condición 30 días fecha factura. Evaluar agregar esta condición de pago si es necesario. {}
-
-            REVISAR - 7) OP Descuento: no llevo el descuento del presupuesto a la oportunidad (sumado) {
-                Relacionar la OP con el presupuesto
-                NOTA: El presupuesto puede generar una OP luego de enviarlo y pasarlo a estado GANADO.
-                
-                presu-b.php: modificacion para que abra el presupuesto en nueva ventana en vez de la actual
-                verifica-datos-presu.php: se pasa el descuento como parametro a oportunidad-a.php
-                oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento
-
-                REVISAR: ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo {}
-
-                inicio: 20-05-2026 18:01
-                fin: 20-05-2026 19:21
-                horas: 1hr 20min
-            }
-
-            LISTO - 8) Comentario NP: no sale (sumado) {
-                Relacionar la OP con el presupuesto
-                Campo oportunidad.textonp
-                Ver de donde saca (como se completa) el comentario "textonp" de la tabla oportunidad campo "textonp"
-                presu-print-pdf.php: el comentario del vendedor no estaba definido (textonp), se genero uno nuevo en base a los comentarios de la oportunidad (que debe estar generada, presu ganado)
-
-                inicio: 20-05-2026 19:22
-                fin: 20-05-2026 20:20
-                horas: 58min
-            }
         }
-
-        total horas: 62+55+168+46+238 = 569min = 9hr 29min
     }
 
     # EN DEV - PENDIENTE USUARIO - [DEV] (RE) - 19 - PEDIDOS / PEDIDOS - Nuevos campos y filtros { # rama: feature/ventas-campos-pedidos
