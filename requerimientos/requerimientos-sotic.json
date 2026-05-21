@@ -1,27 +1,6 @@
 [
     {
         "id": 1,
-        "titulo": "[DEV] (REQ) - 28 - STOCKS - No se muestra LOTE ORIGEN",
-        "rama": "feature/dep-saldo-lote-origen",
-        "comentarios": [],
-        "tareas": [
-            {
-                "id": 1,
-                "titulo": "completar requerimiento",
-                "comentarios": [
-                    "La consulta SALDOS-LOTE 'nueva' no muestra el LOTE ORIGEN, a pesar de q está el filtro para eso. Se necesita contar con ese campo visible. Se puede agregar? Gracias",
-                    "Corregir la DESCARGA COMPLETA del excel porque solo trae headers sin datos (por wsp)"
-                ],
-                "minutos": 51,
-                "estado": "LISTO",
-                "inicio": "06-05-2026 18:32",
-                "fin": "06-05-2026 19:23",
-                "subtareas": []
-            }
-        ]
-    },
-    {
-        "id": 2,
         "titulo": "[DEV] (REQ) 27 - GESTIÓN DE STOCKS - Error DEPÓSITO 0",
         "rama": "fix/saldos-deposito-0",
         "comentarios": [],
@@ -34,6 +13,28 @@
                 "estado": "LISTO",
                 "inicio": "05-05-2026 12:00",
                 "fin": "05-05-2026 15:07",
+                "subtareas": []
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "titulo": "[DEV] (REQ) - Oportunidades de LISTA- Quitar botón LISTA ESPECIAL - Agregar botón para acceder a LISTADO COMPLETO DE ITEMS (sin precio)",
+        "rama": "feature/op-lista-botones",
+        "comentarios": [
+            "Para OPORTUNIDADES DE LISTA en ESTADO 22: 1- Quitar botón 'LISTA ESPECIAL' de las oportunidades. A modo informativo, indicar si esa tabla es una tabla fija de ARTÍCULOS o una tabla dinámica que se va ampliando.",
+            "2- Agregar el botón 'LISTADO COMPLETO DE ARTICULOS'. (Es el que actualmente está en los PIFs, hay que agregarlo también en OP de LISTA en ESTADO 22). En la ventana emergente agregar leyenda en color rojo: 'Ingrese el código del item especial, validando el mismo a través de un plano.'",
+            "En el módulo de Oportunidades, en la sección de LISTA, eliminar el botón 'LISTA ESPECIAL' y agregar un nuevo botón que diga 'LISTADO COMPLETO DE ITEMS'. Este nuevo botón debe redirigir a una página que muestre un listado completo de todos los items disponibles, sin mostrar los precios. La idea es que este listado sea utilizado para consultas rápidas sin necesidad de mostrar información sensible como los precios."
+        ],
+        "tareas": [
+            {
+                "id": 1,
+                "titulo": "completar requerimiento",
+                "comentarios": [],
+                "minutos": 115,
+                "estado": "LISTO",
+                "inicio": "05-05-2026 16:02",
+                "fin": "05-05-2026 17:57",
                 "subtareas": []
             }
         ]
@@ -58,22 +59,21 @@
     },
     {
         "id": 4,
-        "titulo": "[DEV] (REQ) - Oportunidades de LISTA- Quitar botón LISTA ESPECIAL - Agregar botón para acceder a LISTADO COMPLETO DE ITEMS (sin precio)",
-        "rama": "feature/op-lista-botones",
-        "comentarios": [
-            "Para OPORTUNIDADES DE LISTA en ESTADO 22: 1- Quitar botón 'LISTA ESPECIAL' de las oportunidades. A modo informativo, indicar si esa tabla es una tabla fija de ARTÍCULOS o una tabla dinámica que se va ampliando.",
-            "2- Agregar el botón 'LISTADO COMPLETO DE ARTICULOS'. (Es el que actualmente está en los PIFs, hay que agregarlo también en OP de LISTA en ESTADO 22). En la ventana emergente agregar leyenda en color rojo: 'Ingrese el código del item especial, validando el mismo a través de un plano.'",
-            "En el módulo de Oportunidades, en la sección de LISTA, eliminar el botón 'LISTA ESPECIAL' y agregar un nuevo botón que diga 'LISTADO COMPLETO DE ITEMS'. Este nuevo botón debe redirigir a una página que muestre un listado completo de todos los items disponibles, sin mostrar los precios. La idea es que este listado sea utilizado para consultas rápidas sin necesidad de mostrar información sensible como los precios."
-        ],
+        "titulo": "[DEV] (REQ) - 28 - STOCKS - No se muestra LOTE ORIGEN",
+        "rama": "feature/dep-saldo-lote-origen",
+        "comentarios": [],
         "tareas": [
             {
                 "id": 1,
                 "titulo": "completar requerimiento",
-                "comentarios": [],
-                "minutos": 115,
+                "comentarios": [
+                    "La consulta SALDOS-LOTE 'nueva' no muestra el LOTE ORIGEN, a pesar de q está el filtro para eso. Se necesita contar con ese campo visible. Se puede agregar? Gracias",
+                    "Corregir la DESCARGA COMPLETA del excel porque solo trae headers sin datos (por wsp)"
+                ],
+                "minutos": 51,
                 "estado": "LISTO",
-                "inicio": "05-05-2026 16:02",
-                "fin": "05-05-2026 17:57",
+                "inicio": "06-05-2026 18:32",
+                "fin": "06-05-2026 19:23",
                 "subtareas": []
             }
         ]
