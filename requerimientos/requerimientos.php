@@ -344,6 +344,9 @@
             Presupuestador - Botón Ganado: Evaluar la adición de un botón para marcar un presupuesto como Ganado. Esta función debe operar sin requerir el envío por correo electrónico previo.
             Presupuestados - boton ganado sin que envie el PDF por  correo - NO.
             NO - Pasar a GANADO sin enviar el presupuesto por correo.
+            inicio: 21-05-2026 17:50
+            fin: 21-05-2026 18:05
+            horas: 15min
         }
 
         # HACER - punto 6 (no sumado) {
