@@ -245,11 +245,21 @@
     ],
     "minutos": 80,
     "estado": "HACER",
-    "inicio": "20-05-2026 18:01",
-    "fin": "20-05-2026 19:21",
+    "inicio": "",
+    "fin": "",
     "subtareas": [
       {
-        "id": 26,
+        "id": 22,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "minutos": 80,
+        "inicio": "20-05-2026 18:01",
+        "fin": "20-05-2026 19:21",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 23,
         "titulo": "Ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
         "comentarios": [],
         "minutos": 0,
@@ -261,7 +271,7 @@
     ]
   },
   {
-    "id": 22,
+    "id": 24,
     "requerimiento_id": 7,
     "titulo": "8) Comentario NP: no sale",
     "comentarios": [
@@ -277,7 +287,7 @@
     "subtareas": []
   },
   {
-    "id": 23,
+    "id": 25,
     "requerimiento_id": 7,
     "titulo": "20-05-2026 devolucion mejoras presupuestador",
     "comentarios": [],
@@ -287,7 +297,7 @@
     "fin": "",
     "subtareas": [
       {
-        "id": 24,
+        "id": 26,
         "titulo": "1) al agregar articulos los situa abajo y no le aplica los descuentos PERO en el PDF si lo aplica de forma individual y se ve correctamente.",
         "comentarios": [],
         "minutos": 40,
@@ -297,7 +307,7 @@
         "subtareas": []
       },
       {
-        "id": 25,
+        "id": 27,
         "titulo": "4) corregir firma comercial que no se ve en el PDF",
         "comentarios": [
           "DomPDF no reconoce el formato del campo 'firma' ya que este está en HTML",
@@ -311,7 +321,7 @@
         "subtareas": []
       },
       {
-        "id": 26,
+        "id": 28,
         "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)",
         "comentarios": [],
         "minutos": 0,
@@ -323,7 +333,7 @@
     ]
   },
   {
-    "id": 27,
+    "id": 29,
     "requerimiento_id": 9,
     "titulo": "completar requerimiento",
     "comentarios": [],
