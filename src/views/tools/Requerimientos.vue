@@ -33,6 +33,9 @@
                     <template #cell-total_tareas="{ row }">
                         <span class="badge text-bg-secondary-subtle text-secondary-emphasis">{{ totalTareasByReq(row.id) }}</span>
                     </template>
+                    <template #cell-total_minutos="{ row }">
+                        <span class="badge text-bg-secondary-subtle text-secondary-emphasis">{{ minutosTotalesByReq(row.id) }}</span>
+                    </template>
                     <template #actions="{ row }">
                         <button class="btn btn-sm btn-primary me-1" type="button" @click="openRequerimientoModal(row)">
                             <i class="bi bi-pencil"></i>
@@ -302,6 +305,7 @@ const requerimientoColumns = [
     // { key: 'estado', label: 'Estado', sortable: true },
     { key: 'estado_calculado', label: 'Estado', sortable: false },
     { key: 'total_tareas', label: 'Tareas', sortable: false },
+    { key: 'total_minutos', label: 'Minutos', sortable: false },
 ];
 
 const taskColumns = [
@@ -373,6 +377,22 @@ const deleteTaskTarget = ref(null);
 
 const confirmReqMessage = ref('¿Eliminar requerimiento?');
 const confirmTaskMessage = ref('¿Eliminar tarea?');
+
+const minutosTotalesByReq = (requerimiento_id) => {
+    return tareas.value
+        .filter((item) => item.requerimiento_id === requerimiento_id)
+        // .reduce((total, item) => total + minutosTotalesByTask(item), 0);
+        .reduce((total, item) => total + Number(item.minutos) || 0, 0);
+};
+
+const minutosTotalesByTask = (task) => {
+    const subtaskMinutes = (task.subtareas || []).reduce((total, item) => total + (Number(item.minutos) || 0), 0);
+    return (Number(task.minutos) || 0) + subtaskMinutes;
+};
+
+const minutosTotales = computed(() => {
+    return tareas.value.reduce((total, item) => total + minutosTotalesByTask(item), 0);
+});
 
 const requerimientoForm = reactive({
     id: null,
