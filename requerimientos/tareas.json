@@ -11,7 +11,7 @@
     "subtareas": []
   },
   {
-    "id": 1,
+    "id": 2,
     "requerimiento_id": 2,
     "titulo": "completar requerimiento",
     "comentarios": [],
@@ -22,7 +22,7 @@
     "subtareas": []
   },
   {
-    "id": 1,
+    "id": 3,
     "requerimiento_id": 3,
     "titulo": "completar requerimiento",
     "comentarios": [],
@@ -33,7 +33,7 @@
     "subtareas": []
   },
   {
-    "id": 1,
+    "id": 4,
     "requerimiento_id": 4,
     "titulo": "completar requerimiento",
     "comentarios": [
@@ -47,7 +47,7 @@
     "subtareas": []
   },
   {
-    "id": 1,
+    "id": 5,
     "requerimiento_id": 5,
     "titulo": "completar requerimiento",
     "comentarios": [],
@@ -58,7 +58,7 @@
     "subtareas": []
   },
   {
-    "id": 1,
+    "id": 6,
     "requerimiento_id": 6,
     "titulo": "completar requerimiento",
     "comentarios": [],
@@ -69,7 +69,7 @@
     "subtareas": []
   },
   {
-    "id": 2,
+    "id": 7,
     "requerimiento_id": 6,
     "titulo": "ajustes e implementacion de filtro vendedor en PIF",
     "comentarios": [],
@@ -80,7 +80,7 @@
     "subtareas": []
   },
   {
-    "id": 1,
+    "id": 8,
     "requerimiento_id": 7,
     "titulo": "1) Flete:  Asegurar que el descuento no aplique sobre el costo del flete.",
     "comentarios": [],
@@ -90,7 +90,7 @@
     "fin": "",
     "subtareas": [
       {
-        "id": 1,
+        "id": 9,
         "titulo": "acomodar codigo",
         "comentarios": [],
         "minutos": 42,
@@ -100,7 +100,7 @@
         "subtareas": []
       },
       {
-        "id": 2,
+        "id": 10,
         "titulo": "completar requerimiento",
         "comentarios": [],
         "minutos": 20,
@@ -112,7 +112,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 11,
     "requerimiento_id": 7,
     "titulo": "2) DESCUENTO",
     "comentarios": [
@@ -126,7 +126,7 @@
     "subtareas": []
   },
   {
-    "id": 3,
+    "id": 12,
     "requerimiento_id": 7,
     "titulo": "3) Divisa: Implementar funcionalidad de recargo para dólar divisa. Permitir ingresar manualmente el porcentaje de recargo al seleccionar esta moneda.",
     "comentarios": [],
@@ -136,7 +136,7 @@
     "fin": "",
     "subtareas": [
       {
-        "id": 1,
+        "id": 13,
         "titulo": "corregir SELECT *, parametros SQL a SQL Bind (presu-condicion-venta.php)",
         "comentarios": [],
         "minutos": 16,
@@ -146,7 +146,7 @@
         "subtareas": []
       },
       {
-        "id": 2,
+        "id": 14,
         "titulo": "completar requerimiento",
         "comentarios": [
           "Input recargo divisa para el porcentaje",
@@ -160,7 +160,7 @@
         "subtareas": []
       },
       {
-        "id": 3,
+        "id": 15,
         "titulo": "corregir SELECT *, parametros SQL a SQL Bind (verifica-datos-presu.php)",
         "comentarios": [],
         "minutos": 22,
@@ -170,7 +170,7 @@
         "subtareas": []
       },
       {
-        "id": 4,
+        "id": 16,
         "titulo": "Al implementar la funcionalidad se ve la necesidad de mostrarlo en el apartado de items (verifica-datos-presu.php)",
         "comentarios": [
           "Agregado visual de RECARGO DIVISA en INFORMACION y tambien en la tabla junto a los articulos, flete y descuentos",
@@ -184,7 +184,7 @@
         "subtareas": []
       },
       {
-        "id": 5,
+        "id": 17,
         "titulo": "faltaba sumar el subtotal y el recargo de divisa al PDF",
         "comentarios": [],
         "minutos": 18,
@@ -196,7 +196,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 18,
     "requerimiento_id": 7,
     "titulo": "4) Dibujo : Revisar y modificar el diseño del presupuesto enviado. Incluir la firma del comercial y unificar el membrete con la identidad visual de SOTIC.",
     "comentarios": [
@@ -210,7 +210,7 @@
     "subtareas": []
   },
   {
-    "id": 5,
+    "id": 19,
     "requerimiento_id": 7,
     "titulo": "20-05-2026 devolucion mejoras presupuestador",
     "comentarios": [],
@@ -220,7 +220,7 @@
     "fin": "",
     "subtareas": [
       {
-        "id": 1,
+        "id": 20,
         "titulo": "1) al agregar articulos los situa abajo y no le aplica los descuentos PERO en el PDF si lo aplica de forma individual y se ve correctamente.",
         "comentarios": [],
         "minutos": 40,
@@ -230,7 +230,7 @@
         "subtareas": []
       },
       {
-        "id": 2,
+        "id": 21,
         "titulo": "4) corregir firma comercial que no se ve en el PDF",
         "comentarios": [
           "DomPDF no reconoce el formato del campo 'firma' ya que este está en HTML",
@@ -244,7 +244,7 @@
         "subtareas": []
       },
       {
-        "id": 3,
+        "id": 22,
         "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)",
         "comentarios": [],
         "minutos": 0,
@@ -254,7 +254,7 @@
         "subtareas": []
       },
       {
-        "id": 4,
+        "id": 23,
         "titulo": "5) NO Pasar a GANADO sin enviar el presupuesto por correo",
         "comentarios": [],
         "minutos": 0,
@@ -264,7 +264,7 @@
         "subtareas": []
       },
       {
-        "id": 5,
+        "id": 24,
         "titulo": "6) Condición Pago: Revisar si existe condición 30 días fecha factura. Evaluar agregar esta condición de pago si es necesario.",
         "comentarios": [],
         "minutos": 0,
@@ -274,7 +274,7 @@
         "subtareas": []
       },
       {
-        "id": 6,
+        "id": 25,
         "titulo": "7) OP Descuento: no llevo el descuento del presupuesto a la oportunidad",
         "comentarios": [
           "Relacionar la OP con el presupuesto",
@@ -291,7 +291,7 @@
         "subtareas": []
       },
       {
-        "id": 7,
+        "id": 26,
         "titulo": "ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
         "comentarios": [],
         "minutos": 0,
@@ -301,7 +301,7 @@
         "subtareas": []
       },
       {
-        "id": 8,
+        "id": 27,
         "titulo": "8) Comentario NP: no sale",
         "comentarios": [
           "Relacionar la OP con el presupuesto (campo oportunidad.textonp)",
@@ -318,7 +318,7 @@
     ]
   },
   {
-    "id": 1,
+    "id": 28,
     "requerimiento_id": 9,
     "titulo": "completar requerimiento",
     "comentarios": [],
