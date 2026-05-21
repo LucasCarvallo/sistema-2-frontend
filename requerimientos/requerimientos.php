@@ -450,10 +450,24 @@
         Corregir la DESCARGA COMPLETA del excel porque solo trae headers sin datos (por wsp)
     }
 
+    # LISTO EN PROD - [DEV] (REQ) 27 - GESTIÓN DE STOCKS - Error DEPÓSITO 0 { # rama: fix/saldos-deposito-0
+        inicio: 05-05-2026 12:00
+        fin: 05-05-2026 15:07
+        horas: 3hr 7min
+    }
+
+    # LISTO EN PROD - [DEV] Re: (RE) - 19 - PEDIDOS / PEDIDOS - Nuevos campos y filtros - Agregado PLAN DESPACHO { # rama: feature/plan-despacho-filtros
+        inicio: 06-05-2026 18:15
+        fin: 06-05-2026 18:30
+        horas: 15min
+
+        La CONSULTA PLAN DESPACHO cuando ingresa un PERFIL VENDEDOR (distinto a Mariana - Ramiro) solo mostrar los pedidos asociados a dicho vendedor (igual que lo que se hizo en PEDIDOS pero en PLAN DESPACHO)
+    }
+
     # LISTO EN PROD - [DEV] (REQ) - Oportunidades de LISTA- Quitar botón LISTA ESPECIAL - Agregar botón para acceder a LISTADO COMPLETO DE ITEMS (sin precio) { # rama: feature/op-lista-botones
-        # inicio: 05-05-2026 16:02
-        # fin: 05-05-2026 17:57
-        # horas: 1hr 55min
+        inicio: 05-05-2026 16:02
+        fin: 05-05-2026 17:57
+        horas: 1hr 55min
 
         Para OPORTUNIDADES DE LISTA en ESTADO 22
         1- Quitar botón "LISTA ESPECIAL" de las oportunidades. 
@@ -466,25 +480,6 @@
         En el módulo de Oportunidades, en la sección de LISTA, eliminar el botón "LISTA ESPECIAL" y agregar un nuevo botón que diga "LISTADO COMPLETO DE ITEMS".
         Este nuevo botón debe redirigir a una página que muestre un listado completo de todos los items disponibles, sin mostrar los precios.
         La idea es que este listado sea utilizado para consultas rápidas sin necesidad de mostrar información sensible como los precios.
-    }
-
-    # LISTO EN PROD - [DEV] (REQ) 27 - GESTIÓN DE STOCKS - Error DEPÓSITO 0 { # rama: fix/saldos-deposito-0
-        # inicio: 05-05-2026 12:00
-        # fin: 05-05-2026 15:07
-        # horas: 3hr 7min
-
-        archivos a revisar que hacen insert a tabla dep:
-        dep-tra, preparado-lote, dep-aju, dep-aju1, dep-aju-up, of-novedad, ipr-a.php
-        La acción IR se registra en ipr-a.php linea 330
-    }
-
-    # LISTO EN PROD - [DEV] Re: (RE) - 19 - PEDIDOS / PEDIDOS - Nuevos campos y filtros - Agregado PLAN DESPACHO { # rama: feature/plan-despacho-filtros
-        # inicio: 06-05-2026 18:15
-        # fin: 06-05-2026 18:30
-        # horas: 15min
-
-        La CONSULTA PLAN DESPACHO cuando ingresa un PERFIL VENDEDOR (distinto a Mariana - Ramiro) solo mostrar los pedidos asociados a dicho vendedor.
-        (igual que lo que se hizo en PEDIDOS pero en PLAN DESPACHO)
     }
 */
 
