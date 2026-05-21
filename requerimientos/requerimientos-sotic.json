@@ -6,6 +6,7 @@
         "comentarios": [],
         "tareas": [
             {
+                "id": 1,
                 "titulo": "completar requerimiento",
                 "comentarios": [
                     "La consulta SALDOS-LOTE 'nueva' no muestra el LOTE ORIGEN, a pesar de q está el filtro para eso. Se necesita contar con ese campo visible. Se puede agregar? Gracias",
@@ -26,6 +27,7 @@
         "comentarios": [],
         "tareas": [
             {
+                "id": 1,
                 "titulo": "completar requerimiento",
                 "comentarios": [],
                 "minutos": 187,
@@ -43,6 +45,7 @@
         "comentarios": [],
         "tareas": [
             {
+                "id": 1,
                 "titulo": "completar requerimiento",
                 "comentarios": [],
                 "minutos": 15,
@@ -64,6 +67,7 @@
         ],
         "tareas": [
             {
+                "id": 1,
                 "titulo": "completar requerimiento",
                 "comentarios": [],
                 "minutos": 115,
@@ -80,6 +84,7 @@
         "rama": "feature/mejoras-presupuestador",
         "tareas": [
             {
+                "id": 1,
                 "titulo": "1) Flete:  Asegurar que el descuento no aplique sobre el costo del flete.",
                 "comentarios": [],
                 "minutos": 62,
@@ -108,6 +113,7 @@
                 ]
             },
             {
+                "id": 2,
                 "titulo": "2) DESCUENTO",
                 "comentarios": [
                     "Eliminar la visualización del descuento en el presupuesto final. Evitar que el cliente vea el porcentaje descontado.",
@@ -120,6 +126,7 @@
                 "subtareas": []
             },
             {
+                "id": 3,
                 "titulo": "3) Divisa: Implementar funcionalidad de recargo para dólar divisa. Permitir ingresar manualmente el porcentaje de recargo al seleccionar esta moneda.",
                 "comentarios": [],
                 "minutos": 168,
@@ -186,6 +193,7 @@
                 ]
             },
             {
+                "id": 4,
                 "titulo": "4) Dibujo : Revisar y modificar el diseño del presupuesto enviado. Incluir la firma del comercial y unificar el membrete con la identidad visual de SOTIC.",
                 "comentarios": [
                     "Agregado de logo sotic y datos de contacto junto al presupuesto en el PDF.",
@@ -198,6 +206,7 @@
                 "subtareas": []
             },
             {
+                "id": 5,
                 "titulo": "20-05-2026 devolucion mejoras presupuestador",
                 "comentarios": [],
                 "minutos": 0,
