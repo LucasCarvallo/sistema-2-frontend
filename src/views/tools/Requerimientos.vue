@@ -4,6 +4,11 @@
 
         <div class="row g-4">
             <div class="col-12">
+                Minutos totales: <span class="badge text-bg-info-subtle text-info-emphasis">{{ minutosTotales }}</span>
+                Horas totales: <span class="badge text-bg-info-subtle text-info-emphasis">{{ horasTotales }}</span>
+            </div>
+
+            <div class="col-12">
                 <CrudTableLayout
                     title="Requerimientos"
                     icon="bi-clipboard-check"
@@ -35,6 +40,9 @@
                     </template>
                     <template #cell-total_minutos="{ row }">
                         <span class="badge text-bg-secondary-subtle text-secondary-emphasis">{{ minutosTotalesByReq(row.id) }}</span>
+                    </template>
+                    <template #cell-total_horas="{ row }">
+                        <span class="badge text-bg-secondary-subtle text-secondary-emphasis">{{ calcularHoras(minutosTotalesByReq(row.id)) }}</span>
                     </template>
                     <template #actions="{ row }">
                         <button class="btn btn-sm btn-primary me-1" type="button" @click="openRequerimientoModal(row)">
@@ -306,6 +314,7 @@ const requerimientoColumns = [
     { key: 'estado_calculado', label: 'Estado', sortable: false },
     { key: 'total_tareas', label: 'Tareas', sortable: false },
     { key: 'total_minutos', label: 'Minutos', sortable: false },
+    { key: 'total_horas', label: 'Horas', sortable: false },
 ];
 
 const taskColumns = [
@@ -392,8 +401,20 @@ const minutosTotalesByTask = (task) => {
 };
 
 const minutosTotales = computed(() => {
-    return tareas.value.reduce((total, item) => total + minutosTotalesByTask(item), 0);
+    return tareas.value.reduce((total, item) => total + Number(item.minutos) || 0, 0);
 });
+
+const horasTotales = computed(() => {
+    const horas = minutosTotales.value / 60;
+    const minutos_restantes = minutosTotales.value % 60;
+    return `${Math.floor(horas)}h ${Math.round(minutos_restantes)}m`;
+});
+
+const calcularHoras = (minutos) => {
+    const horas = minutos / 60;
+    const minutos_restantes = minutos % 60;
+    return `${Math.floor(horas)}h ${Math.round(minutos_restantes)}m`;
+};
 
 const requerimientoForm = reactive({
     id: null,
