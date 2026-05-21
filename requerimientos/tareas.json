@@ -203,7 +203,7 @@
       "Agregado de logo sotic y datos de contacto junto al presupuesto en el PDF.",
       "Agregado de datos del vendedor en el footer."
     ],
-    "minutos": 56,
+    "minutos": 116,
     "estado": "LISTO",
     "inicio": "",
     "fin": "",
@@ -326,8 +326,8 @@
     "requerimiento_id": 7,
     "titulo": "20-05-2026 devolucion mejoras presupuestador",
     "comentarios": [],
-    "minutos": 100,
-    "estado": "HACER",
+    "minutos": 40,
+    "estado": "LISTO",
     "inicio": "",
     "fin": "",
     "subtareas": [
