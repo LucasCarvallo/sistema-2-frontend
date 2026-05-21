@@ -93,8 +93,8 @@
                             </div>
                             <div class="row g-2 mt-2">
                                 <div class="col-12">
-                                    <label class="form-label">Descripciones</label>
-                                    <textarea v-model="tarea.descripcionesStr" class="form-control form-control-sm" rows="1" placeholder="Separar por salto de línea"></textarea>
+                                    <label class="form-label">Comentarios</label>
+                                    <textarea v-model="tarea.comentariosStr" class="form-control form-control-sm" rows="1" placeholder="Separar por salto de línea"></textarea>
                                 </div>
                             </div>
                             <div class="mt-2">
@@ -125,7 +125,7 @@
                                     </div>
                                     <div class="row g-2 mt-1">
                                         <div class="col-12">
-                                            <textarea v-model="sub.descripcionesStr" class="form-control form-control-sm" rows="1" placeholder="Descripciones (una por línea)"></textarea>
+                                            <textarea v-model="sub.comentariosStr" class="form-control form-control-sm" rows="1" placeholder="Comentarios (uno por línea)"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -196,11 +196,11 @@ function openModal(row = null) {
     if (row) {
         editingId.value = row.id
         Object.assign(form, JSON.parse(JSON.stringify(row)))
-        // Normalizar descripcionesStr para edición
+        // Normalizar comentariosStr para edición
         form.tareas?.forEach(t => {
-            t.descripcionesStr = (t.descripciones || []).join('\n')
+            t.comentariosStr = (t.comentarios || []).join('\n')
             t.subtareas?.forEach(s => {
-                s.descripcionesStr = (s.descripciones || []).join('\n')
+                s.comentariosStr = (s.comentarios || []).join('\n')
             })
         })
     } else {
@@ -220,7 +220,7 @@ function addTarea() {
     form.tareas.push({
         id: nextTareaId(form.tareas),
         titulo: '',
-        descripcionesStr: '',
+        comentariosStr: '',
         minutos: 0,
         estado: '',
         inicio: '',
@@ -235,7 +235,7 @@ function addSubtarea(tIdx) {
     form.tareas[tIdx].subtareas.push({
         id: nextTareaId(form.tareas[tIdx].subtareas),
         titulo: '',
-        descripcionesStr: '',
+        comentariosStr: '',
         minutos: 0,
         estado: '',
         inicio: '',
@@ -273,19 +273,19 @@ function saveRequerimiento() {
     validated.value = true
     if (!form.id || !form.titulo.trim() || !form.rama.trim() || !form.tareas.length) return
 
-    // Normalizar descripciones
+    // Normalizar comentarios
     form.tareas.forEach(t => {
-        t.descripciones = t.descripcionesStr?.split('\n').map(s => s.trim()).filter(Boolean) || []
+        t.comentarios = t.comentariosStr?.split('\n').map(s => s.trim()).filter(Boolean) || []
         t.subtareas?.forEach(s => {
-            s.descripciones = s.descripcionesStr?.split('\n').map(x => x.trim()).filter(Boolean) || []
+            s.comentarios = s.comentariosStr?.split('\n').map(x => x.trim()).filter(Boolean) || []
         })
     })
 
     const nuevo = JSON.parse(JSON.stringify(form))
     // Eliminar helpers temporales
     nuevo.tareas.forEach(t => {
-        delete t.descripcionesStr
-        t.subtareas?.forEach(s => { delete s.descripcionesStr })
+        delete t.comentariosStr
+        t.subtareas?.forEach(s => { delete s.comentariosStr })
     })
 
     if (editingId.value === null) {
