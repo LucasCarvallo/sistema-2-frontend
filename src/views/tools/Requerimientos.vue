@@ -407,6 +407,8 @@ const filteredTasks = computed(() => {
     return tareas.value
         .map((item) => ({
             ...item,
+            estado_original: item.estado || '',
+            estado: getTaskEstadoFinal(item),
             requerimiento_titulo: getRequerimientoTitulo(item.requerimiento_id),
             subtotal: item.subtareas?.length || 0,
         }))
@@ -520,6 +522,16 @@ function estadoClass(estado) {
 
 function totalTareasByReq(requerimiento_id) {
     return tareas.value.filter((item) => item.requerimiento_id === requerimiento_id).length;
+}
+
+function getTaskEstadoFinal(task) {
+    const estadoTarea = String(task?.estado || '').toUpperCase().trim();
+    if (estadoTarea !== 'LISTO') return task?.estado || '';
+
+    const subtareas = Array.isArray(task?.subtareas) ? task.subtareas : [];
+    const tieneSubtareaNoLista = subtareas.some((sub) => String(sub?.estado || '').toUpperCase().trim() !== 'LISTO');
+
+    return tieneSubtareaNoLista ? 'REVISAR' : 'LISTO';
 }
 
 function getRequerimientoTitulo(requerimiento_id) {
@@ -654,7 +666,7 @@ function openTaskModal(row = null) {
         taskForm.minutos = Number(row.minutos) || 0;
         taskForm.inicio = row.inicio || '';
         taskForm.fin = row.fin || '';
-        taskForm.estado = row.estado || '';
+        taskForm.estado = row.estado_original || row.estado || '';
         taskForm.subtareas = (row.subtareas || []).map((item) => normalizeSubtareaForForm(item));
     } else {
         resetTaskForm();
