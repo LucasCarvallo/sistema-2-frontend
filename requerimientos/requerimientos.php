@@ -321,7 +321,7 @@
                 horas: 1hr 15min
             }
 
-            falta sumar el subtotal y el recargo de divisa al PDF (sumado) {
+            faltaba sumar el subtotal y el recargo de divisa al PDF (sumado) {
                 inicio: 18-05-2026 20:37
                 fin: 18-05-2026 20:55
                 horas: 18min
@@ -369,7 +369,7 @@
                 verifica-datos-presu.php: se pasa el descuento como parametro a oportunidad-a.php
                 oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento
 
-                REVISAR: ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo
+                REVISAR: ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo {}
 
                 inicio: 20-05-2026 18:01
                 fin: 20-05-2026 19:21
@@ -442,12 +442,11 @@
 
 /* ################################################################# Requerimientos listos
     # LISTO EN PROD - [DEV] (REQ) - 28 - STOCKS - No se muestra LOTE ORIGEN { # rama: feature/dep-saldo-lote-origen
-        # inicio: 06-05-2026 18:32
-        # fin: 06-05-2026 19:23
-        # horas: 51min
+        inicio: 06-05-2026 18:32
+        fin: 06-05-2026 19:23
+        horas: 51min
         
-        La consulta SALDOS-LOTE "nueva" no muestra el LOTE ORIGEN, a pesar de q está el filtro para eso.
-        Se necesita contar con ese campo visible. Se puede agregar? Gracias
+        La consulta SALDOS-LOTE "nueva" no muestra el LOTE ORIGEN, a pesar de q está el filtro para eso. Se necesita contar con ese campo visible. Se puede agregar? Gracias
         Corregir la DESCARGA COMPLETA del excel porque solo trae headers sin datos (por wsp)
     }
 
