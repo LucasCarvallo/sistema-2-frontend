@@ -79,7 +79,21 @@
         ]
     },
     {
-        "id": 9,
+        "id": 5,
+        "titulo": "[DEV] Fwd: Fwd: Capacitación - Ventas - SGI - Uso - ACCESO A VISOR DE PLANOS",
+        "rama": "feature/visor-plano-vendedores",
+        "comentarios": [],
+        "tareas": []
+    },
+    {
+        "id": 6,
+        "titulo": "[DEV] (RE) - 19 - PEDIDOS / PEDIDOS - Nuevos campos y filtros",
+        "rama": "feature/ventas-campos-pedidos",
+        "comentarios": [],
+        "tareas": []
+    },
+    {
+        "id": 7,
         "titulo": "[DEV] PRESUPUESTADOR / COTIZADOR - Mejoras solicitadas por VENTAS - capacitacion 6/5",
         "rama": "feature/mejoras-presupuestador",
         "tareas": [
@@ -209,7 +223,7 @@
                 "id": 5,
                 "titulo": "20-05-2026 devolucion mejoras presupuestador",
                 "comentarios": [],
-                "minutos": 0,
+                "minutos": 238,
                 "estado": "HACER",
                 "subtareas": [
                     {
@@ -311,5 +325,19 @@
                 ]
             }
         ]
+    },
+    {
+        "id": 8,
+        "titulo": "[DEV] (REQ) 1 - ADM VENTAS - EDICIÓN DE PEDIDOS DESDE SGI - devolución 07/05",
+        "rama": "edicion-pedidos-2",
+        "comentarios": [],
+        "tareas": []
+    },
+    {
+        "id": 9,
+        "titulo": "Hacer dashboard.php de procesos para ver JSON",
+        "rama": "feature/procesos/dashboard",
+        "comentarios": [],
+        "tareas": []
     }
 ]
