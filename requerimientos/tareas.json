@@ -274,10 +274,24 @@
     "estado": "HACER",
     "inicio": "",
     "fin": "",
-    "subtareas": []
+    "subtareas": [
+      {
+        "id": 25,
+        "titulo": "analizar si hay condicion de pago y de donde la obtiene (si es que hay)",
+        "comentarios": [
+          "Tabla presu.condicion_venta",
+          "Actualmente tiene tipocvta.id = 3 (0/30 DIAS FECHA FACTURA)"
+        ],
+        "minutos": 0,
+        "inicio": "21-05-2026 18:49",
+        "fin": "21-05-2026 18:55",
+        "estado": "HACER",
+        "subtareas": []
+      }
+    ]
   },
   {
-    "id": 25,
+    "id": 26,
     "requerimiento_id": 7,
     "titulo": "7) OP Descuento: no llevo el descuento del presupuesto a la oportunidad",
     "comentarios": [
@@ -294,7 +308,7 @@
     "fin": "",
     "subtareas": [
       {
-        "id": 26,
+        "id": 27,
         "titulo": "completar requerimiento",
         "comentarios": [],
         "minutos": 80,
@@ -304,7 +318,7 @@
         "subtareas": []
       },
       {
-        "id": 27,
+        "id": 28,
         "titulo": "Ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
         "comentarios": [],
         "minutos": 0,
@@ -316,7 +330,7 @@
     ]
   },
   {
-    "id": 28,
+    "id": 29,
     "requerimiento_id": 7,
     "titulo": "8) Comentario NP: no sale",
     "comentarios": [
@@ -332,7 +346,7 @@
     "subtareas": []
   },
   {
-    "id": 29,
+    "id": 30,
     "requerimiento_id": 9,
     "titulo": "completar requerimiento",
     "comentarios": [],
