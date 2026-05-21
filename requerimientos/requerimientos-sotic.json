@@ -3,7 +3,6 @@
         "id": 1,
         "titulo": "[DEV] (REQ) - 28 - STOCKS - No se muestra LOTE ORIGEN",
         "rama": "feature/dep-saldo-lote-origen",
-        "estado": "LISTO",
         "comentarios": [],
         "tareas": [
             {
@@ -25,7 +24,6 @@
         "id": 2,
         "titulo": "[DEV] (REQ) 27 - GESTIÓN DE STOCKS - Error DEPÓSITO 0",
         "rama": "fix/saldos-deposito-0",
-        "estado": "LISTO",
         "comentarios": [],
         "tareas": [
             {
@@ -44,7 +42,6 @@
         "id": 3,
         "titulo": "[DEV] Re: (RE) - 19 - PEDIDOS / PEDIDOS - Nuevos campos y filtros - Agregado PLAN DESPACHO",
         "rama": "feature/plan-despacho-filtros",
-        "estado": "LISTO",
         "comentarios": [],
         "tareas": [
             {
@@ -63,7 +60,6 @@
         "id": 4,
         "titulo": "[DEV] (REQ) - Oportunidades de LISTA- Quitar botón LISTA ESPECIAL - Agregar botón para acceder a LISTADO COMPLETO DE ITEMS (sin precio)",
         "rama": "feature/op-lista-botones",
-        "estado": "LISTO",
         "comentarios": [
             "Para OPORTUNIDADES DE LISTA en ESTADO 22: 1- Quitar botón 'LISTA ESPECIAL' de las oportunidades. A modo informativo, indicar si esa tabla es una tabla fija de ARTÍCULOS o una tabla dinámica que se va ampliando.",
             "2- Agregar el botón 'LISTADO COMPLETO DE ARTICULOS'. (Es el que actualmente está en los PIFs, hay que agregarlo también en OP de LISTA en ESTADO 22). En la ventana emergente agregar leyenda en color rojo: 'Ingrese el código del item especial, validando el mismo a través de un plano.'",
@@ -86,7 +82,6 @@
         "id": 9,
         "titulo": "[DEV] PRESUPUESTADOR / COTIZADOR - Mejoras solicitadas por VENTAS - capacitacion 6/5",
         "rama": "feature/mejoras-presupuestador",
-        "estado": "HACER",
         "tareas": [
             {
                 "id": 1,
