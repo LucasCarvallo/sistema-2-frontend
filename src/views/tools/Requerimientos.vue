@@ -50,7 +50,7 @@
                         <div class="row g-2 align-items-end">
                             <div class="col-12 col-md-6">
                                 <label class="form-label small text-muted mb-1">Filtrar tareas por requerimiento</label>
-                                <select v-model.number="taskFilterRequerimientoId" class="form-select form-select-sm">
+                                <select v-model.number="taskFilterRequerimiento_id" class="form-select form-select-sm">
                                     <option :value="0">Todos los requerimientos</option>
                                     <option v-for="req in requerimientos" :key="req.id" :value="req.id">
                                         #{{ req.id }} - {{ req.titulo }}
@@ -89,8 +89,8 @@
                     <template #cell-id="{ row }">
                         <span class="badge rounded-pill text-bg-light border">#{{ row.id }}</span>
                     </template>
-                    <template #cell-requerimientoId="{ row }">
-                        <span class="badge text-bg-secondary-subtle text-secondary-emphasis">#{{ row.requerimientoId }}</span>
+                    <template #cell-requerimiento_id="{ row }">
+                        <span class="badge text-bg-secondary-subtle text-secondary-emphasis">#{{ row.requerimiento_id }}</span>
                     </template>
                     <template #cell-requerimiento_titulo="{ row }">
                         <span class="small text-muted">{{ row.requerimiento_titulo }}</span>
@@ -176,7 +176,7 @@
                     </div>
                     <div class="col-sm-5">
                         <label class="form-label">Requerimiento <span class="text-danger">*</span></label>
-                        <select v-model.number="taskForm.requerimientoId" class="form-select" required>
+                        <select v-model.number="taskForm.requerimiento_id" class="form-select" required>
                             <option :value="0">Seleccionar...</option>
                             <option v-for="req in requerimientos" :key="req.id" :value="req.id">
                                 #{{ req.id }} - {{ req.titulo }}
@@ -293,7 +293,7 @@ const tareas = ref([]);
 
 const reqSearch = ref('');
 const taskSearch = ref('');
-const taskFilterRequerimientoId = ref(0);
+const taskFilterRequerimiento_id = ref(0);
 
 const requerimientoColumns = [
     { key: 'id', label: 'ID', sortable: true },
@@ -306,7 +306,7 @@ const requerimientoColumns = [
 
 const taskColumns = [
     { key: 'id', label: 'ID', sortable: true },
-    { key: 'requerimientoId', label: 'Req', sortable: true },
+    { key: 'requerimiento_id', label: 'Req', sortable: true },
     { key: 'requerimiento_titulo', label: 'Requerimiento', sortable: true },
     { key: 'titulo', label: 'Titulo', sortable: true },
     { key: 'estado', label: 'Estado', sortable: true },
@@ -332,18 +332,18 @@ const filteredTasks = computed(() => {
     return tareas.value
         .map((item) => ({
             ...item,
-            requerimiento_titulo: getRequerimientoTitulo(item.requerimientoId),
+            requerimiento_titulo: getRequerimientoTitulo(item.requerimiento_id),
             subtotal: item.subtareas?.length || 0,
         }))
         .filter((item) => {
-            const filterByReq = !taskFilterRequerimientoId.value || item.requerimientoId === taskFilterRequerimientoId.value;
+            const filterByReq = !taskFilterRequerimiento_id.value || item.requerimiento_id === taskFilterRequerimiento_id.value;
             if (!filterByReq) return false;
 
             if (!q) return true;
 
             return [
                 String(item.id),
-                String(item.requerimientoId),
+                String(item.requerimiento_id),
                 item.titulo || '',
                 item.estado || '',
                 item.requerimiento_titulo || '',
@@ -383,7 +383,7 @@ const requerimientoForm = reactive({
 
 const taskForm = reactive({
     id: null,
-    requerimientoId: 0,
+    requerimiento_id: 0,
     titulo: '',
     comentariosStr: '',
     minutos: 0,
@@ -400,15 +400,15 @@ function estadoClass(estado) {
     return 'badge bg-info-subtle text-info-emphasis';
 }
 
-function totalTareasByReq(requerimientoId) {
-    return tareas.value.filter((item) => item.requerimientoId === requerimientoId).length;
+function totalTareasByReq(requerimiento_id) {
+    return tareas.value.filter((item) => item.requerimiento_id === requerimiento_id).length;
 }
 
-function getRequerimientoTitulo(requerimientoId) {
-    return requerimientos.value.find((item) => item.id === requerimientoId)?.titulo || 'Requerimiento no encontrado';
+function getRequerimientoTitulo(requerimiento_id) {
+    return requerimientos.value.find((item) => item.id === requerimiento_id)?.titulo || 'Requerimiento no encontrado';
 }
 
-function nextRequerimientoId() {
+function nextRequerimiento_id() {
     if (!requerimientos.value.length) return 1;
     return Math.max(...requerimientos.value.map((item) => Number(item.id) || 0)) + 1;
 }
@@ -426,7 +426,7 @@ function nextSubtaskId(list) {
 function resetRequerimientoForm() {
     reqValidated.value = false;
     requerimientoEditingId.value = null;
-    requerimientoForm.id = nextRequerimientoId();
+    requerimientoForm.id = nextRequerimiento_id();
     requerimientoForm.titulo = '';
     requerimientoForm.rama = '';
     requerimientoForm.estado = '';
@@ -488,10 +488,10 @@ function confirmDeleteRequerimiento() {
 
     const reqId = deleteReqTarget.value.id;
     requerimientos.value = requerimientos.value.filter((item) => item.id !== reqId);
-    tareas.value = tareas.value.filter((item) => item.requerimientoId !== reqId);
+    tareas.value = tareas.value.filter((item) => item.requerimiento_id !== reqId);
 
-    if (taskFilterRequerimientoId.value === reqId) {
-        taskFilterRequerimientoId.value = 0;
+    if (taskFilterRequerimiento_id.value === reqId) {
+        taskFilterRequerimiento_id.value = 0;
     }
 
     deleteReqTarget.value = null;
@@ -501,7 +501,7 @@ function resetTaskForm() {
     taskValidated.value = false;
     taskEditingId.value = null;
     taskForm.id = nextTaskId();
-    taskForm.requerimientoId = taskFilterRequerimientoId.value || requerimientos.value[0]?.id || 0;
+    taskForm.requerimiento_id = taskFilterRequerimiento_id.value || requerimientos.value[0]?.id || 0;
     taskForm.titulo = '';
     taskForm.comentariosStr = '';
     taskForm.minutos = 0;
@@ -530,7 +530,7 @@ function openTaskModal(row = null) {
     if (row) {
         taskEditingId.value = row.id;
         taskForm.id = row.id;
-        taskForm.requerimientoId = row.requerimientoId || 0;
+        taskForm.requerimiento_id = row.requerimiento_id || 0;
         taskForm.titulo = row.titulo || '';
         taskForm.comentariosStr = (row.comentarios || []).join('\n');
         taskForm.minutos = Number(row.minutos) || 0;
@@ -583,7 +583,7 @@ function saveTask() {
 
     if (
         !taskForm.id ||
-        !taskForm.requerimientoId ||
+        !taskForm.requerimiento_id ||
         !taskForm.titulo.trim() ||
         !taskForm.inicio.trim() ||
         !taskForm.fin.trim()
@@ -601,7 +601,7 @@ function saveTask() {
 
     const payload = {
         id: Number(taskForm.id),
-        requerimientoId: Number(taskForm.requerimientoId),
+        requerimiento_id: Number(taskForm.requerimiento_id),
         titulo: taskForm.titulo.trim(),
         comentarios: taskForm.comentariosStr
             .split('\n')
@@ -650,10 +650,10 @@ function normalizeRequerimiento(source) {
     };
 }
 
-function normalizeTask(source, requerimientoId) {
+function normalizeTask(source, requerimiento_id) {
     return {
         id: Number(source.id),
-        requerimientoId,
+        requerimiento_id,
         titulo: source.titulo || '',
         comentarios: Array.isArray(source.comentarios) ? source.comentarios : [],
         minutos: Number(source.minutos) || 0,
@@ -675,8 +675,8 @@ function normalizeTask(source, requerimientoId) {
     };
 }
 
-function estadoRequerimiento(requerimientoId) {
-    const tareasReq = tareas.value.filter((tarea) => tarea.requerimientoId === requerimientoId);
+function estadoRequerimiento(requerimiento_id) {
+    const tareasReq = tareas.value.filter((tarea) => tarea.requerimiento_id === requerimiento_id);
 
     if (!tareasReq.length) {
         return '—';
@@ -704,22 +704,15 @@ function estadoRequerimiento(requerimientoId) {
 
 async function loadData() {
     try {
-        const response = await fetch('/requerimientos/requerimientos-sotic.json');
-        const data = await response.json();
-        const reqList = [];
-        const taskList = [];
+        const [reqRes, taskRes] = await Promise.all([
+            fetch('/requerimientos/requerimientos.json'),
+            fetch('/requerimientos/tareas.json'),
+        ]);
+        const reqList = await reqRes.json();
+        const taskList = await taskRes.json();
 
-        (Array.isArray(data) ? data : []).forEach((item) => {
-            const normalizedReq = normalizeRequerimiento(item);
-            reqList.push(normalizedReq);
-
-            (Array.isArray(item.tareas) ? item.tareas : []).forEach((task) => {
-                taskList.push(normalizeTask(task, normalizedReq.id));
-            });
-        });
-
-        requerimientos.value = reqList;
-        tareas.value = taskList;
+        requerimientos.value = Array.isArray(reqList) ? reqList : [];
+        tareas.value = Array.isArray(taskList) ? taskList : [];
         resetRequerimientoForm();
         resetTaskForm();
     } catch {
