@@ -11,4 +11,10 @@ export default [
         component: () => import('../../../views/tools/Pruebas.vue'),
         meta: { requiresAuth: true },
     },
+    {
+        path: '/tools/requerimientos',
+        name: 'requerimientos',
+        component: () => import('../../../views/tools/Requerimientos.vue'),
+        meta: { requiresAuth: true },
+    },
 ];

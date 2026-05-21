@@ -61,6 +61,7 @@ const menu = [
         items: [
             { name: 'JSON Beauty', path: '/tools/jsonbeauty', icon: 'bi-file-code' },
             { name: 'Pruebas',     path: '/tools/pruebas',     icon: 'bi-tools'     },
+            { name: 'Requerimientos', path: '/tools/requerimientos', icon: 'bi-list-check'     },
         ],
     },
     {
