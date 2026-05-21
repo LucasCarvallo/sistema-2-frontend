@@ -1,0 +1,331 @@
+[
+  {
+    "id": 1,
+    "requerimiento_id": 1,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "minutos": 187,
+    "estado": "LISTO",
+    "inicio": "05-05-2026 12:00",
+    "fin": "05-05-2026 15:07",
+    "subtareas": []
+  },
+  {
+    "id": 1,
+    "requerimiento_id": 2,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "minutos": 115,
+    "estado": "LISTO",
+    "inicio": "05-05-2026 16:02",
+    "fin": "05-05-2026 17:57",
+    "subtareas": []
+  },
+  {
+    "id": 1,
+    "requerimiento_id": 3,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "minutos": 15,
+    "estado": "LISTO",
+    "inicio": "06-05-2026 18:15",
+    "fin": "06-05-2026 18:30",
+    "subtareas": []
+  },
+  {
+    "id": 1,
+    "requerimiento_id": 4,
+    "titulo": "completar requerimiento",
+    "comentarios": [
+      "La consulta SALDOS-LOTE 'nueva' no muestra el LOTE ORIGEN, a pesar de q está el filtro para eso. Se necesita contar con ese campo visible. Se puede agregar? Gracias",
+      "Corregir la DESCARGA COMPLETA del excel porque solo trae headers sin datos (por wsp)"
+    ],
+    "minutos": 51,
+    "estado": "LISTO",
+    "inicio": "06-05-2026 18:32",
+    "fin": "06-05-2026 19:23",
+    "subtareas": []
+  },
+  {
+    "id": 1,
+    "requerimiento_id": 5,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "minutos": 58,
+    "estado": "LISTO",
+    "inicio": "04-05-2026 16:41",
+    "fin": "04-05-2026 17:39",
+    "subtareas": []
+  },
+  {
+    "id": 1,
+    "requerimiento_id": 6,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "minutos": 90,
+    "estado": "LISTO",
+    "inicio": "04-05-2026 18:30",
+    "fin": "04-05-2026 20:00",
+    "subtareas": []
+  },
+  {
+    "id": 2,
+    "requerimiento_id": 6,
+    "titulo": "ajustes e implementacion de filtro vendedor en PIF",
+    "comentarios": [],
+    "minutos": 60,
+    "estado": "LISTO",
+    "inicio": "05-05-2026 18:30",
+    "fin": "05-05-2026 19:30",
+    "subtareas": []
+  },
+  {
+    "id": 1,
+    "requerimiento_id": 7,
+    "titulo": "1) Flete:  Asegurar que el descuento no aplique sobre el costo del flete.",
+    "comentarios": [],
+    "minutos": 62,
+    "estado": "LISTO",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 1,
+        "titulo": "acomodar codigo",
+        "comentarios": [],
+        "minutos": 42,
+        "inicio": "06-05-2026 19:03",
+        "fin": "06-05-2026 19:45",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 2,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "minutos": 20,
+        "inicio": "06-05-2026 20:35",
+        "fin": "06-05-2026 20:55",
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "requerimiento_id": 7,
+    "titulo": "2) DESCUENTO",
+    "comentarios": [
+      "Eliminar la visualización del descuento en el presupuesto final. Evitar que el cliente vea el porcentaje descontado.",
+      "Descuento: Ajustar la impresión para que el precio unitario ya muestre el descuento aplicado. Esto permite ocultar la cifra total descontada."
+    ],
+    "minutos": 55,
+    "estado": "LISTO",
+    "inicio": "13-05-2026 20:15",
+    "fin": "13-05-2026 21:10",
+    "subtareas": []
+  },
+  {
+    "id": 3,
+    "requerimiento_id": 7,
+    "titulo": "3) Divisa: Implementar funcionalidad de recargo para dólar divisa. Permitir ingresar manualmente el porcentaje de recargo al seleccionar esta moneda.",
+    "comentarios": [],
+    "minutos": 168,
+    "estado": "LISTO",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 1,
+        "titulo": "corregir SELECT *, parametros SQL a SQL Bind (presu-condicion-venta.php)",
+        "comentarios": [],
+        "minutos": 16,
+        "inicio": "18-05-2026 17:10",
+        "fin": "18-05-2026 17:26",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 2,
+        "titulo": "completar requerimiento",
+        "comentarios": [
+          "Input recargo divisa para el porcentaje",
+          "Nuevo campo en la tabla presu",
+          "Integracion del nuevo campo de la tabla con el input y sincronizacion de datos"
+        ],
+        "minutos": 37,
+        "inicio": "18-05-2026 17:26",
+        "fin": "18-05-2026 18:03",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 3,
+        "titulo": "corregir SELECT *, parametros SQL a SQL Bind (verifica-datos-presu.php)",
+        "comentarios": [],
+        "minutos": 22,
+        "inicio": "18-05-2026 18:03",
+        "fin": "18-05-2026 18:25",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 4,
+        "titulo": "Al implementar la funcionalidad se ve la necesidad de mostrarlo en el apartado de items (verifica-datos-presu.php)",
+        "comentarios": [
+          "Agregado visual de RECARGO DIVISA en INFORMACION y tambien en la tabla junto a los articulos, flete y descuentos",
+          "Aplicar calculo de recargo divisa al subtotal con descuento+flete para mostrar el total final con recargo incluido",
+          "Modificaciones visuales para ver los distintos descuentos/recargos y subtotales (total de art, total de art con dto, total de art con dto aplicado + flete + recargo divisa)"
+        ],
+        "minutos": 75,
+        "inicio": "18-05-2026 18:25",
+        "fin": "18-05-2026 19:40",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 5,
+        "titulo": "faltaba sumar el subtotal y el recargo de divisa al PDF",
+        "comentarios": [],
+        "minutos": 18,
+        "inicio": "18-05-2026 20:37",
+        "fin": "18-05-2026 20:55",
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "requerimiento_id": 7,
+    "titulo": "4) Dibujo : Revisar y modificar el diseño del presupuesto enviado. Incluir la firma del comercial y unificar el membrete con la identidad visual de SOTIC.",
+    "comentarios": [
+      "Agregado de logo sotic y datos de contacto junto al presupuesto en el PDF.",
+      "Agregado de datos del vendedor en el footer."
+    ],
+    "minutos": 56,
+    "estado": "LISTO",
+    "inicio": "18-05-2026 19:40",
+    "fin": "18-05-2026 20:36",
+    "subtareas": []
+  },
+  {
+    "id": 5,
+    "requerimiento_id": 7,
+    "titulo": "20-05-2026 devolucion mejoras presupuestador",
+    "comentarios": [],
+    "minutos": 238,
+    "estado": "HACER",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 1,
+        "titulo": "1) al agregar articulos los situa abajo y no le aplica los descuentos PERO en el PDF si lo aplica de forma individual y se ve correctamente.",
+        "comentarios": [],
+        "minutos": 40,
+        "inicio": "20-05-2026 14:30",
+        "fin": "20-05-2026 15:10",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 2,
+        "titulo": "4) corregir firma comercial que no se ve en el PDF",
+        "comentarios": [
+          "DomPDF no reconoce el formato del campo 'firma' ya que este está en HTML",
+          "Se hizo firma con datos del vendedor de la tabla user",
+          "REVISAR: En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)"
+        ],
+        "minutos": 60,
+        "inicio": "20-05-2026 17:00",
+        "fin": "20-05-2026 18:00",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 3,
+        "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)",
+        "comentarios": [],
+        "minutos": 0,
+        "inicio": "",
+        "fin": "",
+        "estado": "HACER",
+        "subtareas": []
+      },
+      {
+        "id": 4,
+        "titulo": "5) NO Pasar a GANADO sin enviar el presupuesto por correo",
+        "comentarios": [],
+        "minutos": 0,
+        "inicio": "",
+        "fin": "",
+        "estado": "HACER",
+        "subtareas": []
+      },
+      {
+        "id": 5,
+        "titulo": "6) Condición Pago: Revisar si existe condición 30 días fecha factura. Evaluar agregar esta condición de pago si es necesario.",
+        "comentarios": [],
+        "minutos": 0,
+        "inicio": "",
+        "fin": "",
+        "estado": "HACER",
+        "subtareas": []
+      },
+      {
+        "id": 6,
+        "titulo": "7) OP Descuento: no llevo el descuento del presupuesto a la oportunidad",
+        "comentarios": [
+          "Relacionar la OP con el presupuesto",
+          "NOTA: El presupuesto puede generar una OP luego de enviarlo y pasarlo a estado GANADO.",
+          "presu-b.php: modificacion para que abra el presupuesto en nueva ventana en vez de la actual",
+          "verifica-datos-presu.php: se pasa el descuento como parametro a oportunidad-a.php",
+          "oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento",
+          "REVISAR: ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo"
+        ],
+        "minutos": 80,
+        "inicio": "20-05-2026 18:01",
+        "fin": "20-05-2026 19:21",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 7,
+        "titulo": "ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
+        "comentarios": [],
+        "minutos": 0,
+        "inicio": "",
+        "fin": "",
+        "estado": "HACER",
+        "subtareas": []
+      },
+      {
+        "id": 8,
+        "titulo": "8) Comentario NP: no sale",
+        "comentarios": [
+          "Relacionar la OP con el presupuesto (campo oportunidad.textonp)",
+          "Ver de donde saca (como se completa) el comentario 'textonp' de la tabla oportunidad campo 'textonp'",
+          "presu-print-pdf.php: el comentario del vendedor no estaba definido (textonp), se genero uno nuevo en base a los comentarios de la oportunidad (que debe estar generada, presu ganado)",
+          "Ahora toma el comentario de la tabla acciones"
+        ],
+        "minutos": 58,
+        "inicio": "20-05-2026 19:22",
+        "fin": "20-05-2026 20:20",
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "requerimiento_id": 9,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "minutos": 30,
+    "estado": "LISTO",
+    "inicio": "04-05-2026 20:00",
+    "fin": "04-05-2026 20:30",
+    "subtareas": []
+  }
+]

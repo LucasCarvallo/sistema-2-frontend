@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "titulo": "[DEV] (REQ) 27 - GESTIÓN DE STOCKS - Error DEPÓSITO 0",
+    "rama": "fix/saldos-deposito-0",
+    "comentarios": []
+  },
+  {
+    "id": 2,
+    "titulo": "[DEV] (REQ) - Oportunidades de LISTA- Quitar botón LISTA ESPECIAL - Agregar botón para acceder a LISTADO COMPLETO DE ITEMS (sin precio)",
+    "rama": "feature/op-lista-botones",
+    "comentarios": [
+      "Para OPORTUNIDADES DE LISTA en ESTADO 22: 1- Quitar botón 'LISTA ESPECIAL' de las oportunidades. A modo informativo, indicar si esa tabla es una tabla fija de ARTÍCULOS o una tabla dinámica que se va ampliando.",
+      "2- Agregar el botón 'LISTADO COMPLETO DE ARTICULOS'. (Es el que actualmente está en los PIFs, hay que agregarlo también en OP de LISTA en ESTADO 22). En la ventana emergente agregar leyenda en color rojo: 'Ingrese el código del item especial, validando el mismo a través de un plano.'",
+      "En el módulo de Oportunidades, en la sección de LISTA, eliminar el botón 'LISTA ESPECIAL' y agregar un nuevo botón que diga 'LISTADO COMPLETO DE ITEMS'. Este nuevo botón debe redirigir a una página que muestre un listado completo de todos los items disponibles, sin mostrar los precios. La idea es que este listado sea utilizado para consultas rápidas sin necesidad de mostrar información sensible como los precios."
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "[DEV] Re: (RE) - 19 - PEDIDOS / PEDIDOS - Nuevos campos y filtros - Agregado PLAN DESPACHO",
+    "rama": "feature/plan-despacho-filtros",
+    "comentarios": []
+  },
+  {
+    "id": 4,
+    "titulo": "[DEV] (REQ) - 28 - STOCKS - No se muestra LOTE ORIGEN",
+    "rama": "feature/dep-saldo-lote-origen",
+    "comentarios": []
+  },
+  {
+    "id": 5,
+    "titulo": "[DEV] Fwd: Fwd: Capacitación - Ventas - SGI - Uso - ACCESO A VISOR DE PLANOS",
+    "rama": "feature/visor-plano-vendedores",
+    "comentarios": [
+      "Se necesita que todos los usuarios del PERFIL VENTAS (2) NO TENGAS ACCESO AL MÓDULO VISOR DE PLANOS (dentro de PEDIDOS) a excepción de: RAMIRO T - MARIANA D - GERMÁN G.",
+      "REVISAR: Si bien ya no se muestra el boton en el menú, pueden acceder vía URL. Probar en dev."
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "[DEV] (RE) - 19 - PEDIDOS / PEDIDOS - Nuevos campos y filtros",
+    "rama": "feature/ventas-campos-pedidos",
+    "comentarios": [
+      "parte 2 (wsp): Cuando el PERFIL q entra es distinto de vendedor:",
+      "- Por defecto mostrar TODOS los vendedores (queda seleccionado Pautasso pero te muestra todos).",
+      "- Permitir q si se filtra especificamente un vendedor, se pueda buscar los pedidos de ese vendedor",
+      "- Para el caso de los PIFs, mostrar en VENDEDOR 'PIF'. Q se pueda filtrar también 'VENDEDOR PIF' para buscar todos los PIFs"
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "[DEV] PRESUPUESTADOR / COTIZADOR - Mejoras solicitadas por VENTAS - capacitacion 6/5",
+    "rama": "feature/mejoras-presupuestador",
+    "comentarios": []
+  },
+  {
+    "id": 8,
+    "titulo": "[DEV] (REQ) 1 - ADM VENTAS - EDICIÓN DE PEDIDOS DESDE SGI - devolución 07/05",
+    "rama": "edicion-pedidos-2",
+    "comentarios": []
+  },
+  {
+    "id": 9,
+    "titulo": "Crear dashboard.php de procesos para ver JSON",
+    "rama": "feature/procesos/dashboard",
+    "comentarios": [
+      "crear un dashboard.php que muestre el estado de los procesos en base a los archivos JSON que se generan en monitor.php",
+      "json ejemplo: { 'proceso': 'procesa-art-rapido', 'inicio': '2026-04-21 10:15:01', 'fin': '2026-04-21 10:15:03', 'duracion': 2.14, 'estado': 'ok' }",
+      "en monitor.php los $data estan desalineados"
+    ]
+  }
+]
