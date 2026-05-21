@@ -27,8 +27,8 @@
                     <template #cell-rama="{ row }">
                         <span class="text-muted small">{{ row.rama }}</span>
                     </template>
-                    <template #cell-estado="{ row }">
-                        <span :class="estadoClass(row.estado)">{{ row.estado || '—' }}</span>
+                    <template #cell-estado_calculado="{ row }">
+                        <span :class="estadoClass(estadoRequerimiento(row.id))">{{ estadoRequerimiento(row.id) || '—' }}</span>
                     </template>
                     <template #cell-total_tareas="{ row }">
                         <span class="badge text-bg-secondary-subtle text-secondary-emphasis">{{ totalTareasByReq(row.id) }}</span>
@@ -299,7 +299,8 @@ const requerimientoColumns = [
     { key: 'id', label: 'ID', sortable: true },
     { key: 'titulo', label: 'Titulo', sortable: true },
     { key: 'rama', label: 'Rama', sortable: true },
-    { key: 'estado', label: 'Estado', sortable: true },
+    // { key: 'estado', label: 'Estado', sortable: true },
+    { key: 'estado_calculado', label: 'Estado', sortable: false },
     { key: 'total_tareas', label: 'Tareas', sortable: false },
 ];
 
@@ -393,9 +394,9 @@ const taskForm = reactive({
 });
 
 function estadoClass(estado) {
-    if (!estado) return 'badge bg-secondary-subtle text-secondary-emphasis';
+    if (!estado || estado === '—') return 'badge bg-secondary-subtle text-secondary-emphasis';
     if (String(estado).toUpperCase().includes('LISTO')) return 'badge bg-success-subtle text-success-emphasis';
-    if (String(estado).toUpperCase().includes('HACER')) return 'badge bg-warning-subtle text-warning-emphasis';
+    if (String(estado).toUpperCase().includes('HACER') || String(estado).toUpperCase().includes('REVISAR')) return 'badge bg-warning-subtle text-warning-emphasis';
     return 'badge bg-info-subtle text-info-emphasis';
 }
 
@@ -672,6 +673,33 @@ function normalizeTask(source, requerimientoId) {
             }))
             : [],
     };
+}
+
+function estadoRequerimiento(requerimientoId) {
+    const tareasReq = tareas.value.filter((tarea) => tarea.requerimientoId === requerimientoId);
+
+    if (!tareasReq.length) {
+        return '—';
+    }
+
+    const estados = tareasReq.flatMap((tarea) => {
+        const subtareas = Array.isArray(tarea.subtareas) ? tarea.subtareas : [];
+
+        if (subtareas.length > 0) {
+            return subtareas
+                .map((subtarea) => (subtarea?.estado || '').toUpperCase().trim())
+                .filter(Boolean);
+        }
+
+        const estadoTarea = (tarea.estado || '').toUpperCase().trim();
+        return estadoTarea ? [estadoTarea] : [];
+    });
+
+    if (!estados.length) {
+        return '—';
+    }
+
+    return estados.every((estado) => estado === 'LISTO') ? 'LISTO' : 'REVISAR/HACER';
 }
 
 async function loadData() {
