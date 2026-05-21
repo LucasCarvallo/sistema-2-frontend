@@ -379,6 +379,7 @@ const confirmReqMessage = ref('¿Eliminar requerimiento?');
 const confirmTaskMessage = ref('¿Eliminar tarea?');
 
 const minutosTotalesByReq = (requerimiento_id) => {
+    // si no tiene subtarea entonces que retorne item.minutos, si tiene subtareas que sume los minutos de cada subtarea
     return tareas.value
         .filter((item) => item.requerimiento_id === requerimiento_id)
         // .reduce((total, item) => total + minutosTotalesByTask(item), 0);
