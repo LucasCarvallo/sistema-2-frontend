@@ -205,12 +205,47 @@
     ],
     "minutos": 56,
     "estado": "LISTO",
-    "inicio": "18-05-2026 19:40",
-    "fin": "18-05-2026 20:36",
-    "subtareas": []
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 19,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "minutos": 56,
+        "inicio": "18-05-2026 19:40",
+        "fin": "18-05-2026 20:36",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 20,
+        "titulo": "corregir firma comercial que no se ve en el PDF",
+        "comentarios": [
+          "DomPDF no reconoce el formato del campo 'firma' ya que este está en HTML",
+          "Se hizo firma con datos del vendedor de la tabla user",
+          "REVISAR: En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)"
+        ],
+        "minutos": 60,
+        "inicio": "20-05-2026 17:00",
+        "fin": "20-05-2026 18:00",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 21,
+        "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)",
+        "comentarios": [],
+        "minutos": 0,
+        "inicio": "",
+        "fin": "",
+        "estado": "HACER",
+        "subtareas": []
+      }
+    ]
   },
   {
-    "id": 19,
+    "id": 22,
     "requerimiento_id": 7,
     "titulo": "5) Botón Ganado: Evaluar la adición de un botón para marcar un presupuesto como Ganado. Esta función debe operar sin requerir el envío por correo electrónico previo.",
     "comentarios": [],
@@ -221,7 +256,7 @@
     "subtareas": []
   },
   {
-    "id": 20,
+    "id": 23,
     "requerimiento_id": 7,
     "titulo": "6) Condición Pago: Revisar si existe condición 30 días fecha factura. Evaluar agregar esta condición de pago si es necesario.",
     "comentarios": [],
@@ -232,7 +267,7 @@
     "subtareas": []
   },
   {
-    "id": 21,
+    "id": 24,
     "requerimiento_id": 7,
     "titulo": "7) OP Descuento: no llevo el descuento del presupuesto a la oportunidad",
     "comentarios": [
@@ -249,7 +284,7 @@
     "fin": "",
     "subtareas": [
       {
-        "id": 22,
+        "id": 25,
         "titulo": "completar requerimiento",
         "comentarios": [],
         "minutos": 80,
@@ -259,7 +294,7 @@
         "subtareas": []
       },
       {
-        "id": 23,
+        "id": 26,
         "titulo": "Ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
         "comentarios": [],
         "minutos": 0,
@@ -271,7 +306,7 @@
     ]
   },
   {
-    "id": 24,
+    "id": 27,
     "requerimiento_id": 7,
     "titulo": "8) Comentario NP: no sale",
     "comentarios": [
@@ -287,7 +322,7 @@
     "subtareas": []
   },
   {
-    "id": 25,
+    "id": 28,
     "requerimiento_id": 7,
     "titulo": "20-05-2026 devolucion mejoras presupuestador",
     "comentarios": [],
@@ -297,7 +332,7 @@
     "fin": "",
     "subtareas": [
       {
-        "id": 26,
+        "id": 29,
         "titulo": "1) al agregar articulos los situa abajo y no le aplica los descuentos PERO en el PDF si lo aplica de forma individual y se ve correctamente.",
         "comentarios": [],
         "minutos": 40,
@@ -305,35 +340,11 @@
         "fin": "20-05-2026 15:10",
         "estado": "LISTO",
         "subtareas": []
-      },
-      {
-        "id": 27,
-        "titulo": "4) corregir firma comercial que no se ve en el PDF",
-        "comentarios": [
-          "DomPDF no reconoce el formato del campo 'firma' ya que este está en HTML",
-          "Se hizo firma con datos del vendedor de la tabla user",
-          "REVISAR: En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)"
-        ],
-        "minutos": 60,
-        "inicio": "20-05-2026 17:00",
-        "fin": "20-05-2026 18:00",
-        "estado": "LISTO",
-        "subtareas": []
-      },
-      {
-        "id": 28,
-        "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)",
-        "comentarios": [],
-        "minutos": 0,
-        "inicio": "",
-        "fin": "",
-        "estado": "HACER",
-        "subtareas": []
       }
     ]
   },
   {
-    "id": 29,
+    "id": 30,
     "requerimiento_id": 9,
     "titulo": "completar requerimiento",
     "comentarios": [],
