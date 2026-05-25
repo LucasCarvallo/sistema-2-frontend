@@ -460,20 +460,23 @@ const confirmReqMessage = ref('¿Eliminar requerimiento?');
 const confirmTaskMessage = ref('¿Eliminar tarea?');
 
 const minutosTotalesByReq = (requerimiento_id) => {
-    // si no tiene subtarea entonces que retorne item.minutos, si tiene subtareas que sume los minutos de cada subtarea
     return tareas.value
         .filter((item) => item.requerimiento_id === requerimiento_id)
-        // .reduce((total, item) => total + minutosTotalesByTask(item), 0);
-        .reduce((total, item) => total + Number(item.minutos) || 0, 0);
+    .reduce((total, item) => total + minutosTotalesByTask(item), 0);
 };
 
 const minutosTotalesByTask = (task) => {
-    const subtaskMinutes = (task.subtareas || []).reduce((total, item) => total + (Number(item.minutos) || 0), 0);
-    return (Number(task.minutos) || 0) + subtaskMinutes;
+    const subtareas = Array.isArray(task.subtareas) ? task.subtareas : [];
+
+    if (subtareas.length > 0) {
+        return subtareas.reduce((total, item) => total + (Number(item.minutos) || 0), 0);
+    }
+
+    return Number(task.minutos) || 0;
 };
 
 const minutosTotales = computed(() => {
-    return tareas.value.reduce((total, item) => total + Number(item.minutos) || 0, 0);
+    return tareas.value.reduce((total, item) => total + minutosTotalesByTask(item), 0);
 });
 
 const horasTotales = computed(() => {
