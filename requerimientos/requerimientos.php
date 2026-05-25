@@ -23,8 +23,8 @@
 
             pedido-abm-encabezado.php: manejo de errores, variables indefinidas y validaciones (sumado) {
                 inicio: 19-05-2026 14:30
-                fin: 19-05-2026 14:56
-                horas: 26min
+                fin: 19-05-2026 14:59
+                horas: 29min
             }
 
             correcciones abm (sumado) {
@@ -132,7 +132,7 @@
                     horas: 1hr (listo en PedidoTango, falta implementar procesarCambiosLineas en PedidoSgi)
                 }
 
-                Modificar lógica en los métodos de PedidoSgi y creacion de nuevos (sumado) {
+                Modificar lógica en los métodos de PedidoSgi y creación de nuevos métodos (sumado) {
                     inicio retomo: 16-05-2026 22:30
                     fin: 16-05-2026 23:30
                     horas: 1hr (listo SGI updateLinea, falta revisar createLinea, deleteLinea que se invocan en procesarCambiosLineas)
@@ -157,14 +157,14 @@
             LISTO - Podes armar una consulta para ver una vista de esas tablas? (sumado) {
                 consulta sql {
                     inicio: 17-05-2026 19:15
-                    fin: 17-05-2026 19:25
-                    horas: 10min
+                    fin: 17-05-2026 19:30
+                    horas: 15min
                 }
 
                 Modificacion para agregar un panel que muestre los 10 ultimos pedidos y poder ver sus datos (sumado) {
                     inicio: 17-05-2026 23:15
-                    fin: 17-05-2026 23:25
-                    horas: 10min
+                    fin: 17-05-2026 23:30
+                    horas: 15min
                 }
             }
         }

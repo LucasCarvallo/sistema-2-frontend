@@ -355,5 +355,286 @@
     "inicio": "04-05-2026 20:00",
     "fin": "04-05-2026 20:30",
     "subtareas": []
+  },
+  {
+    "id": 31,
+    "requerimiento_id": 8,
+    "titulo": "pedido-abm-encabezado.php: manejo de errores, variables indefinidas y validaciones",
+    "comentarios": [],
+    "minutos": 29,
+    "estado": "LISTO",
+    "inicio": "19-05-2026 14:30",
+    "fin": "19-05-2026 14:59",
+    "subtareas": []
+  },
+  {
+    "id": 32,
+    "requerimiento_id": 8,
+    "titulo": "relacionar todos los campos que se utilizan en PedidoTango.php con nuevo controlador",
+    "comentarios": [
+      "Revise que campos usa cada get...() de PedidoTango.",
+      "Arme el mapeo de esos campos al nuevo PedidoController.",
+      "Ordene campos repetidos (header) para no duplicar lógica.",
+      "Ajuste nombres de claves para que coincidan en todas las pantallas.",
+      "Probe que siga funcionando en ABM sin romper lo existente."
+    ],
+    "minutos": 104,
+    "estado": "LISTO",
+    "inicio": "19-05-2026 17:03",
+    "fin": "19-05-2026 18:47",
+    "subtareas": []
+  },
+  {
+    "id": 33,
+    "requerimiento_id": 8,
+    "titulo": "modificacion de PedidoSgi y pedido-abm-*.php para usar la nueva estructura de datos y el nuevo controlador",
+    "comentarios": [
+      "Actualice PedidoSgi para que trabaje con la nueva estructura de datos.",
+      "Ajuste pedido-abm-*.php para leer y mostrar datos desde el controlador.",
+      "Reemplace accesos viejos de arrays por las nuevas claves unificadas.",
+      "Corregí validaciones y casos donde faltaban datos en el flujo.",
+      "Adapte alta/edición para que no se rompa al cambiar la fuente de datos.",
+      "Hice pruebas en ABM (encabezado, renglones, resumen e info adicional)."
+    ],
+    "minutos": 226,
+    "estado": "LISTO",
+    "inicio": "19-05-2026 18:50",
+    "fin": "19-05-2026 23:20",
+    "subtareas": []
+  },
+  {
+    "id": 34,
+    "requerimiento_id": 8,
+    "titulo": "pedido-abm-encabezado.php",
+    "comentarios": [
+      "manejo de error de los distintos tipos de informacion (tango, pif, pedidos, pedidos_art, etc)",
+      "panel de visualizacion cuando no hay datos o informacion"
+    ],
+    "minutos": 40,
+    "estado": "LISTO",
+    "inicio": "19-05-2026 23:50",
+    "fin": "20-05-2026 00:30",
+    "subtareas": []
+  },
+  {
+    "id": 35,
+    "requerimiento_id": 8,
+    "titulo": "Hacer lo mismo para NUEVO PEDIDO pero en lugar de vincular de una OPORTUNIDAD, vincular de un PIF",
+    "comentarios": [
+      "manejo de error de los distintos tipos de informacion (tango, pif, pedidos, pedidos_art, etc)",
+      "panel de visualizacion cuando no hay datos o informacion"
+    ],
+    "minutos": 120,
+    "estado": "HACER",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 36,
+        "titulo": "panel visual para buscar y ver datos PIF (pedido-abm-nuevo.php)",
+        "comentarios": [
+          "Agregue búsqueda por IDPIF en nuevo pedido.",
+          "Incorpore método para traer datos del PIF y mostrarlos en pantalla.",
+          "Arme panel visual para previsualizar datos principales del PIF.",
+          "Ajuste comportamiento de botones según tipo de búsqueda (OP o PIF).",
+          "Deje comentado “continuar pedido” cuando viene por PIF (pendiente backend).",
+          "Probe flujo de búsqueda y carga visual para evitar romper el modo OPORTUNIDAD.",
+          "agregado de idpif y metodo para buscar datos PIF",
+          "agregado visualizador de datos PIF para NUEVO PEDIDO",
+          "comentar boton continuar pedido si se busca PIF (no desarrollado en backend)"
+        ],
+        "minutos": 120,
+        "inicio": "19-05-2026 15:00",
+        "fin": "19-05-2026 17:00",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 37,
+        "titulo": "implementacion del backend con datos PIF",
+        "comentarios": [
+          "Desarrollar lógica para vincular nuevo pedido con datos del PIF.",
+          "Ajustar controlador para recibir IDPIF y traer datos relacionados.",
+          "Modificar modelo de pedido para incluir referencia al PIF.",
+          "Asegurar que al guardar el pedido se asocie correctamente con el PIF.",
+          "Probar creación de nuevo pedido desde PIF para validar integración."
+        ],
+        "minutos": 0,
+        "inicio": "",
+        "fin": "",
+        "estado": "HACER",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "requerimiento_id": 8,
+    "titulo": "Opción de generar una NV sin vincularla ni a PIF ni a OPORTUNIDAD. Sería un caso excepcional pero entiendo que puede ser necesario",
+    "comentarios": [],
+    "minutos": 0,
+    "estado": "HACER",
+    "inicio": "",
+    "fin": "",
+    "subtareas": []
+  },
+  {
+    "id": 39,
+    "requerimiento_id": 8,
+    "titulo": "El campo cotización debería tomar el de tango, que se actualiza diariamente",
+    "comentarios": [
+      "ahora toma el precio del dolar de SGI"
+    ],
+    "minutos": 15,
+    "estado": "LISTO",
+    "inicio": "07-05-2026 20:30",
+    "fin": "07-05-2026 20:45",
+    "subtareas": []
+  },
+  {
+    "id": 40,
+    "requerimiento_id": 8,
+    "titulo": "Vas avanzando con las tablas con la información del pedido en SGI?",
+    "comentarios": [],
+    "minutos": 415,
+    "estado": "LISTO",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 41,
+        "titulo": "SQL insert pedidos sgi",
+        "comentarios": [
+          "revision de campos necesarios, claves.",
+          "preparacion de las consultas SQL."
+        ],
+        "minutos": 60,
+        "inicio": "15-05-2026 18:20",
+        "fin": "15-05-2026 19:20",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 42,
+        "titulo": "Modificar lógica en los métodos de PedidoTango para separar de PedidoSgi.",
+        "comentarios": [
+          "revision de campos necesarios, claves.",
+          "preparacion de las consultas SQL."
+        ],
+        "minutos": 120,
+        "inicio": "15-05-2026 19:56",
+        "fin": "15-05-2026 21:56",
+        "estado": "",
+        "subtareas": []
+      },
+      {
+        "id": 43,
+        "titulo": "Modificar lógica en los métodos de PedidoSgi y creación de nuevos metodos",
+        "comentarios": [],
+        "minutos": 180,
+        "inicio": "17-05-2026 18:10",
+        "fin": "17-05-2026 21:10",
+        "estado": "",
+        "subtareas": []
+      },
+      {
+        "id": 44,
+        "titulo": "PedidoSgi.php: createLineasDesdeOportunidad",
+        "comentarios": [
+          "metodo para crear las lineas del pedido en base a la OP luego de haber pasado e insertado en Tango."
+        ],
+        "minutos": 55,
+        "inicio": "17-05-2026 20:30",
+        "fin": "17-05-2026 21:25",
+        "estado": "",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "requerimiento_id": 8,
+    "titulo": "Podes armar una consulta para ver una vista de esas tablas?",
+    "comentarios": [
+      "consulta sql",
+      "Modificacion para agregar un panel que muestre los 10 ultimos pedidos y poder ver sus datos"
+    ],
+    "minutos": 30,
+    "inicio": "17-05-2026 19:10",
+    "fin": "17-05-2026 19:40",
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 46,
+    "requerimiento_id": 8,
+    "titulo": "El campo con el numero de remito no lo utilizamos nunca, se puede eliminar",
+    "comentarios": [],
+    "minutos": 5,
+    "inicio": "07-05-2026 20:40",
+    "fin": "07-05-2026 20:45",
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 47,
+    "requerimiento_id": 8,
+    "titulo": "El campo “nro. de orden de compra” figura como obligatorio, debería no serlo, porque no siempre tenemos un numero asociado.",
+    "comentarios": [],
+    "minutos": 2,
+    "inicio": "07-05-2026 20:47",
+    "fin": "07-05-2026 20:49",
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 48,
+    "requerimiento_id": 8,
+    "titulo": "Corregir sucursal destino y origen (santa fe por defecto y unica)",
+    "comentarios": [
+      "Remover SQL para consultar sucursales y dejar solo SANTA FE.",
+      "En nuevo pedido debe ingresar siempre SANTA FE como sucursal de origen y destino, y no dejar modificarlo.",
+      "En editar pedido debe traer lo guardado en Tango y no dejar editar."
+    ],
+    "minutos": 90,
+    "inicio": "07-05-2026 20:53",
+    "fin": "07-05-2026 22:23",
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 49,
+    "requerimiento_id": 8,
+    "titulo": "Cuando se agrega un articulo en que moneda lo carga ¿? Estimo que lo está tomando en pesos, pero en la total figura en dólares.",
+    "comentarios": [
+      "se hicieron los metodos para que guarde la moneda correcta segun la seleccionada en el encabezado"
+    ],
+    "minutos": 60,
+    "inicio": "11-05-2026 19:57",
+    "fin": "11-05-2026 20:57",
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 50,
+    "requerimiento_id": 8,
+    "titulo": "No debe dejar modificar la descripción adicional de un artículo, ya que tienen códigos asignados (formulas) y si, por ejemplo, le borramos el color (como en la captura) puede ocurrir un error grave.",
+    "comentarios": [],
+    "minutos": 15,
+    "inicio": "07-05-2026 22:55",
+    "fin": "07-05-2026 22:10",
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 51,
+    "requerimiento_id": 8,
+    "titulo": "Las pestañas marcadas en amarillo no son visibles, y tampoco las utilizamos en la “diaria“",
+    "comentarios": [],
+    "minutos": 2,
+    "inicio": "08-05-2026 20:13",
+    "fin": "08-05-2026 20:15",
+    "estado": "LISTO",
+    "subtareas": []
   }
 ]
