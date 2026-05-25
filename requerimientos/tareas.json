@@ -524,7 +524,7 @@
         "minutos": 120,
         "inicio": "15-05-2026 19:56",
         "fin": "15-05-2026 21:56",
-        "estado": "",
+        "estado": "LISTO",
         "subtareas": []
       },
       {
@@ -534,7 +534,7 @@
         "minutos": 180,
         "inicio": "17-05-2026 18:10",
         "fin": "17-05-2026 21:10",
-        "estado": "",
+        "estado": "LISTO",
         "subtareas": []
       },
       {
@@ -546,7 +546,7 @@
         "minutos": 55,
         "inicio": "17-05-2026 20:30",
         "fin": "17-05-2026 21:25",
-        "estado": "",
+        "estado": "LISTO",
         "subtareas": []
       }
     ]
