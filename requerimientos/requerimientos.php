@@ -28,45 +28,41 @@
             }
 
             correcciones abm (sumado) {
-                mejorar estructuras de datos backend (sumado) {
-                    relacionar todos los campos que se utilizan en PedidoTango.php con nuevo controlador (sumado) {
-                        Revise que campos usa cada get...() de PedidoTango.
-                        Arme el mapeo de esos campos al nuevo PedidoController.
-                        Ordene campos repetidos (header) para no duplicar lógica.
-                        Ajuste nombres de claves para que coincidan en todas las pantallas.
-                        Probe que siga funcionando en ABM sin romper lo existente.
+                relacionar todos los campos que se utilizan en PedidoTango.php con nuevo controlador (sumado) {
+                    Revise que campos usa cada get...() de PedidoTango.
+                    Arme el mapeo de esos campos al nuevo PedidoController.
+                    Ordene campos repetidos (header) para no duplicar lógica.
+                    Ajuste nombres de claves para que coincidan en todas las pantallas.
+                    Probe que siga funcionando en ABM sin romper lo existente.
 
-                        inicio: 19-05-2026 17:03
-                        fin: 19-05-2026 18:47
-                        horas: 1hr 44min
-                    }
+                    inicio: 19-05-2026 17:03
+                    fin: 19-05-2026 18:47
+                    horas: 1hr 44min
+                }
 
-                    modificacion de PedidoSgi y pedido-abm-*.php para usar la nueva estructura de datos y el nuevo controlador (sumado) {
-                        Actualice PedidoSgi para que trabaje con la nueva estructura de datos.
-                        Ajuste pedido-abm-*.php para leer y mostrar datos desde el controlador.
-                        Reemplace accesos viejos de arrays por las nuevas claves unificadas.
-                        Corregí validaciones y casos donde faltaban datos en el flujo.
-                        Adapte alta/edición para que no se rompa al cambiar la fuente de datos.
-                        Hice pruebas en ABM (encabezado, renglones, resumen e info adicional).
+                modificacion de PedidoSgi y pedido-abm-*.php para usar la nueva estructura de datos y el nuevo controlador (sumado) {
+                    Actualice PedidoSgi para que trabaje con la nueva estructura de datos.
+                    Ajuste pedido-abm-*.php para leer y mostrar datos desde el controlador.
+                    Reemplace accesos viejos de arrays por las nuevas claves unificadas.
+                    Corregí validaciones y casos donde faltaban datos en el flujo.
+                    Adapte alta/edición para que no se rompa al cambiar la fuente de datos.
+                    Hice pruebas en ABM (encabezado, renglones, resumen e info adicional).
 
-                        inicio: 19-05-2026 18:50
-                        fin: 19-05-2026 19:56
-                        horas: 1hr 6min
+                    inicio: 19-05-2026 18:50
+                    fin: 19-05-2026 19:56
+                    horas: 1hr 6min
 
-                        inicio: 19-05-2026 20:00
-                        fin: 19-05-2026 20:30
-                        horas: 30min
+                    inicio: 19-05-2026 20:00
+                    fin: 19-05-2026 20:30
+                    horas: 30min
 
-                        inicio: 19-05-2026 20:40
-                        fin: 19-05-2026 21:30
-                        horas: 50min
+                    inicio: 19-05-2026 20:40
+                    fin: 19-05-2026 21:30
+                    horas: 50min
 
-                        inicio: 19-05-2026 22:00
-                        fin: 19-05-2026 23:20
-                        horas: 1hr 20min
-
-                        total horas: 3hr 40min
-                    }
+                    inicio: 19-05-2026 22:00
+                    fin: 19-05-2026 23:20
+                    horas: 1hr 20min
                 }
 
                 pedido-abm-encabezado.php: (sumado) {
