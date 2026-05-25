@@ -534,7 +534,7 @@ function getTaskEstadoFinal(task) {
     const subtareas = Array.isArray(task?.subtareas) ? task.subtareas : [];
     const tieneSubtareaNoLista = subtareas.some((sub) => String(sub?.estado || '').toUpperCase().trim() !== 'LISTO');
 
-    return tieneSubtareaNoLista ? 'REVISAR' : 'LISTO';
+    return tieneSubtareaNoLista ? 'HACER' : 'LISTO';
 }
 
 function getRequerimientoTitulo(requerimiento_id) {
