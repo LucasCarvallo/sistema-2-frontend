@@ -226,8 +226,8 @@
         }
 
         10 - LISTO - No debe dejar modificar la descripción adicional de un artículo, ya que tienen códigos asignados (formulas) y si, por ejemplo, le borramos el color (como en la captura) puede ocurrir un error grave. (sumado) {
-            inicio: 07-05-2026 22:55
-            fin: 07-05-2026 22:10
+            inicio: 07-05-2026 22:10
+            fin: 07-05-2026 22:25
             horas: 15min
         }
 
