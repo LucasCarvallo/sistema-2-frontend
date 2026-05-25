@@ -96,17 +96,23 @@
                 horas: 2hr
             }
 
-            HACER - implementacion del backend con datos PIF (no sumado) {
+            HACER - implementacion del backend con datos PIF {
                 inicio: 
                 fin: 
                 horas: 
             }
+
+            EN PROGRESO - Validaciones para un PEDIDO VÁLIDO y de cliente {
+                inicio: 25-05-2026 18:16
+                fin: 25-05-2026 19:06
+                horas: 50min
+            }
         }
 
         # HACER - Opción de generar una NV sin vincularla ni a PIF ni a OPORTUNIDAD. Sería un caso excepcional pero entiendo que puede ser necesario. {
-            # inicio: 
-            # fin: 
-            # horas: 
+            inicio: 25-05-2026 19:07
+            fin: 25-05-2026 19:57
+            horas: 50min (todavia falta guardar los datos en el backend, pero se hizo la parte visual para generar un pedido sin vinculo a OP ni PIF)
         }
 
         # LISTO - Vas avanzando con las tablas con la información del pedido en SGI? {
