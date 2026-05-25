@@ -70,6 +70,9 @@
                         <span class="badge text-bg-secondary-subtle text-secondary-emphasis">{{ calcularHoras(minutosTotalesByReq(row.id)) }}</span>
                     </template>
                     <template #actions="{ row }">
+                        <button class="btn btn-sm btn-outline-secondary me-1" type="button" @click="goToRequerimiento(row.id)">
+                            <i class="bi bi-eye"></i>
+                        </button>
                         <button class="btn btn-sm btn-primary me-1" type="button" @click="openRequerimientoModal(row)">
                             <i class="bi bi-pencil"></i>
                         </button>
@@ -132,14 +135,14 @@
                 <CrudTableLayout
                     title="Tareas"
                     icon="bi-list-task"
-                    create-label="Nueva tarea"
+                    create-label="Ir al detalle"
                     :show-search="false"
                     :columns="taskColumns"
                     :rows="taskRows"
                     :sort-key="taskSortKey"
                     :sort-icon="taskSortIcon"
                     empty-text="Sin tareas para el filtro actual"
-                    @create="openTaskModal()"
+                    @create="goToTaskDetail()"
                     @sort="taskSort"
                 >
                     <template #cell-id="{ row }">
@@ -161,11 +164,8 @@
                         <span class="badge text-bg-light border">{{ row.subtareas?.length || 0 }}</span>
                     </template>
                     <template #actions="{ row }">
-                        <button class="btn btn-sm btn-primary me-1" type="button" @click="openTaskModal(row)">
-                            <i class="bi bi-pencil"></i>
-                        </button>
-                        <button class="btn btn-sm btn-danger" type="button" @click="askDeleteTask(row)">
-                            <i class="bi bi-trash"></i>
+                        <button class="btn btn-sm btn-outline-secondary me-1" type="button" @click="goToRequerimiento(row.requerimiento_id)">
+                            <i class="bi bi-eye"></i>
                         </button>
                     </template>
                 </CrudTableLayout>
@@ -339,6 +339,7 @@
 
 <script setup>
 import { computed, onMounted, reactive, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import CrudTableLayout from '@/components/ui/CrudTableLayout.vue';
 import AppModal from '@/components/ui/AppModal.vue';
 import ConfirmModal from '@/components/ui/ConfirmModal.vue';
@@ -346,6 +347,7 @@ import { useTableSort } from '@/composables/useTableSort';
 
 const requerimientos = ref([]);
 const tareas = ref([]);
+const router = useRouter();
 
 const ESTADOS_REQUERIMIENTO = ['EN DEV', 'EN PROD', 'EN LOCAL', 'EN PROCESO', 'LISTO'];
 const ESTADOS_TAREA = ['LISTO', 'HACER', 'REVISAR'];
@@ -539,6 +541,16 @@ function getTaskEstadoFinal(task) {
 
 function getRequerimientoTitulo(requerimiento_id) {
     return requerimientos.value.find((item) => item.id === requerimiento_id)?.titulo || 'Requerimiento no encontrado';
+}
+
+function goToRequerimiento(id) {
+    router.push({ name: 'requerimientos-detalle', params: { id: String(id) } });
+}
+
+function goToTaskDetail() {
+    const reqId = Number(taskFilterRequerimiento_id.value) || Number(requerimientos.value[0]?.id);
+    if (!reqId) return;
+    goToRequerimiento(reqId);
 }
 
 function nextRequerimiento_id() {
