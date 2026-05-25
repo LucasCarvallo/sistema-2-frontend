@@ -214,7 +214,7 @@
       "Agregado de datos del vendedor en el footer."
     ],
     "minutos": 0,
-    "estado": "LISTO",
+    "estado": "REVISAR",
     "inicio": "",
     "fin": "",
     "subtareas": [
@@ -233,8 +233,7 @@
         "titulo": "corregir firma comercial que no se ve en el PDF",
         "comentarios": [
           "DomPDF no reconoce el formato del campo 'firma' ya que este está en HTML",
-          "Se hizo firma con datos del vendedor de la tabla user",
-          "REVISAR: En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)"
+          "Se hizo firma con datos del vendedor de la tabla user"
         ],
         "minutos": 60,
         "inicio": "20-05-2026 17:00",
@@ -249,7 +248,7 @@
         "minutos": 0,
         "inicio": "",
         "fin": "",
-        "estado": "HACER",
+        "estado": "REVISAR",
         "subtareas": []
       }
     ]
@@ -299,11 +298,10 @@
       "NOTA: El presupuesto puede generar una OP luego de enviarlo y pasarlo a estado GANADO.",
       "presu-b.php: modificacion para que abra el presupuesto en nueva ventana en vez de la actual",
       "verifica-datos-presu.php: se pasa el descuento como parametro a oportunidad-a.php",
-      "oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento",
-      "REVISAR: ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo"
+      "oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento"
     ],
     "minutos": 0,
-    "estado": "HACER",
+    "estado": "REVISAR",
     "inicio": "",
     "fin": "",
     "subtareas": [
@@ -324,7 +322,7 @@
         "minutos": 0,
         "inicio": "",
         "fin": "",
-        "estado": "HACER",
+        "estado": "REVISAR",
         "subtareas": []
       }
     ]
