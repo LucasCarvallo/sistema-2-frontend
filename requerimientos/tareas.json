@@ -680,7 +680,9 @@
         "id": 56,
         "titulo": "completar requerimiento",
         "comentarios": [
-          "modificar la consulta SQL que trae los items de menu para que traiga los items segun el perfil del user y no solo por el id del perfil, sino tambien por el campo 'resp' de la tabla perfiles"
+          "obtener el responsable del perfil del user logueado",
+          "comparar con el id del responsable que se pide para mostrar los items de menu",
+          "mostrar los items de menu correspondientes segun el perfil y responsable del user logueado"
         ],
         "minutos": 30,
         "inicio": "26-05-2026 10:26",
@@ -691,7 +693,11 @@
       {
         "id": 57,
         "titulo": "pruebas y modificaciones",
-        "comentarios": [],
+        "comentarios": [
+          "probar con el user de matias cabral y verificar que se muestran los items de menu correspondientes",
+          "probar con otros users y verificar que se muestran los items de menu correspondientes segun su perfil y responsable",
+          "mejoras de código y refactorizaciones para no repetir codigo relacionado a este requerimiento"
+        ],
         "minutos": 37,
         "inicio": "26-05-2026 12:00",
         "fin": "26-05-2026 12:37",
