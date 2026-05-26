@@ -670,10 +670,10 @@
     "comentarios": [
       "El user Matías Cabral hoy tiene perfil 'PLA', cuando debería tener 'ING'. Pero esto es porque el perfil 'PLA' permite visualizar más menús en el SGI. Por lo tanto dicho user debería tener perfil 'ING' pero además poder visualizar los items de menús que se muestran en verde en los prints de abajo. Para ello se debe cumplir que dicho user tenga 'perfiles.id == 8' && 'perfiles.resp' == 18"
     ],
-    "minutos": 0,
-    "estado": "HACER",
-    "inicio": "26-05-2026 10:08",
-    "fin": "",
+    "minutos": 30,
+    "estado": "LISTO",
+    "inicio": "26-05-2026 10:26",
+    "fin": "26-05-2026 10:56",
     "subtareas": []
   }
 ]
