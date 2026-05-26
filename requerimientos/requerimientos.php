@@ -117,10 +117,8 @@
 
         # Probar NUEVO PEDIDO PIF, NUEVO PEDIDO VACÍO, y todo el ABM para ver que siga funcionando todo correctamente (sumado) {
             inicio: 25-05-2026 21:20
-            fin: 25-05-2026 22:42
-            horas: 1hr 22min
-
-            FALTA REVISAR EL ID de tabla pedidos_art que siempre es el mismo
+            fin: 25-05-2026 22:53
+            horas: 1hr 33min
         }
 
         # LISTO - Vas avanzando con las tablas con la información del pedido en SGI? {

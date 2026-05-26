@@ -652,9 +652,9 @@
       "Se agregaron más validaciones para evitar errores y casos no contemplados.",
       "Seguir probando todo el circuito"
     ],
-    "minutos": 82,
+    "minutos": 93,
     "inicio": "25-05-2026 21:20",
-    "fin": "25-05-2026 22:42",
+    "fin": "25-05-2026 22:53",
     "estado": "REVISAR",
     "subtareas": []
   }
