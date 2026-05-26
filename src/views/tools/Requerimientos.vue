@@ -6,6 +6,14 @@
             <div class="col-12">
                 Minutos totales: <span class="badge text-bg-info-subtle text-info-emphasis">{{ minutosTotales }}</span>
                 Horas totales: <span class="badge text-bg-info-subtle text-info-emphasis">{{ horasTotales }}</span>
+                <button class="btn btn-sm btn-outline-secondary ms-2" type="button" @click="showDailyPanel = !showDailyPanel">
+                    <i class="bi" :class="showDailyPanel ? 'bi-eye-slash' : 'bi-calendar-week'"></i>
+                    {{ showDailyPanel ? 'Ocultar panel diario' : 'Ver panel diario' }}
+                </button>
+            </div>
+
+            <div v-if="showDailyPanel" class="col-12">
+                <DailyTasksPanel :tareas="tareas" :requerimientos="requerimientos" />
             </div>
 
             <div class="col-12">
@@ -343,6 +351,7 @@ import { useRouter } from 'vue-router';
 import CrudTableLayout from '@/components/ui/CrudTableLayout.vue';
 import AppModal from '@/components/ui/AppModal.vue';
 import ConfirmModal from '@/components/ui/ConfirmModal.vue';
+import DailyTasksPanel from '@/components/ui/DailyTasksPanel.vue';
 import { useTableSort } from '@/composables/useTableSort';
 
 const requerimientos = ref([]);
@@ -355,6 +364,7 @@ const ESTADOS_TAREA = ['LISTO', 'HACER', 'REVISAR'];
 const reqSearch = ref('');
 const taskSearch = ref('');
 const taskFilterRequerimiento_id = ref(0);
+const showDailyPanel = ref(false);
 
 const reqEstadoMode = ref('excluir');
 const reqEstadosSeleccionados = ref(['LISTO', 'EN PROD', 'EN LOCAL']);
