@@ -310,7 +310,7 @@
         "titulo": "Ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
         "comentarios": [],
         "minutos": 0,
-        "inicio": "",
+        "inicio": "26-05-2026 ",
         "fin": "",
         "estado": "REVISAR",
         "subtareas": []
@@ -671,10 +671,33 @@
     "comentarios": [
       "El user Matías Cabral hoy tiene perfil 'PLA', cuando debería tener 'ING'. Pero esto es porque el perfil 'PLA' permite visualizar más menús en el SGI. Por lo tanto dicho user debería tener perfil 'ING' pero además poder visualizar los items de menús que se muestran en verde en los prints de abajo. Para ello se debe cumplir que dicho user tenga 'perfiles.id == 8' && 'perfiles.resp' == 18"
     ],
-    "minutos": 30,
+    "minutos": 67,
     "estado": "LISTO",
-    "inicio": "26-05-2026 10:26",
-    "fin": "26-05-2026 10:56",
-    "subtareas": []
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 56,
+        "titulo": "completar requerimiento",
+        "comentarios": [
+          "modificar la consulta SQL que trae los items de menu para que traiga los items segun el perfil del user y no solo por el id del perfil, sino tambien por el campo 'resp' de la tabla perfiles"
+        ],
+        "minutos": 30,
+        "inicio": "26-05-2026 10:26",
+        "fin": "26-05-2026 10:56",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 57,
+        "titulo": "pruebas y modificaciones",
+        "comentarios": [],
+        "minutos": 37,
+        "inicio": "26-05-2026 12:00",
+        "fin": "26-05-2026 12:37",
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
   }
 ]
