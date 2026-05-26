@@ -270,12 +270,13 @@
     "titulo": "6) Condición Pago: Revisar si existe condición 30 días fecha factura. Evaluar agregar esta condición de pago si es necesario.",
     "comentarios": [
       "Tabla presu.condicion_venta",
-      "Actualmente tiene tipocvta.id = 3 (0/30 DIAS FECHA FACTURA)"
+      "Actualmente tiene tipocvta.id = 3 (0/30 DIAS FECHA FACTURA)",
+      "insert into tipocvta (nombre, estado) values ('30 DIAS FECHA FACTURA', 0);"
     ],
-    "minutos": 15,
+    "minutos": 25,
     "estado": "LISTO",
-    "inicio": "26-05-2026 09:05",
-    "fin": "26-05-2026 09:20",
+    "inicio": "26-05-2026 09:00",
+    "fin": "26-05-2026 09:25",
     "subtareas": []
   },
   {
