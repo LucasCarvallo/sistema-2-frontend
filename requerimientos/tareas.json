@@ -258,10 +258,10 @@
     "requerimiento_id": 7,
     "titulo": "5) Botón Ganado: Evaluar la adición de un botón para marcar un presupuesto como Ganado. Esta función debe operar sin requerir el envío por correo electrónico previo.",
     "comentarios": [],
-    "minutos": 15,
+    "minutos": 30,
     "estado": "LISTO",
     "inicio": "21-05-2026 17:50",
-    "fin": "21-05-2026 18:05",
+    "fin": "21-05-2026 18:20",
     "subtareas": []
   },
   {
@@ -291,7 +291,7 @@
       "oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento"
     ],
     "minutos": 0,
-    "estado": "REVISAR",
+    "estado": "HACER",
     "inicio": "",
     "fin": "",
     "subtareas": [
@@ -309,10 +309,10 @@
         "id": 28,
         "titulo": "Ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
         "comentarios": [],
-        "minutos": 0,
-        "inicio": "26-05-2026 ",
-        "fin": "",
-        "estado": "REVISAR",
+        "minutos": 37,
+        "inicio": "26-05-2026 12:30",
+        "fin": "26-05-2026 13:07",
+        "estado": "HACER",
         "subtareas": []
       }
     ]
