@@ -4,10 +4,10 @@
     "requerimiento_id": 1,
     "titulo": "completar requerimiento",
     "comentarios": [],
-    "minutos": 187,
-    "estado": "LISTO",
     "inicio": "05-05-2026 12:00",
     "fin": "05-05-2026 15:07",
+    "minutos": 187,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -15,10 +15,10 @@
     "requerimiento_id": 2,
     "titulo": "completar requerimiento",
     "comentarios": [],
-    "minutos": 115,
-    "estado": "LISTO",
     "inicio": "05-05-2026 16:02",
     "fin": "05-05-2026 17:57",
+    "minutos": 115,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -26,10 +26,10 @@
     "requerimiento_id": 3,
     "titulo": "completar requerimiento",
     "comentarios": [],
-    "minutos": 15,
-    "estado": "LISTO",
     "inicio": "06-05-2026 18:15",
     "fin": "06-05-2026 18:30",
+    "minutos": 15,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -40,10 +40,10 @@
       "La consulta SALDOS-LOTE 'nueva' no muestra el LOTE ORIGEN, a pesar de q está el filtro para eso. Se necesita contar con ese campo visible. Se puede agregar? Gracias",
       "Corregir la DESCARGA COMPLETA del excel porque solo trae headers sin datos (por wsp)"
     ],
-    "minutos": 51,
-    "estado": "LISTO",
     "inicio": "06-05-2026 18:32",
     "fin": "06-05-2026 19:23",
+    "minutos": 51,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -51,10 +51,10 @@
     "requerimiento_id": 5,
     "titulo": "completar requerimiento",
     "comentarios": [],
-    "minutos": 58,
-    "estado": "LISTO",
     "inicio": "04-05-2026 16:41",
     "fin": "04-05-2026 17:39",
+    "minutos": 58,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -62,10 +62,10 @@
     "requerimiento_id": 6,
     "titulo": "completar requerimiento",
     "comentarios": [],
-    "minutos": 90,
-    "estado": "LISTO",
     "inicio": "04-05-2026 18:30",
     "fin": "04-05-2026 20:00",
+    "minutos": 90,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -73,10 +73,10 @@
     "requerimiento_id": 6,
     "titulo": "ajustes e implementacion de filtro vendedor en PIF",
     "comentarios": [],
-    "minutos": 60,
-    "estado": "LISTO",
     "inicio": "05-05-2026 18:30",
     "fin": "05-05-2026 19:30",
+    "minutos": 60,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -93,9 +93,9 @@
         "id": 9,
         "titulo": "acomodar codigo",
         "comentarios": [],
-        "minutos": 42,
         "inicio": "06-05-2026 19:03",
         "fin": "06-05-2026 19:45",
+        "minutos": 42,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -103,9 +103,9 @@
         "id": 10,
         "titulo": "completar requerimiento",
         "comentarios": [],
-        "minutos": 20,
         "inicio": "06-05-2026 20:35",
         "fin": "06-05-2026 20:55",
+        "minutos": 20,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -113,9 +113,9 @@
         "id": 11,
         "titulo": "al agregar articulos los situa abajo y no le aplica los descuentos PERO en el PDF si lo aplica de forma individual y se ve correctamente.",
         "comentarios": [],
-        "minutos": 40,
         "inicio": "20-05-2026 14:30",
         "fin": "20-05-2026 15:10",
+        "minutos": 40,
         "estado": "LISTO",
         "subtareas": []
       }
@@ -129,10 +129,10 @@
       "Eliminar la visualización del descuento en el presupuesto final. Evitar que el cliente vea el porcentaje descontado.",
       "Descuento: Ajustar la impresión para que el precio unitario ya muestre el descuento aplicado. Esto permite ocultar la cifra total descontada."
     ],
-    "minutos": 55,
-    "estado": "LISTO",
     "inicio": "13-05-2026 20:15",
     "fin": "13-05-2026 21:10",
+    "minutos": 55,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -222,9 +222,9 @@
         "id": 20,
         "titulo": "completar requerimiento",
         "comentarios": [],
-        "minutos": 56,
         "inicio": "18-05-2026 19:40",
         "fin": "18-05-2026 20:36",
+        "minutos": 56,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -235,9 +235,9 @@
           "DomPDF no reconoce el formato del campo 'firma' ya que este está en HTML",
           "Se hizo firma con datos del vendedor de la tabla user"
         ],
-        "minutos": 60,
         "inicio": "20-05-2026 17:00",
         "fin": "20-05-2026 18:00",
+        "minutos": 60,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -245,9 +245,9 @@
         "id": 22,
         "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF.",
         "comentarios": [],
-        "minutos": 22,
         "inicio": "26-05-2026 16:53",
         "fin": "26-05-2026 17:15",
+        "minutos": 22,
         "estado": "LISTO",
         "subtareas": []
       }
@@ -258,10 +258,10 @@
     "requerimiento_id": 7,
     "titulo": "5) Botón Ganado: Evaluar la adición de un botón para marcar un presupuesto como Ganado. Esta función debe operar sin requerir el envío por correo electrónico previo.",
     "comentarios": [],
-    "minutos": 30,
-    "estado": "LISTO",
     "inicio": "21-05-2026 17:50",
     "fin": "21-05-2026 18:20",
+    "minutos": 30,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -273,10 +273,10 @@
       "Actualmente tiene tipocvta.id = 3 (0/30 DIAS FECHA FACTURA)",
       "insert into tipocvta (nombre, estado) values ('30 DIAS FECHA FACTURA', 0);"
     ],
-    "minutos": 25,
-    "estado": "LISTO",
     "inicio": "26-05-2026 09:00",
     "fin": "26-05-2026 09:25",
+    "minutos": 25,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -299,9 +299,9 @@
         "id": 27,
         "titulo": "completar requerimiento",
         "comentarios": [],
-        "minutos": 80,
         "inicio": "20-05-2026 18:01",
         "fin": "20-05-2026 19:21",
+        "minutos": 80,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -309,9 +309,9 @@
         "id": 28,
         "titulo": "Ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
         "comentarios": [],
-        "minutos": 37,
         "inicio": "26-05-2026 12:30",
         "fin": "26-05-2026 13:07",
+        "minutos": 37,
         "estado": "LISTO",
         "subtareas": []
       }
@@ -327,9 +327,9 @@
       "presu-print-pdf.php: el comentario del vendedor no estaba definido (textonp), se genero uno nuevo en base a los comentarios de la oportunidad (que debe estar generada, presu ganado)",
       "Ahora toma el comentario de la tabla acciones"
     ],
-    "minutos": 58,
     "inicio": "20-05-2026 19:22",
     "fin": "20-05-2026 20:20",
+    "minutos": 58,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -338,10 +338,10 @@
     "requerimiento_id": 9,
     "titulo": "completar requerimiento",
     "comentarios": [],
-    "minutos": 30,
-    "estado": "LISTO",
     "inicio": "04-05-2026 20:00",
     "fin": "04-05-2026 20:30",
+    "minutos": 30,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -349,10 +349,10 @@
     "requerimiento_id": 8,
     "titulo": "pedido-abm-encabezado.php: manejo de errores, variables indefinidas y validaciones",
     "comentarios": [],
-    "minutos": 29,
-    "estado": "LISTO",
     "inicio": "19-05-2026 14:30",
     "fin": "19-05-2026 14:59",
+    "minutos": 29,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -366,10 +366,10 @@
       "Ajuste nombres de claves para que coincidan en todas las pantallas.",
       "Probe que siga funcionando en ABM sin romper lo existente."
     ],
-    "minutos": 104,
-    "estado": "LISTO",
     "inicio": "19-05-2026 17:03",
     "fin": "19-05-2026 18:47",
+    "minutos": 104,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -384,10 +384,10 @@
       "Adapte alta/edición para que no se rompa al cambiar la fuente de datos.",
       "Hice pruebas en ABM (encabezado, renglones, resumen e info adicional)."
     ],
-    "minutos": 226,
-    "estado": "LISTO",
     "inicio": "19-05-2026 18:50",
     "fin": "19-05-2026 22:36",
+    "minutos": 226,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -398,10 +398,10 @@
       "manejo de error de los distintos tipos de informacion (tango, pif, pedidos, pedidos_art, etc)",
       "panel de visualizacion cuando no hay datos o informacion"
     ],
-    "minutos": 40,
-    "estado": "LISTO",
     "inicio": "19-05-2026 23:50",
     "fin": "20-05-2026 00:30",
+    "minutos": 40,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -431,9 +431,9 @@
           "agregado visualizador de datos PIF para NUEVO PEDIDO",
           "comentar boton continuar pedido si se busca PIF (no desarrollado en backend)"
         ],
-        "minutos": 120,
         "inicio": "19-05-2026 15:00",
         "fin": "19-05-2026 17:00",
+        "minutos": 120,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -445,9 +445,9 @@
           "Ajustar controlador para recibir IDPIF y traer datos relacionados.",
           "Modificar modelo de PedidoSgi para incluir referencia al PIF."
         ],
-        "minutos": 19,
         "inicio": "25-05-2026 20:00",
         "fin": "25-05-2026 20:19",
+        "minutos": 19,
         "estado": "LISTO",
         "subtareas": []
       }
@@ -458,10 +458,10 @@
     "requerimiento_id": 8,
     "titulo": "Opción de generar una NV sin vincularla ni a PIF ni a OPORTUNIDAD. Sería un caso excepcional pero entiendo que puede ser necesario",
     "comentarios": [],
-    "minutos": 20,
-    "estado": "LISTO",
     "inicio": "25-05-2026 20:20",
     "fin": "25-05-2026 20:40",
+    "minutos": 20,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -471,10 +471,10 @@
     "comentarios": [
       "ahora toma el precio del dolar de SGI"
     ],
-    "minutos": 15,
-    "estado": "LISTO",
     "inicio": "07-05-2026 20:30",
     "fin": "07-05-2026 20:45",
+    "minutos": 15,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -494,9 +494,9 @@
           "revision de campos necesarios, claves.",
           "preparacion de las consultas SQL."
         ],
-        "minutos": 60,
         "inicio": "15-05-2026 18:20",
         "fin": "15-05-2026 19:20",
+        "minutos": 60,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -507,9 +507,9 @@
           "revision de campos necesarios, claves.",
           "preparacion de las consultas SQL."
         ],
-        "minutos": 120,
         "inicio": "15-05-2026 19:56",
         "fin": "15-05-2026 21:56",
+        "minutos": 120,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -517,9 +517,9 @@
         "id": 43,
         "titulo": "Modificar lógica en los métodos de PedidoSgi y creación de nuevos metodos",
         "comentarios": [],
-        "minutos": 180,
         "inicio": "17-05-2026 18:10",
         "fin": "17-05-2026 21:10",
+        "minutos": 180,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -529,9 +529,9 @@
         "comentarios": [
           "metodo para crear las lineas del pedido en base a la OP luego de haber pasado e insertado en Tango."
         ],
-        "minutos": 55,
         "inicio": "17-05-2026 20:30",
         "fin": "17-05-2026 21:25",
+        "minutos": 55,
         "estado": "LISTO",
         "subtareas": []
       }
@@ -545,9 +545,9 @@
       "consulta sql",
       "Modificacion para agregar un panel que muestre los 10 ultimos pedidos y poder ver sus datos"
     ],
-    "minutos": 30,
     "inicio": "17-05-2026 19:10",
     "fin": "17-05-2026 19:40",
+    "minutos": 30,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -556,9 +556,9 @@
     "requerimiento_id": 8,
     "titulo": "El campo con el numero de remito no lo utilizamos nunca, se puede eliminar",
     "comentarios": [],
-    "minutos": 5,
     "inicio": "07-05-2026 20:40",
     "fin": "07-05-2026 20:45",
+    "minutos": 5,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -567,9 +567,9 @@
     "requerimiento_id": 8,
     "titulo": "El campo “nro. de orden de compra” figura como obligatorio, debería no serlo, porque no siempre tenemos un numero asociado.",
     "comentarios": [],
-    "minutos": 2,
     "inicio": "07-05-2026 20:47",
     "fin": "07-05-2026 20:49",
+    "minutos": 2,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -582,9 +582,9 @@
       "En nuevo pedido debe ingresar siempre SANTA FE como sucursal de origen y destino, y no dejar modificarlo.",
       "En editar pedido debe traer lo guardado en Tango y no dejar editar."
     ],
-    "minutos": 90,
     "inicio": "07-05-2026 20:53",
     "fin": "07-05-2026 22:23",
+    "minutos": 90,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -595,9 +595,9 @@
     "comentarios": [
       "se hicieron los metodos para que guarde la moneda correcta segun la seleccionada en el encabezado"
     ],
-    "minutos": 60,
     "inicio": "11-05-2026 19:57",
     "fin": "11-05-2026 20:57",
+    "minutos": 60,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -606,9 +606,9 @@
     "requerimiento_id": 8,
     "titulo": "No debe dejar modificar la descripción adicional de un artículo, ya que tienen códigos asignados (formulas) y si, por ejemplo, le borramos el color (como en la captura) puede ocurrir un error grave.",
     "comentarios": [],
-    "minutos": 15,
     "inicio": "07-05-2026 22:10",
     "fin": "07-05-2026 22:25",
+    "minutos": 15,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -617,9 +617,9 @@
     "requerimiento_id": 8,
     "titulo": "Las pestañas marcadas en amarillo no son visibles, y tampoco las utilizamos en la “diaria“",
     "comentarios": [],
-    "minutos": 2,
     "inicio": "08-05-2026 20:13",
     "fin": "08-05-2026 20:15",
+    "minutos": 2,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -628,9 +628,9 @@
     "requerimiento_id": 8,
     "titulo": "Nuevas validaciones para un PEDIDO VÁLIDO y validar CLIENTE",
     "comentarios": [],
-    "minutos": 96,
     "inicio": "25-05-2026 18:16",
     "fin": "25-05-2026 19:52",
+    "minutos": 96,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -642,9 +642,9 @@
       "Se agregaron más validaciones para evitar errores y casos no contemplados.",
       "Seguir probando todo el circuito"
     ],
-    "minutos": 93,
     "inicio": "25-05-2026 21:20",
     "fin": "25-05-2026 22:53",
+    "minutos": 93,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -658,10 +658,10 @@
       "Para el segundo, modificar el código y en la generación del archivo a descargar, indicando ciertos headers: (ver mail)",
       "Y además agregar el caracter invisible BOM al inicio, con echo (ver mail); para que codifique caracteres con acentos y eñes en UTF-8 y no muestre caracteres 'raros'."
     ],
-    "minutos": 44,
-    "estado": "LISTO",
     "inicio": "26-05-2026 09:25",
     "fin": "26-05-2026 10:09",
+    "minutos": 44,
+    "estado": "LISTO",
     "subtareas": []
   },
   {
@@ -684,9 +684,9 @@
           "comparar con el id del responsable que se pide para mostrar los items de menu",
           "mostrar los items de menu correspondientes segun el perfil y responsable del user logueado"
         ],
-        "minutos": 30,
         "inicio": "26-05-2026 10:26",
         "fin": "26-05-2026 10:56",
+        "minutos": 30,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -698,9 +698,9 @@
           "probar con otros users y verificar que se muestran los items de menu correspondientes segun su perfil y responsable",
           "mejoras de código y refactorizaciones para no repetir codigo relacionado a este requerimiento"
         ],
-        "minutos": 37,
         "inicio": "26-05-2026 12:00",
         "fin": "26-05-2026 12:37",
+        "minutos": 37,
         "estado": "LISTO",
         "subtareas": []
       }
