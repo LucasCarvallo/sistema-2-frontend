@@ -291,7 +291,7 @@
       "oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento"
     ],
     "minutos": 0,
-    "estado": "HACER",
+    "estado": "LISTO",
     "inicio": "",
     "fin": "",
     "subtareas": [
@@ -312,7 +312,7 @@
         "minutos": 37,
         "inicio": "26-05-2026 12:30",
         "fin": "26-05-2026 13:07",
-        "estado": "HACER",
+        "estado": "LISTO",
         "subtareas": []
       }
     ]
