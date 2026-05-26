@@ -246,8 +246,8 @@
         "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF.",
         "comentarios": [],
         "inicio": "26-05-2026 16:53",
-        "fin": "26-05-2026 17:15",
-        "minutos": 22,
+        "fin": "26-05-2026 17:23",
+        "minutos": 30,
         "estado": "LISTO",
         "subtareas": []
       }
@@ -274,8 +274,8 @@
       "insert into tipocvta (nombre, estado) values ('30 DIAS FECHA FACTURA', 0);"
     ],
     "inicio": "26-05-2026 09:00",
-    "fin": "26-05-2026 09:25",
-    "minutos": 25,
+    "fin": "26-05-2026 09:30",
+    "minutos": 30,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -309,9 +309,9 @@
         "id": 28,
         "titulo": "Ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
         "comentarios": [],
-        "inicio": "26-05-2026 12:30",
-        "fin": "26-05-2026 13:07",
-        "minutos": 37,
+        "inicio": "26-05-2026 12:38",
+        "fin": "26-05-2026 13:18",
+        "minutos": 40,
         "estado": "LISTO",
         "subtareas": []
       }
@@ -658,8 +658,8 @@
       "Para el segundo, modificar el código y en la generación del archivo a descargar, indicando ciertos headers: (ver mail)",
       "Y además agregar el caracter invisible BOM al inicio, con echo (ver mail); para que codifique caracteres con acentos y eñes en UTF-8 y no muestre caracteres 'raros'."
     ],
-    "inicio": "26-05-2026 09:25",
-    "fin": "26-05-2026 10:09",
+    "inicio": "26-05-2026 09:30",
+    "fin": "26-05-2026 10:14",
     "minutos": 44,
     "estado": "LISTO",
     "subtareas": []
@@ -685,8 +685,8 @@
           "mostrar los items de menu correspondientes segun el perfil y responsable del user logueado"
         ],
         "inicio": "26-05-2026 10:26",
-        "fin": "26-05-2026 10:56",
-        "minutos": 30,
+        "fin": "26-05-2026 11:00",
+        "minutos": 34,
         "estado": "LISTO",
         "subtareas": []
       },
