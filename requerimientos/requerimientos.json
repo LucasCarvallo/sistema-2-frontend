@@ -86,5 +86,21 @@
       "json ejemplo: { 'proceso': 'procesa-art-rapido', 'inicio': '2026-04-21 10:15:01', 'fin': '2026-04-21 10:15:03', 'duracion': 2.14, 'estado': 'ok' }",
       "en monitor.php los $data estan desalineados"
     ]
+  },
+  {
+    "id": 10,
+    "titulo": "Gestión de Stock / Descarga CSV-Excel",
+    "fecha": "26-05-2026",
+    "rama": "feature/gestion-stocks-csv",
+    "estado": "LISTO",
+    "comentarios": []
+  },
+  {
+    "id": 11,
+    "titulo": "Visualización de menús Matías Cabral",
+    "fecha": "26-05-2026",
+    "rama": "",
+    "estado": "HACER",
+    "comentarios": []
   }
 ]
