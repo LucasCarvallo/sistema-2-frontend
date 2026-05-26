@@ -423,7 +423,7 @@
       "panel de visualizacion cuando no hay datos o informacion"
     ],
     "minutos": 0,
-    "estado": "HACER",
+    "estado": "LISTO",
     "inicio": "",
     "fin": "",
     "subtareas": [
@@ -453,14 +453,12 @@
         "comentarios": [
           "Desarrollar lógica para vincular nuevo pedido con datos del PIF.",
           "Ajustar controlador para recibir IDPIF y traer datos relacionados.",
-          "Modificar modelo de pedido para incluir referencia al PIF.",
-          "Asegurar que al guardar el pedido se asocie correctamente con el PIF.",
-          "Probar creación de nuevo pedido desde PIF para validar integración."
+          "Modificar modelo de PedidoSgi para incluir referencia al PIF."
         ],
-        "minutos": 0,
-        "inicio": "",
-        "fin": "",
-        "estado": "HACER",
+        "minutos": 19,
+        "inicio": "25-05-2026 20:00",
+        "fin": "25-05-2026 20:19",
+        "estado": "LISTO",
         "subtareas": []
       }
     ]
@@ -470,10 +468,10 @@
     "requerimiento_id": 8,
     "titulo": "Opción de generar una NV sin vincularla ni a PIF ni a OPORTUNIDAD. Sería un caso excepcional pero entiendo que puede ser necesario",
     "comentarios": [],
-    "minutos": 0,
-    "estado": "HACER",
-    "inicio": "",
-    "fin": "",
+    "minutos": 20,
+    "estado": "LISTO",
+    "inicio": "25-05-2026 20:20",
+    "fin": "25-05-2026 20:40",
     "subtareas": []
   },
   {
@@ -632,6 +630,17 @@
     "minutos": 2,
     "inicio": "08-05-2026 20:13",
     "fin": "08-05-2026 20:15",
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 52,
+    "requerimiento_id": 8,
+    "titulo": "Nuevas validaciones para un PEDIDO VÁLIDO y validar CLIENTE",
+    "comentarios": [],
+    "minutos": 96,
+    "inicio": "25-05-2026 18:16",
+    "fin": "25-05-2026 19:52",
     "estado": "LISTO",
     "subtareas": []
   }

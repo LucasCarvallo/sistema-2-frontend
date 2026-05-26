@@ -76,6 +76,12 @@
             }
         }
 
+        LISTO - Nuevas validaciones para un PEDIDO VÁLIDO y validar CLIENTE (sumado) {
+            inicio: 25-05-2026 18:16
+            fin: 25-05-2026 19:52
+            horas: 1hr 36min
+        }
+
         # HACER - Hacer lo mismo para NUEVO PEDIDO pero en lugar de vincular de una OPORTUNIDAD, vincular de un PIF {
             https://sgi.sotic.com.ar/sotic/verifica-datos-pif.php?idpif=826
 
@@ -96,23 +102,17 @@
                 horas: 2hr
             }
 
-            HACER - implementacion del backend con datos PIF {
-                inicio: 
-                fin: 
-                horas: 
-            }
-
-            EN PROGRESO - Validaciones para un PEDIDO VÁLIDO y de cliente {
-                inicio: 25-05-2026 18:16
-                fin: 25-05-2026 19:06
-                horas: 50min
+            HACER - implementacion del backend con datos PIF (cliente y articulos) (sumado) {
+                inicio: 25-05-2026 20:00
+                fin: 25-05-2026 20:19
+                horas: 19min
             }
         }
 
-        # HACER - Opción de generar una NV sin vincularla ni a PIF ni a OPORTUNIDAD. Sería un caso excepcional pero entiendo que puede ser necesario. {
-            inicio: 25-05-2026 19:07
-            fin: 25-05-2026 19:57
-            horas: 50min (todavia falta guardar los datos en el backend, pero se hizo la parte visual para generar un pedido sin vinculo a OP ni PIF)
+        # HACER - Opción de generar una NV sin vincularla ni a PIF ni a OPORTUNIDAD. Sería un caso excepcional pero entiendo que puede ser necesario. (sumado) {
+            inicio: 25-05-2026 20:20
+            fin: 25-05-2026 20:40
+            horas: 20min
         }
 
         # LISTO - Vas avanzando con las tablas con la información del pedido en SGI? {
