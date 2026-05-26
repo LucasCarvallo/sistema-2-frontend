@@ -643,5 +643,19 @@
     "fin": "25-05-2026 19:52",
     "estado": "LISTO",
     "subtareas": []
+  },
+  {
+    "id": 53,
+    "requerimiento_id": 8,
+    "titulo": "Probar NUEVO PEDIDO PIF, NUEVO PEDIDO VACÍO, y todo el ABM para ver que siga funcionando todo correctamente",
+    "comentarios": [
+      "Se agregaron más validaciones para evitar errores y casos no contemplados.",
+      "Seguir probando todo el circuito"
+    ],
+    "minutos": 42,
+    "inicio": "25-05-2026 21:20",
+    "fin": "25-05-2026 22:02",
+    "estado": "REVISAR",
+    "subtareas": []
   }
 ]
