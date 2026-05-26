@@ -214,7 +214,7 @@
       "Agregado de datos del vendedor en el footer."
     ],
     "minutos": 0,
-    "estado": "REVISAR",
+    "estado": "LISTO",
     "inicio": "",
     "fin": "",
     "subtareas": [
@@ -243,12 +243,12 @@
       },
       {
         "id": 22,
-        "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF. (arreglar)",
+        "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF.",
         "comentarios": [],
-        "minutos": 0,
-        "inicio": "",
-        "fin": "",
-        "estado": "REVISAR",
+        "minutos": 22,
+        "inicio": "26-05-2026 16:53",
+        "fin": "26-05-2026 17:15",
+        "estado": "LISTO",
         "subtareas": []
       }
     ]
@@ -658,10 +658,10 @@
       "Para el segundo, modificar el código y en la generación del archivo a descargar, indicando ciertos headers: (ver mail)",
       "Y además agregar el caracter invisible BOM al inicio, con echo (ver mail); para que codifique caracteres con acentos y eñes en UTF-8 y no muestre caracteres 'raros'."
     ],
-    "minutos": 40,
+    "minutos": 44,
     "estado": "LISTO",
     "inicio": "26-05-2026 09:25",
-    "fin": "26-05-2026 10:05",
+    "fin": "26-05-2026 10:09",
     "subtareas": []
   },
   {
