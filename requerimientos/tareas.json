@@ -629,8 +629,8 @@
     "titulo": "Nuevas validaciones para un PEDIDO VÁLIDO y validar CLIENTE",
     "comentarios": [],
     "inicio": "25-05-2026 18:16",
-    "fin": "25-05-2026 19:52",
-    "minutos": 96,
+    "fin": "25-05-2026 20:00",
+    "minutos": 104,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -640,11 +640,11 @@
     "titulo": "Probar NUEVO PEDIDO PIF, NUEVO PEDIDO VACÍO, y todo el ABM para ver que siga funcionando todo correctamente",
     "comentarios": [
       "Se agregaron más validaciones para evitar errores y casos no contemplados.",
-      "Seguir probando todo el circuito"
+      "Probar todo el circuito (edicion, nuevo pedido vacio, nuevo pedido con PIF, nuevo pedido con OP) para verificar que no se rompa nada y que se guarden los datos correctamente en cada caso."
     ],
     "inicio": "25-05-2026 21:20",
-    "fin": "25-05-2026 22:53",
-    "minutos": 93,
+    "fin": "25-05-2026 23:20",
+    "minutos": 120,
     "estado": "LISTO",
     "subtareas": []
   },
