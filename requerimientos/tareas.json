@@ -725,7 +725,7 @@
     "inicio": "",
     "fin": "",
     "minutos": 0,
-    "estado": "LISTO",
+    "estado": "REVISAR",
     "subtareas": [
       {
         "id": 60,
@@ -734,7 +734,7 @@
         "inicio": "27-05-2026 20:00",
         "fin": "27-05-2026 21:00",
         "minutos": 60,
-        "estado": "LISTO",
+        "estado": "REVISAR",
         "subtareas": []
       },
       {
@@ -744,9 +744,35 @@
         "inicio": "27-05-2026 21:00",
         "fin": "27-05-2026 21:45",
         "minutos": 45,
-        "estado": "LISTO",
+        "estado": "REVISAR",
         "subtareas": []
       }
     ]
+  },
+  {
+    "id": 62,
+    "requerimiento_id": 13,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "inicio": "27-05-2026 22:50",
+    "fin": "27-05-2026 23:00",
+    "minutos": 10,
+    "estado": "REVISAR",
+    "subtareas": []
+  },
+  {
+    "id": 63,
+    "requerimiento_id": 7,
+    "titulo": "Correcciones",
+    "comentarios": [
+      "quitar imagen del pdf y dejar la firma del vendedor-comercial",
+      "aplicar recargo y descuento en cada linea y flete en vez de aplicar al subtotal",
+      "no paso forma de pago 30 días FF: ahora se pasa a la OP"
+    ],
+    "inicio": "28-05-2026 16:15",
+    "fin": "28-05-2026 18:25",
+    "minutos": 130,
+    "estado": "LISTO",
+    "subtareas": []
   }
 ]

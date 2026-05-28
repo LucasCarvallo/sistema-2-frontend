@@ -108,7 +108,15 @@
     "titulo": "[DEV] (REQ) 34 - GESTIÓN DE STOCKS - SALDO LOTE - Agregar COLUMNA PESO LOTE= Peso CONJ UNITARIO para el item por CANT DEL LOTE",
     "fecha": "22-05-2026",
     "rama": "feature/dep-saldo-peso-lote",
-    "estado": "LISTO",
+    "estado": "REVISAR",
+    "comentarios": []
+  },
+  {
+    "id": 13,
+    "titulo": "[DEV] Modificacion en el SGI - Sebastian Nicolini",
+    "fecha": "19-05-2026",
+    "rama": "feature/oportunidad-comentario-snicolini",
+    "estado": "REVISAR",
     "comentarios": []
   }
 ]
