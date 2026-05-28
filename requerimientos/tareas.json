@@ -725,7 +725,7 @@
     "inicio": "",
     "fin": "",
     "minutos": 0,
-    "estado": "REVISAR",
+    "estado": "HACER",
     "subtareas": [
       {
         "id": 60,
@@ -734,7 +734,7 @@
         "inicio": "27-05-2026 20:00",
         "fin": "27-05-2026 21:00",
         "minutos": 60,
-        "estado": "REVISAR",
+        "estado": "LISTO",
         "subtareas": []
       },
       {
@@ -744,7 +744,27 @@
         "inicio": "27-05-2026 21:00",
         "fin": "27-05-2026 21:45",
         "minutos": 45,
-        "estado": "REVISAR",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 64,
+        "titulo": "Correcciones en calculo",
+        "comentarios": [],
+        "inicio": "28-05-2026 18:35",
+        "fin": "28-05-2026 19:05",
+        "minutos": 30,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 65,
+        "titulo": "La nueva columna debe ser opcional, tambien exportar en excel si se tildo para ver la columna",
+        "comentarios": [],
+        "inicio": "",
+        "fin": "",
+        "minutos": 0,
+        "estado": "HACER",
         "subtareas": []
       }
     ]
