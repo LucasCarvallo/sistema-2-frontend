@@ -258,9 +258,9 @@
     "requerimiento_id": 7,
     "titulo": "5) Botón Ganado: Evaluar la adición de un botón para marcar un presupuesto como Ganado. Esta función debe operar sin requerir el envío por correo electrónico previo.",
     "comentarios": [],
-    "inicio": "21-05-2026 17:50",
-    "fin": "21-05-2026 18:30",
-    "minutos": 40,
+    "inicio": "21-05-2026 17:30",
+    "fin": "21-05-2026 18:35",
+    "minutos": 65,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -595,9 +595,9 @@
     "comentarios": [
       "se hicieron los metodos para que guarde la moneda correcta segun la seleccionada en el encabezado"
     ],
-    "inicio": "11-05-2026 19:50",
-    "fin": "11-05-2026 20:57",
-    "minutos": 67,
+    "inicio": "11-05-2026 19:45",
+    "fin": "11-05-2026 21:00",
+    "minutos": 75,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -794,8 +794,8 @@
         "titulo": "ajustes",
         "comentarios": [],
         "inicio": "28-05-2026 18:25",
-        "fin": "28-05-2026 18:40",
-        "minutos": 15,
+        "fin": "28-05-2026 18:45",
+        "minutos": 20,
         "estado": "LISTO",
         "subtareas": []
       }
