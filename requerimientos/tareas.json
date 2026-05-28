@@ -130,8 +130,8 @@
       "Descuento: Ajustar la impresión para que el precio unitario ya muestre el descuento aplicado. Esto permite ocultar la cifra total descontada."
     ],
     "inicio": "13-05-2026 20:15",
-    "fin": "13-05-2026 21:10",
-    "minutos": 55,
+    "fin": "13-05-2026 21:15",
+    "minutos": 60,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -495,8 +495,8 @@
           "preparacion de las consultas SQL."
         ],
         "inicio": "15-05-2026 18:20",
-        "fin": "15-05-2026 19:20",
-        "minutos": 60,
+        "fin": "15-05-2026 19:25",
+        "minutos": 65,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -508,8 +508,8 @@
           "preparacion de las consultas SQL."
         ],
         "inicio": "15-05-2026 19:56",
-        "fin": "15-05-2026 21:56",
-        "minutos": 120,
+        "fin": "15-05-2026 22:00",
+        "minutos": 124,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -595,9 +595,9 @@
     "comentarios": [
       "se hicieron los metodos para que guarde la moneda correcta segun la seleccionada en el encabezado"
     ],
-    "inicio": "11-05-2026 19:57",
+    "inicio": "11-05-2026 19:50",
     "fin": "11-05-2026 20:57",
-    "minutos": 60,
+    "minutos": 67,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -617,9 +617,9 @@
     "requerimiento_id": 8,
     "titulo": "Las pestañas marcadas en amarillo no son visibles, y tampoco las utilizamos en la “diaria“",
     "comentarios": [],
-    "inicio": "08-05-2026 20:13",
+    "inicio": "08-05-2026 20:10",
     "fin": "08-05-2026 20:15",
-    "minutos": 2,
+    "minutos": 5,
     "estado": "LISTO",
     "subtareas": []
   },
