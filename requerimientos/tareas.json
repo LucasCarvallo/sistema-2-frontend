@@ -529,9 +529,9 @@
         "comentarios": [
           "metodo para crear las lineas del pedido en base a la OP luego de haber pasado e insertado en Tango."
         ],
-        "inicio": "17-05-2026 20:30",
-        "fin": "17-05-2026 21:25",
-        "minutos": 55,
+        "inicio": "17-05-2026 21:40",
+        "fin": "17-05-2026 22:40",
+        "minutos": 60,
         "estado": "LISTO",
         "subtareas": []
       }
@@ -545,8 +545,8 @@
       "consulta sql",
       "Modificacion para agregar un panel que muestre los 10 ultimos pedidos y poder ver sus datos"
     ],
-    "inicio": "17-05-2026 19:10",
-    "fin": "17-05-2026 19:40",
+    "inicio": "17-05-2026 21:10",
+    "fin": "17-05-2026 21:40",
     "minutos": 30,
     "estado": "LISTO",
     "subtareas": []
