@@ -26,9 +26,9 @@
     "requerimiento_id": 3,
     "titulo": "completar requerimiento",
     "comentarios": [],
-    "inicio": "06-05-2026 18:15",
+    "inicio": "06-05-2026 18:00",
     "fin": "06-05-2026 18:30",
-    "minutos": 15,
+    "minutos": 30,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -40,9 +40,9 @@
       "La consulta SALDOS-LOTE 'nueva' no muestra el LOTE ORIGEN, a pesar de q está el filtro para eso. Se necesita contar con ese campo visible. Se puede agregar? Gracias",
       "Corregir la DESCARGA COMPLETA del excel porque solo trae headers sin datos (por wsp)"
     ],
-    "inicio": "06-05-2026 18:32",
-    "fin": "06-05-2026 19:23",
-    "minutos": 51,
+    "inicio": "06-05-2026 18:30",
+    "fin": "06-05-2026 19:30",
+    "minutos": 60,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -93,9 +93,9 @@
         "id": 9,
         "titulo": "acomodar codigo",
         "comentarios": [],
-        "inicio": "06-05-2026 19:03",
-        "fin": "06-05-2026 19:45",
-        "minutos": 42,
+        "inicio": "06-05-2026 19:30",
+        "fin": "06-05-2026 20:30",
+        "minutos": 60,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -103,9 +103,9 @@
         "id": 10,
         "titulo": "completar requerimiento",
         "comentarios": [],
-        "inicio": "06-05-2026 20:35",
-        "fin": "06-05-2026 20:55",
-        "minutos": 20,
+        "inicio": "06-05-2026 20:30",
+        "fin": "06-05-2026 21:30",
+        "minutos": 60,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -471,9 +471,9 @@
     "comentarios": [
       "ahora toma el precio del dolar de SGI"
     ],
-    "inicio": "07-05-2026 20:30",
-    "fin": "07-05-2026 20:45",
-    "minutos": 15,
+    "inicio": "07-05-2026 20:00",
+    "fin": "07-05-2026 20:35",
+    "minutos": 35,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -568,8 +568,8 @@
     "titulo": "El campo “nro. de orden de compra” figura como obligatorio, debería no serlo, porque no siempre tenemos un numero asociado.",
     "comentarios": [],
     "inicio": "07-05-2026 20:47",
-    "fin": "07-05-2026 20:49",
-    "minutos": 2,
+    "fin": "07-05-2026 20:50",
+    "minutos": 3,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -583,8 +583,8 @@
       "En editar pedido debe traer lo guardado en Tango y no dejar editar."
     ],
     "inicio": "07-05-2026 20:53",
-    "fin": "07-05-2026 22:23",
-    "minutos": 90,
+    "fin": "07-05-2026 22:25",
+    "minutos": 92,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -606,9 +606,9 @@
     "requerimiento_id": 8,
     "titulo": "No debe dejar modificar la descripción adicional de un artículo, ya que tienen códigos asignados (formulas) y si, por ejemplo, le borramos el color (como en la captura) puede ocurrir un error grave.",
     "comentarios": [],
-    "inicio": "07-05-2026 22:10",
-    "fin": "07-05-2026 22:25",
-    "minutos": 15,
+    "inicio": "07-05-2026 22:30",
+    "fin": "07-05-2026 23:00",
+    "minutos": 30,
     "estado": "LISTO",
     "subtareas": []
   },
