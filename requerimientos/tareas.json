@@ -751,9 +751,9 @@
         "id": 64,
         "titulo": "Correcciones en calculo PESO LOTE CONJUNTO",
         "comentarios": [],
-        "inicio": "28-05-2026 18:35",
-        "fin": "28-05-2026 19:05",
-        "minutos": 30,
+        "inicio": "28-05-2026 18:40",
+        "fin": "28-05-2026 19:15",
+        "minutos": 35,
         "estado": "LISTO",
         "subtareas": []
       },
@@ -794,8 +794,8 @@
         "titulo": "ajustes",
         "comentarios": [],
         "inicio": "28-05-2026 18:25",
-        "fin": "28-05-2026 18:35",
-        "minutos": 10,
+        "fin": "28-05-2026 18:40",
+        "minutos": 15,
         "estado": "LISTO",
         "subtareas": []
       }
