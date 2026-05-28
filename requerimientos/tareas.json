@@ -722,10 +722,31 @@
     "requerimiento_id": 12,
     "titulo": "completar requerimiento",
     "comentarios": [],
-    "inicio": "27-05-2026 20:00",
-    "fin": "27-05-2026 21:00",
-    "minutos": 60,
-    "estado": "HACER",
-    "subtareas": []
+    "inicio": "",
+    "fin": "",
+    "minutos": 0,
+    "estado": "LISTO",
+    "subtareas": [
+      {
+        "id": 60,
+        "titulo": "En GESTIÓN DE STOCKS / SALDO LOTE Agregar columna: PESO LOTE = PESO CONJ UNITARIO para el ITEM x SALDO",
+        "comentarios": [],
+        "inicio": "27-05-2026 20:00",
+        "fin": "27-05-2026 21:00",
+        "minutos": 60,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 61,
+        "titulo": "En GESTIÓN DE STOCKS / SALDO-ARTÍCULO Agregar columna: PESO LOTE = PESO CONJ UNITARIO para el ITEM x SALDO",
+        "comentarios": [],
+        "inicio": "27-05-2026 21:00",
+        "fin": "27-05-2026 21:45",
+        "minutos": 45,
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
   }
 ]
