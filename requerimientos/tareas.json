@@ -752,13 +752,34 @@
   {
     "id": 62,
     "requerimiento_id": 13,
-    "titulo": "completar requerimiento",
+    "titulo": "Agrandar textarea",
     "comentarios": [],
-    "inicio": "27-05-2026 22:50",
-    "fin": "27-05-2026 23:00",
-    "minutos": 10,
-    "estado": "REVISAR",
-    "subtareas": []
+    "inicio": "",
+    "fin": "",
+    "minutos": 0,
+    "estado": "LISTO",
+    "subtareas": [
+      {
+        "id": 64,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "inicio": "27-05-2026 22:50",
+        "fin": "27-05-2026 23:00",
+        "minutos": 10,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 65,
+        "titulo": "ajustes",
+        "comentarios": [],
+        "inicio": "28-05-2026 18:25",
+        "fin": "28-05-2026 18:35",
+        "minutos": 10,
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
   },
   {
     "id": 63,
