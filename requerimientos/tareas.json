@@ -711,9 +711,9 @@
     "requerimiento_id": 7,
     "titulo": "Merge ramas a sgi-dev y main && Fix conflictos && Modificaciones feature/mejoras-presupuestador",
     "comentarios": [],
-    "inicio": "27-05-2026 16:44",
-    "fin": "27-05-2026 19:00",
-    "minutos": 136,
+    "inicio": "27-05-2026 16:40",
+    "fin": "27-05-2026 19:10",
+    "minutos": 150,
     "estado": "LISTO",
     "subtareas": []
   },
@@ -784,8 +784,8 @@
         "titulo": "completar requerimiento",
         "comentarios": [],
         "inicio": "27-05-2026 22:50",
-        "fin": "27-05-2026 23:00",
-        "minutos": 10,
+        "fin": "27-05-2026 23:05",
+        "minutos": 15,
         "estado": "LISTO",
         "subtareas": []
       },
