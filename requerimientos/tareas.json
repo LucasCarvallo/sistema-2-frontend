@@ -259,8 +259,8 @@
     "titulo": "5) Botón Ganado: Evaluar la adición de un botón para marcar un presupuesto como Ganado. Esta función debe operar sin requerir el envío por correo electrónico previo.",
     "comentarios": [],
     "inicio": "21-05-2026 17:50",
-    "fin": "21-05-2026 18:20",
-    "minutos": 30,
+    "fin": "21-05-2026 18:30",
+    "minutos": 40,
     "estado": "LISTO",
     "subtareas": []
   },
