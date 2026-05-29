@@ -835,10 +835,10 @@
     "requerimiento_id": 15,
     "titulo": "completar requerimiento",
     "comentarios": [],
-    "inicio": "29-05-2026 14:00",
-    "fin": "",
-    "minutos": 0,
-    "estado": "HACER",
+    "inicio": "29-05-2026 14:40",
+    "fin": "29-05-2026 15:30",
+    "minutos": 50,
+    "estado": "LISTO",
     "subtareas": []
   }
 ]
