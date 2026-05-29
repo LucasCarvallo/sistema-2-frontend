@@ -829,5 +829,16 @@
     "minutos": 110,
     "estado": "LISTO",
     "subtareas": []
+  },
+  {
+    "id": 67,
+    "requerimiento_id": 15,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "inicio": "29-05-2026 14:00",
+    "fin": "",
+    "minutos": 0,
+    "estado": "HACER",
+    "subtareas": []
   }
 ]

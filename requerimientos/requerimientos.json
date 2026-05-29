@@ -126,5 +126,13 @@
     "rama": "feature/oportunidad-comentario-snicolini",
     "estado": "LISTO",
     "comentarios": []
+  },
+  {
+    "id": 15,
+    "titulo": "[DEV] (REQ) GESTIÓN DE STOCKS - CONSULTOR DEP 60 - No se visualiza fecha de quiebre",
+    "fecha": "08-05-2026",
+    "rama": "feature/consultor-dep9-fecha-quiebre",
+    "estado": "EN PROCESO",
+    "comentarios": []
   }
 ]
