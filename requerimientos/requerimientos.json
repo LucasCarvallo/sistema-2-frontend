@@ -108,7 +108,7 @@
     "titulo": "[DEV] (REQ) 34 - GESTIÓN DE STOCKS - SALDO LOTE - Agregar COLUMNA PESO LOTE= Peso CONJ UNITARIO para el item por CANT DEL LOTE",
     "fecha": "22-05-2026",
     "rama": "feature/dep-saldo-peso-lote",
-    "estado": "REVISAR",
+    "estado": "LISTO",
     "comentarios": []
   },
   {

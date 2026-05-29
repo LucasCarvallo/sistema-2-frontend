@@ -725,7 +725,7 @@
     "inicio": "",
     "fin": "",
     "minutos": 0,
-    "estado": "HACER",
+    "estado": "LISTO",
     "subtareas": [
       {
         "id": 60,
@@ -761,10 +761,10 @@
         "id": 65,
         "titulo": "La nueva columna debe ser opcional, tambien exportar en excel si se tildo para ver la columna",
         "comentarios": [],
-        "inicio": "",
-        "fin": "",
-        "minutos": 0,
-        "estado": "HACER",
+        "inicio": "28-05-2026 20:20",
+        "fin": "28-05-2026 21:50",
+        "minutos": 90,
+        "estado": "LISTO",
         "subtareas": []
       }
     ]
