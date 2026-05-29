@@ -833,12 +833,33 @@
   {
     "id": 67,
     "requerimiento_id": 15,
-    "titulo": "completar requerimiento",
+    "titulo": "mostrar fecha de quiebre",
     "comentarios": [],
-    "inicio": "29-05-2026 14:30",
-    "fin": "29-05-2026 15:30",
-    "minutos": 60,
-    "estado": "LISTO",
-    "subtareas": []
+    "inicio": "",
+    "fin": "",
+    "minutos": 0,
+    "estado": "HACER",
+    "subtareas": [
+      {
+        "id": 68,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "inicio": "29-05-2026 14:30",
+        "fin": "29-05-2026 15:30",
+        "minutos": 60,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 69,
+        "titulo": "ajustes",
+        "comentarios": [],
+        "inicio": "29-05-2026 ",
+        "fin": "29-05-2026 ",
+        "minutos": 0,
+        "estado": "HACER",
+        "subtareas": []
+      }
+    ]
   }
 ]
