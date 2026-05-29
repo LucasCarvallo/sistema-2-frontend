@@ -118,5 +118,13 @@
     "rama": "feature/oportunidad-comentario-snicolini",
     "estado": "LISTO",
     "comentarios": []
+  },
+  {
+    "id": 14,
+    "titulo": "[DEV] (REQ) ERROR - LOTE 057156039",
+    "fecha": "29-05-2026",
+    "rama": "feature/oportunidad-comentario-snicolini",
+    "estado": "LISTO",
+    "comentarios": []
   }
 ]

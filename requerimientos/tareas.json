@@ -815,5 +815,19 @@
     "minutos": 130,
     "estado": "LISTO",
     "subtareas": []
+  },
+  {
+    "id": 66,
+    "requerimiento_id": 14,
+    "titulo": "Pruebas y analisis",
+    "comentarios": [
+      "Facu lo corrigio manualmente pero aparentemente hay un error al eliminar el movimiento (no descuenta stock)",
+      "Tambien hay que revisar si realmente salteó un lote"
+    ],
+    "inicio": "29-05-2026 11:10",
+    "fin": "29-05-2026 13:00",
+    "minutos": 110,
+    "estado": "LISTO",
+    "subtareas": []
   }
 ]
