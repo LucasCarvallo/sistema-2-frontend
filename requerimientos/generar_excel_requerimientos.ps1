@@ -78,7 +78,7 @@ foreach ($task in $tasks) {
                 FECHA = $fecha
                 DESDE = $desde
                 HASTA = $hasta
-                'SUBTOTAL (MINUTOS)' = [int]$sub.minutos
+                MINUTOS = [int]$sub.minutos
                 REQUERIMIENTO = $reqTitle
                 DESCRIPCION = $descripcion
             })
@@ -93,7 +93,7 @@ foreach ($task in $tasks) {
             FECHA = $fecha
             DESDE = $desde
             HASTA = $hasta
-            'SUBTOTAL (MINUTOS)' = [int]$task.minutos
+            MINUTOS = [int]$task.minutos
             REQUERIMIENTO = $reqTitle
             DESCRIPCION = (Join-UniqueParts @($taskTitle, $taskComments))
         })
@@ -112,13 +112,19 @@ $sb = New-Object System.Text.StringBuilder
 [void]$sb.AppendLine('<?xml version="1.0" encoding="UTF-8"?>')
 [void]$sb.AppendLine('<?mso-application progid="Excel.Sheet"?>')
 [void]$sb.AppendLine('<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">')
+[void]$sb.AppendLine('<Styles>')
+[void]$sb.AppendLine('<Style ss:ID="HeaderStyle">')
+[void]$sb.AppendLine('<Font ss:Bold="1" ss:Color="#334155"/>')
+[void]$sb.AppendLine('<Interior ss:Color="#E8EEF5" ss:Pattern="Solid"/>')
+[void]$sb.AppendLine('</Style>')
+[void]$sb.AppendLine('</Styles>')
 [void]$sb.AppendLine('<Worksheet ss:Name="Tareas">')
 [void]$sb.AppendLine('<Table>')
 
-$headers = @('FECHA', 'DESDE', 'HASTA', 'SUBTOTAL (MINUTOS)', 'REQUERIMIENTO', 'DESCRIPCION')
+$headers = @('FECHA', 'DESDE', 'HASTA', 'MINUTOS', 'REQUERIMIENTO', 'DESCRIPCION')
 [void]$sb.AppendLine('<Row>')
 foreach ($h in $headers) {
-    [void]$sb.AppendLine("<Cell><Data ss:Type=`"String`">$(Escape-Xml $h)</Data></Cell>")
+    [void]$sb.AppendLine("<Cell ss:StyleID=`"HeaderStyle`"><Data ss:Type=`"String`">$(Escape-Xml $h)</Data></Cell>")
 }
 [void]$sb.AppendLine('</Row>')
 
@@ -127,7 +133,7 @@ foreach ($row in $rows) {
     [void]$sb.AppendLine("<Cell><Data ss:Type=`"String`">$(Escape-Xml ([string]$row.FECHA))</Data></Cell>")
     [void]$sb.AppendLine("<Cell><Data ss:Type=`"String`">$(Escape-Xml ([string]$row.DESDE))</Data></Cell>")
     [void]$sb.AppendLine("<Cell><Data ss:Type=`"String`">$(Escape-Xml ([string]$row.HASTA))</Data></Cell>")
-    [void]$sb.AppendLine("<Cell><Data ss:Type=`"Number`">$($row.'SUBTOTAL (MINUTOS)')</Data></Cell>")
+    [void]$sb.AppendLine("<Cell><Data ss:Type=`"Number`">$($row.MINUTOS)</Data></Cell>")
     [void]$sb.AppendLine("<Cell><Data ss:Type=`"String`">$(Escape-Xml ([string]$row.REQUERIMIENTO))</Data></Cell>")
     [void]$sb.AppendLine("<Cell><Data ss:Type=`"String`">$(Escape-Xml ([string]$row.DESCRIPCION))</Data></Cell>")
     [void]$sb.AppendLine('</Row>')
