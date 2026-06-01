@@ -7,6 +7,51 @@ $tasksPath = Join-Path $basePath 'tareas.json'
 $reqs = Get-Content $reqsPath -Raw -Encoding UTF8 | ConvertFrom-Json
 $tasks = Get-Content $tasksPath -Raw -Encoding UTF8 | ConvertFrom-Json
 
+function Normalize-Text([string]$value) {
+    if ([string]::IsNullOrWhiteSpace($value)) { return '' }
+    return ($value -replace '\s+', ' ').Trim()
+}
+
+function Normalize-Comments($comments) {
+    if ($null -eq $comments) { return '' }
+
+    $items = @()
+    if ($comments -is [System.Array]) {
+        $items = $comments
+    }
+    else {
+        $items = @($comments)
+    }
+
+    $cleanItems = @()
+    foreach ($item in $items) {
+        $clean = Normalize-Text ([string]$item)
+        if (-not [string]::IsNullOrWhiteSpace($clean)) {
+            $cleanItems += $clean
+        }
+    }
+
+    return ($cleanItems -join ' | ')
+}
+
+function Join-UniqueParts([string[]]$parts) {
+    $seen = @{}
+    $result = @()
+
+    foreach ($part in $parts) {
+        $clean = Normalize-Text $part
+        if ([string]::IsNullOrWhiteSpace($clean)) { continue }
+
+        $key = $clean.ToLowerInvariant()
+        if (-not $seen.ContainsKey($key)) {
+            $seen[$key] = $true
+            $result += $clean
+        }
+    }
+
+    return ($result -join ' | ')
+}
+
 $reqMap = @{}
 foreach ($r in $reqs) {
     $reqMap[[int]$r.id] = [string]$r.titulo
@@ -17,12 +62,17 @@ $rows = New-Object System.Collections.Generic.List[object]
 foreach ($task in $tasks) {
     $reqTitle = if ($reqMap.ContainsKey([int]$task.requerimiento_id)) { $reqMap[[int]$task.requerimiento_id] } else { '' }
     $subs = @($task.subtareas)
+    $taskTitle = Normalize-Text ([string]$task.titulo)
+    $taskComments = Normalize-Comments $task.comentarios
 
     if ($subs.Count -gt 0) {
         foreach ($sub in $subs) {
             $fecha = if ($sub.inicio) { ([string]$sub.inicio).Split(' ')[0] } elseif ($sub.fin) { ([string]$sub.fin).Split(' ')[0] } else { '' }
             $desde = if ($sub.inicio) { (($sub.inicio -split ' ', 2)[1]) } else { '' }
             $hasta = if ($sub.fin) { (($sub.fin -split ' ', 2)[1]) } else { '' }
+            $subTitle = Normalize-Text ([string]$sub.titulo)
+            $subComments = Normalize-Comments $sub.comentarios
+            $descripcion = Join-UniqueParts @($subTitle, $taskTitle, $subComments, $taskComments)
 
             $rows.Add([pscustomobject]@{
                 FECHA = $fecha
@@ -30,7 +80,7 @@ foreach ($task in $tasks) {
                 HASTA = $hasta
                 'SUBTOTAL (MINUTOS)' = [int]$sub.minutos
                 REQUERIMIENTO = $reqTitle
-                DESCRIPCION = [string]$sub.titulo
+                DESCRIPCION = $descripcion
             })
         }
     }
@@ -45,7 +95,7 @@ foreach ($task in $tasks) {
             HASTA = $hasta
             'SUBTOTAL (MINUTOS)' = [int]$task.minutos
             REQUERIMIENTO = $reqTitle
-            DESCRIPCION = [string]$task.titulo
+            DESCRIPCION = (Join-UniqueParts @($taskTitle, $taskComments))
         })
     }
 }
@@ -88,6 +138,7 @@ foreach ($row in $rows) {
 [void]$sb.AppendLine('</Workbook>')
 
 $outPath = Join-Path $basePath 'tareas-requerimientos.xls'
+
 [System.IO.File]::WriteAllText($outPath, $sb.ToString(), [System.Text.UTF8Encoding]::new($true))
 
 Write-Output "ARCHIVO_OK: $outPath"
