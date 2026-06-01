@@ -91,7 +91,7 @@
     "subtareas": [
       {
         "id": 9,
-        "titulo": "acomodar codigo",
+        "titulo": "acomodar codigo (consultas SQL con MySQLi y SQL Bind, etiquetas php abiertas, etiquetas HTML mal cerradas, punto y coma faltantes)",
         "comentarios": [],
         "inicio": "06-05-2026 19:30",
         "fin": "06-05-2026 20:30",
