@@ -1,7 +1,11 @@
 $ErrorActionPreference = 'Stop'
 
-$reqs = Get-Content "requerimientos/requerimientos.json" -Raw -Encoding UTF8 | ConvertFrom-Json
-$tasks = Get-Content "requerimientos/tareas.json" -Raw -Encoding UTF8 | ConvertFrom-Json
+$basePath = Split-Path -Parent $MyInvocation.MyCommand.Path
+$reqsPath = Join-Path $basePath 'requerimientos.json'
+$tasksPath = Join-Path $basePath 'tareas.json'
+
+$reqs = Get-Content $reqsPath -Raw -Encoding UTF8 | ConvertFrom-Json
+$tasks = Get-Content $tasksPath -Raw -Encoding UTF8 | ConvertFrom-Json
 
 $reqMap = @{}
 foreach ($r in $reqs) {
@@ -83,7 +87,7 @@ foreach ($row in $rows) {
 [void]$sb.AppendLine('</Worksheet>')
 [void]$sb.AppendLine('</Workbook>')
 
-$outPath = Join-Path (Get-Location) 'requerimientos\tareas-requerimientos.xls'
+$outPath = Join-Path $basePath 'tareas-requerimientos.xls'
 [System.IO.File]::WriteAllText($outPath, $sb.ToString(), [System.Text.UTF8Encoding]::new($true))
 
 Write-Output "ARCHIVO_OK: $outPath"
