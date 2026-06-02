@@ -102,6 +102,39 @@ foreach ($task in $tasks) {
 
 $rows = $rows | Sort-Object FECHA, DESDE, REQUERIMIENTO, DESCRIPCION
 
+$dataStartRow = 2
+$dataEndRow = $rows.Count + 1
+$minutosRange = if ($rows.Count -gt 0) { "D$($dataStartRow):D$($dataEndRow)" } else { 'D2:D2' }
+$totalHmFormula = ('=INT(SUM({0})/60)&":"&TEXT(MOD(SUM({0}),60),"00")' -f $minutosRange)
+
+$columns = @(
+    [pscustomobject]@{ Key = 'FECHA'; Header = 'FECHA'; MinWidth = 70; MaxWidth = 120 },
+    [pscustomobject]@{ Key = 'DESDE'; Header = 'DESDE'; MinWidth = 65; MaxWidth = 90 },
+    [pscustomobject]@{ Key = 'HASTA'; Header = 'HASTA'; MinWidth = 65; MaxWidth = 90 },
+    [pscustomobject]@{ Key = 'MINUTOS'; Header = 'MINUTOS'; MinWidth = 80; MaxWidth = 110 },
+    [pscustomobject]@{ Key = 'REQUERIMIENTO'; Header = 'REQUERIMIENTO'; MinWidth = 180; MaxWidth = 520 },
+    [pscustomobject]@{ Key = 'DESCRIPCION'; Header = 'DESCRIPCION'; MinWidth = 200; MaxWidth = 800 }
+)
+
+function Width-FromChars([int]$chars, [int]$minWidth, [int]$maxWidth) {
+    $estimated = [int][Math]::Ceiling(($chars + 2) * 7)
+    return [Math]::Max($minWidth, [Math]::Min($maxWidth, $estimated))
+}
+
+$columnWidths = @{}
+foreach ($col in $columns) {
+    $maxChars = [int]([string]$col.Header).Length
+
+    foreach ($row in $rows) {
+        $text = [string]$row.($col.Key)
+        if ($text.Length -gt $maxChars) {
+            $maxChars = $text.Length
+        }
+    }
+
+    $columnWidths[$col.Key] = Width-FromChars $maxChars ([int]$col.MinWidth) ([int]$col.MaxWidth)
+}
+
 function Escape-Xml([string]$value) {
     if ($null -eq $value) { return '' }
 
@@ -121,7 +154,11 @@ $sb = New-Object System.Text.StringBuilder
 [void]$sb.AppendLine('<Worksheet ss:Name="Tareas">')
 [void]$sb.AppendLine('<Table>')
 
-$headers = @('FECHA', 'DESDE', 'HASTA', 'MINUTOS', 'REQUERIMIENTO', 'DESCRIPCION')
+foreach ($col in $columns) {
+    [void]$sb.AppendLine("<Column ss:Width=`"$($columnWidths[$col.Key])`"/>")
+}
+
+$headers = $columns | ForEach-Object { $_.Header }
 [void]$sb.AppendLine('<Row>')
 foreach ($h in $headers) {
     [void]$sb.AppendLine("<Cell ss:StyleID=`"HeaderStyle`"><Data ss:Type=`"String`">$(Escape-Xml $h)</Data></Cell>")
@@ -138,6 +175,17 @@ foreach ($row in $rows) {
     [void]$sb.AppendLine("<Cell><Data ss:Type=`"String`">$(Escape-Xml ([string]$row.DESCRIPCION))</Data></Cell>")
     [void]$sb.AppendLine('</Row>')
 }
+
+[void]$sb.AppendLine('<Row>')
+[void]$sb.AppendLine('<Cell><Data ss:Type="String"></Data></Cell>')
+[void]$sb.AppendLine('</Row>')
+
+[void]$sb.AppendLine('<Row>')
+[void]$sb.AppendLine('<Cell><Data ss:Type="String"></Data></Cell>')
+[void]$sb.AppendLine('<Cell><Data ss:Type="String"></Data></Cell>')
+[void]$sb.AppendLine('<Cell><Data ss:Type="String">HORAS TOTALES (HH:MM)</Data></Cell>')
+[void]$sb.AppendLine("<Cell ss:Formula=`"$(Escape-Xml $totalHmFormula)`"><Data ss:Type=`"String`">00:00</Data></Cell>")
+[void]$sb.AppendLine('</Row>')
 
 [void]$sb.AppendLine('</Table>')
 [void]$sb.AppendLine('</Worksheet>')
