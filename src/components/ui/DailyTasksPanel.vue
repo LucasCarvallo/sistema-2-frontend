@@ -76,14 +76,23 @@ function extraerFecha(value) {
     const text = String(value || '').trim();
     if (!text) return '';
 
-    const match = text.match(/^(\d{2}-\d{2}-\d{4})/);
-    return match ? match[1] : '';
+    const isoMatch = text.match(/^(\d{4}-\d{2}-\d{2})/);
+    if (isoMatch) return isoMatch[1];
+
+    const legacyMatch = text.match(/^(\d{2}-\d{2}-\d{4})/);
+    return legacyMatch ? toIsoDate(legacyMatch[1]) : '';
 }
 
 function toIsoDate(fecha) {
-    const parts = String(fecha || '').split('-');
-    if (parts.length !== 3) return '';
-    const [dd, mm, yyyy] = parts;
+    const value = String(fecha || '').trim();
+    if (!value) return '';
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+
+    const legacyMatch = value.match(/^(\d{2})-(\d{2})-(\d{4})$/);
+    if (!legacyMatch) return '';
+
+    const [, dd, mm, yyyy] = legacyMatch;
     return `${yyyy}-${mm}-${dd}`;
 }
 
