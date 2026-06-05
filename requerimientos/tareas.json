@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "requerimiento_id": 1,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "inicio": "2026-06-01 19:43",
+        "fin": "2026-06-01 21:00",
+        "minutos": 77,
+        "estado": "LISTO",
+        "subtareas": []
+    },
+    {
+        "id": 2,
+        "requerimiento_id": 2,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "inicio": "2026-06-03 17:52",
+        "fin": "2026-06-03 18:58",
+        "minutos": 66,
+        "estado": "LISTO",
+        "subtareas": []
+    },
+    {
+        "id": 3,
+        "requerimiento_id": 3,
+        "titulo": "Verificar y corregir ya que algunos valores se mostraban y no debían",
+        "comentarios": [],
+        "inicio": "2026-06-03 19:10",
+        "fin": "2026-06-03 21:30",
+        "minutos": 140,
+        "estado": "LISTO",
+        "subtareas": []
+    }
+]

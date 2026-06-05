@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "titulo": "Hacer excel para pasar a RRHH",
+        "fecha": "2026-06-01",
+        "rama": "",
+        "estado": "LISTO",
+        "comentarios": []
+    },
+    {
+        "id": 2,
+        "titulo": "Revision requerimientos",
+        "fecha": "2026-06-03",
+        "rama": "",
+        "estado": "LISTO",
+        "comentarios": []
+    },
+    {
+        "id": 3,
+        "titulo": "[DEV] (REQ) GESTIÓN DE STOCKS - CONSULTOR DEP 60 - No se visualiza fecha de quiebre",
+        "fecha": "2026-06-03",
+        "rama": "feature/consultor-dep9-fecha-quiebre",
+        "estado": "LISTO",
+        "comentarios": []
+    }
+]
