@@ -832,9 +832,11 @@ function normalizeTask(source, requerimiento_id) {
 
 async function loadData() {
     try {
+        const reqUrl = `${import.meta.env.BASE_URL}requerimientos/requerimientos.json`;
+        const taskUrl = `${import.meta.env.BASE_URL}requerimientos/tareas.json`;
         const [reqRes, taskRes] = await Promise.all([
-            fetch('/requerimientos/requerimientos.json'),
-            fetch('/requerimientos/tareas.json'),
+            fetch(reqUrl),
+            fetch(taskUrl),
         ]);
         const reqList = await reqRes.json();
         const taskList = await taskRes.json();

@@ -1,0 +1,862 @@
+﻿[
+  {
+    "id": 1,
+    "requerimiento_id": 1,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "inicio": "2026-05-05 12:00",
+    "fin": "2026-05-05 15:10",
+    "minutos": 190,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 2,
+    "requerimiento_id": 2,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "inicio": "2026-05-05 16:00",
+    "fin": "2026-05-05 18:00",
+    "minutos": 120,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 3,
+    "requerimiento_id": 3,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "inicio": "2026-05-06 18:00",
+    "fin": "2026-05-06 18:30",
+    "minutos": 30,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 4,
+    "requerimiento_id": 4,
+    "titulo": "completar requerimiento",
+    "comentarios": [
+      "La consulta SALDOS-LOTE 'nueva' no muestra el LOTE ORIGEN, a pesar de q estÃ¡ el filtro para eso. Se necesita contar con ese campo visible. Se puede agregar? Gracias",
+      "Corregir la DESCARGA COMPLETA del excel porque solo trae headers sin datos (por wsp)"
+    ],
+    "inicio": "2026-05-06 18:30",
+    "fin": "2026-05-06 19:30",
+    "minutos": 60,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 5,
+    "requerimiento_id": 5,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "inicio": "2026-05-04 16:30",
+    "fin": "2026-05-04 17:40",
+    "minutos": 70,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 6,
+    "requerimiento_id": 6,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "inicio": "2026-05-04 18:30",
+    "fin": "2026-05-04 20:05",
+    "minutos": 95,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 7,
+    "requerimiento_id": 6,
+    "titulo": "ajustes e implementacion de filtro vendedor en PIF",
+    "comentarios": [],
+    "inicio": "2026-05-05 18:30",
+    "fin": "2026-05-05 19:40",
+    "minutos": 70,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 8,
+    "requerimiento_id": 7,
+    "titulo": "1) Flete:  Asegurar que el descuento no aplique sobre el costo del flete.",
+    "comentarios": [],
+    "minutos": 0,
+    "estado": "LISTO",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 9,
+        "titulo": "acomodar codigo (consultas SQL con MySQLi y SQL Bind, etiquetas php abiertas, etiquetas HTML mal cerradas, punto y coma faltantes)",
+        "comentarios": [],
+        "inicio": "2026-05-06 19:30",
+        "fin": "2026-05-06 20:30",
+        "minutos": 60,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 10,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "inicio": "2026-05-06 20:30",
+        "fin": "2026-05-06 21:30",
+        "minutos": 60,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 11,
+        "titulo": "al agregar articulos los situa abajo y no le aplica los descuentos PERO en el PDF si lo aplica de forma individual y se ve correctamente.",
+        "comentarios": [],
+        "inicio": "2026-05-20 14:30",
+        "fin": "2026-05-20 15:10",
+        "minutos": 40,
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "requerimiento_id": 7,
+    "titulo": "2) DESCUENTO: Eliminar la visualizaciÃ³n del descuento en el presupuesto final. Evitar que el cliente vea el porcentaje descontado. Ajustar la impresiÃ³n para que el precio unitario ya muestre el descuento aplicado. Esto permite ocultar la cifra total descontada.",
+    "comentarios": [],
+    "inicio": "2026-05-13 20:15",
+    "fin": "2026-05-13 21:30",
+    "minutos": 75,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 13,
+    "requerimiento_id": 7,
+    "titulo": "3) Divisa: Implementar funcionalidad de recargo para dÃ³lar divisa. Permitir ingresar manualmente el porcentaje de recargo al seleccionar esta moneda.",
+    "comentarios": [],
+    "minutos": 0,
+    "estado": "LISTO",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 14,
+        "titulo": "corregir SELECT *, parametros SQL a SQL Bind (presu-condicion-venta.php)",
+        "comentarios": [],
+        "minutos": 16,
+        "inicio": "2026-05-18 17:10",
+        "fin": "2026-05-18 17:26",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 15,
+        "titulo": "completar requerimiento",
+        "comentarios": [
+          "Input recargo divisa para el porcentaje",
+          "Nuevo campo en la tabla presu",
+          "Integracion del nuevo campo de la tabla con el input y sincronizacion de datos"
+        ],
+        "minutos": 37,
+        "inicio": "2026-05-18 17:26",
+        "fin": "2026-05-18 18:03",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 16,
+        "titulo": "corregir SELECT *, parametros SQL a SQL Bind (verifica-datos-presu.php)",
+        "comentarios": [],
+        "minutos": 22,
+        "inicio": "2026-05-18 18:03",
+        "fin": "2026-05-18 18:25",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 17,
+        "titulo": "Al implementar la funcionalidad se ve la necesidad de mostrarlo en el apartado de items (verifica-datos-presu.php)",
+        "comentarios": [
+          "Agregado visual de RECARGO DIVISA en INFORMACION y tambien en la tabla junto a los articulos, flete y descuentos",
+          "Aplicar calculo de recargo divisa al subtotal con descuento+flete para mostrar el total final con recargo incluido",
+          "Modificaciones visuales para ver los distintos descuentos/recargos y subtotales (total de art, total de art con dto, total de art con dto aplicado + flete + recargo divisa)"
+        ],
+        "minutos": 75,
+        "inicio": "2026-05-18 18:25",
+        "fin": "2026-05-18 19:40",
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 18,
+        "titulo": "faltaba sumar el subtotal y el recargo de divisa al PDF",
+        "comentarios": [],
+        "minutos": 18,
+        "inicio": "2026-05-18 20:37",
+        "fin": "2026-05-18 20:55",
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "requerimiento_id": 7,
+    "titulo": "4) Dibujo : Revisar y modificar el diseÃ±o del presupuesto enviado. Incluir la firma del comercial y unificar el membrete con la identidad visual de SOTIC.",
+    "comentarios": [
+      "Agregado de logo sotic y datos de contacto junto al presupuesto en el PDF.",
+      "Agregado de datos del vendedor en el footer."
+    ],
+    "minutos": 0,
+    "estado": "LISTO",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 20,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "inicio": "2026-05-18 19:40",
+        "fin": "2026-05-18 20:36",
+        "minutos": 56,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 21,
+        "titulo": "corregir firma comercial que no se ve en el PDF",
+        "comentarios": [
+          "DomPDF no reconoce el formato del campo 'firma' ya que este estÃ¡ en HTML",
+          "Se hizo firma con datos del vendedor de la tabla user"
+        ],
+        "inicio": "2026-05-20 17:00",
+        "fin": "2026-05-20 18:00",
+        "minutos": 60,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 22,
+        "titulo": "En local se ve bien, pero en DEV se muestra info de sotic bajo la firma en el PDF.",
+        "comentarios": [],
+        "inicio": "2026-05-26 16:53",
+        "fin": "2026-05-26 17:23",
+        "minutos": 30,
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "requerimiento_id": 7,
+    "titulo": "5) BotÃ³n Ganado: Evaluar la adiciÃ³n de un botÃ³n para marcar un presupuesto como Ganado. Esta funciÃ³n debe operar sin requerir el envÃ­o por correo electrÃ³nico previo.",
+    "comentarios": [],
+    "inicio": "2026-05-21 17:30",
+    "fin": "2026-05-21 18:35",
+    "minutos": 65,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 24,
+    "requerimiento_id": 7,
+    "titulo": "6) CondiciÃ³n Pago: Revisar si existe condiciÃ³n 30 dÃ­as fecha factura. Evaluar agregar esta condiciÃ³n de pago si es necesario.",
+    "comentarios": [
+      "Tabla presu.condicion_venta",
+      "Actualmente tiene tipocvta.id = 3 (0/30 DIAS FECHA FACTURA)",
+      "insert into tipocvta (nombre, estado) values ('30 DIAS FECHA FACTURA', 0);"
+    ],
+    "inicio": "2026-05-26 09:00",
+    "fin": "2026-05-26 09:30",
+    "minutos": 30,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 26,
+    "requerimiento_id": 7,
+    "titulo": "7) OP Descuento: no llevo el descuento del presupuesto a la oportunidad",
+    "comentarios": [
+      "Relacionar la OP con el presupuesto",
+      "NOTA: El presupuesto puede generar una OP luego de enviarlo y pasarlo a estado GANADO.",
+      "presu-b.php: modificacion para que abra el presupuesto en nueva ventana en vez de la actual",
+      "verifica-datos-presu.php: se pasa el descuento como parametro a oportunidad-a.php",
+      "oportunidad-a.php: recebir y declarar variable descuento que viene por REQUEST + nuevo input hidden descuento"
+    ],
+    "minutos": 0,
+    "estado": "LISTO",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 27,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "inicio": "2026-05-20 18:01",
+        "fin": "2026-05-20 19:21",
+        "minutos": 80,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 28,
+        "titulo": "Ya guarda el descuento en tabla oportunidad pero en verifica-datos.php parece que no hace el calculo",
+        "comentarios": [],
+        "inicio": "2026-05-26 12:38",
+        "fin": "2026-05-26 13:18",
+        "minutos": 40,
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "requerimiento_id": 7,
+    "titulo": "8) Comentario NP: no sale",
+    "comentarios": [
+      "Relacionar la OP con el presupuesto (campo oportunidad.textonp)",
+      "Ver de donde saca (como se completa) el comentario 'textonp' de la tabla oportunidad campo 'textonp'",
+      "presu-print-pdf.php: el comentario del vendedor no estaba definido (textonp), se genero uno nuevo en base a los comentarios de la oportunidad (que debe estar generada, presu ganado)",
+      "Ahora toma el comentario de la tabla acciones"
+    ],
+    "inicio": "2026-05-20 19:22",
+    "fin": "2026-05-20 20:20",
+    "minutos": 58,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 30,
+    "requerimiento_id": 9,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "inicio": "2026-05-04 20:05",
+    "fin": "2026-05-04 20:35",
+    "minutos": 30,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 31,
+    "requerimiento_id": 8,
+    "titulo": "pedido-abm-encabezado.php: manejo de errores, variables indefinidas y validaciones",
+    "comentarios": [],
+    "inicio": "2026-05-19 14:30",
+    "fin": "2026-05-19 14:59",
+    "minutos": 29,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 32,
+    "requerimiento_id": 8,
+    "titulo": "relacionar todos los campos que se utilizan en PedidoTango.php con nuevo controlador",
+    "comentarios": [
+      "Revise que campos usa cada get...() de PedidoTango.",
+      "Arme el mapeo de esos campos al nuevo PedidoController.",
+      "Ordene campos repetidos (header) para no duplicar lÃ³gica.",
+      "Ajuste nombres de claves para que coincidan en todas las pantallas.",
+      "Probe que siga funcionando en ABM sin romper lo existente."
+    ],
+    "inicio": "2026-05-19 17:03",
+    "fin": "2026-05-19 18:47",
+    "minutos": 104,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 33,
+    "requerimiento_id": 8,
+    "titulo": "modificacion de PedidoSgi y pedido-abm-*.php para usar la nueva estructura de datos y el nuevo controlador",
+    "comentarios": [
+      "Actualice PedidoSgi para que trabaje con la nueva estructura de datos.",
+      "Ajuste pedido-abm-*.php para leer y mostrar datos desde el controlador.",
+      "Reemplace accesos viejos de arrays por las nuevas claves unificadas.",
+      "CorregÃ­ validaciones y casos donde faltaban datos en el flujo.",
+      "Adapte alta/ediciÃ³n para que no se rompa al cambiar la fuente de datos.",
+      "Hice pruebas en ABM (encabezado, renglones, resumen e info adicional)."
+    ],
+    "inicio": "2026-05-19 18:50",
+    "fin": "2026-05-19 22:36",
+    "minutos": 226,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 34,
+    "requerimiento_id": 8,
+    "titulo": "pedido-abm-encabezado.php",
+    "comentarios": [
+      "manejo de error de los distintos tipos de informacion (tango, pif, pedidos, pedidos_art, etc)",
+      "panel de visualizacion cuando no hay datos o informacion"
+    ],
+    "inicio": "2026-05-19 23:50",
+    "fin": "2026-05-20 00:30",
+    "minutos": 40,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 35,
+    "requerimiento_id": 8,
+    "titulo": "Hacer lo mismo para NUEVO PEDIDO pero en lugar de vincular de una OPORTUNIDAD, vincular de un PIF",
+    "comentarios": [
+      "manejo de error de los distintos tipos de informacion (tango, pif, pedidos, pedidos_art, etc)",
+      "panel de visualizacion cuando no hay datos o informacion"
+    ],
+    "minutos": 0,
+    "estado": "LISTO",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 36,
+        "titulo": "panel visual para buscar y ver datos PIF (pedido-abm-nuevo.php)",
+        "comentarios": [
+          "Agregue bÃºsqueda por IDPIF en nuevo pedido.",
+          "Incorpore mÃ©todo para traer datos del PIF y mostrarlos en pantalla.",
+          "Arme panel visual para previsualizar datos principales del PIF.",
+          "Ajuste comportamiento de botones segÃºn tipo de bÃºsqueda (OP o PIF).",
+          "Deje comentado â€œcontinuar pedidoâ€ cuando viene por PIF (pendiente backend).",
+          "Probe flujo de bÃºsqueda y carga visual para evitar romper el modo OPORTUNIDAD.",
+          "agregado de idpif y metodo para buscar datos PIF",
+          "agregado visualizador de datos PIF para NUEVO PEDIDO",
+          "comentar boton continuar pedido si se busca PIF (no desarrollado en backend)"
+        ],
+        "inicio": "2026-05-19 15:00",
+        "fin": "2026-05-19 17:00",
+        "minutos": 120,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 37,
+        "titulo": "implementacion del backend con datos PIF",
+        "comentarios": [
+          "Desarrollar lÃ³gica para vincular nuevo pedido con datos del PIF.",
+          "Ajustar controlador para recibir IDPIF y traer datos relacionados.",
+          "Modificar modelo de PedidoSgi para incluir referencia al PIF."
+        ],
+        "inicio": "2026-05-25 20:00",
+        "fin": "2026-05-25 20:19",
+        "minutos": 19,
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "requerimiento_id": 8,
+    "titulo": "OpciÃ³n de generar una NV sin vincularla ni a PIF ni a OPORTUNIDAD. SerÃ­a un caso excepcional pero entiendo que puede ser necesario",
+    "comentarios": [],
+    "inicio": "2026-05-25 20:20",
+    "fin": "2026-05-25 20:40",
+    "minutos": 20,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 39,
+    "requerimiento_id": 8,
+    "titulo": "El campo cotizaciÃ³n deberÃ­a tomar el de tango, que se actualiza diariamente",
+    "comentarios": [
+      "ahora toma el precio del dolar de SGI"
+    ],
+    "inicio": "2026-05-07 20:00",
+    "fin": "2026-05-07 20:35",
+    "minutos": 35,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 40,
+    "requerimiento_id": 8,
+    "titulo": "Vas avanzando con las tablas con la informaciÃ³n del pedido en SGI?",
+    "comentarios": [],
+    "minutos": 0,
+    "estado": "LISTO",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 41,
+        "titulo": "SQL insert pedidos sgi",
+        "comentarios": [
+          "revision de campos necesarios, claves.",
+          "preparacion de las consultas SQL."
+        ],
+        "inicio": "2026-05-15 18:20",
+        "fin": "2026-05-15 19:35",
+        "minutos": 75,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 42,
+        "titulo": "Modificar lÃ³gica en los mÃ©todos de PedidoTango para separar de PedidoSgi.",
+        "comentarios": [
+          "revision de campos necesarios, claves.",
+          "preparacion de las consultas SQL."
+        ],
+        "inicio": "2026-05-15 19:35",
+        "fin": "2026-05-15 22:00",
+        "minutos": 145,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 43,
+        "titulo": "Modificar lÃ³gica en los mÃ©todos de PedidoSgi y creaciÃ³n de nuevos metodos",
+        "comentarios": [],
+        "inicio": "2026-05-17 18:10",
+        "fin": "2026-05-17 21:10",
+        "minutos": 180,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 44,
+        "titulo": "PedidoSgi.php: createLineasDesdeOportunidad",
+        "comentarios": [
+          "metodo para crear las lineas del pedido en base a la OP luego de haber pasado e insertado en Tango."
+        ],
+        "inicio": "2026-05-17 21:40",
+        "fin": "2026-05-17 22:40",
+        "minutos": 60,
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "requerimiento_id": 8,
+    "titulo": "Podes armar una consulta para ver una vista de esas tablas?",
+    "comentarios": [
+      "consulta sql",
+      "Modificacion para agregar un panel que muestre los 10 ultimos pedidos y poder ver sus datos"
+    ],
+    "inicio": "2026-05-17 21:10",
+    "fin": "2026-05-17 21:40",
+    "minutos": 30,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 46,
+    "requerimiento_id": 8,
+    "titulo": "El campo con el numero de remito no lo utilizamos nunca, se puede eliminar",
+    "comentarios": [],
+    "inicio": "2026-05-07 20:40",
+    "fin": "2026-05-07 20:45",
+    "minutos": 5,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 47,
+    "requerimiento_id": 8,
+    "titulo": "El campo â€œnro. de orden de compraâ€ figura como obligatorio, deberÃ­a no serlo, porque no siempre tenemos un numero asociado.",
+    "comentarios": [],
+    "inicio": "2026-05-07 20:47",
+    "fin": "2026-05-07 20:50",
+    "minutos": 3,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 48,
+    "requerimiento_id": 8,
+    "titulo": "Corregir sucursal destino y origen (santa fe por defecto y unica)",
+    "comentarios": [
+      "Remover SQL para consultar sucursales y dejar solo SANTA FE.",
+      "En nuevo pedido debe ingresar siempre SANTA FE como sucursal de origen y destino, y no dejar modificarlo.",
+      "En editar pedido debe traer lo guardado en Tango y no dejar editar."
+    ],
+    "inicio": "2026-05-07 20:53",
+    "fin": "2026-05-07 22:25",
+    "minutos": 92,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 49,
+    "requerimiento_id": 8,
+    "titulo": "Cuando se agrega un articulo en que moneda lo carga Â¿? Estimo que lo estÃ¡ tomando en pesos, pero en la total figura en dÃ³lares.",
+    "comentarios": [
+      "se hicieron los metodos para que guarde la moneda correcta segun la seleccionada en el encabezado"
+    ],
+    "inicio": "2026-05-11 19:45",
+    "fin": "2026-05-11 21:00",
+    "minutos": 75,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 50,
+    "requerimiento_id": 8,
+    "titulo": "No debe dejar modificar la descripciÃ³n adicional de un artÃ­culo, ya que tienen cÃ³digos asignados (formulas) y si, por ejemplo, le borramos el color (como en la captura) puede ocurrir un error grave.",
+    "comentarios": [],
+    "inicio": "2026-05-07 22:30",
+    "fin": "2026-05-07 23:00",
+    "minutos": 30,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 51,
+    "requerimiento_id": 8,
+    "titulo": "Las pestaÃ±as marcadas en amarillo no son visibles, y tampoco las utilizamos en la â€œdiariaâ€œ",
+    "comentarios": [],
+    "inicio": "2026-05-08 20:10",
+    "fin": "2026-05-08 20:15",
+    "minutos": 5,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 52,
+    "requerimiento_id": 8,
+    "titulo": "Nuevas validaciones para un PEDIDO VÃLIDO y validar CLIENTE",
+    "comentarios": [],
+    "inicio": "2026-05-25 18:16",
+    "fin": "2026-05-25 20:00",
+    "minutos": 104,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 53,
+    "requerimiento_id": 8,
+    "titulo": "Probar NUEVO PEDIDO PIF, NUEVO PEDIDO VACÃO, y todo el ABM para ver que siga funcionando todo correctamente",
+    "comentarios": [
+      "Se agregaron mÃ¡s validaciones para evitar errores y casos no contemplados.",
+      "Probar todo el circuito (edicion, nuevo pedido vacio, nuevo pedido con PIF, nuevo pedido con OP) para verificar que no se rompa nada y que se guarden los datos correctamente en cada caso."
+    ],
+    "inicio": "2026-05-25 21:20",
+    "fin": "2026-05-25 23:20",
+    "minutos": 120,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 54,
+    "requerimiento_id": 10,
+    "titulo": "GestiÃ³n de Stock Descarga CSV-Excel",
+    "comentarios": [
+      "En la GestiÃ³n de Stock -> Movimientos por Lote, en el pie del resultado de la consulta, aparece un link 'Descargar Listado'.",
+      "Modificarlo y que diga 'Descargar Listado CSV' y agregar al lado 'Descarga Listado Excel'.",
+      "Para el segundo, modificar el cÃ³digo y en la generaciÃ³n del archivo a descargar, indicando ciertos headers: (ver mail)",
+      "Y ademÃ¡s agregar el caracter invisible BOM al inicio, con echo (ver mail); para que codifique caracteres con acentos y eÃ±es en UTF-8 y no muestre caracteres 'raros'."
+    ],
+    "inicio": "2026-05-26 09:30",
+    "fin": "2026-05-26 10:14",
+    "minutos": 44,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 55,
+    "requerimiento_id": 11,
+    "titulo": "VisualizaciÃ³n de menÃºs MatÃ­as Cabral",
+    "comentarios": [
+      "El user MatÃ­as Cabral hoy tiene perfil 'PLA', cuando deberÃ­a tener 'ING'. Pero esto es porque el perfil 'PLA' permite visualizar mÃ¡s menÃºs en el SGI. Por lo tanto dicho user deberÃ­a tener perfil 'ING' pero ademÃ¡s poder visualizar los items de menÃºs que se muestran en verde en los prints de abajo. Para ello se debe cumplir que dicho user tenga 'perfiles.id == 8' && 'perfiles.resp' == 18"
+    ],
+    "minutos": 67,
+    "estado": "LISTO",
+    "inicio": "",
+    "fin": "",
+    "subtareas": [
+      {
+        "id": 56,
+        "titulo": "completar requerimiento",
+        "comentarios": [
+          "obtener el responsable del perfil del user logueado",
+          "comparar con el id del responsable que se pide para mostrar los items de menu",
+          "mostrar los items de menu correspondientes segun el perfil y responsable del user logueado"
+        ],
+        "inicio": "2026-05-26 10:26",
+        "fin": "2026-05-26 11:00",
+        "minutos": 34,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 57,
+        "titulo": "pruebas y modificaciones",
+        "comentarios": [
+          "probar con el user de matias cabral y verificar que se muestran los items de menu correspondientes",
+          "probar con otros users y verificar que se muestran los items de menu correspondientes segun su perfil y responsable",
+          "mejoras de cÃ³digo y refactorizaciones para no repetir codigo relacionado a este requerimiento"
+        ],
+        "inicio": "2026-05-26 12:00",
+        "fin": "2026-05-26 12:37",
+        "minutos": 37,
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "requerimiento_id": 7,
+    "titulo": "Merge ramas a sgi-dev y main && Fix conflictos && Modificaciones feature/mejoras-presupuestador",
+    "comentarios": [],
+    "inicio": "2026-05-27 16:40",
+    "fin": "2026-05-27 19:10",
+    "minutos": 150,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 59,
+    "requerimiento_id": 12,
+    "titulo": "completar requerimiento",
+    "comentarios": [],
+    "inicio": "",
+    "fin": "",
+    "minutos": 0,
+    "estado": "LISTO",
+    "subtareas": [
+      {
+        "id": 60,
+        "titulo": "En GESTIÃ“N DE STOCKS / SALDO LOTE Agregar columna: PESO LOTE = PESO CONJ UNITARIO para el ITEM x SALDO",
+        "comentarios": [],
+        "inicio": "2026-05-27 20:00",
+        "fin": "2026-05-27 21:00",
+        "minutos": 60,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 61,
+        "titulo": "En GESTIÃ“N DE STOCKS / SALDO-ARTÃCULO Agregar columna: PESO LOTE = PESO CONJ UNITARIO para el ITEM x SALDO",
+        "comentarios": [],
+        "inicio": "2026-05-27 21:00",
+        "fin": "2026-05-27 21:45",
+        "minutos": 45,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 64,
+        "titulo": "Correcciones en calculo PESO LOTE CONJUNTO",
+        "comentarios": [],
+        "inicio": "2026-05-28 18:40",
+        "fin": "2026-05-28 19:15",
+        "minutos": 35,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 65,
+        "titulo": "La nueva columna debe ser opcional, tambien exportar en excel si se tildo para ver la columna",
+        "comentarios": [],
+        "inicio": "2026-05-28 20:20",
+        "fin": "2026-05-28 21:50",
+        "minutos": 90,
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "requerimiento_id": 13,
+    "titulo": "Agrandar textarea",
+    "comentarios": [],
+    "inicio": "",
+    "fin": "",
+    "minutos": 0,
+    "estado": "LISTO",
+    "subtareas": [
+      {
+        "id": 64,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "inicio": "2026-05-27 22:50",
+        "fin": "2026-05-27 23:05",
+        "minutos": 15,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 65,
+        "titulo": "ajustes",
+        "comentarios": [],
+        "inicio": "2026-05-28 18:25",
+        "fin": "2026-05-28 18:45",
+        "minutos": 20,
+        "estado": "LISTO",
+        "subtareas": []
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "requerimiento_id": 7,
+    "titulo": "Correcciones",
+    "comentarios": [
+      "quitar imagen del pdf y dejar la firma del vendedor-comercial",
+      "aplicar recargo y descuento en cada linea y flete en vez de aplicar al subtotal",
+      "no paso forma de pago 30 dÃ­as FF: ahora se pasa a la OP"
+    ],
+    "inicio": "2026-05-28 16:15",
+    "fin": "2026-05-28 18:25",
+    "minutos": 130,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 66,
+    "requerimiento_id": 14,
+    "titulo": "Pruebas y analisis",
+    "comentarios": [
+      "Facu lo corrigio manualmente pero aparentemente hay un error al eliminar el movimiento (no descuenta stock)",
+      "Tambien hay que revisar si realmente salteÃ³ un lote"
+    ],
+    "inicio": "2026-05-29 11:10",
+    "fin": "2026-05-29 13:00",
+    "minutos": 110,
+    "estado": "LISTO",
+    "subtareas": []
+  },
+  {
+    "id": 67,
+    "requerimiento_id": 15,
+    "titulo": "mostrar fecha de quiebre",
+    "comentarios": [],
+    "inicio": "",
+    "fin": "",
+    "minutos": 0,
+    "estado": "HACER",
+    "subtareas": [
+      {
+        "id": 68,
+        "titulo": "completar requerimiento",
+        "comentarios": [],
+        "inicio": "2026-05-29 14:30",
+        "fin": "2026-05-29 15:30",
+        "minutos": 60,
+        "estado": "LISTO",
+        "subtareas": []
+      },
+      {
+        "id": 69,
+        "titulo": "ajustes",
+        "comentarios": [],
+        "inicio": "2026-05-29 16:25",
+        "fin": "2026-05-29 17:05",
+        "minutos": 40,
+        "estado": "HACER",
+        "subtareas": []
+      }
+    ]
+  }
+]
