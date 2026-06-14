@@ -13,7 +13,7 @@ import productsRoutes from './routes/private/products';
 import systemRoutes from './routes/private/system';
 import userRoutes from './routes/private/user';
 import toolsRoutes from './routes/private/tools';
-import publicToolsRoutes from './routes/public/tools-public.js';
+import esp32Routes from './routes/public/esp32.js';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,7 +25,7 @@ const router = createRouter({
         ...systemRoutes,
         ...userRoutes,
         ...toolsRoutes,
-        ...publicToolsRoutes,
+        ...esp32Routes,
         {
             path: '/',
             name: 'root',

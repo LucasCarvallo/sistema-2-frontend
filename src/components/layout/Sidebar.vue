@@ -62,7 +62,16 @@ const menu = [
             { name: 'JSON Beauty', path: '/tools/jsonbeauty', icon: 'bi-file-code' },
             { name: 'Pruebas',     path: '/tools/pruebas',     icon: 'bi-tools'     },
             { name: 'Requerimientos', path: '/tools/requerimientos', icon: 'bi-list-check'     },
+        ],
+    },
+    {
+        category: 'ESP32',
+        items: [
+            // { name: 'Escaneo WiFi', path: '/tools/esp32', icon: 'bi-wifi' },
             { name: 'ESP32', path: '/tools/esp32', icon: 'bi-cpu'     },
+
+            // { name: 'Monitor Serial', path: '/tools/esp32/serial-monitor', icon: 'bi-terminal' },
+            // { name: 'Gestor de Archivos', path: '/tools/esp32/file-manager', icon: 'bi-folder' },
         ],
     },
     {
