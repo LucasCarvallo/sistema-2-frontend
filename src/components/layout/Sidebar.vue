@@ -62,6 +62,7 @@ const menu = [
             { name: 'JSON Beauty', path: '/tools/jsonbeauty', icon: 'bi-file-code' },
             { name: 'Pruebas',     path: '/tools/pruebas',     icon: 'bi-tools'     },
             { name: 'Requerimientos', path: '/tools/requerimientos', icon: 'bi-list-check'     },
+            { name: 'ESP32', path: '/tools/esp32', icon: 'bi-cpu'     },
         ],
     },
     {
