@@ -8,7 +8,8 @@ export default [
     {
         path: '/tools/pruebas',
         name: 'pruebas',
-        component: () => import('../../../views/tools/Pruebas.vue'),
+        // component: () => import('../../../views/tools/Pruebas.vue'),
+        component: () => import('../../../views/tools/V.vue'),
         meta: { requiresAuth: true },
     },
     {

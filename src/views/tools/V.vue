@@ -2,7 +2,7 @@
     <div>
         <p class="m-0">Pruebas 2</p>
     </div>
-    <!-- <div v-if="apiError" class="alert alert-warning py-2 mt-2" role="alert">
+    <div v-if="apiError" class="alert alert-warning py-2 mt-2" role="alert">
         {{ apiError }}
     </div>
     <div class="card border-0 shadow-sm mt-3">
@@ -42,7 +42,7 @@
                     <div v-else class="small text-muted">No hay categorias disponibles.</div>
                 </div>
                 <div class="col-12 col-lg-8">
-                    <div class="fw-semibold mb-2">Videos</div>
+                    <div class="fw-semibold mb-2">V</div>
                     <div v-if="selectedCategories.length" class="d-grid gap-3">
                         <div v-for="category in selectedCategories" :key="`videos-${category}`" class="border rounded p-2">
                             <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     <div v-else class="small text-muted">
-                        Selecciona una categoria para habilitar la seleccion de videos.
+                        Selecciona una categoria para habilitar la seleccion.
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
         <div v-if="!filteredGroups.length" class="small text-muted mt-2">
             No hay nada para mostrar con los filtros actuales.
         </div>
-    </div> -->
+    </div>
 </template>
 
 <script setup>
