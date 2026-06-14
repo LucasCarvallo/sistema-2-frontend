@@ -49,7 +49,7 @@
         </div>
 
         <div class="row g-4">
-            <div class="col-xl-5">
+            <div class="col-xl-5 order-xl-1 order-2">
                 <div class="card h-100">
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <span><i class="bi bi-list-check me-2"></i>Sesiones de Escaneo</span>
@@ -129,7 +129,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-7">
+            <div class="col-xl-7 order-xl-2 order-1">
                 <div class="card h-100">
                     <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
                         <span><i class="bi bi-wifi me-2"></i>Access Points Detectados</span>
