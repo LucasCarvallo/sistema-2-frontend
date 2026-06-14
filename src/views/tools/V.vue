@@ -34,7 +34,7 @@
                                 :checked="selectedCategories.includes(category)"
                                 @change="toggleCategory(category, $event.target.checked)"
                             >
-                            <label class="form-check-label" :for="`category-${category}`">
+                            <label class="form-check-label title-clamp" :for="`category-${category}`" :title="category">
                                 {{ category }}
                             </label>
                         </div>
@@ -45,8 +45,10 @@
                     <div class="fw-semibold mb-2">V</div>
                     <div v-if="selectedCategories.length" class="d-grid gap-3">
                         <div v-for="category in selectedCategories" :key="`videos-${category}`" class="border rounded p-2">
-                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
-                                <div class="small fw-semibold text-muted">{{ category }}</div>
+                            <div class="d-flex align-items-center justify-content-between gap-2 mb-2 min-w-0">
+                                <div class="small fw-semibold text-muted title-clamp flex-grow-1" :title="category">
+                                    {{ category }}
+                                </div>
                                 <button
                                     type="button"
                                     class="btn btn-sm btn-outline-secondary"
@@ -59,7 +61,7 @@
                                 <div
                                     v-for="video in videoOptionsByCategory[category] ?? []"
                                     :key="video.key"
-                                    class="col-12 col-md-6"
+                                    class="col-12 col-md-6 min-w-0"
                                 >
                                     <div class="form-check">
                                         <input
@@ -69,7 +71,7 @@
                                             :checked="isVideoSelected(category, video.key)"
                                             @change="toggleVideoSelection(category, video.key, $event.target.checked)"
                                         >
-                                        <label class="form-check-label text-truncate d-block" :for="`video-${video.key}`" :title="video.label">
+                                        <label class="form-check-label title-clamp" :for="`video-${video.key}`" :title="video.label">
                                             {{ video.label }}
                                         </label>
                                     </div>
@@ -85,8 +87,8 @@
         </div>
     </div>
     <div class="mt-3">
-        <div v-for="group in filteredGroups" :key="group.category" class="card border-0 shadow-sm mb-3">
-            <div class="card-header fw-semibold">
+        <div v-for="group in filteredGroups" :key="group.category" class="card border-0 shadow-sm mb-3 overflow-hidden">
+            <div class="card-header fw-semibold title-clamp" :title="group.category">
                 {{ group.category }}
             </div>
             <div class="card-body">
@@ -387,4 +389,28 @@ onMounted(async () => {
 });
 
 </script>
-<style scoped></style>
+<style scoped>
+.min-w-0 {
+    min-width: 0;
+}
+
+.title-clamp {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 767.98px) {
+    .title-clamp {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+</style>
