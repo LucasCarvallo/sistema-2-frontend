@@ -375,7 +375,7 @@ function restartVideo(videoElement) {
 async function getVideos() {
     apiError.value = '';
     try {
-        const data = await apiGet('/videos', { loadingMessage: 'Cargando videos...' });
+        const data = await apiGet('/v', { loadingMessage: 'Cargando videos...' });
         videos.value = Array.isArray(data) ? data : [];
     } catch (error) {
         apiError.value = error?.message ?? 'No se pudo sincronizar con API.';
