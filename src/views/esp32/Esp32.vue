@@ -22,6 +22,10 @@
                 <small class="text-muted">Sugerido: intervalo ESP32 + 1s.</small>
             </div>
             <div class="col-lg-3 d-flex gap-2 justify-content-lg-end">
+                <RouterLink class="btn btn-outline-dark" to="/tools/esp32-grouped" title="Ver vista agrupada">
+                    <i class="bi bi-diagram-3 me-1"></i>
+                    Agrupados
+                </RouterLink>
                 <button
                     class="btn btn-outline-secondary"
                     @click="toggleAutoRefresh"
@@ -244,6 +248,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { apiGet } from '@/lib/http/token';
+import { RouterLink } from 'vue-router';
 
 const sessions = ref([]);
 const selectedSession = ref(null);

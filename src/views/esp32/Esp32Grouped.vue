@@ -44,6 +44,12 @@
                             {{ loading ? 'Cargando...' : 'Aplicar' }}
                         </button>
                     </div>
+                    <div class="col-sm-12 d-flex justify-content-end">
+                        <RouterLink class="btn btn-outline-secondary btn-sm" to="/tools/esp32">
+                            <i class="bi bi-arrow-left me-1"></i>
+                            Volver a crudo
+                        </RouterLink>
+                    </div>
                 </div>
             </div>
         </div>
@@ -130,6 +136,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue';
 import { apiGet } from '@/lib/http/token';
+import { RouterLink } from 'vue-router';
 
 const loading = ref(false);
 const apiError = ref('');
