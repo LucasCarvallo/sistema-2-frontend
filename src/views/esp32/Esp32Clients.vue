@@ -71,7 +71,7 @@
                             v-model.trim="search"
                             type="text"
                             class="form-control form-control-sm"
-                            placeholder="Filtrar por MAC cliente o BSSID"
+                            placeholder="Filtrar por alias, MAC cliente o BSSID"
                         />
                     </div>
                     <div class="col-md-5">
@@ -99,6 +99,7 @@
                     <table class="table table-sm table-bordered align-middle mb-0">
                         <thead class="table-light sticky-top">
                             <tr>
+                                <th>Alias</th>
                                 <th>Cliente MAC</th>
                                 <th>BSSID asociada</th>
                                 <th>Muestras</th>
@@ -110,6 +111,26 @@
                         </thead>
                         <tbody>
                             <tr v-for="item in filteredItems" :key="`${item.client_mac}-${item.associated_bssid || 'none'}`">
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            :placeholder="item.client_alias ? '' : 'Sin alias'"
+                                            v-model.trim="aliasDraftByMac[item.client_mac]"
+                                        />
+                                        <button
+                                            class="btn btn-outline-primary"
+                                            type="button"
+                                            :disabled="savingAliasByMac[item.client_mac]"
+                                            @click="saveAlias(item.client_mac)"
+                                            title="Guardar alias"
+                                        >
+                                            <span v-if="!savingAliasByMac[item.client_mac]">Guardar</span>
+                                            <span v-else class="spinner-border spinner-border-sm"></span>
+                                        </button>
+                                    </div>
+                                </td>
                                 <td class="font-monospace small">{{ item.client_mac }}</td>
                                 <td class="font-monospace small">{{ item.associated_bssid || '-' }}</td>
                                 <td class="text-center">{{ item.samples }}</td>
@@ -133,13 +154,15 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
-import { apiGet } from '@/lib/http/token';
+import { apiGet, apiPatch } from '@/lib/http/token';
 
 const route = useRoute();
 
 const loading = ref(false);
 const apiError = ref('');
 const items = ref([]);
+const aliasDraftByMac = ref({});
+const savingAliasByMac = ref({});
 
 const limit = ref(300);
 const associatedBssid = ref('');
@@ -189,6 +212,14 @@ async function fetchClients() {
     try {
         const data = await apiGet(buildPath(), { loading: false });
         items.value = Array.isArray(data?.items) ? data.items : [];
+
+        const nextDraft = { ...aliasDraftByMac.value };
+        items.value.forEach((item) => {
+            const mac = String(item?.client_mac ?? '').trim();
+            if (!mac || Object.prototype.hasOwnProperty.call(nextDraft, mac)) return;
+            nextDraft[mac] = String(item?.client_alias ?? '').trim();
+        });
+        aliasDraftByMac.value = nextDraft;
     } catch (error) {
         apiError.value = error?.message ?? 'No se pudo cargar el resumen de clientes monitor.';
         items.value = [];
@@ -197,12 +228,49 @@ async function fetchClients() {
     }
 }
 
+async function saveAlias(mac) {
+    const normalizedMac = String(mac ?? '').trim();
+    if (!normalizedMac) return;
+
+    savingAliasByMac.value = {
+        ...savingAliasByMac.value,
+        [normalizedMac]: true,
+    };
+    apiError.value = '';
+
+    try {
+        const alias = String(aliasDraftByMac.value?.[normalizedMac] ?? '').trim();
+        await apiPatch(
+            `/wifi-clients/${encodeURIComponent(normalizedMac)}/alias`,
+            { alias },
+            { loading: false },
+        );
+
+        items.value = items.value.map((item) =>
+            item.client_mac === normalizedMac
+                ? {
+                      ...item,
+                      client_alias: alias || null,
+                  }
+                : item,
+        );
+    } catch (error) {
+        apiError.value = error?.message ?? 'No se pudo guardar el alias del cliente.';
+    } finally {
+        savingAliasByMac.value = {
+            ...savingAliasByMac.value,
+            [normalizedMac]: false,
+        };
+    }
+}
+
 const filteredItems = computed(() => {
     const q = search.value.toLowerCase();
     let list = items.value.filter((item) => {
+        const alias = String(item?.client_alias ?? '').toLowerCase();
         const client = String(item?.client_mac ?? '').toLowerCase();
         const bssid = String(item?.associated_bssid ?? '').toLowerCase();
-        return !q || client.includes(q) || bssid.includes(q);
+        return !q || alias.includes(q) || client.includes(q) || bssid.includes(q);
     });
 
     list = [...list].sort((a, b) => {
