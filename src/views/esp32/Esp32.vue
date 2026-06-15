@@ -22,7 +22,13 @@
                 <small class="text-muted">Sugerido: intervalo ESP32 + 1s.</small>
             </div>
             <div class="col-lg-3 d-flex gap-2 justify-content-lg-end">
-                <RouterLink class="btn btn-outline-dark" to="/tools/esp32-grouped" title="Ver vista agrupada">
+                <RouterLink
+                    class="btn btn-outline-dark"
+                    to="/tools/esp32-grouped"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Ver vista agrupada"
+                >
                     <i class="bi bi-diagram-3 me-1"></i>
                     Agrupados
                 </RouterLink>
@@ -408,12 +414,14 @@ function openClientsViewByBssid(bssid) {
     const normalized = String(bssid ?? '').trim();
     if (!normalized) return;
 
-    router.push({
-        name: 'esp32-clients',
+    const resolved = router.resolve({
+        path: '/tools/esp32-clients-raw',
         query: {
             associated_bssid: normalized,
         },
     });
+
+    window.open(resolved.href, '_blank', 'noopener');
 }
 
 async function refreshClientCounts() {

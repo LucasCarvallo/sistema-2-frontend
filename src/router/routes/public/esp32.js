@@ -12,6 +12,12 @@ export default [
         meta: { requiresAuth: false },
     },
     {
+        path: '/tools/esp32-clients-raw',
+        name: 'esp32-clients-raw',
+        component: () => import('../../../views/esp32/Esp32ClientsRaw.vue'),
+        meta: { requiresAuth: false },
+    },
+    {
         path: '/tools/esp32-grouped',
         name: 'esp32-grouped',
         component: () => import('../../../views/esp32/Esp32Grouped.vue'),

@@ -4,7 +4,7 @@
             <div class="col-lg-5">
                 <h1 class="d-flex align-items-center gap-2 mb-0">
                     <i class="bi bi-people"></i>
-                    ESP32 - Clientes Monitor (Agrupado)
+                    ESP32 - Clientes Monitor (Crudo)
                 </h1>
             </div>
             <div class="col-lg-7">
@@ -15,6 +15,7 @@
                             v-model.number="limit"
                             type="number"
                             min="1"
+                            max="2000"
                             class="form-control"
                             @change="normalizeLimit"
                         />
@@ -40,21 +41,21 @@
                         />
                     </div>
                     <div class="col-sm-2 d-flex align-items-end gap-2">
-                        <button class="btn btn-primary w-100" :disabled="loading" @click="fetchClients">
+                        <button class="btn btn-primary w-100" :disabled="loading" @click="fetchClientsRaw">
                             {{ loading ? 'Cargando...' : 'Aplicar' }}
                         </button>
                     </div>
                     <div class="col-sm-12 d-flex justify-content-end gap-2">
                         <RouterLink
                             class="btn btn-outline-dark btn-sm"
-                            :to="{ path: '/tools/esp32-clients-raw', query: { associated_bssid: associatedBssid || undefined } }"
+                            :to="{ path: '/tools/esp32-clients', query: { associated_bssid: associatedBssid || undefined } }"
                         >
-                            <i class="bi bi-list-ul me-1"></i>
-                            Ver crudo
+                            <i class="bi bi-diagram-3 me-1"></i>
+                            Ver agrupado
                         </RouterLink>
                         <RouterLink class="btn btn-outline-secondary btn-sm" to="/tools/esp32">
                             <i class="bi bi-arrow-left me-1"></i>
-                            Volver a crudo
+                            Volver a AP crudo
                         </RouterLink>
                     </div>
                 </div>
@@ -68,8 +69,8 @@
 
         <div class="card">
             <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                <span><i class="bi bi-broadcast-pin me-2"></i>Clientes Detectados</span>
-                <small class="opacity-75">{{ filteredItems.length }} resultados</small>
+                <span><i class="bi bi-broadcast-pin me-2"></i>Detecciones de Clientes (Crudo)</span>
+                <small class="opacity-75">{{ filteredItems.length }} detecciones</small>
             </div>
             <div class="card-body border-bottom">
                 <div class="row g-2">
@@ -78,14 +79,14 @@
                             v-model.trim="search"
                             type="text"
                             class="form-control form-control-sm"
-                            placeholder="Filtrar por alias, MAC cliente o BSSID"
+                            placeholder="Filtrar por alias, MAC cliente, BSSID o sesión"
                         />
                     </div>
                     <div class="col-md-5">
                         <select v-model="sortMode" class="form-select form-select-sm">
                             <option value="recent_desc">Mas reciente</option>
-                            <option value="best_desc">Mejor senal</option>
-                            <option value="samples_desc">Mas muestras</option>
+                            <option value="rssi_desc">Mejor senal</option>
+                            <option value="rssi_asc">Peor senal</option>
                         </select>
                     </div>
                 </div>
@@ -109,15 +110,14 @@
                                 <th>Alias</th>
                                 <th>Cliente MAC</th>
                                 <th>BSSID asociada</th>
-                                <th>Muestras</th>
-                                <th>Mejor RSSI</th>
-                                <th>Promedio RSSI</th>
-                                <th>Ult. sesion</th>
-                                <th>Ult. visto</th>
+                                <th>RSSI</th>
+                                <th>Canal</th>
+                                <th>Sesion</th>
+                                <th>Detectado</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="item in filteredItems" :key="`${item.client_mac}-${item.associated_bssid || 'none'}`">
+                            <tr v-for="item in filteredItems" :key="item.id">
                                 <td>
                                     <div class="input-group input-group-sm">
                                         <input
@@ -140,15 +140,14 @@
                                 </td>
                                 <td class="font-monospace small">{{ item.client_mac }}</td>
                                 <td class="font-monospace small">{{ item.associated_bssid || '-' }}</td>
-                                <td class="text-center">{{ item.samples }}</td>
                                 <td>
-                                    <span class="badge" :class="signalBadgeClass(item.best_rssi)">
-                                        {{ item.best_rssi }} dBm
+                                    <span class="badge" :class="signalBadgeClass(item.rssi)">
+                                        {{ item.rssi }} dBm
                                     </span>
                                 </td>
-                                <td>{{ item.avg_rssi }} dBm</td>
-                                <td class="text-center">{{ item.last_scan_session_id ?? '-' }}</td>
-                                <td class="text-muted small">{{ formatDateTime(item.last_detected_at) }}</td>
+                                <td class="text-center">{{ item.channel }}</td>
+                                <td class="text-center">{{ item.scan_session_id }}</td>
+                                <td class="text-muted small">{{ formatDateTime(item.detected_at) }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -171,7 +170,7 @@ const items = ref([]);
 const aliasDraftByMac = ref({});
 const savingAliasByMac = ref({});
 
-const limit = ref(300);
+const limit = ref(500);
 const associatedBssid = ref('');
 const recentSeconds = ref(0);
 
@@ -181,6 +180,9 @@ const sortMode = ref('recent_desc');
 function normalizeLimit() {
     if (!Number.isFinite(limit.value) || limit.value < 1) {
         limit.value = 1;
+    }
+    if (limit.value > 2000) {
+        limit.value = 2000;
     }
     limit.value = Math.floor(limit.value);
 }
@@ -209,10 +211,10 @@ function buildPath() {
         params.set('recent_seconds', String(recentSeconds.value));
     }
 
-    return `/wifi-client-detections-grouped?${params.toString()}`;
+    return `/wifi-client-detections?${params.toString()}`;
 }
 
-async function fetchClients() {
+async function fetchClientsRaw() {
     loading.value = true;
     apiError.value = '';
 
@@ -228,7 +230,7 @@ async function fetchClients() {
         });
         aliasDraftByMac.value = nextDraft;
     } catch (error) {
-        apiError.value = error?.message ?? 'No se pudo cargar el resumen de clientes monitor.';
+        apiError.value = error?.message ?? 'No se pudo cargar el detalle crudo de clientes monitor.';
         items.value = [];
     } finally {
         loading.value = false;
@@ -277,13 +279,14 @@ const filteredItems = computed(() => {
         const alias = String(item?.client_alias ?? '').toLowerCase();
         const client = String(item?.client_mac ?? '').toLowerCase();
         const bssid = String(item?.associated_bssid ?? '').toLowerCase();
-        return !q || alias.includes(q) || client.includes(q) || bssid.includes(q);
+        const sessionId = String(item?.scan_session_id ?? '').toLowerCase();
+        return !q || alias.includes(q) || client.includes(q) || bssid.includes(q) || sessionId.includes(q);
     });
 
     list = [...list].sort((a, b) => {
-        if (sortMode.value === 'best_desc') return Number(b.best_rssi ?? -999) - Number(a.best_rssi ?? -999);
-        if (sortMode.value === 'samples_desc') return Number(b.samples ?? 0) - Number(a.samples ?? 0);
-        return new Date(b.last_detected_at ?? 0).getTime() - new Date(a.last_detected_at ?? 0).getTime();
+        if (sortMode.value === 'rssi_desc') return Number(b.rssi ?? -999) - Number(a.rssi ?? -999);
+        if (sortMode.value === 'rssi_asc') return Number(a.rssi ?? -999) - Number(b.rssi ?? -999);
+        return new Date(b.detected_at ?? 0).getTime() - new Date(a.detected_at ?? 0).getTime();
     });
 
     return list;
@@ -313,7 +316,7 @@ onMounted(() => {
         associatedBssid.value = queryBssid;
     }
 
-    fetchClients();
+    fetchClientsRaw();
 });
 </script>
 
