@@ -535,7 +535,14 @@ async function selectSession(session) {
     apiError.value = '';
 
     try {
-        if (session.scan_mode === 'monitor') {
+        const data = await apiGet(`/scan-sessions/${session.id}`, {
+            loading: false,
+        });
+
+        const details = data ?? { detections: [] };
+        const hasDetections = Array.isArray(details?.detections) && details.detections.length > 0;
+
+        if (session.scan_mode === 'monitor' && !hasDetections) {
             const monitorDetections = await loadDetectionsForMonitorView();
             sessionDetails.value = {
                 session,
@@ -544,10 +551,7 @@ async function selectSession(session) {
             return;
         }
 
-        const data = await apiGet(`/scan-sessions/${session.id}`, {
-            loading: false,
-        });
-        sessionDetails.value = data ?? { detections: [] };
+        sessionDetails.value = details;
     } catch (error) {
         apiError.value = error?.message ?? 'No se pudo cargar los detalles.';
         sessionDetails.value = { detections: [] };
