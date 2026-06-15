@@ -30,7 +30,7 @@
                         />
                     </div>
                     <div class="col-sm-3">
-                        <label class="form-label mb-1">Ventana (s)</label>
+                        <label class="form-label mb-1">Ultimos segundos</label>
                         <input
                             v-model.number="recentSeconds"
                             type="number"
