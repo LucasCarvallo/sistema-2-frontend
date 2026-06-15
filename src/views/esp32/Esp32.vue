@@ -225,15 +225,13 @@
                                             </td>
                                             <td class="text-center">{{ detection.channel }}</td>
                                             <td class="text-center">
-                                                <a
-                                                    href=""
-                                                    target="_blank"
+                                                <button
                                                     class="btn btn-sm btn-outline-primary"
                                                     :title="`Ver clientes asociados a ${detection.access_point.bssid}`"
-                                                    @click.prevent="openClientsViewByBssid(detection.access_point.bssid)"
+                                                    @click="openClientsViewByBssid(detection.access_point.bssid)"
                                                 >
                                                     {{ clientsCountForBssid(detection.access_point.bssid) }}
-                                                </a>
+                                                </button>
                                             </td>
                                             <td class="text-center">
                                                 <i
