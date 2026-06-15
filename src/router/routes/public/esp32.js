@@ -6,6 +6,18 @@ export default [
         meta: { requiresAuth: false },
     },
     {
+        path: '/tools/esp32-sessions',
+        name: 'esp32-sessions',
+        component: () => import('../../../views/esp32/Esp32Sessions.vue'),
+        meta: { requiresAuth: false },
+    },
+    {
+        path: '/tools/esp32-access-points',
+        name: 'esp32-access-points',
+        component: () => import('../../../views/esp32/Esp32AccessPoints.vue'),
+        meta: { requiresAuth: false },
+    },
+    {
         path: '/tools/esp32-clients',
         name: 'esp32-clients',
         component: () => import('../../../views/esp32/Esp32Clients.vue'),
