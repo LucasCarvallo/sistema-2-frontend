@@ -25,6 +25,10 @@
                             Explorá detecciones de AP por sesión (crudo) o por resumen (agrupado).
                         </p>
                         <div class="d-flex flex-wrap gap-2">
+                            <RouterLink class="btn btn-dark" to="/tools/esp32-live-panel" target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-activity me-1"></i>
+                                Panel en vivo
+                            </RouterLink>
                             <RouterLink class="btn btn-primary" to="/tools/esp32-access-points" target="_blank" rel="noopener noreferrer">
                                 <i class="bi bi-list-ul me-1"></i>
                                 AP crudo

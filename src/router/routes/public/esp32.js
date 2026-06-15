@@ -18,6 +18,12 @@ export default [
         meta: { requiresAuth: false },
     },
     {
+        path: '/tools/esp32-live-panel',
+        name: 'esp32-live-panel',
+        component: () => import('../../../views/esp32/Esp32LivePanel.vue'),
+        meta: { requiresAuth: false },
+    },
+    {
         path: '/tools/esp32-clients',
         name: 'esp32-clients',
         component: () => import('../../../views/esp32/Esp32Clients.vue'),
