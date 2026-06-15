@@ -232,6 +232,15 @@
                                                 >
                                                     {{ clientsCountForBssid(detection.access_point.bssid) }}
                                                 </button>
+                                                <!-- <a
+                                                    :href="`/clients?bssid=${detection.access_point.bssid}`"
+                                                    target="_blank"
+                                                    class="btn btn-sm btn-outline-primary"
+                                                    :title="`Ver clientes asociados a ${detection.access_point.bssid}`"
+                                                    @click="openClientsViewByBssid(detection.access_point.bssid)"
+                                                >
+                                                    {{ clientsCountForBssid(detection.access_point.bssid) }}
+                                                </a> -->
                                             </td>
                                             <td class="text-center">
                                                 <i
