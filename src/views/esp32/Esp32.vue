@@ -203,6 +203,7 @@
                                             <th>BSSID</th>
                                             <th>RSSI</th>
                                             <th>Canal</th>
+                                            <th>Clientes</th>
                                             <th>Oculta</th>
                                         </tr>
                                     </thead>
@@ -223,6 +224,16 @@
                                                 </span>
                                             </td>
                                             <td class="text-center">{{ detection.channel }}</td>
+                                            <td class="text-center">
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-sm btn-outline-primary"
+                                                    :title="`Ver clientes asociados a ${detection.access_point.bssid}`"
+                                                    @click="openClientsViewByBssid(detection.access_point.bssid)"
+                                                >
+                                                    {{ clientsCountForBssid(detection.access_point.bssid) }}
+                                                </button>
+                                            </td>
                                             <td class="text-center">
                                                 <i
                                                     :class="[
@@ -248,7 +259,9 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { apiGet } from '@/lib/http/token';
-import { RouterLink } from 'vue-router';
+import { RouterLink, useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const sessions = ref([]);
 const selectedSession = ref(null);
@@ -256,6 +269,7 @@ const sessionDetails = ref({ detections: [] });
 const loadingSessions = ref(false);
 const loadingDetails = ref(false);
 const apiError = ref('');
+const clientCountsByBssid = ref({});
 
 const refreshIntervalSec = ref(10);
 const autoRefreshEnabled = ref(true);
@@ -267,6 +281,10 @@ const sessionSort = ref('latest');
 const apFilter = ref('');
 const hiddenFilter = ref('all');
 const apSort = ref('signal_desc');
+
+const CLIENT_COUNTS_LOOKBACK_SECONDS = 3600;
+const MONITOR_AP_LIMIT = 300;
+const MONITOR_AP_RECENT_SECONDS = 0;
 
 const filteredSessions = computed(() => {
     const q = sessionFilter.value.toLowerCase();
@@ -372,6 +390,71 @@ function signalLabel(rssi) {
     return 'Señal débil (lejos)';
 }
 
+function clientsCountForBssid(bssid) {
+    const key = String(bssid ?? '').toLowerCase();
+    if (!key) return 0;
+    return Number(clientCountsByBssid.value[key] ?? 0);
+}
+
+function openClientsViewByBssid(bssid) {
+    const normalized = String(bssid ?? '').trim();
+    if (!normalized) return;
+
+    router.push({
+        name: 'esp32-clients',
+        query: {
+            associated_bssid: normalized,
+        },
+    });
+}
+
+async function refreshClientCounts() {
+    try {
+        const data = await apiGet(`/wifi-client-counts-by-bssid?recent_seconds=${CLIENT_COUNTS_LOOKBACK_SECONDS}`, {
+            loading: false,
+        });
+
+        const rows = Array.isArray(data?.items) ? data.items : [];
+        const nextMap = {};
+
+        rows.forEach((row) => {
+            const key = String(row?.bssid ?? '').toLowerCase();
+            if (!key) return;
+            nextMap[key] = Number(row?.clients_count ?? 0);
+        });
+
+        clientCountsByBssid.value = nextMap;
+    } catch {
+        clientCountsByBssid.value = {};
+    }
+}
+
+async function loadDetectionsForMonitorView() {
+    const params = new URLSearchParams();
+    params.set('limit', String(MONITOR_AP_LIMIT));
+    if (MONITOR_AP_RECENT_SECONDS > 0) {
+        params.set('recent_seconds', String(MONITOR_AP_RECENT_SECONDS));
+    }
+
+    const data = await apiGet(`/access-point-detections-grouped?${params.toString()}`, {
+        loading: false,
+    });
+
+    const rows = Array.isArray(data?.items) ? data.items : [];
+
+    return rows.map((item) => ({
+        id: `monitor-${item.bssid}-${item.last_scan_session_id ?? 'x'}`,
+        rssi: Number(item.best_rssi ?? item.avg_rssi ?? -100),
+        channel: Number(item.channel ?? 0),
+        detected_at: item.last_detected_at ?? null,
+        access_point: {
+            bssid: item.bssid,
+            ssid: item.ssid,
+            hidden: Boolean(item.hidden),
+        },
+    }));
+}
+
 function startAutoRefresh() {
     stopAutoRefresh();
     if (!autoRefreshEnabled.value) return;
@@ -399,9 +482,13 @@ async function refreshSessions(options = { forceSelectLatest: false }) {
     apiError.value = '';
 
     try {
-        const data = await apiGet('/scan-sessions', {
-            loading: false,
-        });
+        const [data] = await Promise.all([
+            apiGet('/scan-sessions', {
+                loading: false,
+            }),
+            refreshClientCounts(),
+        ]);
+
         const nextSessions = Array.isArray(data) ? data : data?.data ?? [];
         sessions.value = nextSessions;
 
@@ -432,6 +519,15 @@ async function selectSession(session) {
     apiError.value = '';
 
     try {
+        if (session.scan_mode === 'monitor') {
+            const monitorDetections = await loadDetectionsForMonitorView();
+            sessionDetails.value = {
+                session,
+                detections: monitorDetections,
+            };
+            return;
+        }
+
         const data = await apiGet(`/scan-sessions/${session.id}`, {
             loading: false,
         });
