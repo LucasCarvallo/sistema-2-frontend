@@ -257,7 +257,8 @@ function openClientsViewByBssid(bssid) {
     if (!normalized) return;
 
     const resolved = router.resolve({
-        path: '/tools/esp32-clients-raw',
+        // path: '/tools/esp32-clients-raw',
+        path: '/tools/esp32-clients',
         query: {
             associated_bssid: normalized,
         },
