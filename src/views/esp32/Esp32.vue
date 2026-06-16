@@ -120,7 +120,7 @@ import { RouterLink } from 'vue-router';
 
 <style scoped>
 .esp32-hub {
-    background: radial-gradient(circle at 20% 0%, #f3f9ff 0%, #ffffff 45%, #f9fbf6 100%);
+    /* background: radial-gradient(circle at 20% 0%, #f3f9ff 0%, #ffffff 45%, #f9fbf6 100%); */
     min-height: calc(100vh - 2rem);
 }
 
