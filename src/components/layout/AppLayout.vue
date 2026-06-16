@@ -52,9 +52,9 @@ function handleResize() {
     // Evita cerrar/abrir en cada resize; solo reacciona cuando cruza el breakpoint.
     if (isMobile !== wasMobileViewport.value) {
         if (isMobile) {
-            sidebarStore.setCollapsed(true);
+            // sidebarStore.setCollapsed(true);
         } else {
-            sidebarStore.setCollapsed(false);
+            // sidebarStore.setCollapsed(false);
         }
         wasMobileViewport.value = isMobile;
     }

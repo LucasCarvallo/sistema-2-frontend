@@ -5,7 +5,8 @@ const MOBILE_BREAKPOINT = 768;
 
 export const useSidebarStore = defineStore('sidebar', () => {
     // En desktop abre por defecto, en mobile cerrado
-    const sidebarOpen = ref(window.innerWidth >= MOBILE_BREAKPOINT);
+    // const sidebarOpen = ref(window.innerWidth >= MOBILE_BREAKPOINT);
+    const sidebarOpen = ref(false);
 
     function toggle() {
         sidebarOpen.value = !sidebarOpen.value;
