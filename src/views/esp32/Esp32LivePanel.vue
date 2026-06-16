@@ -261,6 +261,8 @@ function openClientsViewByBssid(bssid) {
         path: '/tools/esp32-clients',
         query: {
             associated_bssid: normalized,
+            recent_seconds: String(recentSeconds.value > 0 ? recentSeconds.value : 3600),
+            only_active: '1',
         },
     });
 

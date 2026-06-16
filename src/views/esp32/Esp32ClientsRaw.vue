@@ -40,7 +40,13 @@
                             @change="normalizeRecentSeconds"
                         />
                     </div>
-                    <div class="col-sm-2 d-flex align-items-end gap-2">
+                    <div class="col-sm-2 d-flex align-items-end">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="onlyActiveRaw" v-model="onlyActive" />
+                            <label class="form-check-label small" for="onlyActiveRaw">Solo activos</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-2 d-flex align-items-end gap-2">
                         <button class="btn btn-primary w-100" :disabled="loading" @click="fetchClientsRaw">
                             {{ loading ? 'Cargando...' : 'Aplicar' }}
                         </button>
@@ -173,6 +179,9 @@ const savingAliasByMac = ref({});
 const limit = ref(500);
 const associatedBssid = ref('');
 const recentSeconds = ref(0);
+const onlyActive = ref(false);
+
+const DEFAULT_ACTIVE_SECONDS = 3600;
 
 const search = ref('');
 const sortMode = ref('recent_desc');
@@ -207,8 +216,11 @@ function buildPath() {
     if (associatedBssid.value.trim()) {
         params.set('associated_bssid', associatedBssid.value.trim());
     }
-    if (recentSeconds.value > 0) {
-        params.set('recent_seconds', String(recentSeconds.value));
+    const effectiveSeconds = onlyActive.value
+        ? (recentSeconds.value > 0 ? recentSeconds.value : DEFAULT_ACTIVE_SECONDS)
+        : recentSeconds.value;
+    if (effectiveSeconds > 0) {
+        params.set('recent_seconds', String(effectiveSeconds));
     }
 
     return `/wifi-client-detections?${params.toString()}`;
@@ -314,6 +326,16 @@ onMounted(() => {
     const queryBssid = String(route.query.associated_bssid ?? '').trim();
     if (queryBssid) {
         associatedBssid.value = queryBssid;
+    }
+
+    const queryRecentSeconds = Number(route.query.recent_seconds ?? 0);
+    if (Number.isFinite(queryRecentSeconds) && queryRecentSeconds >= 0) {
+        recentSeconds.value = Math.floor(queryRecentSeconds);
+    }
+
+    const onlyActiveParam = String(route.query.only_active ?? '').toLowerCase();
+    if (onlyActiveParam === '1' || onlyActiveParam === 'true') {
+        onlyActive.value = true;
     }
 
     fetchClientsRaw();

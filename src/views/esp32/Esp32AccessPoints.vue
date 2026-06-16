@@ -185,7 +185,11 @@ const apFilter = ref('');
 const hiddenFilter = ref('all');
 const apSort = ref('signal_desc');
 
-const CLIENT_COUNTS_LOOKBACK_SECONDS = 3600;
+const DEFAULT_ACTIVE_SECONDS = 3600;
+
+function effectiveActiveSeconds() {
+    return recentSeconds.value > 0 ? recentSeconds.value : DEFAULT_ACTIVE_SECONDS;
+}
 
 function normalizeSessionId() {
     if (!Number.isFinite(sessionId.value) || sessionId.value < 0) {
@@ -213,7 +217,7 @@ function normalizeRecentSeconds() {
 
 async function refreshClientCounts() {
     try {
-        const data = await apiGet(`/wifi-client-counts-by-bssid?recent_seconds=${CLIENT_COUNTS_LOOKBACK_SECONDS}`, {
+        const data = await apiGet(`/wifi-client-counts-by-bssid?recent_seconds=${effectiveActiveSeconds()}`, {
             loading: false,
         });
 
@@ -246,6 +250,8 @@ function openClientsViewByBssid(bssid) {
         path: '/tools/esp32-clients-raw',
         query: {
             associated_bssid: normalized,
+            recent_seconds: String(effectiveActiveSeconds()),
+            only_active: '1',
         },
     });
 
