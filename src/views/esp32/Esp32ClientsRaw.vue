@@ -104,7 +104,7 @@
                 </div>
 
                 <div v-else class="table-responsive clients-table-wrapper">
-                    <table class="table table-sm table-bordered align-middle mb-0">
+                    <table class="table table-sm table-bordered align-middle mb-0 table-hover">
                         <thead class="table-light sticky-top">
                             <tr>
                                 <th>Alias</th>

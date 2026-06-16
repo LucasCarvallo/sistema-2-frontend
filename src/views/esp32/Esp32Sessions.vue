@@ -93,7 +93,7 @@
                 </div>
 
                 <div v-else class="table-responsive sessions-table-wrapper">
-                    <table class="table table-hover mb-0">
+                    <table class="table table-hover mb-0 table-hover">
                         <thead class="table-light sticky-top">
                             <tr>
                                 <th>ID</th>
